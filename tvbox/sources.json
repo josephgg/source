@@ -26,7 +26,8 @@
     "merge_flags": true,
     "max_parses": 36,
     "name_prefix": true,
-    "emit_source_repo": true
+    "emit_source_repo": true,
+    "min_retain_ratio": 0.85
   },
   "sources": [
     {
@@ -59,7 +60,8 @@
       "tag": "王二",
       "url": "http://tvbox.xn--4kq62z5rby2qupq9ub.top",
       "priority": 40,
-      "enabled": true
+      "enabled": true,
+      "timeout": 25
     },
     {
       "id": "xiangya",
@@ -75,7 +77,8 @@
       "tag": "短剧",
       "url": "http://box.ufuzi.com/tv/qq/%E7%9F%AD%E5%89%A7%E9%A2%91%E9%81%93/api.json",
       "priority": 60,
-      "enabled": true
+      "enabled": true,
+      "timeout": 25
     },
     {
       "id": "top98",
@@ -83,7 +86,8 @@
       "tag": "俊佬",
       "url": "http://home.jundie.top:81/top98.json",
       "priority": 70,
-      "enabled": true
+      "enabled": true,
+      "timeout": 25
     },
     {
       "id": "wuxie",
@@ -100,7 +104,8 @@
       "url": "http://xn--z7x900a.net/",
       "priority": 90,
       "enabled": true,
-      "note": "2423 开头的 AES-CBC 加密配置，构建器已内置解密"
+      "note": "2423 开头的 AES-CBC 加密配置，构建器已内置解密",
+      "timeout": 25
     }
   ]
 }

@@ -68,20 +68,20 @@ BROKEN_SCHEME_RE = re.compile(r"^(https?):/+", re.I)
 
 # ---------------------------------------------------------------- 网络
 
-def _open(url):
+def _open(url, timeout=None):
     req = urllib.request.Request(url, headers={
         "User-Agent": UA,
         "Accept": "*/*",
         "Accept-Encoding": "identity",
     })
-    return urllib.request.urlopen(req, timeout=TIMEOUT, context=CTX)
+    return urllib.request.urlopen(req, timeout=timeout or TIMEOUT, context=CTX)
 
 
-def fetch(url):
+def fetch(url, timeout=None):
     last = None
     for attempt in range(RETRY + 1):
         try:
-            with _open(url) as r:
+            with _open(url, timeout) as r:
                 raw = r.read()
                 charset = r.headers.get_content_charset()
             if charset:
@@ -203,6 +203,7 @@ def expand_sources(conf):
             "tag": src.get("tag") or src.get("name") or src["id"],
             "url": norm_url(src["url"]),
             "priority": src.get("priority", 100),
+            "timeout": src.get("timeout"),
             "note": src.get("note", ""),
             "parent": None,
         })
@@ -213,7 +214,7 @@ def collect_multi(item, depth=0, budget=None):
     """抓取一个源；若为多仓，展开其子仓（最多 2 层）"""
     budget = budget if budget is not None else []
     try:
-        text = fetch(item["url"])
+        text = fetch(item["url"], item.get("timeout"))
         cfg = parse_cfg(text)
     except Exception as e:  # noqa: BLE001
         item["error"] = "%s: %s" % (type(e).__name__, str(e)[:160])
@@ -244,6 +245,7 @@ def collect_multi(item, depth=0, budget=None):
                 "tag": item["tag"],
                 "url": norm_url(sub_url),
                 "priority": item["priority"],
+                "timeout": item.get("timeout"),
                 "note": "",
                 "parent": item["id"],
             })
@@ -393,6 +395,16 @@ def main():
 
     sources = sorted(expand_sources(conf), key=lambda x: x["priority"])
 
+    # 上一轮规模：用于判断本次抓取是否异常退化
+    old_sites = 0
+    old_all = os.path.join(ROOT, "api", "all.json")
+    if os.path.exists(old_all):
+        try:
+            with open(old_all, encoding="utf-8") as f:
+                old_sites = len(json.load(f).get("sites") or [])
+        except Exception:
+            old_sites = 0
+
     # 清理上一轮产物，避免已下线源留下孤儿文件
     api_dir = os.path.join(ROOT, "api")
     if os.path.isdir(api_dir):
@@ -423,6 +435,7 @@ def main():
             "ok" if subs else (got[0].get("error", "empty") if got else "empty")[:60]))
 
     # 单仓快照 + 收集合并素材
+    snapshots = []
     used_keys, seen_fp = set(), set()
     stats = {"dup": 0, "skip_no_api": 0, "skip_no_jar": 0}
     merged_sites = []
@@ -453,7 +466,7 @@ def main():
             for extra in ("lives", "doh", "hosts", "rules", "headers", "proxy", "ads"):
                 if extra in cfg:
                     snap[extra] = cfg[extra]
-            write_json(os.path.join(ROOT, "api", "src-%s.json" % src["id"]), snap)
+            snapshots.append((src["id"], snap))
 
         before = len(merged_sites)
         for site in cfg.get("sites") or []:
@@ -490,6 +503,17 @@ def main():
         if lives:
             merged["lives"] = lives
 
+    # 网络抖动时宁可保留旧产物，也不要把可用配置覆盖成残废版
+    min_ratio = float(bconf.get("min_retain_ratio", 0.85))
+    if old_sites and os.environ.get("TVBOX_ALLOW_SHRINK") != "1":
+        if len(merged_sites) < old_sites * min_ratio:
+            print("[abort] 合并站点 %d 低于上次 %d 的 %.0f%%，判定抓取异常，保留旧产物"
+                  % (len(merged_sites), old_sites, min_ratio * 100))
+            print("        确认要强制覆盖请设置 TVBOX_ALLOW_SHRINK=1")
+            return 1
+
+    for sid, snap in snapshots:
+        write_json(os.path.join(ROOT, "api", "src-%s.json" % sid), snap)
     write_json(os.path.join(ROOT, "api", "all.json"), merged)
 
     # 多仓索引
@@ -591,4 +615,4 @@ def write_report(status, merged, sources):
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
