@@ -494,6 +494,30 @@ def cms_alive(sites, timeout=12, workers=16):
     return alive, len(cand)
 
 
+ALIVE_FILE = os.path.join(ROOT, "cms_alive.json")
+
+
+def load_alive():
+    try:
+        with open(ALIVE_FILE, encoding="utf-8") as f:
+            return {k: int(v) for k, v in json.load(f).items()}
+    except Exception:  # noqa: BLE001
+        return {}
+
+
+def merge_alive(hist, now_ok, ttl_days=7):
+    """把本轮探通的时间戳并入历史，返回 (TTL 内仍算可用的集合, 新历史)。
+
+    本地与 GitHub 海外 runner 的网络差别很大，只认单轮结果会让首页源在
+    两次构建之间来回跳；七天内成功过一次就继续算可用。"""
+    now = int(time.time())
+    for k in now_ok:
+        hist[k] = now
+    ttl = int(ttl_days) * 86400
+    hist = {k: ts for k, ts in hist.items() if now - int(ts) <= ttl}
+    return set(hist), hist
+
+
 def pick_lite(sites, size, per_source=8):
     """精选仓选站：先给每个源保底 per_source 个（按质量序），剩余按全局分数补满。
 
@@ -712,11 +736,14 @@ def main():
               % (len(dead), len(spider_urls(merged_sites)), demoted))
 
     # CMS 采集接口探活：通了的加分上浮，保证首页第一个站点打开就有内容
-    alive, n_cms = set(), 0
+    alive, n_cms, alive_now = set(), 0, 0
     if bconf.get("probe_cms", True):
         try:
-            alive, n_cms = cms_alive(merged_sites, timeout=bconf.get("cms_timeout", 12))
-            print("[probe] CMS 接口 %d/%d 有返回内容" % (len(alive), n_cms))
+            fresh, n_cms = cms_alive(merged_sites, timeout=bconf.get("cms_timeout", 12))
+            alive, hist = merge_alive(load_alive(), fresh, bconf.get("alive_ttl_days", 7))
+            write_json(ALIVE_FILE, hist)
+            alive_now = len(fresh)
+            print("[probe] CMS 接口本轮 %d/%d 有返回，历史有效 %d" % (alive_now, n_cms, len(alive)))
         except Exception as e:  # noqa: BLE001
             print("[probe] CMS 探活跳过：%s" % e)
 
@@ -801,6 +828,7 @@ def main():
         "demoted_sites": demoted,
         "cms_probed": n_cms,
         "cms_alive": len(alive),
+        "cms_alive_now": alive_now,
         "sources": [
             {
                 "id": r["id"],

@@ -85,6 +85,7 @@ tvbox/
 ├── api/src-<id>.json   各源单仓快照（排查用）
 ├── index.json          多仓索引（FongMi 只认第一条，TVBox 原版才有选择器）
 ├── status.json         机器可读构建状态
+├── cms_alive.json      采集接口探活历史（7 天内成功过即视为可用，用于稳定排序）
 ├── report.md           人类可读构建报告
 └── mirrors.txt         地址清单
 ```
