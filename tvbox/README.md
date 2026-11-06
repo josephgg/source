@@ -23,21 +23,23 @@ https://ghfast.top/https://raw.githubusercontent.com/josephgg/source/main/tvbox/
 
 完整清单见 `mirrors.txt`（构建时自动生成）。
 
-想在 APP 内切换仓库而不是一次加载全部，改配多仓索引：
+觉得 1000+ 站点列表太长、聚合搜索太慢，直接配某个分仓（站点列表和搜索范围都只有 1/N）：
 
 ```
-https://fastly.jsdelivr.net/gh/josephgg/source@main/tvbox/index.json
+https://fastly.jsdelivr.net/gh/josephgg/source@main/tvbox/api/src-gao.json      高天流云 298 站
+https://fastly.jsdelivr.net/gh/josephgg/source@main/tvbox/api/src-laoliu.json   老刘备   234 站
+https://fastly.jsdelivr.net/gh/josephgg/source@main/tvbox/api/src-maoy.json     分享者   168 站
 ```
 
 ## 为什么不是直接配「多仓地址」
 
-FongMi 的 `urls` 多仓**不是资源合并，而是仓选择器**。源码 `VodConfig.parseDepot()` 的行为是：
+FongMi 的 `urls` 多仓**既不是资源合并，也不是选择器**。源码 `VodConfig.parseDepot()` 只有三步：
 
-1. 读到 `urls` 后把列表展示给你选；
-2. 选中某个仓后，加载该仓的完整配置；
-3. 然后 `Config.delete(config.getUrl())` —— 把多仓地址从数据库里删掉。
+1. 把 `urls` 里每一项转成 `Config`；
+2. `load(configs.get(0))` —— **只加载第一条**，其余直接丢弃（`completeLoad()` 里只有这一条会 `update()` 入库）；
+3. `Config.delete(config.getUrl())` —— 把多仓地址本身从库里删掉。
 
-所以多仓只能让你在几个仓之间切换，不能把几家的站点放进同一个列表。要实现「一个地址装下所有资源」，只能在**构建期合并**，也就是本目录做的事。
+所以配 `index.json` 等价于配它排在第一的那条（当前是 `all.json`），既不能选也不能切换。要用分仓就直接填分仓地址；`index.json` 只对带仓库选择器的客户端（如 TVBox 原版）有意义。要实现「一个地址装下所有资源」，只能在**构建期合并**，也就是本目录做的事。
 
 合并能成立的前提是客户端支持多爬虫共存：`JarLoader` 内部用 `ConcurrentHashMap<String, DexClassLoader>` 按 jar 的 md5 缓存加载器，每个站点可以带自己的 `jar`。构建时会把源仓顶层的 `spider` 落到**每个站点**上，避免跨源继承失效。
 
@@ -51,7 +53,7 @@ tvbox/
 ├── tools/validate.py   产物验收：结构约束 + 抽样探活
 ├── api/all.json        总聚合仓（APP 填这个）
 ├── api/src-<id>.json   各源单仓快照（排查用）
-├── index.json          FongMi 多仓索引
+├── index.json          多仓索引（FongMi 只认第一条，TVBox 原版才有选择器）
 ├── status.json         机器可读构建状态
 ├── report.md           人类可读构建报告
 └── mirrors.txt         地址清单
@@ -107,7 +109,8 @@ python build.py && python tools/validate.py
 - **同名站点会并存。** 不同源提供的「同一个」站点接口实现往往不同，去重只认完全一致的 `api + ext`，其余按不同站点保留。
 - **图片化与加密配置。** 部分源把配置伪装成 `.jpg/.png`，或返回 `2423` 开头的 AES-CBC 密文体。后者构建器已内置解密（依赖 `cryptography`）；前者能直接下载，但内容若是真图片则无法解析，记为抓取失败。
 - **CDN 有缓存。** jsDelivr 对 `@main` 最长缓存 12 小时，workflow 推送后会主动调用 purge 接口清理；若手机端仍拿到旧配置，把地址里的 `@main` 换成具体 commit hash 即可锁版。
-- **站点数量多。** 当前合并后约 1000 个站点，站点管理页会比较长；首页只加载 `home` 那一个，不影响启动速度。
+- **站点数量多 ≠ 加载慢，但会让聚合搜索变慢。** 配置原文约 390 KB、gzip 后约 49 KB；`VodConfig.initSite()` 只做本地反序列化，`BaseLoader.parseJar()` 也只登记 jar 的 md5，真正的 `DexClassLoader` 等点进站点才加载，首页只加载 `home` 一个站点——所以 1000 站的启动开销在百毫秒量级。真正的代价在聚合搜索：`CollectActivity` 把所有 `searchable` 站点一次性提交给 `Task.largeExecutor()`（`newFixedThreadPool(20)`，单站超时 30 s），930 个可搜站点意味着 47 轮排队。嫌慢就配分仓地址，或在搜索页先勾选常用站点再搜。
+- **站点列表长。** 1000 项靠 RecyclerView 回收，滑动不卡，但翻找费劲；需要的站点建议在「站点管理」里收藏，或直接用分仓。
 
 ## 免责声明
 
