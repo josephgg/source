@@ -100,6 +100,21 @@ def try_cbc(text):
         return None
 
 
+def _loads_tolerant(body):
+    """容忍两类国内配置常见脏数据：
+    1. 字符串里带原生换行/制表符（json.loads 默认 strict=True 会报 invalid control character）
+    2. JSON 后面跟一段 HTML/广告尾巴（Extra data），只取第一个 JSON 值
+    """
+    try:
+        return json.loads(body, strict=False)
+    except Exception:
+        pass
+    try:
+        return json.JSONDecoder(strict=False).raw_decode(body.lstrip())[0]
+    except Exception:
+        return None
+
+
 def parse_cfg(text):
     """返回 dict。抛出 ValueError 表示无法解析"""
     text = text.strip()
@@ -109,10 +124,7 @@ def parse_cfg(text):
         if not candidate:
             continue
         for body in (candidate, strip_jsonc(candidate)):
-            try:
-                obj = json.loads(body)
-            except Exception:
-                continue
+            obj = _loads_tolerant(body)
             if isinstance(obj, (dict, list)):
                 return obj
     head = text[:100].replace("\n", " ")

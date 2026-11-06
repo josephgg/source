@@ -10,9 +10,9 @@
 
 | 仓 | 地址后缀 | 站点 | 适合 |
 | --- | --- | --- | --- |
-| 精选（推荐） | `api/lite.json` | 150 | 列表短、聚合搜索快，每源保底 8 个，接口已验证 |
-| 全部聚合 | `api/all.json` | 1081 | 找冷门资源，一个地址装下所有源的全部站点 |
-| 分源 | `api/src-<id>.json` | 24–298 | 只用某一家 |
+| 精选（推荐） | `api/lite.json` | 160 | 列表短、聚合搜索快，每源保底 3 个，接口已验证 |
+| 全部聚合 | `api/all.json` | 3400+ | 找冷门资源，一个地址装下 40 个源的全部站点 |
+| 分源 | `api/src-<id>.json` | 4–298 | 只用某一家 |
 
 精选仓（主地址）：
 
@@ -58,7 +58,7 @@ https://ghfast.top/https://raw.githubusercontent.com/josephgg/source/main/tvbox/
 
 两个探活都**只加分或只沉底，不删站点**：`probe_spider` 只把 404/410 判死（网络异常不算），`probe_cms` 不通不扣分——GitHub 海外 runner 连不上国内域名时，排序会退化成纯启发式，而不是把可用站点误杀。当前结果见 `report.md` 的「站点排序（前 20）」。
 
-精选仓在此基础上加一条：**每个源保底 8 个**（`build.lite_per_source`），剩余按分数补满。否则采集站多的源会霸榜，实测全部按分数取时高天源被挤到 0 个。
+精选仓在此基础上加一条：**每个顶层源保底 3 个**（`build.lite_per_source`），剩余按分数补满。否则采集站多的源会霸榜（实测纯按分数取时高天源被挤到 0 个）；多仓源按**父源**算配额，不然一个 54 子仓的源会吃满 54 份。
 
 ## 为什么不是直接配「多仓地址」
 
@@ -77,9 +77,10 @@ FongMi 的 `urls` 多仓**既不是资源合并，也不是选择器**。源码 
 ```
 tvbox/
 ├── sources.json        唯一维护入口：源清单与构建参数
-├── build.py            抓取 → 绝对化 → 去重 → 合并
+├── build.py            抓取 → 绝对化 → 去重 → 合并 → 质量排序 → 精选
 ├── tools/jsonc.py      宽松 JSON 解析（注释 / 尾逗号 / base64 / AES-CBC）
 ├── tools/validate.py   产物验收：结构约束 + 抽样探活
+├── tools/mix_lives.py  各仓直播频道汇总 / 去重 / 探活，并入根目录 m3u
 ├── api/lite.json       精选仓（150 站，按质量分 + 每源保底）
 ├── api/all.json        总聚合仓（全部站点，按质量分排序）
 ├── api/src-<id>.json   各源单仓快照（排查用）
@@ -124,11 +125,32 @@ python build.py && python tools/validate.py
 | 键 | 默认 | 作用 |
 | --- | --- | --- |
 | `lite_size` | 150 | 精选仓站点数 |
-| `lite_per_source` | 8 | 精选仓每源保底个数 |
+| `lite_per_source` | 3 | 精选仓每（顶层）源保底个数 |
 | `probe_spider` | true | 构建时探活 jar/js 爬虫文件，404/410 的站点移出聚合搜索并沉底 |
 | `probe_cms` | true | 构建时探活 CMS 采集接口（`api?ac=list`），通了的加分 |
 | `cms_timeout` | 12 | CMS 探活超时（秒） |
 | `min_retain_ratio` | 0.85 | 站点数低于上轮的 85% 就中止，不覆盖旧产物 |
+
+## 直播源
+
+仓库根目录的 `iptv_filtered.m3u` 除原有的央视/卫视清单外，还会并入各影视仓配置里的 `lives` 频道：
+
+```bash
+cd tvbox
+python tools/mix_lives.py --refresh --write
+```
+
+规则：现有条目不动、只追加到末尾；频道名规范化后去重（`CCTV-1 高清` 与 `CCTV1` 视为同一台）；**每条线路真探活**——IPTV 源死链率极高，实测 1263 条线路只有 166 台存活，不探活等于往播放列表里灌垃圾；央视 > 卫视 > 港澳台 > 地方台，每台最多 2 条线路，且忽略 `?id=` / `?token=` 这类同流变体。写入前自动备份 `iptv_filtered.m3u.bak`。
+
+不加 `--write` 只统计不改文件，可以先看能并入多少。
+
+## 数据来源
+
+| 来源 | 说明 |
+| --- | --- |
+| 高天流云 / 老刘备 / 分享者 / 王二小 / 香雅晴 / 短剧专线 / 俊佬 / 无邪 / 肥猫 | 直接接入的独立仓 |
+| [kimwang1978/tvbox](https://github.com/kimwang1978/tvbox) | `play.iptv365.org` 多仓，22 家厂商配置逐个接入（该仓 `tvbox.txt` 本身 JSON 有语法错误，无法整体引用） |
+| [laoma528/awesome-zhuiju-free](https://github.com/laoma528/awesome-zhuiju-free) | 资源目录，取其中 `tvbox_config` 分类里可解析的 9 个配置；`伦理接口`、图片伪装配置（`.webp`/`.jpg`）不收 |
 
 ## 合并规则
 
@@ -151,8 +173,8 @@ python build.py && python tools/validate.py
 - **同名站点会并存。** 不同源提供的「同一个」站点接口实现往往不同，去重只认完全一致的 `api + ext`，其余按不同站点保留。
 - **图片化与加密配置。** 部分源把配置伪装成 `.jpg/.png`，或返回 `2423` 开头的 AES-CBC 密文体。后者构建器已内置解密（依赖 `cryptography`）；前者能直接下载，但内容若是真图片则无法解析，记为抓取失败。
 - **CDN 有缓存。** jsDelivr 对 `@main` 最长缓存 12 小时，workflow 推送后会主动调用 purge 接口清理；若手机端仍拿到旧配置，把地址里的 `@main` 换成具体 commit hash 即可锁版。
-- **站点数量多 ≠ 加载慢，但会让聚合搜索变慢。** 配置原文约 390 KB、gzip 后约 49 KB；`VodConfig.initSite()` 只做本地反序列化，`BaseLoader.parseJar()` 也只登记 jar 的 md5，真正的 `DexClassLoader` 等点进站点才加载，首页只加载 `home` 一个站点——所以 1000 站的启动开销在百毫秒量级。真正的代价在聚合搜索：`CollectActivity` 把所有 `searchable` 站点一次性提交给 `Task.largeExecutor()`（`newFixedThreadPool(20)`，单站超时 30 s），930 个可搜站点意味着 47 轮排队。嫌慢就配分仓地址，或在搜索页先勾选常用站点再搜。
-- **站点列表长。** 1000 项靠 RecyclerView 回收，滑动不卡，但翻找费劲；直接配 `api/lite.json` 只有 150 个，或在「站点管理」里收藏常用站点。
+- **站点数量多 ≠ 加载慢，但会让聚合搜索变慢。** 配置原文约 1.1 MB、gzip 后约 170 KB；`VodConfig.initSite()` 只做本地反序列化，`BaseLoader.parseJar()` 也只登记 jar 的 md5，真正的 `DexClassLoader` 等点进站点才加载，首页只加载 `home` 一个站点——所以 3400 站的启动开销仍在百毫秒量级。真正的代价在聚合搜索：`CollectActivity` 把所有 `searchable` 站点一次性提交给 `Task.largeExecutor()`（`newFixedThreadPool(20)`，单站超时 30 s），当前约 2900 个可搜站点，意味着 **145 轮排队**，全量搜索会明显变慢。日常建议直接用 `api/lite.json`（160 站，约 8 轮），或在搜索页先勾选常用站点再搜。
+- **站点列表长。** 3400 项靠 RecyclerView 回收，滑动不卡，但翻找费劲；直接配 `api/lite.json` 只有 150 个，或在「站点管理」里收藏常用站点。
 - **排序是启发式，不是评测。** 除了 `probe_cms` 那 82 个采集接口是真请求验过，其余维度（类型、词表、跨源收录）都是经验规则。实测前 40 名里有一半采集接口当时打不通，加探活后头部才变成真能出内容的站点；但「能搜到内容」仍不等于「片源清晰、更新及时」，这部分没法离线判断。
 
 ## 免责声明

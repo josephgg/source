@@ -68,8 +68,25 @@ BROKEN_SCHEME_RE = re.compile(r"^(https?):/+", re.I)
 
 # ---------------------------------------------------------------- 网络
 
+def ascii_url(u):
+    """中文域名转 punycode。urllib 只接受 ASCII，直接请求 http://饭太硬.net 会抛
+    'latin-1' codec can't encode，源站本身是好的，不转就等于整源丢失。"""
+    if not isinstance(u, str) or "://" not in u:
+        return u
+    try:
+        parts = urllib.parse.urlsplit(u)
+        host = parts.hostname or ""
+        if not host or all(ord(c) < 128 for c in host):
+            return u
+        host = host.encode("idna").decode("ascii")
+        netloc = host + (":%d" % parts.port if parts.port else "")
+        return urllib.parse.urlunsplit((parts.scheme, netloc, parts.path, parts.query, parts.fragment))
+    except Exception:  # noqa: BLE001
+        return u
+
+
 def _open(url, timeout=None):
-    req = urllib.request.Request(url, headers={
+    req = urllib.request.Request(ascii_url(url), headers={
         "User-Agent": UA,
         "Accept": "*/*",
         "Accept-Encoding": "identity",
@@ -250,7 +267,7 @@ def collect_multi(item, depth=0, budget=None):
                 "parent": item["id"],
             })
         if children:
-            with ThreadPoolExecutor(max_workers=min(8, len(children))) as pool:
+            with ThreadPoolExecutor(max_workers=min(16, len(children))) as pool:
                 for part in pool.map(lambda c: collect_multi(c, depth + 1, budget), children):
                     results.extend(part)
         if not results:
@@ -518,19 +535,26 @@ def merge_alive(hist, now_ok, ttl_days=7):
     return set(hist), hist
 
 
-def pick_lite(sites, size, per_source=8):
-    """精选仓选站：先给每个源保底 per_source 个（按质量序），剩余按全局分数补满。
+def pick_lite(sites, size, per_source=8, bucket_of=None):
+    """精选仓选站：先给每个（顶层）源保底 per_source 个（按质量序），剩余按分数补满。
 
     只按分数取会让采集站多的源霸榜、整源消失（实测高天源被挤到 0 个），
-    切到精选仓时会像少了半套资源。"""
+    切到精选仓时会像少了半套资源。bucket_of 把多仓子仓归到父源，
+    否则一个 54 子仓的源会吃满 54 份配额。"""
     order = {id(s): i for i, s in enumerate(sites)}
+    bucket_of = bucket_of or {}
     buckets = {}
     for s in sites:
-        bucket = buckets.setdefault(s["key"].split("_")[0], [])
+        sid = s["key"].split("_")[0]
+        sid = bucket_of.get(sid, sid)
+        bucket = buckets.setdefault(sid, [])
         if len(bucket) < per_source:
             bucket.append(id(s))
     keep = {k for v in buckets.values() for k in v}
     out = [s for s in sites if id(s) in keep]
+    # 保底优先：源多时 per_source*源数 可能超过 size，此时宁可超出也不裁掉整源
+    if len(out) >= size:
+        return out
     for s in sites:
         if len(out) >= size:
             break
@@ -538,7 +562,7 @@ def pick_lite(sites, size, per_source=8):
             keep.add(id(s))
             out.append(s)
     out.sort(key=lambda s: order[id(s)])
-    return out[:size]
+    return out
 
 
 def rank_sites(sites, prio_map, consensus, dead, alive=None):
@@ -648,14 +672,17 @@ def main():
         got = collect_multi(src)
         return src, got, int((time.time() - t0) * 1000)
 
-    with ThreadPoolExecutor(max_workers=min(8, max(1, len(sources)))) as pool:
+    with ThreadPoolExecutor(max_workers=min(12, max(1, len(sources)))) as pool:
         pulled = list(pool.map(fetch_one, sources))
 
     results, ok = [], []
+    bucket_of = {}
     for src, got, cost in pulled:
+        top = src["id"].replace("-", "")
         for g in got:
             g["ms"] = cost // max(1, len(got))
             results.append(g)
+            bucket_of[g["id"].replace("-", "")] = top
             if "cfg" in g:
                 ok.append(g)
         subs = [g for g in got if "cfg" in g]
@@ -691,8 +718,9 @@ def main():
         if not first_notice and isinstance(cfg.get("notice"), str):
             first_notice = cfg["notice"]
 
-        # 单仓快照：保留原 key，仅做绝对化
-        if bconf.get("emit_source_repo", True):
+        # 单仓快照：保留原 key，仅做绝对化。多仓子仓不再单独出快照——
+        # 它们多为镜像，产物价值低，但会让仓库体积按构建次数膨胀。
+        if bconf.get("emit_source_repo", True) and not src.get("parent"):
             snap = {
                 "spider": src.get("spider", ""),
                 "wallpaper": cfg.get("wallpaper", ""),
@@ -789,7 +817,7 @@ def main():
     # 精选仓：按质量分取前 N，只留参与聚合搜索的站点——精选的意义就是「点开能搜到」
     lite_size = int(bconf.get("lite_size", 150))
     lite_sites = pick_lite([s for s in merged_sites if is_searchable(s)],
-                           lite_size, int(bconf.get("lite_per_source", 8)))
+                           lite_size, int(bconf.get("lite_per_source", 8)), bucket_of)
     lite = {k: v for k, v in merged.items() if k != "sites"}
     lite["sites"] = lite_sites
     write_json(os.path.join(ROOT, "api", "lite.json"), lite)

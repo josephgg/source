@@ -28,12 +28,12 @@
     "name_prefix": true,
     "emit_source_repo": true,
     "min_retain_ratio": 0.85,
-    "lite_size": 150,
+    "lite_size": 160,
     "probe_spider": true,
     "probe_timeout": 10,
     "probe_cms": true,
     "cms_timeout": 12,
-    "lite_per_source": 8
+    "lite_per_source": 3
   },
   "sources": [
     {
@@ -112,6 +112,316 @@
       "enabled": true,
       "note": "2423 开头的 AES-CBC 加密配置，构建器已内置解密",
       "timeout": 25
+    },
+    {
+      "id": "iv-fantaiying",
+      "name": "饭太硬",
+      "tag": "饭太硬",
+      "url": "https://play.iptv365.org/%E9%A5%AD%E5%A4%AA%E7%A1%AC/api.json",
+      "priority": 100,
+      "enabled": true,
+      "note": "来自 kimwang1978/tvbox 多仓（play.iptv365.org）",
+      "timeout": 25
+    },
+    {
+      "id": "iv-xiaomi",
+      "name": "小米",
+      "tag": "小米",
+      "url": "https://play.iptv365.org/%E5%B0%8F%E7%B1%B3/api.json",
+      "priority": 101,
+      "enabled": true,
+      "note": "来自 kimwang1978/tvbox 多仓（play.iptv365.org）",
+      "timeout": 25
+    },
+    {
+      "id": "iv-feimao2",
+      "name": "肥猫(iptv)",
+      "tag": "肥猫",
+      "url": "https://play.iptv365.org/%E8%82%A5%E7%8C%AB/api.json",
+      "priority": 102,
+      "enabled": true,
+      "note": "来自 kimwang1978/tvbox 多仓（play.iptv365.org）",
+      "timeout": 25
+    },
+    {
+      "id": "iv-cainisi",
+      "name": "菜妮丝",
+      "tag": "菜妮丝",
+      "url": "https://play.iptv365.org/%E8%8F%9C%E5%A6%AE%E4%B8%9D/api.json",
+      "priority": 103,
+      "enabled": true,
+      "note": "来自 kimwang1978/tvbox 多仓（play.iptv365.org）",
+      "timeout": 25
+    },
+    {
+      "id": "iv-wangerxiao",
+      "name": "王二小(iptv)",
+      "tag": "王二小",
+      "url": "https://play.iptv365.org/%E7%8E%8B%E4%BA%8C%E5%B0%8F/api.json",
+      "priority": 104,
+      "enabled": true,
+      "note": "来自 kimwang1978/tvbox 多仓（play.iptv365.org）",
+      "timeout": 25
+    },
+    {
+      "id": "iv-xiaohuban",
+      "name": "小虎斑",
+      "tag": "小虎斑",
+      "url": "https://play.iptv365.org/%E5%B0%8F%E8%99%8E%E6%96%91/api.json",
+      "priority": 105,
+      "enabled": true,
+      "note": "来自 kimwang1978/tvbox 多仓（play.iptv365.org）",
+      "timeout": 25
+    },
+    {
+      "id": "iv-moyuer",
+      "name": "摸鱼儿",
+      "tag": "摸鱼儿",
+      "url": "https://play.iptv365.org/%E6%91%B8%E9%B1%BC%E5%84%BF/api.json",
+      "priority": 106,
+      "enabled": true,
+      "note": "来自 kimwang1978/tvbox 多仓（play.iptv365.org）",
+      "timeout": 25
+    },
+    {
+      "id": "iv-pg",
+      "name": "PG",
+      "tag": "PG",
+      "url": "https://play.iptv365.org/PG/api.json",
+      "priority": 107,
+      "enabled": true,
+      "note": "来自 kimwang1978/tvbox 多仓（play.iptv365.org）",
+      "timeout": 25
+    },
+    {
+      "id": "iv-ouge",
+      "name": "欧歌",
+      "tag": "欧歌",
+      "url": "https://play.iptv365.org/%E6%AC%A7%E6%AD%8C/api.json",
+      "priority": 108,
+      "enabled": true,
+      "note": "来自 kimwang1978/tvbox 多仓（play.iptv365.org）",
+      "timeout": 25
+    },
+    {
+      "id": "iv-xiaosa",
+      "name": "潇洒",
+      "tag": "潇洒",
+      "url": "https://play.iptv365.org/%E6%BD%87%E6%B4%92/api.json",
+      "priority": 109,
+      "enabled": true,
+      "note": "来自 kimwang1978/tvbox 多仓（play.iptv365.org）",
+      "timeout": 25
+    },
+    {
+      "id": "iv-tianwei",
+      "name": "天微",
+      "tag": "天微",
+      "url": "https://play.iptv365.org/%E5%A4%A9%E5%BE%AE/api.json",
+      "priority": 110,
+      "enabled": true,
+      "note": "来自 kimwang1978/tvbox 多仓（play.iptv365.org）",
+      "timeout": 25
+    },
+    {
+      "id": "iv-tiantian",
+      "name": "天天开心",
+      "tag": "天天开心",
+      "url": "https://play.iptv365.org/%E5%A4%A9%E5%A4%A9%E5%BC%80%E5%BF%83/api.json",
+      "priority": 111,
+      "enabled": true,
+      "note": "来自 kimwang1978/tvbox 多仓（play.iptv365.org）",
+      "timeout": 25
+    },
+    {
+      "id": "iv-xiangya2",
+      "name": "香雅情(iptv)",
+      "tag": "香雅情",
+      "url": "https://play.iptv365.org/%E9%A6%99%E9%9B%85%E6%83%85/api.json",
+      "priority": 112,
+      "enabled": true,
+      "note": "来自 kimwang1978/tvbox 多仓（play.iptv365.org）",
+      "timeout": 25
+    },
+    {
+      "id": "iv-nanfeng",
+      "name": "南风",
+      "tag": "南风",
+      "url": "https://play.iptv365.org/%E5%8D%97%E9%A3%8E/api.json",
+      "priority": 113,
+      "enabled": true,
+      "note": "来自 kimwang1978/tvbox 多仓（play.iptv365.org）",
+      "timeout": 25
+    },
+    {
+      "id": "iv-saoling",
+      "name": "骚零",
+      "tag": "骚零",
+      "url": "https://play.iptv365.org/%E9%AA%9A%E9%9B%B6/api.json",
+      "priority": 114,
+      "enabled": true,
+      "note": "来自 kimwang1978/tvbox 多仓（play.iptv365.org）",
+      "timeout": 25
+    },
+    {
+      "id": "iv-baipiao",
+      "name": "白嫖",
+      "tag": "白嫖",
+      "url": "https://play.iptv365.org/%E7%99%BD%E5%AB%96/api.json",
+      "priority": 115,
+      "enabled": true,
+      "note": "来自 kimwang1978/tvbox 多仓（play.iptv365.org）",
+      "timeout": 25
+    },
+    {
+      "id": "iv-ok",
+      "name": "OK",
+      "tag": "OK",
+      "url": "https://play.iptv365.org/OK/api.json",
+      "priority": 116,
+      "enabled": true,
+      "note": "来自 kimwang1978/tvbox 多仓（play.iptv365.org）",
+      "timeout": 25
+    },
+    {
+      "id": "iv-xiqu",
+      "name": "戏曲音乐",
+      "tag": "戏曲",
+      "url": "https://play.iptv365.org/%E6%88%8F%E6%9B%B2%E9%9F%B3%E4%B9%90/api.json",
+      "priority": 117,
+      "enabled": true,
+      "note": "来自 kimwang1978/tvbox 多仓（play.iptv365.org）",
+      "timeout": 25
+    },
+    {
+      "id": "iv-duanju2",
+      "name": "短剧频道",
+      "tag": "短剧2",
+      "url": "https://play.iptv365.org/%E7%9F%AD%E5%89%A7%E9%A2%91%E9%81%93/api.json",
+      "priority": 118,
+      "enabled": true,
+      "note": "来自 kimwang1978/tvbox 多仓（play.iptv365.org）",
+      "timeout": 25
+    },
+    {
+      "id": "iv-shaoer",
+      "name": "少儿频道",
+      "tag": "少儿",
+      "url": "https://play.iptv365.org/%E5%B0%91%E5%84%BF%E9%A2%91%E9%81%93/api.json",
+      "priority": 119,
+      "enabled": true,
+      "note": "来自 kimwang1978/tvbox 多仓（play.iptv365.org）",
+      "timeout": 25
+    },
+    {
+      "id": "iv-dongman",
+      "name": "动漫频道",
+      "tag": "动漫",
+      "url": "https://play.iptv365.org/%E5%8A%A8%E6%BC%AB%E9%A2%91%E9%81%93/api.json",
+      "priority": 120,
+      "enabled": true,
+      "note": "来自 kimwang1978/tvbox 多仓（play.iptv365.org）",
+      "timeout": 25
+    },
+    {
+      "id": "iv-iptv365",
+      "name": "iptv365直播",
+      "tag": "iptv",
+      "url": "https://play.iptv365.org/iptv365/api.json",
+      "priority": 121,
+      "enabled": true,
+      "note": "来自 kimwang1978/tvbox 多仓（play.iptv365.org）",
+      "timeout": 25
+    },
+    {
+      "id": "lx-oldliu",
+      "name": "老刘备(liucn)",
+      "tag": "老刘2",
+      "url": "https://raw.liucn.cc/box/m.json",
+      "priority": 130,
+      "enabled": true,
+      "timeout": 40,
+      "note": "来自 laoma528/awesome-zhuiju-free"
+    },
+    {
+      "id": "lx-xiaoma",
+      "name": "小马",
+      "tag": "小马",
+      "url": "https://szyyds.cn/tv/x.json",
+      "priority": 131,
+      "enabled": true,
+      "timeout": 40,
+      "note": "来自 laoma528/awesome-zhuiju-free"
+    },
+    {
+      "id": "lx-chuangxiang",
+      "name": "创享影视",
+      "tag": "创享",
+      "url": "https://ys.cxkjg.cn/api/provide/tvbox",
+      "priority": 132,
+      "enabled": true,
+      "timeout": 40,
+      "note": "来自 laoma528/awesome-zhuiju-free"
+    },
+    {
+      "id": "lx-yingcang",
+      "name": "影仓",
+      "tag": "影仓",
+      "url": "http://124.71.19.220/c/1",
+      "priority": 133,
+      "enabled": true,
+      "timeout": 40,
+      "note": "来自 laoma528/awesome-zhuiju-free"
+    },
+    {
+      "id": "lx-xhz",
+      "name": "小盒子单仓",
+      "tag": "小盒",
+      "url": "http://xhztv.top/xhz",
+      "priority": 134,
+      "enabled": true,
+      "timeout": 40,
+      "note": "来自 laoma528/awesome-zhuiju-free"
+    },
+    {
+      "id": "lx-xhz4k",
+      "name": "小盒子4K",
+      "tag": "小盒4K",
+      "url": "http://xhztv.top/4k.json",
+      "priority": 135,
+      "enabled": true,
+      "timeout": 40,
+      "note": "来自 laoma528/awesome-zhuiju-free"
+    },
+    {
+      "id": "lx-xhzdc",
+      "name": "小盒子多仓",
+      "tag": "小盒仓",
+      "url": "http://xhztv.top/dc",
+      "priority": 136,
+      "enabled": true,
+      "timeout": 40,
+      "note": "多仓；来自 laoma528/awesome-zhuiju-free"
+    },
+    {
+      "id": "lx-shiguang",
+      "name": "拾光多仓",
+      "tag": "拾光",
+      "url": "http://xmbjm.fh4u.org/dc.txt",
+      "priority": 137,
+      "enabled": true,
+      "timeout": 40,
+      "note": "多仓，尾部带 HTML 尾巴；来自 laoma528/awesome-zhuiju-free"
+    },
+    {
+      "id": "lx-tinghao",
+      "name": "挺好分享多仓",
+      "tag": "挺好",
+      "url": "http://ztha.top/TVBox/GYCK.json",
+      "priority": 138,
+      "enabled": true,
+      "timeout": 40,
+      "note": "多仓；来自 laoma528/awesome-zhuiju-free"
     }
   ]
 }

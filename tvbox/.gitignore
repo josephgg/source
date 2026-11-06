@@ -6,3 +6,5 @@ venv/
 .vscode/
 .DS_Store
 Thumbs.db
+tools/lives_dump.json
+*.bak
