@@ -43,7 +43,7 @@ from jsonc import parse_cfg  # noqa: E402
 
 UA = "okhttp/3.15"
 TIMEOUT = 40
-CHILD_TIMEOUT = 20
+CHILD_TIMEOUT = 30
 RETRY = 3
 
 # 会话注入的代理会让部分直连可用的源走代理后 502，默认清空；需要时设 TVBOX_USE_PROXY=1
@@ -282,8 +282,8 @@ def collect_multi(item, depth=0, budget=None):
                 "tag": item["tag"],
                 "url": norm_url(sub_url),
                 "priority": item["priority"],
-                # 子仓只是一个 json，几十 KB；按父源 40s 超时去等一个死链，
-                # 16 并发下会把整轮构建拖到两分钟，还挤掉本来能抓到的子仓
+                # 子仓只是一个 json，几十 KB，给 30s 足够；但别再往下砍：本地
+                # 实测 20s 会判死 20-30s 才响应的慢子仓（少 160 站），只省 3 秒
                 "timeout": min(int(item.get("timeout") or TIMEOUT), CHILD_TIMEOUT),
                 "note": "",
                 "parent": item["id"],
