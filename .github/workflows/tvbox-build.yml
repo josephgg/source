@@ -63,7 +63,7 @@ jobs:
         if: steps.commit.outputs.changed == 'true'
         run: |
           sleep 10
-          for f in api/all.json index.json status.json report.md; do
+          for f in api/all.json api/lite.json index.json status.json report.md; do
             code=$(curl -sS -o /dev/null -w "%{http_code}" \
               "https://purge.jsdelivr.net/gh/josephgg/source@main/tvbox/$f" || echo "ERR")
             echo "$f -> $code"

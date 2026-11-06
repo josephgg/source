@@ -1,19 +1,28 @@
-# 主地址（jsDelivr CDN，国内相对稳定）
+# 精选（150 站点，排序靠前、接口已验证）
+https://fastly.jsdelivr.net/gh/josephgg/source@main/tvbox/api/lite.json
+https://cdn.jsdelivr.net/gh/josephgg/source@main/tvbox/api/lite.json
+
+# 全部聚合（1081 站点，一个地址装下所有资源）
 https://fastly.jsdelivr.net/gh/josephgg/source@main/tvbox/api/all.json
 https://cdn.jsdelivr.net/gh/josephgg/source@main/tvbox/api/all.json
 
-# 多仓索引（可选，配这个可在 APP 内切换仓库）
+# 多仓索引（仅带仓库选择器的客户端可用）
 https://fastly.jsdelivr.net/gh/josephgg/source@main/tvbox/index.json
 https://cdn.jsdelivr.net/gh/josephgg/source@main/tvbox/index.json
 
 # 备用（GitHub raw）
+https://raw.githubusercontent.com/josephgg/source/main/tvbox/api/lite.json
 https://raw.githubusercontent.com/josephgg/source/main/tvbox/api/all.json
 https://raw.githubusercontent.com/josephgg/source/main/tvbox/index.json
 
 # 备用（raw + 镜像前缀）
+https://gh-proxy.com/https://raw.githubusercontent.com/josephgg/source/main/tvbox/api/lite.json
 https://gh-proxy.com/https://raw.githubusercontent.com/josephgg/source/main/tvbox/api/all.json
+https://ghfast.top/https://raw.githubusercontent.com/josephgg/source/main/tvbox/api/lite.json
 https://ghfast.top/https://raw.githubusercontent.com/josephgg/source/main/tvbox/api/all.json
+https://ghproxy.net/https://raw.githubusercontent.com/josephgg/source/main/tvbox/api/lite.json
 https://ghproxy.net/https://raw.githubusercontent.com/josephgg/source/main/tvbox/api/all.json
+https://gh.llkk.cc/https://raw.githubusercontent.com/josephgg/source/main/tvbox/api/lite.json
 https://gh.llkk.cc/https://raw.githubusercontent.com/josephgg/source/main/tvbox/api/all.json
 
 # 可选（需在仓库设置里启用 GitHub Pages）

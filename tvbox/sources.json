@@ -27,7 +27,13 @@
     "max_parses": 36,
     "name_prefix": true,
     "emit_source_repo": true,
-    "min_retain_ratio": 0.85
+    "min_retain_ratio": 0.85,
+    "lite_size": 150,
+    "probe_spider": true,
+    "probe_timeout": 10,
+    "probe_cms": true,
+    "cms_timeout": 12,
+    "lite_per_source": 8
   },
   "sources": [
     {

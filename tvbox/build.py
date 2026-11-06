@@ -325,6 +325,212 @@ def build_site(site, src, used_keys, seen_fp, stats, conf_build):
     return out
 
 
+# ---------------------------------------------------------------------------
+# 站点质量排序
+#
+# 排序目标不是「谁更好看」，而是「打开列表 / 首页 / 搜索时先碰到能用的」：
+#   · 首页源取站点列表第一个（VodConfig.setHome 找不到 home 时 fallback 到 get(0)）
+#   · 搜索按列表顺序提交，靠前的不影响总量，但靠前的好站点先出结果
+# 评分口径写在 README「站点排序」，改动时同步更新文档。
+# ---------------------------------------------------------------------------
+
+TOOL_WORDS = ("MV", "音乐", "音频", "磁力", "网盘", "盘搜", "搜搜", "搜索", "下载", "直播",
+              "弹幕", "配置", "工具", "急救", "存储", "推送", "图集", "小说", "漫画", "豆瓣",
+              "公告", "订阅", "更新", "测速", "线路", "浏览器", "云盘", "央视", "卫视",
+              "电台", "有声", "听书")
+
+FILM_WORDS = ("影视", "电影", "电视剧", "剧集", "短剧", "动漫", "综艺", "记录片", "纪录片",
+              "片库", "影库", "资源", "采集", "视频", "4K", "高清", "蓝光", "新片", "在线")
+
+KIND_BASE = {"http": 34, "csp": 20, "other": 14, "js": 8, "py": 8}
+
+
+def api_kind(site):
+    api = site.get("api") or ""
+    if api.startswith("csp_"):
+        return "csp"
+    if api.endswith(".js") or ".js?" in api:
+        return "js"
+    if api.startswith("http"):
+        return "http"
+    if api.startswith("py_"):
+        return "py"
+    return "other"
+
+
+def is_searchable(site):
+    v = site.get("searchable")
+    return (1 if v is None else v) == 1
+
+
+def quality_score(site, priority, consensus, dead, alive=False):
+    """返回 (分数, 说明)。分数越高越靠前。"""
+    kind = api_kind(site)
+    jar = (site.get("jar") or "").split(";")[0].strip()
+    why = []
+
+    base = KIND_BASE.get(kind, 10)
+    why.append("%s+%d" % (kind, base))
+
+    # 不需要额外下载 jar 的最快：内置类直接可用
+    if not jar:
+        base += 8
+        why.append("无jar+8")
+    elif jar.endswith(".jar"):
+        base += 3
+    elif jar.endswith((".js", ".zip")):
+        base += 1
+
+    name = site.get("name") or ""
+    if any(w in name for w in FILM_WORDS):
+        base += 10
+        why.append("影视+10")
+    if any(w in name for w in TOOL_WORDS):
+        base -= 22
+        why.append("工具-22")
+
+    # 跨源共识：多个源都收录同一后端，说明这个后端在多方验证下可用（权重要克制，
+    # 它衡量的是「传播广」，不是「质量好」，给太大会把音乐/网盘站顶到首页）
+    if consensus > 1:
+        bonus = min(consensus - 1, 2) * 3
+        base += bonus
+        why.append("%d源+%d" % (consensus, bonus))
+
+    if is_searchable(site):
+        base += 5
+    else:
+        base -= 6
+
+    if dead:
+        base -= 80
+        why.append("死链-80")
+    elif alive:
+        base += 20
+        why.append("接口通+20")
+
+    # 源优先级做细调，避免同分时顺序随机
+    base += max(0, 100 - int(priority if priority is not None else 100)) / 20.0
+    return base, why
+
+
+def spider_urls(sites):
+    urls = set()
+    for s in sites:
+        for field in ("jar", "api"):
+            v = (s.get(field) or "").split(";")[0].strip()
+            if not v.startswith("http"):
+                continue
+            if field == "jar" or v.endswith(".js") or ".js?" in v:
+                urls.add(v)
+    return urls
+
+
+def probe_spiders(sites, timeout=10, workers=12):
+    """探活爬虫文件。只把 404/410 判死；超时/连接失败一律不算，
+    避免 GitHub 海外 runner 连不上国内域名时误杀站点。"""
+    urls = sorted(spider_urls(sites))
+
+    def one(u):
+        req = urllib.request.Request(u, headers={
+            "User-Agent": UA, "Range": "bytes=0-0", "Accept-Encoding": "identity"})
+        try:
+            with urllib.request.urlopen(req, timeout=timeout, context=CTX) as r:
+                r.read(1)
+            return u, False
+        except urllib.error.HTTPError as e:
+            return u, e.code in (404, 410)
+        except Exception:  # noqa: BLE001
+            return u, False
+
+    dead = set()
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        for u, gone in pool.map(one, urls):
+            if gone:
+                dead.add(u)
+    return dead
+
+
+def is_dead(site, dead):
+    if not dead:
+        return False
+    for field in ("jar", "api"):
+        v = (site.get(field) or "").split(";")[0].strip()
+        if v and v in dead:
+            return True
+    return False
+
+
+def cms_alive(sites, timeout=12, workers=16):
+    """探活 CMS 采集接口（api?ac=list，返回带 class 的 JSON 视为可用）。
+
+    只用于「加分」，不通不扣分：GitHub 海外 runner 连不上国内域名时，
+    结果会退化成纯启发式排序，而不是把可用站点误杀。"""
+    cand = [s for s in sites
+            if (s.get("api") or "").startswith("http")
+            and not (s["api"].endswith(".js") or ".js?" in s["api"])]
+
+    def one(s):
+        api = s["api"]
+        u = api if "ac=" in api else api + ("&" if "?" in api else "?") + "ac=list"
+        try:
+            req = urllib.request.Request(u, headers={
+                "User-Agent": UA, "Accept-Encoding": "identity"})
+            with urllib.request.urlopen(req, timeout=timeout, context=CTX) as r:
+                body = r.read(65536)
+            txt = body.decode("utf-8", "replace").strip()
+            if not txt.startswith(("{", "[")):
+                return s["key"], False
+            data = json.loads(txt)
+            cls = data.get("class") or (data.get("data") or {}).get("class") or []
+            return s["key"], bool(cls)
+        except Exception:  # noqa: BLE001
+            return s["key"], False
+
+    alive = set()
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        for key, ok in pool.map(one, cand):
+            if ok:
+                alive.add(key)
+    return alive, len(cand)
+
+
+def pick_lite(sites, size, per_source=8):
+    """精选仓选站：先给每个源保底 per_source 个（按质量序），剩余按全局分数补满。
+
+    只按分数取会让采集站多的源霸榜、整源消失（实测高天源被挤到 0 个），
+    切到精选仓时会像少了半套资源。"""
+    order = {id(s): i for i, s in enumerate(sites)}
+    buckets = {}
+    for s in sites:
+        bucket = buckets.setdefault(s["key"].split("_")[0], [])
+        if len(bucket) < per_source:
+            bucket.append(id(s))
+    keep = {k for v in buckets.values() for k in v}
+    out = [s for s in sites if id(s) in keep]
+    for s in sites:
+        if len(out) >= size:
+            break
+        if id(s) not in keep:
+            keep.add(id(s))
+            out.append(s)
+    out.sort(key=lambda s: order[id(s)])
+    return out[:size]
+
+
+def rank_sites(sites, prio_map, consensus, dead, alive=None):
+    """按质量分降序，同分按源优先级、再按名称，保证每次构建顺序一致"""
+    alive = alive or set()
+    scored = []
+    for s in sites:
+        sid = s["key"].split("_")[0]
+        prio = prio_map.get(sid, 100)
+        score, why = quality_score(s, prio, consensus.get(fingerprint(s), 1),
+                                   is_dead(s, dead), s["key"] in alive)
+        scored.append((score, int(prio), s.get("name") or "", s, why))
+    scored.sort(key=lambda x: (-x[0], x[1], x[2]))
+    return scored
+
+
 def build_parses(all_parses, max_parses):
     by_key = {}
     for p in all_parses:
@@ -434,6 +640,15 @@ def main():
             sum(len(g["cfg"].get("sites") or []) for g in subs), cost,
             "ok" if subs else (got[0].get("error", "empty") if got else "empty")[:60]))
 
+    # 预展开：一次绝对化，同时统计「同一后端被几个源收录」
+    prio_map = {src["id"].replace("-", ""): src.get("priority", 100) for src in sources}
+    consensus = {}
+    for src in ok:
+        src["_abs"] = deep_abs(src["cfg"], src["base"])
+        for site in src["_abs"].get("sites") or []:
+            fp = fingerprint(site)
+            consensus[fp] = consensus.get(fp, 0) + 1
+
     # 单仓快照 + 收集合并素材
     snapshots = []
     used_keys, seen_fp = set(), set()
@@ -443,7 +658,7 @@ def main():
     first_wall = first_notice = first_spider = ""
 
     for src in ok:
-        cfg = deep_abs(src["cfg"], src["base"])
+        cfg = src["_abs"]
         src["spider"] = cfg.get("spider") or ""
         if not first_spider and src["spider"]:
             first_spider = src["spider"]
@@ -481,6 +696,34 @@ def main():
         src["n_sites"] = len(cfg.get("sites") or [])
         src["n_new"] = len(merged_sites) - before
 
+    # 爬虫文件探活：404/410 的站点移出聚合搜索（仍能在列表里点开），并在排序中沉底
+    dead, demoted = set(), 0
+    if bconf.get("probe_spider", True):
+        try:
+            dead = probe_spiders(merged_sites, timeout=bconf.get("probe_timeout", 10))
+        except Exception as e:  # noqa: BLE001
+            print("[probe] 跳过：%s" % e)
+    for s in merged_sites:
+        if is_dead(s, dead) and is_searchable(s):
+            s["searchable"] = 2
+            demoted += 1
+    if bconf.get("probe_spider", True):
+        print("[probe] 爬虫文件 %d/%d 失效，%d 个站点移出聚合搜索"
+              % (len(dead), len(spider_urls(merged_sites)), demoted))
+
+    # CMS 采集接口探活：通了的加分上浮，保证首页第一个站点打开就有内容
+    alive, n_cms = set(), 0
+    if bconf.get("probe_cms", True):
+        try:
+            alive, n_cms = cms_alive(merged_sites, timeout=bconf.get("cms_timeout", 12))
+            print("[probe] CMS 接口 %d/%d 有返回内容" % (len(alive), n_cms))
+        except Exception as e:  # noqa: BLE001
+            print("[probe] CMS 探活跳过：%s" % e)
+
+    # 质量排序：首页取第一个站点，站点列表与搜索也按这个顺序
+    ranked = rank_sites(merged_sites, prio_map, consensus, dead, alive)
+    merged_sites = [item[3] for item in ranked]
+
     merged = {}
     if first_spider:
         merged["spider"] = first_spider
@@ -516,8 +759,20 @@ def main():
         write_json(os.path.join(ROOT, "api", "src-%s.json" % sid), snap)
     write_json(os.path.join(ROOT, "api", "all.json"), merged)
 
+    # 精选仓：按质量分取前 N，只留参与聚合搜索的站点——精选的意义就是「点开能搜到」
+    lite_size = int(bconf.get("lite_size", 150))
+    lite_sites = pick_lite([s for s in merged_sites if is_searchable(s)],
+                           lite_size, int(bconf.get("lite_per_source", 8)))
+    lite = {k: v for k, v in merged.items() if k != "sites"}
+    lite["sites"] = lite_sites
+    write_json(os.path.join(ROOT, "api", "lite.json"), lite)
+
     # 多仓索引
     index = {"name": meta.get("name", "聚合影视仓"), "urls": []}
+    index["urls"].append({
+        "name": "⭐ 精选（%d 站点，排序靠前的）" % len(lite_sites),
+        "url": index_base + "api/lite.json",
+    })
     index["urls"].append({
         "name": "🌟 全部聚合（%d 站点）" % len(merged_sites),
         "url": index_base + "api/all.json",
@@ -540,6 +795,12 @@ def main():
         "total_sites": len(merged_sites),
         "total_parses": len(merged["parses"]),
         "total_lives": len(merged.get("lives") or []),
+        "lite_sites": len(lite_sites),
+        "searchable_sites": len([s for s in merged_sites if is_searchable(s)]),
+        "dead_spider_files": len(dead),
+        "demoted_sites": demoted,
+        "cms_probed": n_cms,
+        "cms_alive": len(alive),
         "sources": [
             {
                 "id": r["id"],
@@ -556,18 +817,22 @@ def main():
         "stats": stats,
     }
     write_json(os.path.join(ROOT, "status.json"), status)
-    write_report(status, merged, sources)
+    write_report(status, merged, sources, top=ranked[:20], demoted=demoted)
 
     # 地址清单：手机端按顺序试，主地址用 CDN
-    lines = ["# 主地址（jsDelivr CDN，国内相对稳定）"]
+    lines = ["# 精选（%d 站点，排序靠前、接口已验证）" % len(lite_sites)]
+    for cdn in meta.get("cdn", []):
+        lines.append(cdn + "api/lite.json")
+    lines += ["", "# 全部聚合（%d 站点，一个地址装下所有资源）" % len(merged_sites)]
     for cdn in meta.get("cdn", []):
         lines.append(cdn + "api/all.json")
-    lines += ["", "# 多仓索引（可选，配这个可在 APP 内切换仓库）"]
+    lines += ["", "# 多仓索引（仅带仓库选择器的客户端可用）"]
     for cdn in meta.get("cdn", []):
         lines.append(cdn + "index.json")
-    lines += ["", "# 备用（GitHub raw）", raw_base + "api/all.json", raw_base + "index.json"]
+    lines += ["", "# 备用（GitHub raw）", raw_base + "api/lite.json", raw_base + "api/all.json", raw_base + "index.json"]
     lines += ["", "# 备用（raw + 镜像前缀）"]
     for prefix in meta.get("mirrors", []):
+        lines.append(prefix.rstrip("/") + "/" + raw_base + "api/lite.json")
         lines.append(prefix.rstrip("/") + "/" + raw_base + "api/all.json")
     lines += ["", "# 可选（需在仓库设置里启用 GitHub Pages）", pages_base + "api/all.json"]
     write_text(os.path.join(ROOT, "mirrors.txt"), "\n".join(lines) + "\n")
@@ -590,16 +855,19 @@ def write_text(path, text):
         f.write(text)
 
 
-def write_report(status, merged, sources):
+def write_report(status, merged, sources, top=None, demoted=0):
     lines = []
     lines.append("# 构建报告\n")
     lines.append("生成时间：%s\n" % status["generated_at"])
     lines.append("| 指标 | 数值 |")
     lines.append("| --- | --- |")
     lines.append("| 合并后站点数 | %d |" % status["total_sites"])
+    lines.append("| 参与聚合搜索 | %d |" % status.get("searchable_sites", 0))
+    lines.append("| 精选仓站点数 | %d |" % status.get("lite_sites", 0))
     lines.append("| 解析源数量 | %d |" % status["total_parses"])
     lines.append("| 直播源数量 | %d |" % status["total_lives"])
     lines.append("| 跨源去重丢弃 | %d |" % status["stats"]["dup"])
+    lines.append("| 爬虫文件失效 | %d |" % status.get("dead_spider_files", 0))
     lines.append("")
     lines.append("## 各源状态\n")
     lines.append("| 源 | 站点 | 新增 | 耗时 | 状态 |")
@@ -611,6 +879,18 @@ def write_report(status, merged, sources):
     lines.append("")
     if status["stats"]["skip_no_jar"]:
         lines.append("> 有 %d 个 csp_ 站点因来源仓未提供 spider 被跳过。" % status["stats"]["skip_no_jar"])
+    if demoted:
+        lines.append("> %d 个站点的爬虫文件返回 404/410，已移出聚合搜索（仍可在站点列表中打开）。" % demoted)
+    if top:
+        lines.append("")
+        lines.append("## 站点排序（前 20，即首页与列表头部）\n")
+        lines.append("| # | 站点 | 分数 | 依据 |")
+        lines.append("| --- | --- | --- | --- |")
+        for i, (score, _prio, _name, site, why) in enumerate(top, 1):
+            lines.append("| %d | %s | %.1f | %s |" % (i, site["name"][:26], score, " ".join(why)))
+        lines.append("")
+        lines.append("排序口径：接口类型（采集 API > 内置爬虫 > JS 爬虫）+ 是否需要下载 jar "
+                     "+ 跨源收录数 + 是否参与搜索 − 工具类站点 − 爬虫失效，同分按源优先级。")
     write_text(os.path.join(ROOT, "report.md"), "\n".join(lines) + "\n")
 
 
