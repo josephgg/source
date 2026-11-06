@@ -81,9 +81,10 @@ tvbox/
 ├── tools/jsonc.py      宽松 JSON 解析（注释 / 尾逗号 / base64 / AES-CBC）
 ├── tools/validate.py   产物验收：结构约束 + 抽样探活
 ├── tools/mix_lives.py  各仓直播频道汇总 / 去重 / 探活，并入根目录 m3u
-├── api/lite.json       精选仓（150 站，按质量分 + 每源保底）
+├── api/lite.json       精选仓（160 站，按质量分 + 每源保底）
 ├── api/all.json        总聚合仓（全部站点，按质量分排序）
-├── api/src-<id>.json   各源单仓快照（排查用）
+├── api/src-<id>.json   各源单仓快照（排查用；某源本轮抓取失败时保留上一轮，
+│                       不会因上游抖动变成 404）
 ├── index.json          多仓索引（FongMi 只认第一条，TVBox 原版才有选择器）
 ├── status.json         机器可读构建状态
 ├── cms_alive.json      采集接口探活历史（7 天内成功过即视为可用，用于稳定排序）

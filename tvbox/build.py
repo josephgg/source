@@ -22,6 +22,7 @@
 import json
 import os
 import re
+import socket
 import ssl
 import sys
 import time
@@ -42,6 +43,7 @@ from jsonc import parse_cfg  # noqa: E402
 
 UA = "okhttp/3.15"
 TIMEOUT = 40
+CHILD_TIMEOUT = 20
 RETRY = 3
 
 # 会话注入的代理会让部分直连可用的源走代理后 502，默认清空；需要时设 TVBOX_USE_PROXY=1
@@ -94,6 +96,22 @@ def _open(url, timeout=None):
     return urllib.request.urlopen(req, timeout=timeout or TIMEOUT, context=CTX)
 
 
+def _permanent(e):
+    """判断错误是否「重试也没用」：域名已死、页面被删、需要鉴权。
+
+    这类错误对着同一台机器重试 3 次只会白等（DNS 失败一次就是十几秒），
+    多仓里几十个死链能把单次构建拖长一两分钟。超时 / 连接重置 / 5xx
+    仍按原策略重试——那是真抖动。"""
+    if isinstance(e, urllib.error.HTTPError):
+        return e.code in (400, 401, 404, 410, 451)
+    reason = getattr(e, "reason", None)
+    if isinstance(reason, socket.gaierror):
+        return True
+    if isinstance(e, (socket.gaierror, UnicodeError, ValueError)):
+        return True
+    return False
+
+
 def fetch(url, timeout=None):
     last = None
     for attempt in range(RETRY + 1):
@@ -114,6 +132,8 @@ def fetch(url, timeout=None):
             return raw.decode("utf-8", "replace")
         except Exception as e:  # noqa: BLE001
             last = e
+            if _permanent(e):
+                break
             time.sleep(1.5 * (attempt + 1))
     raise last
 
@@ -262,7 +282,9 @@ def collect_multi(item, depth=0, budget=None):
                 "tag": item["tag"],
                 "url": norm_url(sub_url),
                 "priority": item["priority"],
-                "timeout": item.get("timeout"),
+                # 子仓只是一个 json，几十 KB；按父源 40s 超时去等一个死链，
+                # 16 并发下会把整轮构建拖到两分钟，还挤掉本来能抓到的子仓
+                "timeout": min(int(item.get("timeout") or TIMEOUT), CHILD_TIMEOUT),
                 "note": "",
                 "parent": item["id"],
             })
@@ -659,12 +681,11 @@ def main():
         except Exception:
             old_sites = 0
 
-    # 清理上一轮产物，避免已下线源留下孤儿文件
+    # 上一轮产物清单：本轮写完后统一清理，失败源保留旧快照（见下方 orphan 清理）
     api_dir = os.path.join(ROOT, "api")
+    old_names = set()
     if os.path.isdir(api_dir):
-        for name in os.listdir(api_dir):
-            if name.endswith(".json"):
-                os.remove(os.path.join(api_dir, name))
+        old_names = {n for n in os.listdir(api_dir) if n.endswith(".json")}
 
     # 各源并行抓取：串行时国内源的超时会累加，CI 上可能要十几分钟
     def fetch_one(src):
@@ -843,6 +864,17 @@ def main():
             "url": index_base + "api/src-%s.json" % src["id"],
         })
     write_json(os.path.join(ROOT, "index.json"), index)
+
+    # 孤儿产物清理：本轮没写出的旧文件删掉，但「本轮抓取失败」的源保留上一轮快照。
+    # 上游抖动一次就把 src-xxx.json 删掉，等于把别人收藏的分仓地址变成 404。
+    written = {n for n in os.listdir(api_dir) if n.endswith(".json")}
+    failed_ids = {r["id"] for r in results if "cfg" not in r}
+    for name in sorted(old_names - written):
+        sid = name[len("src-"):-len(".json")] if name.startswith("src-") else None
+        if sid and sid in failed_ids:
+            print("[keep] 保留上一轮快照 %s（本次抓取失败）" % name)
+            continue
+        os.remove(os.path.join(api_dir, name))
 
     # 状态与报告
     status = {
