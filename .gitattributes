@@ -1,0 +1,5 @@
+# tvbox 构建器在 Linux CI 上运行，强制 LF，避免 CRLF 带来的杂音
+tvbox/** text eol=lf
+.github/** text eol=lf
+*.m3u text eol=lf
+*.json text eol=lf

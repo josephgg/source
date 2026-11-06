@@ -1,0 +1,106 @@
+{
+  "$comment": "唯一维护入口。改源只改这里，其余产物由 build.py 自动生成。",
+  "meta": {
+    "name": "聚合影视仓",
+    "owner": "josephgg",
+    "repo": "source",
+    "subdir": "tvbox",
+    "branch": "main",
+    "pages_base": "https://josephgg.github.io/source/tvbox/",
+    "cdn": [
+      "https://fastly.jsdelivr.net/gh/josephgg/source@main/tvbox/",
+      "https://cdn.jsdelivr.net/gh/josephgg/source@main/tvbox/"
+    ],
+    "index_base": "cdn",
+    "mirrors": [
+      "https://gh-proxy.com/",
+      "https://ghfast.top/",
+      "https://ghproxy.net/",
+      "https://gh.llkk.cc/"
+    ]
+  },
+  "build": {
+    "merge_lives": true,
+    "max_lives": 12,
+    "merge_ads": false,
+    "merge_flags": true,
+    "max_parses": 36,
+    "name_prefix": true,
+    "emit_source_repo": true
+  },
+  "sources": [
+    {
+      "id": "gao",
+      "name": "高天流云",
+      "tag": "高天",
+      "url": "https://raw.githubusercontent.com/gaotianliuyun/gao/master/js.json",
+      "priority": 10,
+      "enabled": true
+    },
+    {
+      "id": "laoliu",
+      "name": "老刘备",
+      "tag": "老刘",
+      "url": "https://raw.githubusercontent.com/liu673cn/box/main/m.json",
+      "priority": 20,
+      "enabled": true
+    },
+    {
+      "id": "maoy",
+      "name": "分享者",
+      "tag": "分享",
+      "url": "https://raw.githubusercontent.com/maoystv/6/main/001.json",
+      "priority": 30,
+      "enabled": true
+    },
+    {
+      "id": "wang2",
+      "name": "王二小放牛娃",
+      "tag": "王二",
+      "url": "http://tvbox.xn--4kq62z5rby2qupq9ub.top",
+      "priority": 40,
+      "enabled": true
+    },
+    {
+      "id": "xiangya",
+      "name": "香雅晴",
+      "tag": "香雅",
+      "url": "https://raw.githubusercontent.com/xyq254245/xyqonlinerule/main/XYQTVBox.json",
+      "priority": 50,
+      "enabled": true
+    },
+    {
+      "id": "duanju",
+      "name": "短剧专线",
+      "tag": "短剧",
+      "url": "http://box.ufuzi.com/tv/qq/%E7%9F%AD%E5%89%A7%E9%A2%91%E9%81%93/api.json",
+      "priority": 60,
+      "enabled": true
+    },
+    {
+      "id": "top98",
+      "name": "俊佬",
+      "tag": "俊佬",
+      "url": "http://home.jundie.top:81/top98.json",
+      "priority": 70,
+      "enabled": true
+    },
+    {
+      "id": "wuxie",
+      "name": "无邪",
+      "tag": "无邪",
+      "url": "https://raw.githubusercontent.com/wxrjck/-YSC-/main/wx.json",
+      "priority": 80,
+      "enabled": true
+    },
+    {
+      "id": "feimao",
+      "name": "肥猫",
+      "tag": "肥猫",
+      "url": "http://xn--z7x900a.net/",
+      "priority": 90,
+      "enabled": true,
+      "note": "2423 开头的 AES-CBC 加密配置，构建器已内置解密"
+    }
+  ]
+}
