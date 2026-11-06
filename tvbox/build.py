@@ -28,6 +28,7 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor
 
 try:
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -228,6 +229,7 @@ def collect_multi(item, depth=0, budget=None):
             item["error"] = "多仓嵌套超过 2 层"
             return [item]
         results = []
+        children = []
         for idx, sub in enumerate(subs):
             if not isinstance(sub, dict):
                 continue
@@ -236,7 +238,7 @@ def collect_multi(item, depth=0, budget=None):
             # 占位条目（有些仓用 "更新时间" 之类做分隔）
             if not sub_url or not re.match(r"^https?://", sub_url.strip()):
                 continue
-            child = {
+            children.append({
                 "id": "%s-%d" % (item["id"], idx + 1),
                 "name": "%s / %s" % (item["name"], sub_name or ("子仓%d" % (idx + 1))),
                 "tag": item["tag"],
@@ -244,8 +246,11 @@ def collect_multi(item, depth=0, budget=None):
                 "priority": item["priority"],
                 "note": "",
                 "parent": item["id"],
-            }
-            results.extend(collect_multi(child, depth + 1, budget))
+            })
+        if children:
+            with ThreadPoolExecutor(max_workers=min(8, len(children))) as pool:
+                for part in pool.map(lambda c: collect_multi(c, depth + 1, budget), children):
+                    results.extend(part)
         if not results:
             item["error"] = "多仓内无可用子仓"
             return [item]
@@ -395,20 +400,27 @@ def main():
             if name.endswith(".json"):
                 os.remove(os.path.join(api_dir, name))
 
-    results, ok = [], []
-    for src in sources:
+    # 各源并行抓取：串行时国内源的超时会累加，CI 上可能要十几分钟
+    def fetch_one(src):
         t0 = time.time()
         got = collect_multi(src)
+        return src, got, int((time.time() - t0) * 1000)
+
+    with ThreadPoolExecutor(max_workers=min(8, max(1, len(sources)))) as pool:
+        pulled = list(pool.map(fetch_one, sources))
+
+    results, ok = [], []
+    for src, got, cost in pulled:
         for g in got:
-            g["ms"] = int((time.time() - t0) / max(1, len(got)))
+            g["ms"] = cost // max(1, len(got))
             results.append(g)
             if "cfg" in g:
                 ok.append(g)
         subs = [g for g in got if "cfg" in g]
-        print("[fetch] %-9s 子仓=%-2d 站点=%-4d %s" % (
+        print("[fetch] %-9s 子仓=%-2d 站点=%-4d %sms %s" % (
             src["id"], len(subs),
-            sum(len(g["cfg"].get("sites") or []) for g in subs),
-            "ok" if subs else (got[0].get("error", "empty") if got else "empty")[:70]))
+            sum(len(g["cfg"].get("sites") or []) for g in subs), cost,
+            "ok" if subs else (got[0].get("error", "empty") if got else "empty")[:60]))
 
     # 单仓快照 + 收集合并素材
     used_keys, seen_fp = set(), set()
