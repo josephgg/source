@@ -325,6 +325,88 @@ def fingerprint(site):
                          ext, site.get("type") or "")
 
 
+# 客户端 Site 模型的字段类型（FongMi/TV bean/Site.java）：
+#   String  : key name lang api ext jar click playUrl
+#   Integer : type hide indexs timeout searchable changeable quickSearch danmaku
+#   List    : categories
+#   Object  : header(Map<String,String>) style(Style)
+# Gson 是严格类型：ext 收到对象会抛异常。FongMi 用 try-catch 兜住，
+# 该站静默变成空站点；严格的客户端则整份配置解析中断 —— 站点列表为空，
+# 点播页全白。所以产物必须按这里的类型逐个归一化。
+STR_FIELDS = ("key", "name", "lang", "api", "ext", "jar", "click", "playUrl")
+INT_FIELDS = ("type", "hide", "indexs", "timeout", "searchable",
+              "changeable", "quickSearch", "danmaku")
+OBJ_FIELDS = ("header", "style")
+
+
+def _as_str(v):
+    if isinstance(v, str):
+        return v
+    if isinstance(v, (dict, list)):
+        # TVBox 生态的通行写法：ext 用 JSON 文本表示对象
+        return json.dumps(v, ensure_ascii=False, separators=(",", ":"))
+    return str(v)
+
+
+def _as_int(v):
+    if isinstance(v, bool):
+        return int(v)
+    if isinstance(v, int):
+        return v
+    if isinstance(v, float):
+        return int(v)
+    if isinstance(v, str):
+        try:
+            return int(float(v.strip()))
+        except Exception:
+            return None
+    return None
+
+
+def _as_obj(v):
+    if isinstance(v, dict):
+        return v
+    if isinstance(v, str):
+        s = v.strip()
+        if s.startswith("{"):
+            try:
+                o = json.loads(s)
+                return o if isinstance(o, dict) else None
+            except Exception:
+                return None
+    return None
+
+
+def normalize_site(site):
+    """把站点字段压成客户端声明接受的字面类型，非法值直接丢弃"""
+    out = {}
+    for k, v in site.items():
+        if v is None:
+            continue
+        if k in STR_FIELDS:
+            out[k] = _as_str(v)
+        elif k in INT_FIELDS:
+            iv = _as_int(v)
+            if iv is not None:
+                out[k] = iv
+        elif k == "categories":
+            if isinstance(v, list):
+                out[k] = [str(x) for x in v if x is not None]
+            elif isinstance(v, str) and v.strip():
+                out[k] = [x.strip() for x in v.split(",") if x.strip()]
+        elif k in OBJ_FIELDS:
+            ov = _as_obj(v)
+            if ov:
+                out[k] = ov
+        else:
+            out[k] = v
+    # type 缺失或客户端未定义（如 4）时按 api 形态回填，否则该站点了打不开
+    if out.get("type") not in (0, 1, 3):
+        api = out.get("api") or ""
+        out["type"] = 3 if api.startswith("csp_") else 1
+    return out
+
+
 def build_site(site, src, used_keys, seen_fp, stats, conf_build):
     api = (site.get("api") or "").strip()
     jar = (site.get("jar") or src.get("spider") or "").strip()
@@ -361,7 +443,7 @@ def build_site(site, src, used_keys, seen_fp, stats, conf_build):
     out["name"] = display
     if jar:
         out["jar"] = jar
-    return out
+    return normalize_site(out)
 
 
 # ---------------------------------------------------------------------------
@@ -601,9 +683,41 @@ def rank_sites(sites, prio_map, consensus, dead, alive=None):
     return scored
 
 
+def normalize_parse(p):
+    """Parse 模型同样严格：type 是 Integer，name/url 是 String，ext/header 是对象。
+    Parse.objectFrom 没有 try-catch，一个坏字段就会让 initParse 抛异常，
+    进而 parseConfig 整体失败 —— 表现就是点播页全空。"""
+    out = {}
+    for k, v in p.items():
+        if v is None:
+            continue
+        if k in ("name", "url", "click"):
+            out[k] = v if isinstance(v, str) else str(v)
+        elif k == "type":
+            iv = _as_int(v)
+            if iv is not None:
+                out[k] = iv
+        elif k in ("ext", "header"):
+            ov = _as_obj(v)
+            if ov:
+                out[k] = ov
+        elif k == "flag":
+            if isinstance(v, list):
+                out[k] = [str(x) for x in v if x is not None]
+        else:
+            out[k] = v
+    # 没有 type 的解析源客户端无从选择链路，留着也只是占位
+    return out if "type" in out else None
+
+
 def build_parses(all_parses, max_parses):
     by_key = {}
     for p in all_parses:
+        if not isinstance(p, dict):
+            continue
+        p = normalize_parse(p)
+        if not p:
+            continue
         k = "%s|%s" % (p.get("name") or "", p.get("url") or "")
         if k in by_key:
             by_key[k]["_n"] += 1
@@ -741,14 +855,18 @@ def main():
 
         # 单仓快照：保留原 key，仅做绝对化。多仓子仓不再单独出快照——
         # 它们多为镜像，产物价值低，但会让仓库体积按构建次数膨胀。
+        # 注意这里同样要走归一化：快照是给人直接填进 APP 的地址，
+        # 类型不合规在严格客户端上会整份配置加载失败。
         if bconf.get("emit_source_repo", True) and not src.get("parent"):
+            raw_sites = [s for s in (cfg.get("sites") or []) if isinstance(s, dict)]
+            raw_parses = [p for p in (cfg.get("parses") or []) if isinstance(p, dict)]
             snap = {
                 "spider": src.get("spider", ""),
                 "wallpaper": cfg.get("wallpaper", ""),
                 "logo": cfg.get("logo", ""),
                 "notice": cfg.get("notice", ""),
-                "sites": cfg.get("sites") or [],
-                "parses": cfg.get("parses") or [],
+                "sites": [x for x in (normalize_site(s) for s in raw_sites) if x],
+                "parses": [x for x in (normalize_parse(p) for p in raw_parses) if x],
                 "flags": cfg.get("flags") or [],
             }
             for extra in ("lives", "doh", "hosts", "rules", "headers", "proxy", "ads"):
@@ -842,8 +960,11 @@ def main():
             print("        确认要强制覆盖请设置 TVBOX_ALLOW_SHRINK=1")
             return 1
 
+    planned_src = set()
     for sid, snap in snapshots:
-        write_json(os.path.join(ROOT, "api", "src-%s.json" % sid), snap)
+        name = "src-%s.json" % sid
+        write_json(os.path.join(ROOT, "api", name), snap)
+        planned_src.add(name)
     write_json(os.path.join(ROOT, "api", "all.json"), merged)
 
     # 精选仓：按质量分取前 N，只留参与聚合搜索的站点——精选的意义就是「点开能搜到」
@@ -876,16 +997,38 @@ def main():
         })
     write_json(os.path.join(ROOT, "index.json"), index)
 
-    # 孤儿产物清理：本轮没写出的旧文件删掉，但「本轮抓取失败」的源保留上一轮快照。
-    # 上游抖动一次就把 src-xxx.json 删掉，等于把别人收藏的分仓地址变成 404。
-    written = {n for n in os.listdir(api_dir) if n.endswith(".json")}
+    # 孤儿产物清理（只针对 src-*）：
+    #   · 本轮已写出        → 跳过
+    #   · 本轮抓取失败      → 保留上一轮快照（上游抖动一次就把地址变成 404），
+    #                        并顺手做类型归一化，防止旧格式快照继续存在
+    #   · 源已从配置移除    → 删除
+    # 非 src- 前缀的文件一律不碰，避免误删 lite/index/status 等产物。
     failed_ids = {r["id"] for r in results if "cfg" not in r}
-    for name in sorted(old_names - written):
-        sid = name[len("src-"):-len(".json")] if name.startswith("src-") else None
-        if sid and sid in failed_ids:
-            print("[keep] 保留上一轮快照 %s（本次抓取失败）" % name)
+    for name in sorted(old_names):
+        if not name.startswith("src-") or not name.endswith(".json"):
             continue
-        os.remove(os.path.join(api_dir, name))
+        if name in planned_src:
+            continue
+        sid = name[len("src-"):-len(".json")]
+        path = os.path.join(api_dir, name)
+        if sid in failed_ids:
+            print("[keep] 保留上一轮快照 %s（本次抓取失败）" % name)
+            try:
+                with open(path, encoding="utf-8") as f:
+                    old = json.load(f)
+                old["sites"] = [x for x in (normalize_site(s) for s in (old.get("sites") or [])
+                                            if isinstance(s, dict)) if x]
+                old["parses"] = [x for x in (normalize_parse(p) for p in (old.get("parses") or [])
+                                             if isinstance(p, dict)) if x]
+                write_json(path, old)
+            except Exception as e:  # noqa: BLE001
+                print("       归一化失败，保留原样：%s" % str(e)[:60])
+            continue
+        try:
+            os.remove(path)
+            print("[clean] 删除孤儿快照 %s" % name)
+        except OSError as e:
+            print("[clean] 删除失败 %s：%s" % (name, e))
 
     # 状态与报告
     status = {
