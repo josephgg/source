@@ -8,3 +8,5 @@ venv/
 Thumbs.db
 tools/lives_dump.json
 *.bak
+# 壁纸原图（1.4MB PNG），只提交压缩后的 assets/wallpaper.webp
+assets/_raw/

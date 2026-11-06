@@ -822,6 +822,17 @@ def main():
         if lives:
             merged["lives"] = lives
 
+    # 固定输出值：覆盖各源自带的 name/notice/wallpaper/logo。
+    # 上面「取第一个非空」只是让 40 个源的公告不打架，内容仍随源站变；
+    # 想要自己的品牌就显式覆盖。留空字符串 = 删掉该字段（例如不要公告）。
+    ov = bconf.get("override") or {}
+    for k in ("name", "notice", "wallpaper", "logo"):
+        if k in ov:
+            if ov[k]:
+                merged[k] = ov[k]
+            else:
+                merged.pop(k, None)
+
     # 网络抖动时宁可保留旧产物，也不要把可用配置覆盖成残废版
     min_ratio = float(bconf.get("min_retain_ratio", 0.85))
     if old_sites and os.environ.get("TVBOX_ALLOW_SHRINK") != "1":

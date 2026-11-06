@@ -3,3 +3,12 @@ tvbox/** text eol=lf
 .github/** text eol=lf
 *.m3u text eol=lf
 *.json text eol=lf
+
+# 图片是二进制，不能走上面的 text 规则（后者匹配范围覆盖 tvbox/**）。
+# .gitattributes 里后写的规则优先生效，所以这几行必须放在最后。
+*.webp binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary

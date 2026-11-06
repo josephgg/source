@@ -86,6 +86,8 @@ tvbox/
 ├── api/src-<id>.json   各源单仓快照（排查用；某源本轮抓取失败时保留上一轮，
 │                       不会因上游抖动变成 404）
 ├── index.json          多仓索引（FongMi 只认第一条，TVBox 原版才有选择器）
+├── assets/wallpaper.webp  首页壁纸（1920×1080，约 27KB，被 override 引用）
+│                       原图不提交（.gitignore 里的 assets/_raw/）
 ├── status.json         机器可读构建状态
 ├── cms_alive.json      采集接口探活历史（7 天内成功过即视为可用，用于稳定排序）
 ├── report.md           人类可读构建报告
@@ -125,8 +127,9 @@ python build.py && python tools/validate.py
 
 | 键 | 默认 | 作用 |
 | --- | --- | --- |
-| `lite_size` | 150 | 精选仓站点数 |
+| `lite_size` | 160 | 精选仓站点数 |
 | `lite_per_source` | 3 | 精选仓每（顶层）源保底个数 |
+| `override` | 无 | 固定 `name` / `notice` / `wallpaper` / `logo`，覆盖各源自带的值；写空串等于删掉该字段 |
 | `probe_spider` | true | 构建时探活 jar/js 爬虫文件，404/410 的站点移出聚合搜索并沉底 |
 | `probe_cms` | true | 构建时探活 CMS 采集接口（`api?ac=list`），通了的加分 |
 | `cms_timeout` | 12 | CMS 探活超时（秒） |
