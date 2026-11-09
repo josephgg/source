@@ -428,6 +428,36 @@
       "enabled": true,
       "timeout": 40,
       "note": "多仓；来自 laoma528/awesome-zhuiju-free"
+    },
+    {
+      "id": "np-tp",
+      "name": "tvbox-probe 精选",
+      "tag": "探针",
+      "url": "https://raw.githubusercontent.com/Daiwangyang/tvbox-probe/main/my.json",
+      "priority": 140,
+      "enabled": true,
+      "timeout": 40,
+      "note": "第三方筛选仓：65 种子展开 400 候选，播放实测按延迟排序；来自 Daiwangyang/tvbox-probe"
+    },
+    {
+      "id": "np-ysc",
+      "name": "ysc-api 聚合",
+      "tag": "云镜",
+      "url": "https://raw.githubusercontent.com/fengzhiku123/ysc-api/main/fongmi.json",
+      "priority": 141,
+      "enabled": true,
+      "timeout": 40,
+      "note": "以网盘/秒播类 csp 站为主，自带 spider jar；来自 fengzhiku123/ysc-api"
+    },
+    {
+      "id": "np-hotel",
+      "name": "酒店电视",
+      "tag": "酒店",
+      "url": "https://raw.githubusercontent.com/huangshaoze37-tech/hotel-tv/main/tvbox.json",
+      "priority": 142,
+      "enabled": true,
+      "timeout": 40,
+      "note": "8 个 CMS 采集站，与主流站重复度高，去重后增量有限；来自 huangshaoze37-tech/hotel-tv"
     }
   ]
 }

@@ -127,5 +127,10 @@ def parse_cfg(text):
             obj = _loads_tolerant(body)
             if isinstance(obj, (dict, list)):
                 return obj
-    head = text[:100].replace("\n", " ")
-    raise ValueError("not json | head=%s" % head)
+    # 报错片段要能安全写进 report.md：非可打印字符（NUL、控制符、二进制）一律折成 "."
+    raw = text[:100].replace("\n", " ").replace("\r", " ")
+    head = "".join(ch if ch.isprintable() else "." for ch in raw)
+    kind = "（返回的是图片/二进制，不是配置）" if (
+        text[:3] == "\xff\xd8\xff" or text[:3] in ("GIF", "\x89PN") or "<html" in text[:200].lower()
+    ) else ""
+    raise ValueError("not json%s | head=%s" % (kind, head))

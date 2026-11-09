@@ -401,9 +401,14 @@ def normalize_site(site):
         else:
             out[k] = v
     # type 缺失或客户端未定义（如 4）时按 api 形态回填，否则该站点了打不开
+    api = out.get("api") or ""
     if out.get("type") not in (0, 1, 3):
-        api = out.get("api") or ""
         out["type"] = 3 if api.startswith("csp_") else 1
+    elif out.get("type") == 0 and "xml" not in api.lower():
+        # type=0 表示 XML 接口，但部分仓把 CMS JSON 接口也标成了 0（实测这些 api
+        # 返回 code/class/list 的 JSON，按 0 去解析会整站白屏）。
+        # 真 XML 接口的路径一定带 /at/xml，据此区分：带 xml 的保持 0，其余改 1。
+        out["type"] = 1
     return out
 
 
