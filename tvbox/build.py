@@ -19,6 +19,7 @@
    家族的站点可以共存于一个配置；每个站点必须显式写 jar（源仓顶层 spider
    不会跨源继承）。
 """
+import hashlib
 import json
 import os
 import re
@@ -665,6 +666,95 @@ def cms_probe(sites, timeout=12, workers=16):
 
 
 ALIVE_FILE = os.path.join(ROOT, "cms_alive.json")
+SEARCH_Q_FILE = os.path.join(ROOT, "search_quality.json")
+
+
+def load_search_quality():
+    """读 tools/probe_search.py 的实测结果。没测过就返回空，不影响构建。"""
+    try:
+        with open(SEARCH_Q_FILE, encoding="utf-8") as f:
+            raw = json.load(f)
+    except Exception:  # noqa: BLE001
+        return {}
+    return {k: v for k, v in raw.items()
+            if not k.startswith("_") and isinstance(v, dict)}
+
+
+def api_norm(site):
+    """API 归一化，用来跨源认出「同一个后端」。
+
+    同一个 CMS 后端常被几十个源收录，key 和 api 写法各不相同
+    （尾斜杠、?ac=list、http/https、from/xxx 后缀）。只按 key 匹配，
+    质检结论只覆盖到实际测过的那一个入口，其余几十个照样在搜索里捣乱。
+    """
+    api = (site.get("api") or "").split(";")[0].strip()
+    if not api.startswith("http"):
+        return api
+    try:
+        p = urllib.parse.urlsplit(api)
+    except Exception:  # noqa: BLE001
+        return api
+    path = p.path.rstrip("/")
+    # /from/snm3u8、/at/xml 是同一后端的线路变体，不是另一个库
+    path = re.sub(r"/(from|at)/[^/]+$", "", path)
+    return "%s%s" % ((p.hostname or "").lower(), path)
+
+
+def apply_search_quality(sites, sq, block_hosts=()):
+    """按实测结果处置站点。
+
+    聚合搜索会把所有 searchable 的站点并发发出去，配置层面只有三种处置：
+      · 接口返回 HTML/脚本的站，客户端搜一百次也是空 → searchable=0
+      · 不认 wd、回整库列表的站，用户看到「搜什么都一堆不相关」→ searchable=0
+      · 相关性差但还能用的站 → quickSearch=0（不进首页快速搜索，完整搜索保留）
+
+    成人内容站直接剔除，并按域名记住，避免上游换个 key 又回来。
+    匹配口径：key 精确匹配 → API 归一化匹配（覆盖同后端的其他入口）。
+    """
+    by_norm = {}
+    for r in sq.values():
+        api = r.get("api") or ""
+        if api:
+            by_norm.setdefault(api_norm({"api": api}), r)
+
+    def rec_of(site):
+        return sq.get(site.get("key")) or by_norm.get(api_norm(site))
+
+    hosts = tuple(h.lower() for h in block_hosts if h)
+    # 本地回环地址：这类站靠用户自己电脑上跑的代理程序工作（api 形如
+    # http://127.0.0.1:10079/p/0/proxy/<真实地址>），装到手机/盒子上必然打不开。
+    # 而且它们和正常站重复（PG·暴風 == 暴风），留着只会白占搜索线程。
+    local = ("127.0.0.1", "localhost", "0.0.0.0", "[::1]")
+    drop, n_adult, n_host, n_local, n_off, n_quick = set(), 0, 0, 0, 0, 0
+    for s in sites:
+        api = (s.get("api") or "").lower()
+        r = rec_of(s)
+        act = (r or {}).get("action")
+        if act == "adult":
+            drop.add(s["key"])
+            n_adult += 1
+            continue
+        if any(h in api for h in local):
+            drop.add(s["key"])
+            n_local += 1
+            continue
+        if hosts and any(h in api for h in hosts):
+            drop.add(s["key"])
+            n_host += 1
+            continue
+        if not r:
+            continue
+        if act == "disable":
+            s["searchable"] = 0
+            s["quickSearch"] = 0
+            n_off += 1
+        elif act == "quick_off":
+            s["quickSearch"] = 0
+            n_quick += 1
+    if drop:
+        sites[:] = [s for s in sites if s["key"] not in drop]
+    return {"adult": n_adult, "host": n_host, "local": n_local,
+            "off": n_off, "quick": n_quick}
 
 
 def load_alive():
@@ -917,7 +1007,7 @@ def lite_name(cat, brand):
 
 
 def pick_lite(sites, size, per_source=5, bucket_of=None, alive=None,
-              quota=None, tags=None):
+              quota=None, tags=None, sq=None):
     """精选仓选站：一个资源库只留一个入口、按类目配额铺开、名字统一重写。
 
     与 all.json 的分工：all.json 保留「源前缀·原名」便于溯源排查，
@@ -925,16 +1015,31 @@ def pick_lite(sites, size, per_source=5, bucket_of=None, alive=None,
 
     选站顺序：质量序 → 同类目不超过配额 → 同一顶层源不超过 per_source。
     某库的最佳代表因单源上限进不来时，自动换用该库下一个来源的代表 ——
-    否则会出现「最好的库被同作者的系列站挤掉」这种反直觉结果。"""
+    否则会出现「最好的库被同作者的系列站挤掉」这种反直觉结果。
+
+    sq 是 tools/probe_search.py 的实测结果。域名不同的站可能挂着同一个内容库
+    （实测有 8 个站搜同一关键词返回一模一样的 8 条），只靠 lib_key 分不出来，
+    所以再用「搜索结果指纹」兜一层：指纹相同的只留一个入口。"""
     alive = alive or {}
     quota = quota or CATEGORY_QUOTA
     bucket_of = bucket_of or {}
     tags = tags or set()
+    sq = sq or {}
     order = {id(s): i for i, s in enumerate(sites)}
 
     def top_of(s):
         sid = s["key"].split("_")[0]
         return bucket_of.get(sid, sid)
+
+    def search_sig(key):
+        """同关键词下返回完全相同的标题集合 → 同一个内容库的不同外壳。"""
+        r = sq.get(key)
+        if not r:
+            return None
+        t = r.get("titles1") or []
+        if len(t) < 5:
+            return None
+        return hashlib.md5("\n".join(sorted(t)).encode("utf-8")).hexdigest()[:12]
 
     seen_b, cand = set(), []
     for s in sites:
@@ -948,7 +1053,8 @@ def pick_lite(sites, size, per_source=5, bucket_of=None, alive=None,
                 continue
             seen_b.add(brand.lower())
         cand.append({"site": s, "cat": cat, "brand": brand,
-                     "named": named, "top": top_of(s)})
+                     "named": named, "top": top_of(s),
+                     "sig": search_sig(s["key"])})
 
     libs = {}
     for c in cand:
@@ -959,7 +1065,7 @@ def pick_lite(sites, size, per_source=5, bucket_of=None, alive=None,
                     key=lambda v: (not v[0]["named"], order[id(v[0]["site"])]))
 
     caps = {c: max(1, round(size * quota.get(c, 0.02))) for c in CAT_ORDER}
-    out, used, filled, seen_lib = [], {}, {}, set()
+    out, used, filled, seen_lib, seen_sig = [], {}, {}, set(), set()
     stem = {}
 
     def take(group, lib, relax_cat=False, relax_src=False):
@@ -974,10 +1080,14 @@ def pick_lite(sites, size, per_source=5, bucket_of=None, alive=None,
                 continue
             if relax_cat and not c["named"]:
                 continue
+            if c["sig"] and c["sig"] in seen_sig:
+                continue
             k = (c["cat"], c["brand"][:2])
             if stem.get(k, 0) >= 3:  # 同一作者的系列站（分享U酷/分享最大…）最多 3 个
                 continue
             seen_lib.add(lib)
+            if c["sig"]:
+                seen_sig.add(c["sig"])
             out.append(c)
             used[c["top"]] = used.get(c["top"], 0) + 1
             filled[c["cat"]] = filled.get(c["cat"], 0) + 1
@@ -1275,7 +1385,10 @@ def main():
             print("[probe] 跳过：%s" % e)
     for s in merged_sites:
         if is_dead(s, dead) and is_searchable(s):
-            s["searchable"] = 2
+            # 必须是 0：客户端按 searchable != 0 判断能否搜索，
+            # 原来写 2 等于「照样参与聚合搜索」，只会占并发、拖慢并污染结果
+            s["searchable"] = 0
+            s["quickSearch"] = 0
             demoted += 1
     if bconf.get("probe_spider", True):
         print("[probe] 爬虫文件 %d/%d 失效，%d 个站点移出聚合搜索"
@@ -1299,6 +1412,17 @@ def main():
                   % (alive_now, n_cms, denied_now, len(alive)))
         except Exception as e:  # noqa: BLE001
             print("[probe] CMS 探活跳过：%s" % e)
+
+    # 搜索质量实测（tools/probe_search.py）：关掉搜不到/搜不准的站，剔除成人内容
+    sq = load_search_quality()
+    if sq:
+        st = apply_search_quality(merged_sites, sq, bconf.get("block_hosts") or [])
+        print("[search] 实测 %d 站：剔除 %d（成人 %d / 域名黑名单 %d / 本机代理 %d），"
+              "关搜索 %d，仅关快速搜索 %d"
+              % (len(sq), st["adult"] + st["host"] + st["local"],
+                 st["adult"], st["host"], st["local"], st["off"], st["quick"]))
+    else:
+        st = {"adult": 0, "host": 0, "local": 0, "off": 0, "quick": 0}
 
     # 质量排序：首页取第一个站点，站点列表与搜索也按这个顺序
     ranked = rank_sites(merged_sites, prio_map, consensus, dead, alive)
@@ -1359,7 +1483,7 @@ def main():
     tags = {s.get("tag") for s in sources} | {s.get("name") for s in sources}
     lite_sites = pick_lite([s for s in merged_sites if is_searchable(s)],
                            lite_size, int(bconf.get("lite_per_source", 5)),
-                           bucket_of, alive, tags=tags)
+                           bucket_of, alive, tags=tags, sq=sq)
     lite = {k: v for k, v in merged.items() if k != "sites"}
     lite["sites"] = lite_sites
     write_json(os.path.join(ROOT, "api", "lite.json"), lite)
@@ -1435,6 +1559,7 @@ def main():
         "total_lives": len(merged.get("lives") or []),
         "lite_sites": len(lite_sites),
         "searchable_sites": len([s for s in merged_sites if is_searchable(s)]),
+        "search_quality": st,
         "dead_spider_files": len(dead),
         "demoted_sites": demoted,
         "cms_probed": n_cms,
@@ -1509,6 +1634,13 @@ def write_report(status, merged, sources, top=None, demoted=0):
     lines.append("| 直播源数量 | %d |" % status["total_lives"])
     lines.append("| 跨源去重丢弃 | %d |" % status["stats"]["dup"])
     lines.append("| 爬虫文件失效 | %d |" % status.get("dead_spider_files", 0))
+    sqs = status.get("search_quality") or {}
+    if sqs:
+        lines.append("| 搜索实测：关搜索 | %d |" % sqs.get("off", 0))
+        lines.append("| 搜索实测：仅关快速搜索 | %d |" % sqs.get("quick", 0))
+        lines.append("| 剔除：成人内容 | %d |" % sqs.get("adult", 0))
+        lines.append("| 剔除：域名黑名单 | %d |" % sqs.get("host", 0))
+        lines.append("| 剔除：本机代理地址 | %d |" % sqs.get("local", 0))
     lines.append("")
     lines.append("## 各源状态\n")
     lines.append("| 源 | 站点 | 新增 | 耗时 | 状态 |")

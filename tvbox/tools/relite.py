@@ -46,8 +46,14 @@ def main():
         for i in range(1, 60):
             bucket["%s%d" % (top, i)] = top
 
-    sites = [s for s in allconf["sites"] if build.is_searchable(s)]
-    picked = build.pick_lite(sites, size, per, bucket, alive, tags=tags)
+    # 与 build.py 一致：先按搜索实测处置（关搜索 / 剔除成人与本机代理站），
+    # 再做选站，否则预览结果会包含构建时实际不会出现的站点
+    sites = [dict(s) for s in allconf["sites"]]
+    build.apply_search_quality(sites, build.load_search_quality(),
+                               (conf.get("build") or {}).get("block_hosts") or [])
+    sites = [s for s in sites if build.is_searchable(s)]
+    picked = build.pick_lite(sites, size, per, bucket, alive, tags=tags,
+                             sq=build.load_search_quality())
 
     cats = Counter(s["name"].split("·")[0] for s in picked)
     print("全量 %d / 可搜 %d → 精选 %d" % (len(allconf["sites"]), len(sites), len(picked)))

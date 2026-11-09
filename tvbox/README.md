@@ -91,6 +91,8 @@ tvbox/
 ├── tools/mix_lives_ext.py  独立分发 m3u（IPTV 生成类项目）合并工具
 ├── tools/verify_schema.py  按客户端模型逐字段校验产物，防「一个字段类型错整份配置作废」
 ├── tools/relite.py     离线预览精选仓（直接复用 build.py 的规则，不用重新抓源）
+├── tools/probe_search.py   实测各站搜索质量：命中率 / wd 是否生效 / 成人内容
+├── search_quality.json 搜索实测结果（构建时按它决定关搜索 / 关快速搜索 / 剔除）
 ├── api/lite.json       精选仓（一库一入口 + 类目配额 + 站名重写）
 ├── api/all.json        总聚合仓（全部站点，按质量分排序）
 ├── api/src-<id>.json   各源单仓快照（排查用；某源本轮抓取失败时保留上一轮，
@@ -192,6 +194,35 @@ python tools/mix_lives_ext.py --write --probe-limit 700    # 探活后增量追�
 | `lives` | 合并去重，最多 12 个 |
 | `ads` | 默认不合并（各家正则强度不一，混用容易误杀），需要时把 `build.merge_ads` 改成 `true` |
 | `wallpaper` / `notice` | 取第一个可用源 |
+
+## 聚合搜索质量
+
+聚合搜索是把**所有 `searchable` 的站点并发发出去**，结果按站点分组呈现。所以「搜出来乱、不匹配」几乎都不是客户端的问题，而是混进了几类坏站点：
+
+| 现象 | 根因 | 处置 |
+| --- | --- | --- |
+| 搜什么都返回一堆无关内容 | 站点不认 `wd` 参数，直接回整库/热播列表 | `searchable: 0` |
+| 同一批结果重复十几遍 | 不同域名挂着同一个内容库（实测 8 个站搜「庆余年」返回**一模一样**的 8 条） | 搜索指纹去重，精选仓只留一个入口 |
+| 搜出来是网页或一片空白 | 搜索接口已返回 HTML（域名被劫持、CF 挑战）或明确提示「暂不支持搜索」 | `searchable: 0`，浏览保留 |
+| 结果里混进成人内容 | 上游把成人站塞进了影视库 | 整站剔除 + 域名黑名单 |
+| 站点点开就报错 | `api` 指向 `127.0.0.1:10079/p/0/proxy/...`，靠本机代理程序工作 | 整站剔除 |
+
+判定不靠猜，由 `tools/probe_search.py` 实测：用两个语义无关的词（庆余年 / 熊出没）各搜一次，看四个指标——
+
+- **命中率**：标题真的含关键词的比例。低于 70% 说明塞了大量无关结果 → 只关快速搜索（`quickSearch: 0`），完整搜索保留
+- **两次结果重合度**：≥ 50% 说明 `wd` 根本没生效、返回的是固定列表 → 关搜索
+- **是不是 JSON**：不是 JSON 说明客户端也解析不了 → 关搜索
+- **成人特征词**：命中即剔除
+
+```bash
+cd tvbox
+python tools/probe_search.py                            # 测 api/lite.json，写 search_quality.json
+python tools/probe_search.py --file api/all.json --workers 16
+```
+
+构建时自动读 `search_quality.json`：`disable` / `quick_off` / `adult` 三种动作分别处置；`build.block_hosts` 里的域名无条件剔除（换 key 也拦得住）。
+
+**一个后端只认一个入口**：同一个 CMS 后端常被几十个源收录，key 和 api 写法各不相同（尾斜杠、`?ac=list`、`/from/xxx`）。质检结论先按 `key` 精确匹配，再用 `api_norm()` 归一化匹配，覆盖同后端的其他入口——否则只关掉测过的那一个，剩下几十个照样在搜索里捣乱。
 
 ## 已知限制
 
