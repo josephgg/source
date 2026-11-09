@@ -484,8 +484,14 @@ def is_searchable(site):
     return (1 if v is None else v) == 1
 
 
-def quality_score(site, priority, consensus, dead, alive=False):
-    """返回 (分数, 说明)。分数越高越靠前。"""
+def quality_score(site, priority, consensus, dead, alive=False, probe=None):
+    """返回 (分数, 说明)。分数越高越靠前。
+
+    probe 是该站点的探活记录 {"ms","code","cls"}，来自 cms_probe。
+    它让「能不能用、多快」从布尔升级为连续值：
+      · 通的按耗时加分（越快越高）
+      · 明确拒绝(403/401/402) 降权 —— 这类站点在客户端点进去必然空白
+      · 超时/5xx/非JSON 不评分（海外 runner 网络差异，不能误杀）"""
     kind = api_kind(site)
     jar = (site.get("jar") or "").split(";")[0].strip()
     why = []
@@ -525,9 +531,27 @@ def quality_score(site, priority, consensus, dead, alive=False):
     if dead:
         base -= 80
         why.append("死链-80")
+    elif probe is not None and probe.get("code") == "denied":
+        base -= 30
+        why.append("被拒-30")
     elif alive:
         base += 20
         why.append("接口通+20")
+        # 响应速度：把「通」从布尔细化为梯度。1s 内体感即时，3s 以上明显拖慢搜索
+        ms = probe.get("ms") if probe else None
+        if isinstance(ms, int) and ms > 0:
+            if ms < 800:
+                base += 6
+                why.append("极速+6")
+            elif ms < 1500:
+                base += 3
+                why.append("较快+3")
+            elif ms > 3000:
+                base -= 8
+                why.append("很慢-8")
+            elif ms > 2000:
+                base -= 4
+                why.append("偏慢-4")
 
     # 源优先级做细调，避免同分时顺序随机
     base += max(0, 100 - int(priority if priority is not None else 100)) / 20.0
@@ -581,11 +605,14 @@ def is_dead(site, dead):
     return False
 
 
-def cms_alive(sites, timeout=12, workers=16):
+def cms_probe(sites, timeout=12, workers=16):
     """探活 CMS 采集接口（api?ac=list，返回带 class 的 JSON 视为可用）。
 
-    只用于「加分」，不通不扣分：GitHub 海外 runner 连不上国内域名时，
-    结果会退化成纯启发式排序，而不是把可用站点误杀。"""
+    返回 (info, probed)，info = {key: {"ms": 耗时, "code": 状态, "cls": [分类]}}：
+      · 通的记录毫秒数与分类清单，用于速度分与类目识别
+      · code: "ok" 通 / "denied" 明确拒绝(403/401/402) / "bad" 其他失败(超时/5xx/非JSON)
+    「denied」才降权，「bad」中性 —— GitHub 海外 runner 连不上国内域名时，
+    结果退化成纯启发式排序，而不是把可用站点误杀。"""
     cand = [s for s in sites
             if (s.get("api") or "").startswith("http")
             and not (s["api"].endswith(".js") or ".js?" in s["api"])]
@@ -593,91 +620,297 @@ def cms_alive(sites, timeout=12, workers=16):
     def one(s):
         api = s["api"]
         u = api if "ac=" in api else api + ("&" if "?" in api else "?") + "ac=list"
+        t0 = time.time()
         try:
             req = urllib.request.Request(u, headers={
                 "User-Agent": UA, "Accept-Encoding": "identity"})
             with urllib.request.urlopen(req, timeout=timeout, context=CTX) as r:
                 body = r.read(65536)
+            ms = int((time.time() - t0) * 1000)
             txt = body.decode("utf-8", "replace").strip()
             if not txt.startswith(("{", "[")):
-                return s["key"], False
+                return s["key"], None
             data = json.loads(txt)
             cls = data.get("class") or (data.get("data") or {}).get("class") or []
-            return s["key"], bool(cls)
+            if not isinstance(cls, list):
+                cls = []
+            names = []
+            for c in cls:
+                if isinstance(c, dict):
+                    n = c.get("type_name") or c.get("name")
+                    if n:
+                        names.append(str(n))
+            if not cls and not data.get("list"):
+                return s["key"], None
+            return s["key"], {"ms": ms, "code": "ok", "cls": names[:24]}
+        except urllib.error.HTTPError as e:
+            if e.code in (401, 402, 403):
+                return s["key"], {"ms": int((time.time() - t0) * 1000),
+                                  "code": "denied", "cls": []}
+            return s["key"], None
         except Exception:  # noqa: BLE001
-            return s["key"], False
+            return s["key"], None
 
-    alive = set()
+    info = {}
     with ThreadPoolExecutor(max_workers=workers) as pool:
-        for key, ok in pool.map(one, cand):
-            if ok:
-                alive.add(key)
-    return alive, len(cand)
+        for key, rec in pool.map(one, cand):
+            if rec:
+                info[key] = rec
+    return info, len(cand)
 
 
 ALIVE_FILE = os.path.join(ROOT, "cms_alive.json")
 
 
 def load_alive():
+    """读取历史探活。兼容两种格式：旧的 {key: ts}，新的 {key: {ts,ms,code,cls}}。"""
     try:
         with open(ALIVE_FILE, encoding="utf-8") as f:
-            return {k: int(v) for k, v in json.load(f).items()}
+            raw = json.load(f)
     except Exception:  # noqa: BLE001
         return {}
-
-
-def merge_alive(hist, now_ok, ttl_days=7):
-    """把本轮探通的时间戳并入历史，返回 (TTL 内仍算可用的集合, 新历史)。
-
-    本地与 GitHub 海外 runner 的网络差别很大，只认单轮结果会让首页源在
-    两次构建之间来回跳；七天内成功过一次就继续算可用。"""
-    now = int(time.time())
-    for k in now_ok:
-        hist[k] = now
-    ttl = int(ttl_days) * 86400
-    hist = {k: ts for k, ts in hist.items() if now - int(ts) <= ttl}
-    return set(hist), hist
-
-
-def pick_lite(sites, size, per_source=8, bucket_of=None):
-    """精选仓选站：先给每个（顶层）源保底 per_source 个（按质量序），剩余按分数补满。
-
-    只按分数取会让采集站多的源霸榜、整源消失（实测高天源被挤到 0 个），
-    切到精选仓时会像少了半套资源。bucket_of 把多仓子仓归到父源，
-    否则一个 54 子仓的源会吃满 54 份配额。"""
-    order = {id(s): i for i, s in enumerate(sites)}
-    bucket_of = bucket_of or {}
-    buckets = {}
-    for s in sites:
-        sid = s["key"].split("_")[0]
-        sid = bucket_of.get(sid, sid)
-        bucket = buckets.setdefault(sid, [])
-        if len(bucket) < per_source:
-            bucket.append(id(s))
-    keep = {k for v in buckets.values() for k in v}
-    out = [s for s in sites if id(s) in keep]
-    # 保底优先：源多时 per_source*源数 可能超过 size，此时宁可超出也不裁掉整源
-    if len(out) >= size:
-        return out
-    for s in sites:
-        if len(out) >= size:
-            break
-        if id(s) not in keep:
-            keep.add(id(s))
-            out.append(s)
-    out.sort(key=lambda s: order[id(s)])
+    out = {}
+    for k, v in raw.items():
+        if isinstance(v, dict):
+            out[k] = v
+        else:
+            try:
+                out[k] = {"ts": int(v), "ms": None, "code": "ok", "cls": []}
+            except Exception:  # noqa: BLE001
+                continue
     return out
 
 
+def merge_alive(hist, now_info, ttl_days=7):
+    """把本轮探活并入历史，返回 (TTL 内仍算可用的记录, 新历史)。
+
+    本地与 GitHub 海外 runner 的网络差别很大，只认单轮结果会让首页源在
+    两次构建之间来回跳；七天内成功过一次就继续算可用。denied 不写入历史——
+    403 是上游明确拒绝，下次构建会重新探，不该因为曾经活着就一直加分。"""
+    now = int(time.time())
+    for k, rec in now_info.items():
+        if rec.get("code") == "ok":
+            hist[k] = {"ts": now, "ms": rec.get("ms"),
+                       "code": "ok", "cls": rec.get("cls") or []}
+    ttl = int(ttl_days) * 86400
+    hist = {k: v for k, v in hist.items()
+            if now - int(v.get("ts", 0)) <= ttl}
+    return hist, hist
+
+
+# ---------------------------------------------------------------------------
+# 精选仓：源保底 + 类目配额 + 同库去重
+#
+# 旧逻辑只做「每源保底 + 分数补满」，结果是电影/剧集采集站霸榜（77/160），
+# 综艺/纪录片/音乐整类缺席，且同一资源库（百度/索尼/非凡…）在 40 个源的
+# 保底位里反复出现。改为三层：
+#   1. 类目识别：优先用 CMS 接口返回的真实分类清单，其次按名字关键词
+#   2. 同库去重：同一后端资源库（按 api 域名）在精选里只留分数最高的一个，
+#      避免「拾光·非凡」「老刘·非凡」这种换皮入口占名额
+#   3. 配额挑选：每个顶层源保底 N 个保覆盖，再按类目配额补到 size，
+#      保证电影/剧集为主力的同时，每个内容类型都有代表
+# ---------------------------------------------------------------------------
+
+# 类目配额：精选仓的内容构成。键是类目，值是目标占比（合计 ~1.0）。
+# 主流影视占大头，小众类型保底——这是「覆盖全」与「精简」的折中。
+CATEGORY_QUOTA = {
+    "电影剧集": 0.40,
+    "短剧":     0.10,
+    "动漫":     0.10,
+    "综艺":     0.07,
+    "4K蓝光":   0.08,
+    "纪录片":   0.05,
+    "音乐MV":   0.05,
+    "戏曲":     0.04,
+    "少儿":     0.04,
+    "其他":     0.07,
+}
+
+# 类目识别关键词：命中即归该类。顺序即优先级，前面的先匹配。
+_CATEGORY_RULES = [
+    ("4K蓝光",  ("4K", "4k", "蓝光", "BluRay", "蓝光4K", "杜比")),
+    ("短剧",    ("短剧", "微剧", "竖屏剧", "爽剧")),
+    ("动漫",    ("动漫", "动画", "番剧", "二次元", "哔哩", "B站", "bilibili",
+                 "国漫", "日漫", "卡通")),
+    ("综艺",    ("综艺", "真人秀", "脱口秀")),
+    ("纪录片",  ("纪录", "纪实", "探索发现")),
+    ("音乐MV",  ("音乐", "MV", "mv", "🎶", "🎵", "演唱会", "歌曲", "乐库")),
+    ("戏曲",    ("戏曲", "戏剧", "京剧", "豫剧", "越剧", "黄梅戏", "评剧", "秦腔")),
+    ("少儿",    ("少儿", "儿童", "启蒙", "幼儿", "早教", "kid")),
+    ("电影剧集", ("电影", "电视剧", "剧集", "影视", "采集", "资源", "片库",
+                  "影院", "剧场", "美剧", "韩剧", "日剧", "港剧", "国产剧",
+                  "新片", "在线", "视频", "高清")),
+]
+
+
+def site_category(site, alive=None):
+    """判定站点的内容类目。
+
+    首选 CMS 接口返回的真实分类清单（构建期探活已抓到），比名字关键词准：
+    一个名叫「XX采集」的站，分类清单里有「动漫/综艺」就说明它真实覆盖这些。
+    名字关键词作为兜底（探活未通过的站没有清单）。"""
+    alive = alive or {}
+    rec = alive.get(site.get("key"))
+    cls = rec.get("cls") if isinstance(rec, dict) else None
+    if cls:
+        joined = " ".join(str(c) for c in cls)
+        # 分类清单按「小众优先」：有动漫/综艺/纪录/戏曲/少儿 就归小众，
+        # 否则归泛影视。清单存在时以清单为准 —— 名字里的「4K」只是宣传词。
+        for cat, words in _CATEGORY_RULES:
+            if cat in ("电影剧集", "4K蓝光"):
+                continue
+            if any(w in joined for w in words):
+                return cat
+        # 清单里明确有 4K/蓝光专区才认这个类目，否则按泛影视
+        if any(w in joined for w in ("4K", "蓝光", "BluRay")):
+            return "4K蓝光"
+        return "电影剧集"
+    name = site.get("name") or ""
+    for cat, words in _CATEGORY_RULES:
+        if any(w in name for w in words):
+            return cat
+    return "其他"
+
+
+def lib_key(site):
+    """站点的「资源库」身份：同一后端库只留一个入口。
+
+    主流 CMS 采集站的后端就是它的 api 域名（百度/索尼/非凡…一个域名一个库），
+    不同仓收录的只是换皮入口。规则：去掉常见功能性子域（www/api/cj/…），
+    剩下的主机名作为库标识 —— 不能粗暴取「最后两段」，否则 example.com 这种
+    会把不同子域的不同库误并成一个。"""
+    api = (site.get("api") or "").split(";")[0].strip()
+    if not api.startswith("http"):
+        return api  # csp_/py_ 等按原样，不做库归并
+    try:
+        host = urllib.parse.urlsplit(api).hostname or ""
+    except Exception:  # noqa: BLE001
+        return api
+    # 只剥离功能性前缀，保留能区分不同库的主机名主体
+    for pre in ("www.", "api.", "cj.", "cms.", "vod.", "zy.", "m."):
+        if host.startswith(pre):
+            host = host[len(pre):]
+            break
+    return host
+
+
+def pick_lite(sites, size, per_source=3, bucket_of=None, alive=None,
+              quota=None):
+    """精选仓选站：源保底保覆盖 + 类目配额保均衡 + 同库去重保精简。
+
+    步骤：
+      1. 同库去重：每个资源库只留质量序最高的一个站点
+      2. 类目标注：用探活分类清单或名字关键词给每个站点打类目标签
+      3. 源保底：每个顶层源取质量序前 per_source 个（不整源消失）
+      4. 类目配额：剩余名额按 CATEGORY_QUOTA 分配，类目内按质量序补齐
+    保底优先于总额：源多时可能超出 size，此时宁可超出也不裁掉整源。"""
+    alive = alive or {}
+    quota = quota or CATEGORY_QUOTA
+    bucket_of = bucket_of or {}
+    order = {id(s): i for i, s in enumerate(sites)}
+
+    # 1. 同库去重：sites 已按质量分降序，先出现的即该库最优
+    seen_lib = set()
+    dedup = []
+    for s in sites:
+        lk = lib_key(s)
+        if lk in seen_lib:
+            continue
+        seen_lib.add(lk)
+        dedup.append(s)
+
+    # 2. 类目标注
+    cat_of = {id(s): site_category(s, alive) for s in dedup}
+
+    # 3. 源保底：每个顶层源取 per_source 个。但不做「纯按质量序取前 N」——
+    #    那样会把源里唯一覆盖小众类目（动漫/综艺/纪录）的站点挤出保底位。
+    #    改为「先各源取第 1 名保在线，再在源内优先选能补全局类目缺口的」。
+    picked = set()
+    out = []
+    by_src = {}
+    for s in dedup:
+        sid = s["key"].split("_")[0]
+        sid = bucket_of.get(sid, sid)
+        by_src.setdefault(sid, []).append(s)
+
+    # 3a. 每源先锁第 1 名（质量序最高，保证这个源在精选里有代表）
+    for sid, lst in by_src.items():
+        if lst:
+            picked.add(id(lst[0]))
+            out.append(lst[0])
+
+    # 3b. 剩余保底名额：源内优先选「能补全局缺口类目」的站点
+    target = {c: max(1, round(size * w)) for c, w in quota.items()}
+    have = {}
+    for s in out:
+        c = cat_of[id(s)]
+        have[c] = have.get(c, 0) + 1
+    for sid, lst in by_src.items():
+        for s in lst[1:]:
+            if sum(1 for x in lst if id(x) in picked) >= per_source:
+                break
+            c = cat_of[id(s)]
+            # 优先选那些「全局还没铺满」的类目站点
+            if have.get(c, 0) < target.get(c, 1):
+                picked.add(id(s))
+                out.append(s)
+                have[c] = have.get(c, 0) + 1
+    # 3c. 还有源没填满保底（全是泛影视类），按质量序补
+    for sid, lst in by_src.items():
+        for s in lst:
+            if sum(1 for x in lst if id(x) in picked) >= per_source:
+                break
+            if id(s) not in picked:
+                picked.add(id(s))
+                out.append(s)
+                c = cat_of[id(s)]
+                have[c] = have.get(c, 0) + 1
+
+    # 4. 类目配额补满
+    if len(out) < size:
+        remaining = [s for s in dedup if id(s) not in picked]
+        while len(out) < size:
+            deficit = sorted(((target.get(c, 0) - have.get(c, 0), c)
+                              for c in target), reverse=True)
+            progressed = False
+            for _, cat in deficit:
+                if len(out) >= size:
+                    break
+                cand = next((s for s in remaining
+                             if cat_of[id(s)] == cat and id(s) not in picked), None)
+                if cand is None:
+                    continue
+                picked.add(id(cand))
+                out.append(cand)
+                have[cat] = have.get(cat, 0) + 1
+                progressed = True
+            if not progressed:
+                for s in remaining:
+                    if len(out) >= size:
+                        break
+                    if id(s) not in picked:
+                        picked.add(id(s))
+                        out.append(s)
+                break
+
+    # 输出按原质量序（首页源=第一个站点，不能打乱）
+    out.sort(key=lambda s: order[id(s)])
+    return out[:size] if len(out) > size and len(out) > size * 1.05 else out
+
+
 def rank_sites(sites, prio_map, consensus, dead, alive=None):
-    """按质量分降序，同分按源优先级、再按名称，保证每次构建顺序一致"""
-    alive = alive or set()
+    """按质量分降序，同分按源优先级、再按名称，保证每次构建顺序一致。
+
+    alive 是 {key: 探活记录} 的字典（merge_alive 返回），
+    不是集合 —— 需要里面的耗时与状态码做速度/403 评分。"""
+    alive = alive or {}
     scored = []
     for s in sites:
         sid = s["key"].split("_")[0]
         prio = prio_map.get(sid, 100)
+        probe = alive.get(s["key"])
         score, why = quality_score(s, prio, consensus.get(fingerprint(s), 1),
-                                   is_dead(s, dead), s["key"] in alive)
+                                   is_dead(s, dead), s["key"] in alive, probe)
         scored.append((score, int(prio), s.get("name") or "", s, why))
     scored.sort(key=lambda x: (-x[0], x[1], x[2]))
     return scored
@@ -902,15 +1135,22 @@ def main():
         print("[probe] 爬虫文件 %d/%d 失效，%d 个站点移出聚合搜索"
               % (len(dead), len(spider_urls(merged_sites)), demoted))
 
-    # CMS 采集接口探活：通了的加分上浮，保证首页第一个站点打开就有内容
-    alive, n_cms, alive_now = set(), 0, 0
+    # CMS 采集接口探活：通的按速度加分，403 降权，分类清单喂给类目识别
+    alive, n_cms, alive_now, denied_now = {}, 0, 0, 0
     if bconf.get("probe_cms", True):
         try:
-            fresh, n_cms = cms_alive(merged_sites, timeout=bconf.get("cms_timeout", 12))
+            fresh, n_cms = cms_probe(merged_sites, timeout=bconf.get("cms_timeout", 12))
+            alive_now = sum(1 for r in fresh.values() if r["code"] == "ok")
+            denied_now = sum(1 for r in fresh.values() if r["code"] == "denied")
+            # denied 是本轮实测的明确拒绝，历史里没有它（merge 只收 ok），
+            # 但排序要用，所以并进去
             alive, hist = merge_alive(load_alive(), fresh, bconf.get("alive_ttl_days", 7))
+            for k, r in fresh.items():
+                if r["code"] == "denied":
+                    alive[k] = r
             write_json(ALIVE_FILE, hist)
-            alive_now = len(fresh)
-            print("[probe] CMS 接口本轮 %d/%d 有返回，历史有效 %d" % (alive_now, n_cms, len(alive)))
+            print("[probe] CMS 接口本轮 %d/%d 有返回（拒绝 %d），历史有效 %d"
+                  % (alive_now, n_cms, denied_now, len(alive)))
         except Exception as e:  # noqa: BLE001
             print("[probe] CMS 探活跳过：%s" % e)
 
@@ -967,13 +1207,19 @@ def main():
         planned_src.add(name)
     write_json(os.path.join(ROOT, "api", "all.json"), merged)
 
-    # 精选仓：按质量分取前 N，只留参与聚合搜索的站点——精选的意义就是「点开能搜到」
+    # 精选仓：源保底保覆盖 + 类目配额保均衡 + 同库去重保精简。
+    # 只留参与聚合搜索的站点——精选的意义就是「点开能搜到」
     lite_size = int(bconf.get("lite_size", 150))
     lite_sites = pick_lite([s for s in merged_sites if is_searchable(s)],
-                           lite_size, int(bconf.get("lite_per_source", 8)), bucket_of)
+                           lite_size, int(bconf.get("lite_per_source", 3)),
+                           bucket_of, alive)
     lite = {k: v for k, v in merged.items() if k != "sites"}
     lite["sites"] = lite_sites
     write_json(os.path.join(ROOT, "api", "lite.json"), lite)
+
+    # 类目构成统计，写进报告便于核对「覆盖是否全面」
+    from collections import Counter as _C
+    lite_cat = _C(site_category(s, alive) for s in lite_sites)
 
     # 多仓索引
     index = {"name": meta.get("name", "聚合影视仓"), "urls": []}
@@ -1043,6 +1289,8 @@ def main():
         "cms_probed": n_cms,
         "cms_alive": len(alive),
         "cms_alive_now": alive_now,
+        "cms_denied_now": denied_now,
+        "lite_categories": dict(lite_cat),
         "sources": [
             {
                 "id": r["id"],
