@@ -87,6 +87,8 @@ tvbox/
 ├── tools/jsonc.py      宽松 JSON 解析（注释 / 尾逗号 / base64 / AES-CBC）
 ├── tools/validate.py   产物验收：结构约束 + 抽样探活
 ├── tools/mix_lives.py  各仓直播频道汇总 / 去重 / 探活，并入根目录 m3u
+├── tools/mix_lives_ext.py  独立分发 m3u（IPTV 生成类项目）合并工具
+├── tools/verify_schema.py  按客户端模型逐字段校验产物，防「一个字段类型错整份配置作废」
 ├── api/lite.json       精选仓（同库去重 + 每源保底 + 类目配额，按速度排序）
 ├── api/all.json        总聚合仓（全部站点，按质量分排序）
 ├── api/src-<id>.json   各源单仓快照（排查用；某源本轮抓取失败时保留上一轮，
@@ -155,6 +157,16 @@ python tools/mix_lives.py --refresh --write
 规则：现有条目不动、只追加到末尾；频道名规范化后去重（`CCTV-1 高清` 与 `CCTV1` 视为同一台）；**每条线路真探活**——IPTV 源死链率极高，实测 1263 条线路只有 166 台存活，不探活等于往播放列表里灌垃圾；央视 > 卫视 > 港澳台 > 地方台，每台最多 2 条线路，且忽略 `?id=` / `?token=` 这类同流变体。写入前自动备份 `iptv_filtered.m3u.bak`。
 
 不加 `--write` 只统计不改文件，可以先看能并入多少。
+
+另有一批项目不分发影视仓配置、只产出整份 m3u（`Guovin/iptv-api` 一类），走独立工具：
+
+```bash
+cd tvbox
+python tools/mix_lives_ext.py --probe-limit 700            # 先看统计
+python tools/mix_lives_ext.py --write --probe-limit 700    # 探活后增量追加
+```
+
+与上面的区别：增量追加，上一轮写入的频道原样保留；URL 与频道名双向去重（外部源与本仓现有清单重复率实测 72%）；按分组限量后再探活，避免地方台淹没央视/卫视名额。
 
 ## 数据来源
 
