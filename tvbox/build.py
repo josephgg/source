@@ -938,8 +938,11 @@ def pick_lite(sites, size, per_source=5, bucket_of=None, alive=None,
 
     seen_b, cand = set(), []
     for s in sites:
-        cat = site_category(s, alive)
-        brand, named = brand_of(s, tags)
+        try:
+            cat = site_category(s, alive)
+            brand, named = brand_of(s, tags)
+        except Exception:  # noqa: BLE001 —— 脏站名只该丢这一个站
+            continue
         if named:
             if brand.lower() in seen_b:
                 continue
@@ -1533,4 +1536,17 @@ def write_report(status, merged, sources, top=None, demoted=0):
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    try:
+        sys.exit(main())
+    except SystemExit:
+        raise
+    except BaseException:  # noqa: BLE001 —— CI 上的 traceback 必须能带回来
+        import traceback
+        tb = traceback.format_exc()
+        print(tb)
+        try:
+            with open(os.path.join(ROOT, "last_error.txt"), "w",
+                      encoding="utf-8", newline="\n") as f:
+                f.write(tb)
+        finally:
+            sys.exit(1)

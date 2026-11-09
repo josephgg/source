@@ -35,6 +35,19 @@ jobs:
         working-directory: tvbox
         run: python build.py
 
+      # GitHub Actions 的日志要登录才能看，失败时把 traceback 直接提交回仓库，
+      # 免得每次只能对着「step failed」猜原因
+      - name: 失败时提交错误日志
+        if: failure()
+        run: |
+          if [ -f tvbox/last_error.txt ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -f tvbox/last_error.txt
+            git commit -m "chore(tvbox): build error log"
+            git push || true
+          fi
+
       - name: 产物验收
         working-directory: tvbox
         run: python tools/validate.py
