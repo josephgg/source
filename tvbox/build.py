@@ -719,188 +719,326 @@ def merge_alive(hist, now_info, ttl_days=7):
 # 类目配额：精选仓的内容构成。键是类目，值是目标占比（合计 ~1.0）。
 # 主流影视占大头，小众类型保底——这是「覆盖全」与「精简」的折中。
 CATEGORY_QUOTA = {
-    "电影剧集": 0.40,
-    "短剧":     0.10,
+    "电影剧集": 0.44,
+    "4K蓝光":   0.10,
     "动漫":     0.10,
-    "综艺":     0.07,
-    "4K蓝光":   0.08,
-    "纪录片":   0.05,
-    "音乐MV":   0.05,
-    "戏曲":     0.04,
+    "短剧":     0.10,
     "少儿":     0.04,
-    "其他":     0.07,
+    "音乐MV":   0.05,
+    "戏曲":     0.03,
+    "综艺":     0.02,
+    "纪录片":   0.02,
+    "其他":     0.08,
 }
 
-# 类目识别关键词：命中即归该类。顺序即优先级，前面的先匹配。
+# 精选仓里给类目加的短前缀（客户端站点列表是平铺的，前缀让列表可扫读）
+CAT_PREFIX = {
+    "电影剧集": "影视",
+    "4K蓝光": "4K",
+    "音乐MV": "音乐",
+    "综艺": "综艺",
+    "纪录片": "纪录",
+    "其他": "综合",
+}
+
+CAT_ORDER = ["电影剧集", "4K蓝光", "动漫", "短剧", "少儿", "综艺",
+             "音乐MV", "戏曲", "纪录片", "其他"]
+
+# 小众类目：全量仓里供给只有个位数，不能受「单源上限」约束，否则会被主流源挤空
+NICHE_CATS = {"少儿", "戏曲", "综艺", "纪录片", "音乐MV"}
+
+# 类目判定关键词：顺序即优先级。名字里的明确信号优先于分类清单 ——
+# 「暴风影视」的分类清单里也有「动漫片」，但它是综合库，不该算动漫站。
 _CATEGORY_RULES = [
-    ("4K蓝光",  ("4K", "4k", "蓝光", "BluRay", "蓝光4K", "杜比")),
-    ("短剧",    ("短剧", "微剧", "竖屏剧", "爽剧")),
-    ("动漫",    ("动漫", "动画", "番剧", "二次元", "哔哩", "B站", "bilibili",
-                 "国漫", "日漫", "卡通")),
+    ("短剧",    ("短剧", "微剧", "竖屏", "爽剧")),
+    ("4K蓝光",  ("4K", "4k", "蓝光", "杜比", "原盘")),
+    ("少儿",    ("少儿", "儿童", "儿歌", "启蒙", "幼儿", "早教", "宝宝",
+                 "小学", "初中", "高中", "课堂", "教育", "英语", "科学")),
+    ("戏曲",    ("戏曲", "京剧", "豫剧", "越剧", "黄梅", "评剧", "秦腔", "相声")),
+    ("动漫",    ("动漫", "动画", "番剧", "国漫", "日漫", "B站", "哔哩", "bilibili")),
     ("综艺",    ("综艺", "真人秀", "脱口秀")),
-    ("纪录片",  ("纪录", "纪实", "探索发现")),
-    ("音乐MV",  ("音乐", "MV", "mv", "🎶", "🎵", "演唱会", "歌曲", "乐库")),
-    ("戏曲",    ("戏曲", "戏剧", "京剧", "豫剧", "越剧", "黄梅戏", "评剧", "秦腔")),
-    ("少儿",    ("少儿", "儿童", "启蒙", "幼儿", "早教", "kid")),
-    ("电影剧集", ("电影", "电视剧", "剧集", "影视", "采集", "资源", "片库",
-                  "影院", "剧场", "美剧", "韩剧", "日剧", "港剧", "国产剧",
-                  "新片", "在线", "视频", "高清")),
+    ("纪录片",  ("纪录", "纪实")),
+    ("音乐MV",  ("音乐", "MV", "mv", "KTV", "演唱会", "歌曲", "乐库")),
+    ("其他",    ("网盘", "磁力", "搜索", "看球", "直播", "听书", "有声", "小说",
+                 "壁纸", "工具", "文件", "浏览器", "市场")),
 ]
+
+_EMOJI = re.compile(
+    "[\U0001F000-\U0001FAFF\u2190-\u21FF\u2300-\u27BF\u2B00-\u2BFF"
+    "\uFE0F\u200d\u20e3\u2122\u2139]"
+)
+_SEP = re.compile(r"[·┃┆｜|/／\s,，、:：•\-—_]+")
+_BRL = re.compile(r"[（）()\[\]【】〔〕《》]")  # 只去括号字符，保留内容
+_NUM_TAIL = re.compile(r"(\(?\d+(\.\d+)?[万w]\)?|\d+ms|\d+万)$", re.I)
+
+# 营销词 / 类目词 / 泛称：只说明「它是什么」，不构成品牌，命名时剥掉
+_NOISE = {
+    "采集", "纯净", "秒播", "多线", "无广", "无广告", "弹幕", "设置", "中心",
+    "聚合", "备用", "升级", "推荐", "热推", "线路", "资源", "视频", "在线",
+    "影视", "电影", "电视剧", "剧集", "动漫", "动画", "番剧", "微剧", "短剧",
+    "综艺", "纪录", "纪录片", "纪实", "音乐", "戏曲", "戏剧", "少儿", "儿童",
+    "教育", "课堂", "看球", "直播", "高清", "超清", "蓝光", "原盘", "网盘",
+    "文件", "搜索", "预告", "全网", "最新", "免费", "官源", "应用", "商店",
+    "辅助", "配置", "大全", "影院", "剧场", "4K", "4k", "8K", "8k", "HD",
+    "直连", "极速版", "新版", "旧版", "切", "py", "js", "jar", "drpy", "json",
+    "m3u8", "app", "App", "APP", "tv", "TV", "版", "合集", "MV", "mv", "Mv",
+    "歌曲", "儿歌", "影音",
+}
+_NOISE_DESC = sorted(_NOISE, key=len, reverse=True)
+
+
+def strip_noise(tok):
+    """把「旺旺短剧」「醉挽清风4K纯净」「电影天堂」「无损云(12.8万)」剥成纯品牌。
+
+    拉丁词只做整词判断 —— 否则 "KTV" 会被 "TV" 这个噪音词削成 "K"。"""
+    tok = _NUM_TAIL.sub("", tok)
+    if not re.search(r"[\u4e00-\u9fff]", tok):
+        tok = re.sub(r"(jar|js|py|json|m3u8)$", "", tok, flags=re.I)
+        tok = re.sub(r"(4k|8k)$", "", tok, flags=re.I)
+        tok = re.sub(r"(xyqh?|xyqhj)+$", "", tok, flags=re.I)
+        return "" if tok in _NOISE else tok
+    tok = re.sub(r"\d+$", "", tok) if len(tok) > 2 else tok
+    tok = re.sub(r"(?i)(xyqh?|xyqhj)+$", "", tok)
+    changed = True
+    while changed and tok:
+        changed = False
+        for w in _NOISE_DESC:
+            if tok == w:
+                return ""
+            if tok.endswith(w) and len(tok) > len(w):
+                tok = tok[:-len(w)]
+                changed = True
+            elif tok.startswith(w) and len(tok) > len(w):
+                tok = tok[len(w):]
+                changed = True
+    return tok
+
+
+def _host_label(site):
+    """兜底命名：优先取 ext 里的真实站点域名（csp_ 类名对用户没有意义）"""
+    for cand in (site.get("ext"), site.get("api")):
+        m = re.search(r"https?://([^/\s\"]+)", str(cand or ""))
+        if m:
+            parts = [x for x in m.group(1).split(":")[0].split(".") if x]
+            if parts:
+                lab = parts[-2] if len(parts) >= 2 else parts[0]
+                if lab not in ("com", "net", "cn", "org", "xyz"):
+                    return lab
+    api = str(site.get("api") or "").split(";")[0].strip()
+    if api.startswith("csp_"):
+        return api[4:].replace("Guard", "").replace("App", "")
+    if api.startswith("py_"):
+        return api[3:]
+    return ""
+
+
+def brand_of(site, tags):
+    """从装修过的站名里取出可读品牌。
+
+    返回 (品牌, 是否来自站名)。来自爬虫类名/域名的算「未命名」，
+    这类站点在精选仓里按类目编字母，不拿类名糊弄用户。"""
+    s = site.get("name") or ""
+    head, _, rest = s.partition("·")
+    if rest and head in tags:
+        s = rest
+    s = _BRL.sub("", s)
+    s = _EMOJI.sub("", s)
+    toks = []
+    for t in _SEP.split(s):
+        t = strip_noise(t.strip(" 　.。·-—_"))
+        if t:
+            toks.append(t)
+    if toks:
+        return "".join(toks[:2])[:8], True
+    return _host_label(site)[:8], False
 
 
 def site_category(site, alive=None):
-    """判定站点的内容类目。
+    """判定站点的内容类目（名字信号优先，CMS 分类清单兜底）。
 
-    首选 CMS 接口返回的真实分类清单（构建期探活已抓到），比名字关键词准：
-    一个名叫「XX采集」的站，分类清单里有「动漫/综艺」就说明它真实覆盖这些。
-    名字关键词作为兜底（探活未通过的站没有清单）。"""
+    上一版只看分类清单，而几乎所有 CMS 采集站的清单里都同时有「电影片」和
+    「动漫片」，结果 80% 的综合库被判成动漫站。现在改成：
+    名字里明确指向某一类（魔都┃动漫 / 旺旺短剧 / 兔兔儿歌）才归该类，
+    否则看清单里有没有电影/剧集分类 —— 有就是综合库。"""
     alive = alive or {}
+    name = site.get("name") or ""
+    clean = _BRL.sub("", _EMOJI.sub("", name.partition("·")[2] or name))
+    for cat, words in _CATEGORY_RULES:
+        if any(w in clean for w in words):
+            return cat
     rec = alive.get(site.get("key"))
     cls = rec.get("cls") if isinstance(rec, dict) else None
     if cls:
         joined = " ".join(str(c) for c in cls)
-        # 分类清单按「小众优先」：有动漫/综艺/纪录/戏曲/少儿 就归小众，
-        # 否则归泛影视。清单存在时以清单为准 —— 名字里的「4K」只是宣传词。
+        if any(w in joined for w in ("电影", "剧集", "连续剧", "电视剧", "片")):
+            return "电影剧集"
         for cat, words in _CATEGORY_RULES:
-            if cat in ("电影剧集", "4K蓝光"):
-                continue
             if any(w in joined for w in words):
                 return cat
-        # 清单里明确有 4K/蓝光专区才认这个类目，否则按泛影视
-        if any(w in joined for w in ("4K", "蓝光", "BluRay")):
-            return "4K蓝光"
+    if any(w in name for w in ("影视", "电影", "剧集", "采集", "影院")):
         return "电影剧集"
-    name = site.get("name") or ""
-    for cat, words in _CATEGORY_RULES:
-        if any(w in name for w in words):
-            return cat
     return "其他"
 
 
 def lib_key(site):
-    """站点的「资源库」身份：同一后端库只留一个入口。
+    """HTTP 采集站的「资源库」身份：去掉功能性子域后的主机名。
 
-    主流 CMS 采集站的后端就是它的 api 域名（百度/索尼/非凡…一个域名一个库），
-    不同仓收录的只是换皮入口。规则：去掉常见功能性子域（www/api/cj/…），
-    剩下的主机名作为库标识 —— 不能粗暴取「最后两段」，否则 example.com 这种
-    会把不同子域的不同库误并成一个。"""
+    不能粗暴取末两段 —— blbl.example.com 与 mgzy.example.com 会被并成
+    example.com，把两个不同的库当成一个。"""
     api = (site.get("api") or "").split(";")[0].strip()
     if not api.startswith("http"):
-        return api  # csp_/py_ 等按原样，不做库归并
+        return api
     try:
         host = urllib.parse.urlsplit(api).hostname or ""
     except Exception:  # noqa: BLE001
         return api
-    # 只剥离功能性前缀，保留能区分不同库的主机名主体
-    for pre in ("www.", "api.", "cj.", "cms.", "vod.", "zy.", "m."):
+    # app./m./play. 是同一后端的移动端镜像，不剥会留下「暴风」「暴风影音」两个入口
+    for pre in ("www.", "api.", "cj.", "cms.", "vod.", "zy.", "m.", "app.", "play."):
         if host.startswith(pre):
             host = host[len(pre):]
             break
     return host
 
 
-def pick_lite(sites, size, per_source=3, bucket_of=None, alive=None,
-              quota=None):
-    """精选仓选站：源保底保覆盖 + 类目配额保均衡 + 同库去重保精简。
+def lib_of(site):
+    """资源库身份。csp_ 站点同一个爬虫类会被几十个不同站点复用，
+    只按类名归并会把「兔兔儿歌」和「宝宝儿歌」当成同一个库 —— 必须带上 ext。"""
+    api = str(site.get("api") or "")
+    if api.startswith(("csp_", "py_")):
+        ext = site.get("ext")
+        if isinstance(ext, (dict, list)):
+            ext = json.dumps(ext, ensure_ascii=False, sort_keys=True)
+        return "%s|%s" % (api, str(ext or "")[:120])
+    return lib_key(site)
 
-    步骤：
-      1. 同库去重：每个资源库只留质量序最高的一个站点
-      2. 类目标注：用探活分类清单或名字关键词给每个站点打类目标签
-      3. 源保底：每个顶层源取质量序前 per_source 个（不整源消失）
-      4. 类目配额：剩余名额按 CATEGORY_QUOTA 分配，类目内按质量序补齐
-    保底优先于总额：源多时可能超出 size，此时宁可超出也不裁掉整源。"""
+
+def lite_name(cat, brand):
+    return "%s·%s" % (CAT_PREFIX.get(cat, cat), brand)
+
+
+def pick_lite(sites, size, per_source=5, bucket_of=None, alive=None,
+              quota=None, tags=None):
+    """精选仓选站：一个资源库只留一个入口、按类目配额铺开、名字统一重写。
+
+    与 all.json 的分工：all.json 保留「源前缀·原名」便于溯源排查，
+    lite.json 是给用户看的成品，去掉来源前缀、emoji 和营销词，按类目分组。
+
+    选站顺序：质量序 → 同类目不超过配额 → 同一顶层源不超过 per_source。
+    某库的最佳代表因单源上限进不来时，自动换用该库下一个来源的代表 ——
+    否则会出现「最好的库被同作者的系列站挤掉」这种反直觉结果。"""
     alive = alive or {}
     quota = quota or CATEGORY_QUOTA
     bucket_of = bucket_of or {}
+    tags = tags or set()
     order = {id(s): i for i, s in enumerate(sites)}
 
-    # 1. 同库去重：sites 已按质量分降序，先出现的即该库最优
-    seen_lib = set()
-    dedup = []
-    for s in sites:
-        lk = lib_key(s)
-        if lk in seen_lib:
-            continue
-        seen_lib.add(lk)
-        dedup.append(s)
-
-    # 2. 类目标注
-    cat_of = {id(s): site_category(s, alive) for s in dedup}
-
-    # 3. 源保底：每个顶层源取 per_source 个。但不做「纯按质量序取前 N」——
-    #    那样会把源里唯一覆盖小众类目（动漫/综艺/纪录）的站点挤出保底位。
-    #    改为「先各源取第 1 名保在线，再在源内优先选能补全局类目缺口的」。
-    picked = set()
-    out = []
-    by_src = {}
-    for s in dedup:
+    def top_of(s):
         sid = s["key"].split("_")[0]
-        sid = bucket_of.get(sid, sid)
-        by_src.setdefault(sid, []).append(s)
+        return bucket_of.get(sid, sid)
 
-    # 3a. 每源先锁第 1 名（质量序最高，保证这个源在精选里有代表）
-    for sid, lst in by_src.items():
-        if lst:
-            picked.add(id(lst[0]))
-            out.append(lst[0])
+    seen_b, cand = set(), []
+    for s in sites:
+        cat = site_category(s, alive)
+        brand, named = brand_of(s, tags)
+        if named:
+            if brand.lower() in seen_b:
+                continue
+            seen_b.add(brand.lower())
+        cand.append({"site": s, "cat": cat, "brand": brand,
+                     "named": named, "top": top_of(s)})
 
-    # 3b. 剩余保底名额：源内优先选「能补全局缺口类目」的站点
-    target = {c: max(1, round(size * w)) for c, w in quota.items()}
-    have = {}
-    for s in out:
-        c = cat_of[id(s)]
-        have[c] = have.get(c, 0) + 1
-    for sid, lst in by_src.items():
-        for s in lst[1:]:
-            if sum(1 for x in lst if id(x) in picked) >= per_source:
-                break
-            c = cat_of[id(s)]
-            # 优先选那些「全局还没铺满」的类目站点
-            if have.get(c, 0) < target.get(c, 1):
-                picked.add(id(s))
-                out.append(s)
-                have[c] = have.get(c, 0) + 1
-    # 3c. 还有源没填满保底（全是泛影视类），按质量序补
-    for sid, lst in by_src.items():
-        for s in lst:
-            if sum(1 for x in lst if id(x) in picked) >= per_source:
-                break
-            if id(s) not in picked:
-                picked.add(id(s))
-                out.append(s)
-                c = cat_of[id(s)]
-                have[c] = have.get(c, 0) + 1
+    libs = {}
+    for c in cand:
+        libs.setdefault(lib_of(c["site"]), []).append(c)
+    for v in libs.values():
+        v.sort(key=lambda x: (not x["named"], order[id(x["site"])]))
+    groups = sorted(libs.values(),
+                    key=lambda v: (not v[0]["named"], order[id(v[0]["site"])]))
 
-    # 4. 类目配额补满
+    caps = {c: max(1, round(size * quota.get(c, 0.02))) for c in CAT_ORDER}
+    out, used, filled, seen_lib = [], {}, {}, set()
+    stem = {}
+
+    def take(group, lib, relax_cat=False, relax_src=False):
+        for c in group:
+            if not relax_cat and filled.get(c["cat"], 0) >= caps[c["cat"]]:
+                continue
+            if relax_cat and filled.get(c["cat"], 0) >= caps[c["cat"]] + 2:
+                continue
+            if not relax_src and c["cat"] not in NICHE_CATS and used.get(c["top"], 0) >= per_source:
+                continue
+            if not c["named"] and any(x["cat"] == c["cat"] and x["named"] for x in group):
+                continue
+            if relax_cat and not c["named"]:
+                continue
+            k = (c["cat"], c["brand"][:2])
+            if stem.get(k, 0) >= 3:  # 同一作者的系列站（分享U酷/分享最大…）最多 3 个
+                continue
+            seen_lib.add(lib)
+            out.append(c)
+            used[c["top"]] = used.get(c["top"], 0) + 1
+            filled[c["cat"]] = filled.get(c["cat"], 0) + 1
+            stem[k] = stem.get(k, 0) + 1
+            return True
+        return False
+
+    for group in groups:
+        if len(out) >= size:
+            break
+        lib = lib_of(group[0]["site"])
+        if lib in seen_lib:
+            continue
+        take(group, lib)
+
+    # 名额没填满：先放宽类目配额，再放宽单源上限
     if len(out) < size:
-        remaining = [s for s in dedup if id(s) not in picked]
-        while len(out) < size:
-            deficit = sorted(((target.get(c, 0) - have.get(c, 0), c)
-                              for c in target), reverse=True)
-            progressed = False
-            for _, cat in deficit:
-                if len(out) >= size:
-                    break
-                cand = next((s for s in remaining
-                             if cat_of[id(s)] == cat and id(s) not in picked), None)
-                if cand is None:
-                    continue
-                picked.add(id(cand))
-                out.append(cand)
-                have[cat] = have.get(cat, 0) + 1
-                progressed = True
-            if not progressed:
-                for s in remaining:
-                    if len(out) >= size:
-                        break
-                    if id(s) not in picked:
-                        picked.add(id(s))
-                        out.append(s)
+        for group in groups:
+            if len(out) >= size:
                 break
+            lib = lib_of(group[0]["site"])
+            if lib not in seen_lib:
+                take(group, lib, relax_cat=True)
+    if len(out) < size:
+        for group in groups:
+            if len(out) >= size:
+                break
+            lib = lib_of(group[0]["site"])
+            if lib in seen_lib:
+                continue
+            seen_lib.add(lib)
+            c = group[0]
+            out.append(c)
+            used[c["top"]] = used.get(c["top"], 0) + 1
 
-    # 输出按原质量序（首页源=第一个站点，不能打乱）
-    out.sort(key=lambda s: order[id(s)])
-    return out[:size] if len(out) > size and len(out) > size * 1.05 else out
+    # 取不到站名的按类目编字母（戏曲那类全是匿名 jar 站）
+    seq = {}
+    for c in out:
+        if not c["named"]:
+            seq[c["cat"]] = seq.get(c["cat"], 0) + 1
+            n = seq[c["cat"]]
+            c["brand"] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[n - 1] if n <= 26 else str(n)
+
+    def breadth(c):
+        rec = alive.get(c["site"].get("key"))
+        cls = rec.get("cls") if isinstance(rec, dict) else None
+        return len(cls or [])
+
+    # 首页源：FongMi 拿配置里第一个站点当首页，固定选分类最全的综合库
+    head = None
+    film = [c for c in out if c["cat"] == "电影剧集"]
+    if film:
+        head = max(film, key=lambda c: breadth(c))
+        out.remove(head)
+
+    ordered = ([head] if head else []) + sorted(
+        out, key=lambda c: (CAT_ORDER.index(c["cat"]), order[id(c["site"])]))
+
+    result = []
+    for c in ordered[:size]:
+        t = dict(c["site"])
+        t["name"] = lite_name(c["cat"], c["brand"])
+        result.append(t)
+    return result
 
 
 def rank_sites(sites, prio_map, consensus, dead, alive=None):
@@ -1214,17 +1352,22 @@ def main():
 
     # 精选仓：源保底保覆盖 + 类目配额保均衡 + 同库去重保精简。
     # 只留参与聚合搜索的站点——精选的意义就是「点开能搜到」
-    lite_size = int(bconf.get("lite_size", 150))
+    lite_size = int(bconf.get("lite_size", 72))
+    tags = {s.get("tag") for s in sources} | {s.get("name") for s in sources}
     lite_sites = pick_lite([s for s in merged_sites if is_searchable(s)],
-                           lite_size, int(bconf.get("lite_per_source", 3)),
-                           bucket_of, alive)
+                           lite_size, int(bconf.get("lite_per_source", 5)),
+                           bucket_of, alive, tags=tags)
     lite = {k: v for k, v in merged.items() if k != "sites"}
     lite["sites"] = lite_sites
     write_json(os.path.join(ROOT, "api", "lite.json"), lite)
 
     # 类目构成统计，写进报告便于核对「覆盖是否全面」
     from collections import Counter as _C
-    lite_cat = _C(site_category(s, alive) for s in lite_sites)
+    # 精选仓的名字已经是「类目·品牌」，直接按前缀还原类目，
+    # 不要再跑一遍 site_category（它看的是源名，会把重写后的名字判歪）
+    _rev = {c: c for c in CAT_ORDER}  # 动漫/短剧/少儿/戏曲 的前缀就是类目名本身
+    _rev.update({v: k for k, v in CAT_PREFIX.items()})
+    lite_cat = _C(_rev.get(s["name"].split("·")[0], "其他") for s in lite_sites)
 
     # 多仓索引
     index = {"name": meta.get("name", "聚合影视仓"), "urls": []}
