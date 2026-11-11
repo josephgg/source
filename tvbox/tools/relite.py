@@ -53,7 +53,8 @@ def main():
                                (conf.get("build") or {}).get("block_hosts") or [])
     sites = [s for s in sites if build.is_searchable(s)]
     picked = build.pick_lite(sites, size, per, bucket, alive, tags=tags,
-                             sq=build.load_search_quality())
+                             sq=build.load_search_quality(),
+                             pin=(conf.get("build") or {}).get("pin_keys") or ())
 
     cats = Counter(s["name"].split("·")[0] for s in picked)
     print("全量 %d / 可搜 %d → 精选 %d" % (len(allconf["sites"]), len(sites), len(picked)))

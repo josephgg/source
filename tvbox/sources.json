@@ -34,6 +34,10 @@
     "probe_cms": true,
     "cms_timeout": 12,
     "lite_per_source": 5,
+    "$pin_comment": "必收录白名单：这些 key 会被强制放进精选仓（不参与类目配额与单源上限的竞争）。用于「明明是好站，但同类目候选上百个、单源又已满额，按规则永远排不进」的情况",
+    "pin_keys": [
+      "wuxie13_shangtou"
+    ],
     "$override_comment": "固定输出值，覆盖各源自带的 notice/wallpaper/logo/name。留空字符串等于删掉该字段。图片放 tvbox/assets/ 时必须写完整 CDN 地址——相对路径会按源站解析，指不到本仓。",
     "block_hosts": [
       "apiyutu.com"

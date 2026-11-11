@@ -28,6 +28,16 @@ def strip_jsonc(s):
             out.append(c)
             i += 1
             continue
+        if c == "#":
+            # 有些配置把人读的 Markdown 标题也留在文件里（`## json`、`## 切片`），
+            # 只对「行首（允许前导空白）」的 # 生效，避免误伤引号外的颜色值
+            j = i - 1
+            while j >= 0 and s[j] in " \t":
+                j -= 1
+            if j < 0 or s[j] in "\r\n":
+                while i < n and s[i] not in "\r\n":
+                    i += 1
+                continue
         if c == "/" and i + 1 < n and s[i + 1] == "/":
             while i < n and s[i] not in "\r\n":
                 i += 1
@@ -100,6 +110,40 @@ def try_cbc(text):
         return None
 
 
+def fix_bad_escape(s):
+    """把 JSON 字符串里的非法转义降级为字面量。
+
+    国内配置常从 JS 里拷字符串，带 `\\'` 这种 JSON 不认的转义（合法转义只有
+    `" \\ / b f n r t u`）。`\\'` 在 JSON 里就该写成 `'`，去掉反斜杠即可；
+    `\\\\'`（反斜杠+引号）是合法的，不能被误改，所以要按状态机逐字符走。
+    """
+    out, i, n = [], 0, len(s)
+    in_str = False
+    while i < n:
+        c = s[i]
+        if not in_str:
+            if c == '"':
+                in_str = True
+            out.append(c)
+            i += 1
+            continue
+        if c == "\\" and i + 1 < n:
+            nxt = s[i + 1]
+            if nxt == "'":          # \\' -> '
+                out.append("'")
+                i += 2
+                continue
+            out.append(c)
+            out.append(nxt)
+            i += 2
+            continue
+        if c == '"':
+            in_str = False
+        out.append(c)
+        i += 1
+    return "".join(out)
+
+
 def _loads_tolerant(body):
     """容忍两类国内配置常见脏数据：
     1. 字符串里带原生换行/制表符（json.loads 默认 strict=True 会报 invalid control character）
@@ -127,6 +171,12 @@ def parse_cfg(text):
             obj = _loads_tolerant(body)
             if isinstance(obj, (dict, list)):
                 return obj
+            # 最后一档：注释/尾逗号都清过还失败，多半是从 JS 拷来的非法转义
+            fixed = fix_bad_escape(body)
+            if fixed != body:
+                obj = _loads_tolerant(fixed)
+                if isinstance(obj, (dict, list)):
+                    return obj
     # 报错片段要能安全写进 report.md：非可打印字符（NUL、控制符、二进制）一律折成 "."
     raw = text[:100].replace("\n", " ").replace("\r", " ")
     head = "".join(ch if ch.isprintable() else "." for ch in raw)

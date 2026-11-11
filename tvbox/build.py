@@ -809,8 +809,8 @@ def merge_alive(hist, now_info, ttl_days=7):
 # 类目配额：精选仓的内容构成。键是类目，值是目标占比（合计 ~1.0）。
 # 主流影视占大头，小众类型保底——这是「覆盖全」与「精简」的折中。
 CATEGORY_QUOTA = {
-    "电影剧集": 0.44,
-    "4K蓝光":   0.10,
+    "电影剧集": 0.40,
+    "4K蓝光":   0.16,
     "动漫":     0.10,
     "短剧":     0.10,
     "少儿":     0.04,
@@ -818,7 +818,7 @@ CATEGORY_QUOTA = {
     "戏曲":     0.03,
     "综艺":     0.02,
     "纪录片":   0.02,
-    "其他":     0.08,
+    "其他":     0.06,
 }
 
 # 精选仓里给类目加的短前缀（客户端站点列表是平铺的，前缀让列表可扫读）
@@ -1007,15 +1007,18 @@ def lite_name(cat, brand):
 
 
 def pick_lite(sites, size, per_source=5, bucket_of=None, alive=None,
-              quota=None, tags=None, sq=None):
+              quota=None, tags=None, sq=None, pin=()):
     """精选仓选站：一个资源库只留一个入口、按类目配额铺开、名字统一重写。
 
     与 all.json 的分工：all.json 保留「源前缀·原名」便于溯源排查，
     lite.json 是给用户看的成品，去掉来源前缀、emoji 和营销词，按类目分组。
 
-    选站顺序：质量序 → 同类目不超过配额 → 同一顶层源不超过 per_source。
+    选站顺序：必收录 → 质量序 → 同类目不超过配额 → 同一顶层源不超过 per_source。
     某库的最佳代表因单源上限进不来时，自动换用该库下一个来源的代表 ——
     否则会出现「最好的库被同作者的系列站挤掉」这种反直觉结果。
+
+    `pin` 是 sources.json 里点名的 key，先钉进来占名额再走常规选站：
+    有些站质量分不差，但同类目候选上百个、单源又已满额，纯按规则永远排不进。
 
     sq 是 tools/probe_search.py 的实测结果。域名不同的站可能挂着同一个内容库
     （实测有 8 个站搜同一关键词返回一模一样的 8 条），只靠 lib_key 分不出来，
@@ -1067,6 +1070,27 @@ def pick_lite(sites, size, per_source=5, bucket_of=None, alive=None,
     caps = {c: max(1, round(size * quota.get(c, 0.02))) for c in CAT_ORDER}
     out, used, filled, seen_lib, seen_sig = [], {}, {}, set(), set()
     stem = {}
+
+    # 必收录：用户点名的站先钉进来。这类站往往质量不差，只是同类目候选上百个、
+    # 单源又已满额，纯按规则永远排不到。先占名额，常规流程再按剩余名额铺。
+    by_key = {c["site"]["key"]: c for c in cand}
+    for pk in (pin or ()):
+        c = by_key.get(pk)
+        if not c or c["site"]["key"] in {x["site"]["key"] for x in out}:
+            continue
+        lib = lib_of(c["site"])
+        if lib in seen_lib:
+            continue
+        seen_lib.add(lib)
+        if c["sig"]:
+            seen_sig.add(c["sig"])
+        out.append(c)
+        used[c["top"]] = used.get(c["top"], 0) + 1
+        filled[c["cat"]] = filled.get(c["cat"], 0) + 1
+        stem[(c["cat"], c["brand"][:2])] = stem.get((c["cat"], c["brand"][:2]), 0) + 1
+    if pin:
+        print("[lite] 必收录 %d 个：%s" % (
+            len(out), "、".join(c["brand"] for c in out)))
 
     def take(group, lib, relax_cat=False, relax_src=False):
         for c in group:
@@ -1483,7 +1507,8 @@ def main():
     tags = {s.get("tag") for s in sources} | {s.get("name") for s in sources}
     lite_sites = pick_lite([s for s in merged_sites if is_searchable(s)],
                            lite_size, int(bconf.get("lite_per_source", 5)),
-                           bucket_of, alive, tags=tags, sq=sq)
+                           bucket_of, alive, tags=tags, sq=sq,
+                           pin=bconf.get("pin_keys") or ())
     lite = {k: v for k, v in merged.items() if k != "sites"}
     lite["sites"] = lite_sites
     write_json(os.path.join(ROOT, "api", "lite.json"), lite)
