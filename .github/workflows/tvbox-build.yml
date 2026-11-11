@@ -31,6 +31,12 @@ jobs:
       - name: 安装依赖
         run: pip install -r tvbox/requirements.txt
 
+      - name: 搜索质量实测（24 小时缓存）
+        working-directory: tvbox
+        # 使用上一轮接口清单探测；新接口最迟下一轮纳入。构建阶段会按归一化 API
+        # 把结论覆盖到同后端别名，不能只测 lite 里的单个 key。
+        run: python tools/probe_search.py --file api/all.json --workers 16 --merge --max-age 86400
+
       - name: 抓取与合并
         working-directory: tvbox
         run: python build.py
@@ -48,7 +54,16 @@ jobs:
             git push || true
           fi
 
-      - name: 产物验收
+      - name: 构建规则回归测试
+        working-directory: tvbox
+        run: python tools/selftest.py
+
+      - name: 产物严格验收
+        working-directory: tvbox
+        # 字段合法不等于成品可用：同时检查核心类目、重复资源库和首页搜索。
+        run: python tools/verify_schema.py && python tools/audit_lite.py
+
+      - name: 抽样网络验收（仅告警）
         working-directory: tvbox
         run: python tools/validate.py
         continue-on-error: true

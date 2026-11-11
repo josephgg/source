@@ -32,9 +32,13 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
+import xml.etree.ElementTree as ET
 from concurrent.futures import ThreadPoolExecutor
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, ROOT)
+from build import api_norm, ascii_url  # noqa: E402
+
 OUT = os.path.join(ROOT, "search_quality.json")
 
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -61,8 +65,22 @@ def search_url(api, kw, page=1):
 
 
 def parse_names(txt):
-    """把 CMS 搜索响应解成标题列表；不是 JSON 的返回 None。"""
+    """把 CMS 搜索响应解成标题列表；支持 JSON 与 type=0 的 MacCMS XML。"""
     txt = txt.strip()
+    if txt.startswith("<"):
+        try:
+            root = ET.fromstring(re.sub(r"^\s*<\?xml[^>]*\?>", "", txt))
+            videos = root.findall(".//video")
+            if not videos:
+                return None
+            names = []
+            for video in videos:
+                name = video.findtext("name") or video.findtext("title")
+                if name:
+                    names.append(name.strip())
+            return names
+        except (ET.ParseError, ValueError):
+            return None
     if not txt.startswith(("{", "[")):
         return None
     try:
@@ -71,8 +89,11 @@ def parse_names(txt):
         return None
     if isinstance(d, list):
         lst = d
+    elif isinstance(d, dict):
+        data = d.get("data")
+        lst = d.get("list") or (data.get("list") if isinstance(data, dict) else []) or []
     else:
-        lst = d.get("list") or (d.get("data") or {}).get("list") or []
+        return None
     if not isinstance(lst, list):
         return None
     out = []
@@ -88,10 +109,10 @@ def fetch(api, kw, timeout):
     u = search_url(api, kw)
     t0 = time.time()
     try:
-        req = urllib.request.Request(u, headers={"User-Agent": UA,
-                                                 "Accept-Encoding": "identity"})
+        req = urllib.request.Request(ascii_url(u), headers={
+            "User-Agent": UA, "Accept-Encoding": "identity"})
         with urllib.request.urlopen(req, timeout=timeout, context=CTX) as r:
-            body = r.read(400000)
+            body = r.read(1024 * 1024)
         ms = int((time.time() - t0) * 1000)
         names = parse_names(body.decode("utf-8", "replace"))
         if names is None:
@@ -201,19 +222,53 @@ def main():
     ap.add_argument("--timeout", type=int, default=12)
     ap.add_argument("--workers", type=int, default=12)
     ap.add_argument("--out", default=OUT)
+    ap.add_argument("--merge", action="store_true",
+                    help="保留当前接口的有效历史记录，移除已下线的站点")
+    ap.add_argument("--max-age", type=int, default=0,
+                    help="配合 --merge：记录多少秒内无需重测；0 表示全部重测")
+    ap.add_argument("--refresh", action="store_true", help="忽略缓存有效期，强制重测")
     args = ap.parse_args()
 
     path = args.file if os.path.isabs(args.file) else os.path.join(ROOT, args.file)
     conf = json.load(open(path, encoding="utf-8"))
     sites = conf["sites"]
 
-    testable = [s for s in sites
-                if str(s.get("api", "")).startswith("http")
-                and not str(s["api"]).endswith((".js", ".jar"))]
-    skipped = [s for s in sites if s not in testable]
+    # 只有 type=0/1 的 HTTP CMS 能直接套 ac=videolist。旧版会把 type=3 的
+    # drpy/js 脚本也当搜索接口请求，既浪费数千请求，又产生一堆假 unknown。
+    # 同一后端的 from/at 与 ac 写法只测一个入口，结论由 build.py 按 api_norm 继承。
+    testable, skipped, seen_api = [], [], set()
+    for s in sites:
+        api = str(s.get("api") or "")
+        if not api.startswith("http") or s.get("type") not in (0, 1):
+            skipped.append(s)
+            continue
+        norm = api_norm(s)
+        if norm in seen_api:
+            continue
+        seen_api.add(norm)
+        testable.append(s)
 
-    print("[probe] 可实测 %d 站，跳过 %d 站（jar/内置类无法直接发请求）"
-          % (len(testable), len(skipped)))
+    old = {}
+    if args.merge:
+        try:
+            with open(args.out, encoding="utf-8") as f:
+                old = {k: v for k, v in json.load(f).items()
+                       if not k.startswith("_") and isinstance(v, dict)}
+        except (OSError, ValueError):
+            old = {}
+    now = int(time.time())
+    active_keys = {s["key"] for s in testable}
+    res = {k: old[k] for k in active_keys if k in old}
+    pending = []
+    for s in testable:
+        rec = old.get(s["key"]) or {}
+        fresh = (args.max_age > 0 and not args.refresh and rec.get("tested_at") and
+                 now - int(rec["tested_at"]) <= args.max_age)
+        if not fresh:
+            pending.append(s)
+
+    print("[probe] CMS 后端 %d 个：本轮实测 %d，缓存命中 %d；跳过 %d 个非 CMS 站"
+          % (len(testable), len(pending), len(testable) - len(pending), len(skipped)))
 
     def one(s):
         api = s["api"]
@@ -232,12 +287,16 @@ def main():
                 rates.append(sum(1 for x in names if kw in x) / len(names))
         rate = min(rates) if rates else 1.0
 
+        # 单个标题偶然命中特征词不应整站剔除；多条且达到明显占比才判成人站。
+        total_titles = max(1, len(titles1) + len(titles2))
+        adult_confident = acnt >= 2 and (acnt >= 4 or acnt / total_titles >= 0.10)
+
         return s["key"], {
             "name": s.get("name"),
             "api": api,
             "verdict": verdict,
             "why": why,
-            "action": suggest(verdict, why, bool(awords), rate),
+            "action": suggest(verdict, why, adult_confident, rate),
             "hit_rate": round(rate, 3),
             "n1": len(ra["names"] or []),
             "n2": len(rb["names"] or []),
@@ -246,11 +305,11 @@ def main():
             "adult_n": acnt,
             "titles1": titles1,
             "titles2": titles2,
+            "tested_at": int(time.time()),
         }
 
-    res = {}
     with ThreadPoolExecutor(max_workers=args.workers) as pool:
-        for key, rec in pool.map(one, testable):
+        for key, rec in pool.map(one, pending):
             res[key] = rec
 
     order = ["ignored", "empty", "weak", "unknown", "ok", "good"]

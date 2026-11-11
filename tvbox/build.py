@@ -31,6 +31,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
+from datetime import datetime, timedelta, timezone
 
 try:
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -413,9 +414,20 @@ def normalize_site(site):
     return out
 
 
+def site_list(cfg):
+    """只接受站点对象列表；上游把 sites 写成字符串/数字时隔离该字段。"""
+    raw = cfg.get("sites") if isinstance(cfg, dict) else None
+    return [s for s in raw if isinstance(s, dict)] if isinstance(raw, list) else []
+
+
 def build_site(site, src, used_keys, seen_fp, stats, conf_build):
+    if not isinstance(site, dict) or not isinstance(site.get("api"), str):
+        stats["skip_bad_site"] += 1
+        return None
+    site = normalize_site(site)
     api = (site.get("api") or "").strip()
-    jar = (site.get("jar") or src.get("spider") or "").strip()
+    raw_jar = site.get("jar") or src.get("spider") or ""
+    jar = raw_jar.strip() if isinstance(raw_jar, str) else ""
     name = (site.get("name") or "").strip() or "未命名"
 
     if not api:
@@ -486,11 +498,16 @@ def api_kind(site):
 
 
 def is_searchable(site):
-    v = site.get("searchable")
-    return (1 if v is None else v) == 1
+    """与 FongMi 客户端一致：只有明确的 0 才关闭搜索。
+
+    上游有 searchable=2 的写法；旧逻辑只认 1，会把客户端实际可搜的站
+    错排除在精选仓之外。normalize_site 已把数字字符串转成 int。
+    """
+    v = _as_int(site.get("searchable"))
+    return v is None or v != 0
 
 
-def quality_score(site, priority, consensus, dead, alive=False, probe=None):
+def quality_score(site, priority, consensus, dead, alive=False, probe=None, search=None):
     """返回 (分数, 说明)。分数越高越靠前。
 
     probe 是该站点的探活记录 {"ms","code","cls"}，来自 cms_probe。
@@ -533,6 +550,26 @@ def quality_score(site, priority, consensus, dead, alive=False, probe=None):
         base += 5
     else:
         base -= 6
+
+    # 搜索实测不再只是开关，也参与质量排序。旧版只把弱站移出快速搜索，
+    # 却仍可能凭「HTTP + 分类多」坐上首页。未知结果不奖惩，避免误杀。
+    if search:
+        verdict = search.get("verdict")
+        hit = search.get("hit_rate")
+        action = search.get("action")
+        if action == "keep" and verdict in ("good", "ok") and isinstance(hit, (int, float)):
+            if hit >= 0.85:
+                base += 12
+                why.append("搜索精准+12")
+            elif hit >= 0.70:
+                base += 6
+                why.append("搜索合格+6")
+        elif action == "quick_off" or verdict == "weak":
+            base -= 12
+            why.append("搜索杂乱-12")
+        elif action == "disable":
+            base -= 20
+            why.append("搜索不可用-20")
 
     if dead:
         base -= 80
@@ -631,13 +668,21 @@ def cms_probe(sites, timeout=12, workers=16):
             req = urllib.request.Request(u, headers={
                 "User-Agent": UA, "Accept-Encoding": "identity"})
             with urllib.request.urlopen(req, timeout=timeout, context=CTX) as r:
-                body = r.read(65536)
+                # 不能只读 64KB 再 json.loads：分类多的大站会被硬截断，误判为
+                # 非 JSON，进而丢失分类、速度分和首页候选资格。1MB 足够覆盖 CMS 列表。
+                body = r.read(1024 * 1024)
             ms = int((time.time() - t0) * 1000)
-            txt = body.decode("utf-8", "replace").strip()
+            try:
+                txt = body.decode("utf-8").strip()
+            except UnicodeDecodeError:
+                txt = body.decode("gb18030", "replace").strip()
             if not txt.startswith(("{", "[")):
                 return s["key"], None
             data = json.loads(txt)
-            cls = data.get("class") or (data.get("data") or {}).get("class") or []
+            if not isinstance(data, dict):
+                return s["key"], None
+            nested = data.get("data")
+            cls = data.get("class") or (nested.get("class") if isinstance(nested, dict) else []) or []
             if not isinstance(cls, list):
                 cls = []
             names = []
@@ -648,11 +693,12 @@ def cms_probe(sites, timeout=12, workers=16):
                         names.append(str(n))
             if not cls and not data.get("list"):
                 return s["key"], None
-            return s["key"], {"ms": ms, "code": "ok", "cls": names[:24]}
+            return s["key"], {"ms": ms, "code": "ok", "cls": names[:48],
+                              "api": api_norm(s)}
         except urllib.error.HTTPError as e:
             if e.code in (401, 402, 403):
                 return s["key"], {"ms": int((time.time() - t0) * 1000),
-                                  "code": "denied", "cls": []}
+                                  "code": "denied", "cls": [], "api": api_norm(s)}
             return s["key"], None
         except Exception:  # noqa: BLE001
             return s["key"], None
@@ -683,21 +729,73 @@ def load_search_quality():
 def api_norm(site):
     """API 归一化，用来跨源认出「同一个后端」。
 
-    同一个 CMS 后端常被几十个源收录，key 和 api 写法各不相同
-    （尾斜杠、?ac=list、http/https、from/xxx 后缀）。只按 key 匹配，
-    质检结论只覆盖到实际测过的那一个入口，其余几十个照样在搜索里捣乱。
+    统一主机大小写、重复斜杠、尾斜杠、ac/wd/pg 参数和 from/at 线路后缀；
+    保留 source/type 等业务参数——它们可能指向同一域名下的不同内容库。
+    非 HTTP 的 csp_/py_ 标识原样返回，调用方仍需结合 ext 判断资源库。
     """
-    api = (site.get("api") or "").split(";")[0].strip()
+    api = str(site.get("api") or "").split(";")[0].strip()
     if not api.startswith("http"):
         return api
     try:
         p = urllib.parse.urlsplit(api)
     except Exception:  # noqa: BLE001
         return api
-    path = p.path.rstrip("/")
-    # /from/snm3u8、/at/xml 是同一后端的线路变体，不是另一个库
-    path = re.sub(r"/(from|at)/[^/]+$", "", path)
-    return "%s%s" % ((p.hostname or "").lower(), path)
+    host = (p.hostname or "").lower().rstrip(".")
+    if host.startswith("www."):
+        host = host[4:]
+    try:
+        port = p.port
+    except ValueError:
+        return api
+    if port and not ((p.scheme == "http" and port == 80) or
+                     (p.scheme == "https" and port == 443)):
+        host += ":%d" % port
+    path = re.sub(r"/{2,}", "/", p.path).rstrip("/")
+    # /from/snm3u8、/at/xml 是同一后端的线路变体，不是另一个库。
+    # 循环处理 /from/x/at/m3u8 这种连续后缀。
+    old = None
+    while old != path:
+        old = path
+        path = re.sub(r"/(from|at)/[^/]+$", "", path, flags=re.I)
+    query = urllib.parse.parse_qsl(p.query, keep_blank_values=True)
+    query = sorted((k, v) for k, v in query
+                   if k.lower() not in ("ac", "wd", "pg", "page"))
+    suffix = ("?" + urllib.parse.urlencode(query)) if query else ""
+    return "%s%s%s" % (host, path, suffix)
+
+
+def index_search_quality(sq):
+    """按归一化 API 建索引，让一个入口的实测结论覆盖同后端别名。
+
+    同一 API 若有多条记录，安全处置优先（adult > disable > quick_off > keep），
+    避免 setdefault 碰巧先读到一条旧的 keep 而把已确认的问题站放回来。
+    """
+    severity = {"keep": 0, "quick_off": 1, "disable": 2, "adult": 3}
+    by_norm = {}
+    for r in (sq or {}).values():
+        if not isinstance(r, dict) or not r.get("api"):
+            continue
+        norm = api_norm({"api": r["api"]})
+        old = by_norm.get(norm)
+        candidate = (severity.get(r.get("action"), 0), int(r.get("tested_at") or 0))
+        current = (severity.get((old or {}).get("action"), 0),
+                   int((old or {}).get("tested_at") or 0)) if old else (-1, -1)
+        if old is None or candidate >= current:
+            by_norm[norm] = r
+    return by_norm
+
+
+def search_record(site, sq, by_norm=None):
+    """读取站点质检记录；同 key 但 API 已变化时绝不复用旧结论。"""
+    sq = sq or {}
+    norm = api_norm(site)
+    direct = sq.get(site.get("key"))
+    if isinstance(direct, dict) and direct.get("api"):
+        if api_norm({"api": direct["api"]}) == norm:
+            return direct
+    if by_norm is None:
+        by_norm = index_search_quality(sq)
+    return by_norm.get(norm)
 
 
 def apply_search_quality(sites, sq, block_hosts=()):
@@ -711,14 +809,10 @@ def apply_search_quality(sites, sq, block_hosts=()):
     成人内容站直接剔除，并按域名记住，避免上游换个 key 又回来。
     匹配口径：key 精确匹配 → API 归一化匹配（覆盖同后端的其他入口）。
     """
-    by_norm = {}
-    for r in sq.values():
-        api = r.get("api") or ""
-        if api:
-            by_norm.setdefault(api_norm({"api": api}), r)
+    by_norm = index_search_quality(sq)
 
     def rec_of(site):
-        return sq.get(site.get("key")) or by_norm.get(api_norm(site))
+        return search_record(site, sq, by_norm)
 
     hosts = tuple(h.lower() for h in block_hosts if h)
     # 本地回环地址：这类站靠用户自己电脑上跑的代理程序工作（api 形如
@@ -758,7 +852,7 @@ def apply_search_quality(sites, sq, block_hosts=()):
 
 
 def load_alive():
-    """读取历史探活。兼容两种格式：旧的 {key: ts}，新的 {key: {ts,ms,code,cls}}。"""
+    """读取历史探活；旧格式可读取，但 merge_alive 会淘汰无 API 的不可信记录。"""
     try:
         with open(ALIVE_FILE, encoding="utf-8") as f:
             raw = json.load(f)
@@ -780,17 +874,49 @@ def merge_alive(hist, now_info, ttl_days=7):
     """把本轮探活并入历史，返回 (TTL 内仍算可用的记录, 新历史)。
 
     本地与 GitHub 海外 runner 的网络差别很大，只认单轮结果会让首页源在
-    两次构建之间来回跳；七天内成功过一次就继续算可用。denied 不写入历史——
-    403 是上游明确拒绝，下次构建会重新探，不该因为曾经活着就一直加分。"""
+    两次构建之间来回跳；七天内成功过一次就继续算可用。记录必须带 api，
+    否则上游同 key 换接口后会把旧站的速度与分类错套到新站。
+    """
     now = int(time.time())
+    # 2026-11 之前的缓存没有 api，无法证明它仍对应当前站点，主动淘汰。
+    hist = {k: v for k, v in hist.items()
+            if isinstance(v, dict) and v.get("api")}
     for k, rec in now_info.items():
-        if rec.get("code") == "ok":
+        if rec.get("code") == "ok" and rec.get("api"):
             hist[k] = {"ts": now, "ms": rec.get("ms"),
-                       "code": "ok", "cls": rec.get("cls") or []}
+                       "code": "ok", "cls": rec.get("cls") or [],
+                       "api": rec["api"]}
     ttl = int(ttl_days) * 86400
     hist = {k: v for k, v in hist.items()
             if now - int(v.get("ts", 0)) <= ttl}
     return hist, hist
+
+
+def current_alive(sites, records):
+    """只返回与当前 API 匹配的探活，并让同后端别名共享分类与速度。
+
+    denied 是本轮明确拒绝，优先于历史 ok；历史记录本身不会持久化 denied。
+    """
+    by_api = {}
+    for rec in (records or {}).values():
+        if not isinstance(rec, dict) or not rec.get("api"):
+            continue
+        norm = rec["api"]
+        old = by_api.get(norm)
+        rank = (1 if rec.get("code") == "denied" else 0, int(rec.get("ts") or 0))
+        old_rank = ((1 if (old or {}).get("code") == "denied" else 0),
+                    int((old or {}).get("ts") or 0))
+        if old is None or rank >= old_rank:
+            by_api[norm] = rec
+    out = {}
+    for s in sites:
+        norm = api_norm(s)
+        rec = (records or {}).get(s.get("key"))
+        if not isinstance(rec, dict) or rec.get("api") != norm:
+            rec = by_api.get(norm)
+        if isinstance(rec, dict) and rec.get("api") == norm:
+            out[s["key"]] = rec
+    return out
 
 
 # ---------------------------------------------------------------------------
@@ -809,16 +935,18 @@ def merge_alive(hist, now_info, ttl_days=7):
 # 类目配额：精选仓的内容构成。键是类目，值是目标占比（合计 ~1.0）。
 # 主流影视占大头，小众类型保底——这是「覆盖全」与「精简」的折中。
 CATEGORY_QUOTA = {
+    # 电影/剧集仍是主体；动漫是独立内容库，不能只用综合采集站里的「动漫片」
+    # 分类凑数。72 站目标：影视约 31、动漫 12、4K 10，其余类目保留代表。
     "电影剧集": 0.40,
-    "4K蓝光":   0.16,
-    "动漫":     0.10,
-    "短剧":     0.10,
+    "4K蓝光":   0.14,
+    "动漫":     0.17,
+    "短剧":     0.08,
     "少儿":     0.04,
-    "音乐MV":   0.05,
+    "音乐MV":   0.04,
     "戏曲":     0.03,
     "综艺":     0.02,
     "纪录片":   0.02,
-    "其他":     0.06,
+    "其他":     0.04,
 }
 
 # 精选仓里给类目加的短前缀（客户端站点列表是平铺的，前缀让列表可扫读）
@@ -971,34 +1099,51 @@ def site_category(site, alive=None):
 
 
 def lib_key(site):
-    """HTTP 采集站的「资源库」身份：去掉功能性子域后的主机名。
+    """HTTP 站的资源库身份：规范化主机 + 接口路径 + 业务参数。
 
-    不能粗暴取末两段 —— blbl.example.com 与 mgzy.example.com 会被并成
-    example.com，把两个不同的库当成一个。"""
-    api = (site.get("api") or "").split(";")[0].strip()
+    旧版只保留域名，会把 cf.example/wsy 与 cf.example/77 两个不同库误并；
+    现在仍剥离 www/api/cj 等功能子域，但保留路径，并统一 from/at 线路变体。
+    """
+    api = str(site.get("api") or "").split(";")[0].strip()
     if not api.startswith("http"):
         return api
+    norm = api_norm(site)
     try:
-        host = urllib.parse.urlsplit(api).hostname or ""
+        p = urllib.parse.urlsplit("//" + norm)
     except Exception:  # noqa: BLE001
-        return api
-    # app./m./play. 是同一后端的移动端镜像，不剥会留下「暴风」「暴风影音」两个入口
+        return norm
+    host = p.netloc
     for pre in ("www.", "api.", "cj.", "cms.", "vod.", "zy.", "m.", "app.", "play."):
         if host.startswith(pre):
             host = host[len(pre):]
             break
-    return host
+    return host + p.path + (("?" + p.query) if p.query else "")
 
 
 def lib_of(site):
-    """资源库身份。csp_ 站点同一个爬虫类会被几十个不同站点复用，
-    只按类名归并会把「兔兔儿歌」和「宝宝儿歌」当成同一个库 —— 必须带上 ext。"""
+    """资源库身份。csp_/py_ 必须比较完整 ext，而不是只看类名或前缀。
+
+    XBPQ/XYQHiker 的大量动漫站共用相同 JSON 开头，旧版截取前 120 字符会把
+    后半段才出现不同主页 URL 的站误并。这里对完整配置做稳定哈希，既避免误并，
+    也不会把数千字符的 XBPQ 规则塞进内存索引键。
+    """
     api = str(site.get("api") or "")
     if api.startswith(("csp_", "py_")):
         ext = site.get("ext")
         if isinstance(ext, (dict, list)):
-            ext = json.dumps(ext, ensure_ascii=False, sort_keys=True)
-        return "%s|%s" % (api, str(ext or "")[:120])
+            text = json.dumps(ext, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+        else:
+            text = urllib.parse.unquote(str(ext or "").strip())
+            if text.startswith(("{", "[")):
+                try:
+                    text = json.dumps(json.loads(text), ensure_ascii=False,
+                                      sort_keys=True, separators=(",", ":"))
+                except (ValueError, TypeError):
+                    pass
+            elif text.startswith("http"):
+                text = unwrap_mirror(text)
+        digest = hashlib.sha256(text.encode("utf-8")).hexdigest()[:20] if text else ""
+        return "%s|%s" % (api, digest)
     return lib_key(site)
 
 
@@ -1028,15 +1173,16 @@ def pick_lite(sites, size, per_source=5, bucket_of=None, alive=None,
     bucket_of = bucket_of or {}
     tags = tags or set()
     sq = sq or {}
+    sq_by_norm = index_search_quality(sq)
     order = {id(s): i for i, s in enumerate(sites)}
 
     def top_of(s):
         sid = s["key"].split("_")[0]
         return bucket_of.get(sid, sid)
 
-    def search_sig(key):
+    def search_sig(site):
         """同关键词下返回完全相同的标题集合 → 同一个内容库的不同外壳。"""
-        r = sq.get(key)
+        r = search_record(site, sq, sq_by_norm)
         if not r:
             return None
         t = r.get("titles1") or []
@@ -1052,12 +1198,15 @@ def pick_lite(sites, size, per_source=5, bucket_of=None, alive=None,
         except Exception:  # noqa: BLE001 —— 脏站名只该丢这一个站
             continue
         if named:
-            if brand.lower() in seen_b:
+            # 同名只在一个类目内去重。旧版全局按品牌丢弃，会把「小米电影」
+            # 与「小米动漫」等不同内容库互相挤掉，造成类目覆盖缺失。
+            brand_key = (cat, brand.lower())
+            if brand_key in seen_b:
                 continue
-            seen_b.add(brand.lower())
+            seen_b.add(brand_key)
         cand.append({"site": s, "cat": cat, "brand": brand,
                      "named": named, "top": top_of(s),
-                     "sig": search_sig(s["key"])})
+                     "sig": search_sig(s)})
 
     libs = {}
     for c in cand:
@@ -1094,15 +1243,16 @@ def pick_lite(sites, size, per_source=5, bucket_of=None, alive=None,
 
     def take(group, lib, relax_cat=False, relax_src=False):
         for c in group:
-            if not relax_cat and filled.get(c["cat"], 0) >= caps[c["cat"]]:
-                continue
-            if relax_cat and filled.get(c["cat"], 0) >= caps[c["cat"]] + 2:
-                continue
-            if not relax_src and c["cat"] not in NICHE_CATS and used.get(c["top"], 0) >= per_source:
-                continue
+            if not relax_src:
+                if not relax_cat and filled.get(c["cat"], 0) >= caps[c["cat"]]:
+                    continue
+                if relax_cat and filled.get(c["cat"], 0) >= caps[c["cat"]] + 2:
+                    continue
+                if c["cat"] not in NICHE_CATS and used.get(c["top"], 0) >= per_source:
+                    continue
             if not c["named"] and any(x["cat"] == c["cat"] and x["named"] for x in group):
                 continue
-            if relax_cat and not c["named"]:
+            if relax_cat and not relax_src and not c["named"]:
                 continue
             if c["sig"] and c["sig"] in seen_sig:
                 continue
@@ -1140,12 +1290,9 @@ def pick_lite(sites, size, per_source=5, bucket_of=None, alive=None,
             if len(out) >= size:
                 break
             lib = lib_of(group[0]["site"])
-            if lib in seen_lib:
-                continue
-            seen_lib.add(lib)
-            c = group[0]
-            out.append(c)
-            used[c["top"]] = used.get(c["top"], 0) + 1
+            if lib not in seen_lib:
+                # 最后一档也不能绕过搜索指纹与系列限制，更不能漏记类目计数。
+                take(group, lib, relax_cat=True, relax_src=True)
 
     # 取不到站名的按类目编字母（戏曲那类全是匿名 jar 站）
     seq = {}
@@ -1160,11 +1307,26 @@ def pick_lite(sites, size, per_source=5, bucket_of=None, alive=None,
         cls = rec.get("cls") if isinstance(rec, dict) else None
         return len(cls or [])
 
-    # 首页源：FongMi 拿配置里第一个站点当首页，固定选分类最全的综合库
+    # 首页源：不能只看分类数量。优先同时覆盖电影、电视剧、动漫，且搜索
+    # 实测合格、CMS 当前可访问的综合库；jar 站无这些离线数据时不奖惩。
+    def home_rank(c):
+        rec = alive.get(c["site"].get("key")) or {}
+        cls = " ".join(str(x) for x in (rec.get("cls") or []))
+        core = sum(any(w in cls for w in words) for words in (
+            ("电影", "电影片"), ("电视剧", "连续剧", "剧集"),
+            ("动漫", "动画")))
+        sr = search_record(c["site"], sq, sq_by_norm) or {}
+        hit = sr.get("hit_rate")
+        search_good = (sr.get("action") == "keep" and
+                       sr.get("verdict") in ("good", "ok") and
+                       isinstance(hit, (int, float)) and hit >= 0.70)
+        return (core == 3, search_good, rec.get("code") == "ok",
+                core, breadth(c), -order[id(c["site"])])
+
     head = None
     film = [c for c in out if c["cat"] == "电影剧集"]
     if film:
-        head = max(film, key=lambda c: breadth(c))
+        head = max(film, key=home_rank)
         out.remove(head)
 
     ordered = ([head] if head else []) + sorted(
@@ -1178,19 +1340,19 @@ def pick_lite(sites, size, per_source=5, bucket_of=None, alive=None,
     return result
 
 
-def rank_sites(sites, prio_map, consensus, dead, alive=None):
-    """按质量分降序，同分按源优先级、再按名称，保证每次构建顺序一致。
-
-    alive 是 {key: 探活记录} 的字典（merge_alive 返回），
-    不是集合 —— 需要里面的耗时与状态码做速度/403 评分。"""
+def rank_sites(sites, prio_map, consensus, dead, alive=None, sq=None):
+    """按质量分降序，同分按源优先级、再按名称，保证每次构建顺序一致。"""
     alive = alive or {}
+    sq = sq or {}
+    sq_by_norm = index_search_quality(sq)
     scored = []
     for s in sites:
         sid = s["key"].split("_")[0]
         prio = prio_map.get(sid, 100)
         probe = alive.get(s["key"])
+        search = search_record(s, sq, sq_by_norm)
         score, why = quality_score(s, prio, consensus.get(fingerprint(s), 1),
-                                   is_dead(s, dead), s["key"] in alive, probe)
+                                   is_dead(s, dead), s["key"] in alive, probe, search)
         scored.append((score, int(prio), s.get("name") or "", s, why))
     scored.sort(key=lambda x: (-x[0], x[1], x[2]))
     return scored
@@ -1336,7 +1498,7 @@ def main():
         subs = [g for g in got if "cfg" in g]
         print("[fetch] %-9s 子仓=%-2d 站点=%-4d %sms %s" % (
             src["id"], len(subs),
-            sum(len(g["cfg"].get("sites") or []) for g in subs), cost,
+            sum(len(site_list(g["cfg"])) for g in subs), cost,
             "ok" if subs else (got[0].get("error", "empty") if got else "empty")[:60]))
 
     # 预展开：一次绝对化，同时统计「同一后端被几个源收录」
@@ -1344,14 +1506,14 @@ def main():
     consensus = {}
     for src in ok:
         src["_abs"] = deep_abs(src["cfg"], src["base"])
-        for site in src["_abs"].get("sites") or []:
+        for site in site_list(src["_abs"]):
             fp = fingerprint(site)
             consensus[fp] = consensus.get(fp, 0) + 1
 
     # 单仓快照 + 收集合并素材
     snapshots = []
     used_keys, seen_fp = set(), set()
-    stats = {"dup": 0, "skip_no_api": 0, "skip_no_jar": 0}
+    stats = {"dup": 0, "skip_no_api": 0, "skip_no_jar": 0, "skip_bad_site": 0}
     merged_sites = []
     all_parses, all_lives, all_flags, all_ads = [], [], [], []
     first_wall = first_notice = first_spider = ""
@@ -1371,7 +1533,7 @@ def main():
         # 注意这里同样要走归一化：快照是给人直接填进 APP 的地址，
         # 类型不合规在严格客户端上会整份配置加载失败。
         if bconf.get("emit_source_repo", True) and not src.get("parent"):
-            raw_sites = [s for s in (cfg.get("sites") or []) if isinstance(s, dict)]
+            raw_sites = site_list(cfg)
             raw_parses = [p for p in (cfg.get("parses") or []) if isinstance(p, dict)]
             snap = {
                 "spider": src.get("spider", ""),
@@ -1388,7 +1550,7 @@ def main():
             snapshots.append((src["id"], snap))
 
         before = len(merged_sites)
-        for site in cfg.get("sites") or []:
+        for site in site_list(cfg):
             built = build_site(site, src, used_keys, seen_fp, stats, bconf)
             if built:
                 merged_sites.append(built)
@@ -1397,7 +1559,7 @@ def main():
         all_lives.extend(as_list(cfg.get("lives")))
         all_flags.extend(as_list(cfg.get("flags")))
         all_ads.extend(as_list(cfg.get("ads")))
-        src["n_sites"] = len(cfg.get("sites") or [])
+        src["n_sites"] = len(site_list(cfg))
         src["n_new"] = len(merged_sites) - before
 
     # 爬虫文件探活：404/410 的站点移出聚合搜索（仍能在列表里点开），并在排序中沉底
@@ -1431,6 +1593,7 @@ def main():
             for k, r in fresh.items():
                 if r["code"] == "denied":
                     alive[k] = r
+            alive = current_alive(merged_sites, alive)
             write_json(ALIVE_FILE, hist)
             print("[probe] CMS 接口本轮 %d/%d 有返回（拒绝 %d），历史有效 %d"
                   % (alive_now, n_cms, denied_now, len(alive)))
@@ -1449,7 +1612,7 @@ def main():
         st = {"adult": 0, "host": 0, "local": 0, "off": 0, "quick": 0}
 
     # 质量排序：首页取第一个站点，站点列表与搜索也按这个顺序
-    ranked = rank_sites(merged_sites, prio_map, consensus, dead, alive)
+    ranked = rank_sites(merged_sites, prio_map, consensus, dead, alive, sq)
     merged_sites = [item[3] for item in ranked]
 
     merged = {}
@@ -1578,7 +1741,7 @@ def main():
 
     # 状态与报告
     status = {
-        "generated_at": time.strftime("%Y-%m-%dT%H:%M:%S+08:00"),
+        "generated_at": datetime.now(timezone(timedelta(hours=8))).isoformat(timespec="seconds"),
         "total_sites": len(merged_sites),
         "total_parses": len(merged["parses"]),
         "total_lives": len(merged.get("lives") or []),
@@ -1628,9 +1791,9 @@ def main():
     lines += ["", "# 可选（需在仓库设置里启用 GitHub Pages）", pages_base + "api/all.json"]
     write_text(os.path.join(ROOT, "mirrors.txt"), "\n".join(lines) + "\n")
 
-    print("\n[done] 合并站点 %d / 解析 %d / 直播 %d，去重 %d，跳过(无api) %d，跳过(无jar) %d" % (
+    print("\n[done] 合并站点 %d / 解析 %d / 直播 %d，去重 %d，跳过(无api) %d，跳过(无jar) %d，跳过(坏站点) %d" % (
         len(merged_sites), len(merged["parses"]), len(merged.get("lives") or []),
-        stats["dup"], stats["skip_no_api"], stats["skip_no_jar"]))
+        stats["dup"], stats["skip_no_api"], stats["skip_no_jar"], stats["skip_bad_site"]))
     print("[out ] %s" % os.path.join(ROOT))
 
 
@@ -1687,8 +1850,8 @@ def write_report(status, merged, sources, top=None, demoted=0):
         for i, (score, _prio, _name, site, why) in enumerate(top, 1):
             lines.append("| %d | %s | %.1f | %s |" % (i, site["name"][:26], score, " ".join(why)))
         lines.append("")
-        lines.append("排序口径：接口类型（采集 API > 内置爬虫 > JS 爬虫）+ 是否需要下载 jar "
-                     "+ 跨源收录数 + 是否参与搜索 − 工具类站点 − 爬虫失效，同分按源优先级。")
+        lines.append("排序口径：接口类型 + jar 成本 + 跨源收录 + CMS 探活/速度 + 搜索实测 "
+                     "− 工具类站点 − 搜索杂乱 − 爬虫失效，同分按源优先级。首页另需三类覆盖。")
     write_text(os.path.join(ROOT, "report.md"), "\n".join(lines) + "\n")
 
 

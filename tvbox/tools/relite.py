@@ -35,7 +35,8 @@ def main():
     per = args.per_source or int(bconf.get("lite_per_source", 5))
 
     allconf = json.load(open(os.path.join(TVBOX, "api", "all.json"), encoding="utf-8"))
-    alive = json.load(open(os.path.join(TVBOX, "cms_alive.json"), encoding="utf-8"))
+    alive = build.current_alive(allconf["sites"], json.load(open(
+        os.path.join(TVBOX, "cms_alive.json"), encoding="utf-8")))
     tags = {s.get("tag") for s in conf["sources"]} | {s.get("name") for s in conf["sources"]}
 
     # bucket_of：子仓 id -> 顶层源（与 build.py 的构造方式一致）
