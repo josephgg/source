@@ -2,7 +2,7 @@
 https://fastly.jsdelivr.net/gh/josephgg/source@main/tvbox/api/lite.json
 https://cdn.jsdelivr.net/gh/josephgg/source@main/tvbox/api/lite.json
 
-# 全部聚合（4546 站点，一个地址装下所有资源）
+# 全部聚合（4547 站点，一个地址装下所有资源）
 https://fastly.jsdelivr.net/gh/josephgg/source@main/tvbox/api/all.json
 https://cdn.jsdelivr.net/gh/josephgg/source@main/tvbox/api/all.json
 

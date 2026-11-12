@@ -6,46 +6,6 @@
       "jaccard": 1.0
     },
     {
-      "a": "maoy_金鹰资源",
-      "b": "lxshiguang1_极速资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "maoy_金鹰资源",
-      "b": "lxshiguang1_光速资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "maoy_金鹰资源",
-      "b": "lxshiguang14_金鹰",
-      "jaccard": 1.0
-    },
-    {
-      "a": "maoy_金鹰资源",
-      "b": "lxshiguang14_创享",
-      "jaccard": 1.0
-    },
-    {
-      "a": "maoy_金鹰资源",
-      "b": "lxchuangxiang_source_4247318859",
-      "jaccard": 1.0
-    },
-    {
-      "a": "maoy_金鹰资源",
-      "b": "lxchuangxiang_source_2761253814",
-      "jaccard": 1.0
-    },
-    {
-      "a": "maoy_金鹰资源",
-      "b": "lxchuangxiang_source_2680151544",
-      "jaccard": 1.0
-    },
-    {
-      "a": "maoy_金鹰资源",
-      "b": "lxchuangxiang_source_1016684692",
-      "jaccard": 1.0
-    },
-    {
       "a": "lxyingcang_feifan",
       "b": "lxshiguang1_非凡资源",
       "jaccard": 1.0
@@ -77,21 +37,6 @@
     },
     {
       "a": "lxxiaoma_红牛资源",
-      "b": "lxshiguang1_光速资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxxiaoma_红牛资源",
-      "b": "lxshiguang14_金鹰",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxxiaoma_红牛资源",
-      "b": "lxshiguang14_速播",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxxiaoma_红牛资源",
       "b": "lxshiguang14_创享",
       "jaccard": 1.0
     },
@@ -118,11 +63,6 @@
     {
       "a": "lxxiaoma_红牛资源",
       "b": "laoliu_虎牙",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxxiaoma_红牛资源",
-      "b": "laoliu_火狐",
       "jaccard": 1.0
     },
     {
@@ -142,37 +82,22 @@
     },
     {
       "a": "lxxiaoma_新浪资源",
-      "b": "lxshiguang1_光速资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxxiaoma_新浪资源",
-      "b": "lxshiguang14_金鹰",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxxiaoma_新浪资源",
       "b": "lxshiguang14_创享",
       "jaccard": 1.0
     },
     {
       "a": "lxxiaoma_新浪资源",
-      "b": "lxchuangxiang_source_4247318859",
+      "b": "laoliu_虎牙",
       "jaccard": 1.0
     },
     {
-      "a": "lxxiaoma_新浪资源",
-      "b": "lxchuangxiang_source_2761253814",
+      "a": "lxxhzdc18_csp_xml_量子资源",
+      "b": "lxchuangxiang_source_1470828922",
       "jaccard": 1.0
     },
     {
-      "a": "lxxiaoma_新浪资源",
-      "b": "lxchuangxiang_source_2680151544",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxxiaoma_新浪资源",
-      "b": "lxchuangxiang_source_1016684692",
+      "a": "lxxhzdc18_csp_xml_量子资源",
+      "b": "laoliu_量子资源",
       "jaccard": 1.0
     },
     {
@@ -187,12 +112,7 @@
     },
     {
       "a": "lxshiguang1_极速资源",
-      "b": "lxshiguang1_光速资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxshiguang1_极速资源",
-      "b": "lxshiguang14_金鹰",
+      "b": "maoy_金鹰资源",
       "jaccard": 1.0
     },
     {
@@ -202,12 +122,7 @@
     },
     {
       "a": "lxshiguang1_极速资源",
-      "b": "lxchuangxiang_source_2761253814",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxshiguang1_极速资源",
-      "b": "lxchuangxiang_source_2680151544",
+      "b": "laoliu_虎牙",
       "jaccard": 1.0
     },
     {
@@ -222,12 +137,37 @@
     },
     {
       "a": "lxshiguang1_光速资源",
+      "b": "maoy_金鹰资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxshiguang1_光速资源",
+      "b": "lxxiaoma_红牛资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxshiguang1_光速资源",
+      "b": "lxxiaoma_新浪资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxshiguang1_光速资源",
+      "b": "lxshiguang1_极速资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxshiguang1_光速资源",
       "b": "lxshiguang14_金鹰",
       "jaccard": 1.0
     },
     {
       "a": "lxshiguang1_光速资源",
       "b": "lxshiguang14_创享",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxshiguang1_光速资源",
+      "b": "lxchuangxiang_source_4247318859",
       "jaccard": 1.0
     },
     {
@@ -241,8 +181,48 @@
       "jaccard": 1.0
     },
     {
+      "a": "lxshiguang1_光速资源",
+      "b": "lxchuangxiang_source_1016684692",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxshiguang1_光速资源",
+      "b": "laoliu_虎牙",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxshiguang1_光速资源",
+      "b": "laoliu_火狐",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxshiguang14_金鹰",
+      "b": "maoy_金鹰资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxshiguang14_金鹰",
+      "b": "lxxiaoma_红牛资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxshiguang14_金鹰",
+      "b": "lxxiaoma_新浪资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxshiguang14_金鹰",
+      "b": "lxshiguang1_极速资源",
+      "jaccard": 1.0
+    },
+    {
       "a": "lxshiguang14_金鹰",
       "b": "lxshiguang14_创享",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxshiguang14_金鹰",
+      "b": "lxchuangxiang_source_4247318859",
       "jaccard": 1.0
     },
     {
@@ -251,8 +231,28 @@
       "jaccard": 1.0
     },
     {
+      "a": "lxshiguang14_金鹰",
+      "b": "lxchuangxiang_source_2680151544",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxshiguang14_金鹰",
+      "b": "lxchuangxiang_source_1016684692",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxshiguang14_金鹰",
+      "b": "laoliu_虎牙",
+      "jaccard": 1.0
+    },
+    {
       "a": "lxshiguang14_速播",
       "b": "maoy_金鹰资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxshiguang14_速播",
+      "b": "lxxiaoma_红牛资源",
       "jaccard": 1.0
     },
     {
@@ -311,18 +311,23 @@
       "jaccard": 1.0
     },
     {
+      "a": "lxshiguang14_创享",
+      "b": "maoy_金鹰资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxchuangxiang_source_4247318859",
+      "b": "maoy_金鹰资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxchuangxiang_source_4247318859",
+      "b": "lxxiaoma_新浪资源",
+      "jaccard": 1.0
+    },
+    {
       "a": "lxchuangxiang_source_4247318859",
       "b": "lxshiguang1_极速资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_source_4247318859",
-      "b": "lxshiguang1_光速资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_source_4247318859",
-      "b": "lxshiguang14_金鹰",
       "jaccard": 1.0
     },
     {
@@ -332,12 +337,27 @@
     },
     {
       "a": "lxchuangxiang_source_4247318859",
-      "b": "lxchuangxiang_source_2761253814",
+      "b": "lxchuangxiang_source_1016684692",
       "jaccard": 1.0
     },
     {
       "a": "lxchuangxiang_source_4247318859",
-      "b": "lxchuangxiang_source_2680151544",
+      "b": "laoliu_虎牙",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxchuangxiang_source_2761253814",
+      "b": "maoy_金鹰资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxchuangxiang_source_2761253814",
+      "b": "lxxiaoma_新浪资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxchuangxiang_source_2761253814",
+      "b": "lxshiguang1_极速资源",
       "jaccard": 1.0
     },
     {
@@ -346,8 +366,33 @@
       "jaccard": 1.0
     },
     {
+      "a": "lxchuangxiang_source_2761253814",
+      "b": "lxchuangxiang_source_4247318859",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxchuangxiang_source_2761253814",
+      "b": "lxchuangxiang_source_1016684692",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxchuangxiang_source_2761253814",
+      "b": "laoliu_虎牙",
+      "jaccard": 1.0
+    },
+    {
       "a": "lxchuangxiang_source_2680151544",
-      "b": "lxshiguang14_金鹰",
+      "b": "maoy_金鹰资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxchuangxiang_source_2680151544",
+      "b": "lxxiaoma_新浪资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxchuangxiang_source_2680151544",
+      "b": "lxshiguang1_极速资源",
       "jaccard": 1.0
     },
     {
@@ -357,7 +402,22 @@
     },
     {
       "a": "lxchuangxiang_source_2680151544",
+      "b": "lxchuangxiang_source_4247318859",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxchuangxiang_source_2680151544",
       "b": "lxchuangxiang_source_2761253814",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxchuangxiang_source_2680151544",
+      "b": "lxchuangxiang_source_1016684692",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxchuangxiang_source_2680151544",
+      "b": "laoliu_虎牙",
       "jaccard": 1.0
     },
     {
@@ -376,8 +436,13 @@
       "jaccard": 1.0
     },
     {
-      "a": "lxchuangxiang_source_1470828922",
-      "b": "lxxhzdc18_csp_xml_量子资源",
+      "a": "lxchuangxiang_source_1016684692",
+      "b": "maoy_金鹰资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxchuangxiang_source_1016684692",
+      "b": "lxxiaoma_新浪资源",
       "jaccard": 1.0
     },
     {
@@ -387,37 +452,12 @@
     },
     {
       "a": "lxchuangxiang_source_1016684692",
-      "b": "lxshiguang1_光速资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_source_1016684692",
-      "b": "lxshiguang14_金鹰",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_source_1016684692",
       "b": "lxshiguang14_创享",
       "jaccard": 1.0
     },
     {
       "a": "lxchuangxiang_source_1016684692",
-      "b": "lxchuangxiang_source_4247318859",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_source_1016684692",
-      "b": "lxchuangxiang_source_2761253814",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_source_1016684692",
-      "b": "lxchuangxiang_source_2680151544",
-      "jaccard": 1.0
-    },
-    {
-      "a": "laoliu_量子资源",
-      "b": "lxxhzdc18_csp_xml_量子资源",
+      "b": "laoliu_虎牙",
       "jaccard": 1.0
     },
     {
@@ -432,47 +472,7 @@
     },
     {
       "a": "laoliu_虎牙",
-      "b": "lxxiaoma_新浪资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "laoliu_虎牙",
-      "b": "lxshiguang1_极速资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "laoliu_虎牙",
-      "b": "lxshiguang1_光速资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "laoliu_虎牙",
-      "b": "lxshiguang14_金鹰",
-      "jaccard": 1.0
-    },
-    {
-      "a": "laoliu_虎牙",
       "b": "lxshiguang14_创享",
-      "jaccard": 1.0
-    },
-    {
-      "a": "laoliu_虎牙",
-      "b": "lxchuangxiang_source_4247318859",
-      "jaccard": 1.0
-    },
-    {
-      "a": "laoliu_虎牙",
-      "b": "lxchuangxiang_source_2761253814",
-      "jaccard": 1.0
-    },
-    {
-      "a": "laoliu_虎牙",
-      "b": "lxchuangxiang_source_2680151544",
-      "jaccard": 1.0
-    },
-    {
-      "a": "laoliu_虎牙",
-      "b": "lxchuangxiang_source_1016684692",
       "jaccard": 1.0
     },
     {
@@ -482,17 +482,17 @@
     },
     {
       "a": "laoliu_火狐",
+      "b": "lxxiaoma_红牛资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "laoliu_火狐",
       "b": "lxxiaoma_新浪资源",
       "jaccard": 1.0
     },
     {
       "a": "laoliu_火狐",
       "b": "lxshiguang1_极速资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "laoliu_火狐",
-      "b": "lxshiguang1_光速资源",
       "jaccard": 1.0
     },
     {
@@ -536,8 +536,13 @@
       "jaccard": 0.89
     },
     {
-      "a": "maoy_飘零影院",
-      "b": "nptp_s_1b411b52e2",
+      "a": "nptp_s_wsyzy",
+      "b": "lxshiguang1_无尽资源网",
+      "jaccard": 0.89
+    },
+    {
+      "a": "nptp_s_1b411b52e2",
+      "b": "maoy_飘零影院",
       "jaccard": 0.89
     },
     {
@@ -548,11 +553,6 @@
     {
       "a": "lxshiguang22_csp_xml_无尽",
       "b": "maoy_飘零影院",
-      "jaccard": 0.89
-    },
-    {
-      "a": "lxshiguang1_无尽资源网",
-      "b": "nptp_s_wsyzy",
       "jaccard": 0.89
     },
     {
@@ -566,8 +566,8 @@
       "jaccard": 0.88
     },
     {
-      "a": "maoy_最大资源",
-      "b": "maoy_飘零影院",
+      "a": "maoy_飘零影院",
+      "b": "maoy_最大资源",
       "jaccard": 0.88
     },
     {
@@ -581,8 +581,8 @@
       "jaccard": 0.88
     },
     {
-      "a": "maoy_最大资源",
-      "b": "nptp_s_1b411b52e2",
+      "a": "nptp_s_1b411b52e2",
+      "b": "maoy_最大资源",
       "jaccard": 0.78
     },
     {
@@ -591,13 +591,13 @@
       "jaccard": 0.78
     },
     {
-      "a": "lxshiguang1_最大采集",
-      "b": "nptp_s_1b411b52e2",
+      "a": "lxshiguang22_csp_xml_无尽",
+      "b": "lxshiguang1_最大采集",
       "jaccard": 0.78
     },
     {
       "a": "lxshiguang1_最大采集",
-      "b": "lxshiguang22_csp_xml_无尽",
+      "b": "nptp_s_1b411b52e2",
       "jaccard": 0.78
     },
     {
@@ -612,12 +612,17 @@
     },
     {
       "a": "nptp_s_77dpwqy",
-      "b": "lxshiguang1_光速资源",
+      "b": "maoy_金鹰资源",
       "jaccard": 0.67
     },
     {
       "a": "nptp_s_77dpwqy",
-      "b": "lxshiguang14_金鹰",
+      "b": "lxxiaoma_新浪资源",
+      "jaccard": 0.67
+    },
+    {
+      "a": "nptp_s_77dpwqy",
+      "b": "lxshiguang1_极速资源",
       "jaccard": 0.67
     },
     {
@@ -627,22 +632,12 @@
     },
     {
       "a": "nptp_s_77dpwqy",
-      "b": "lxchuangxiang_source_2761253814",
+      "b": "lxchuangxiang_source_1016684692",
       "jaccard": 0.67
     },
     {
       "a": "nptp_s_77dpwqy",
-      "b": "lxchuangxiang_source_2680151544",
-      "jaccard": 0.67
-    },
-    {
-      "a": "maoy_金鹰资源",
-      "b": "nptp_s_77dpwqy",
-      "jaccard": 0.67
-    },
-    {
-      "a": "lxxiaoma_非凡",
-      "b": "lxshiguang14_艾旦",
+      "b": "laoliu_虎牙",
       "jaccard": 0.67
     },
     {
@@ -651,12 +646,12 @@
       "jaccard": 0.67
     },
     {
-      "a": "lxxiaoma_新浪资源",
+      "a": "lxshiguang1_光速资源",
       "b": "nptp_s_77dpwqy",
       "jaccard": 0.67
     },
     {
-      "a": "lxshiguang1_极速资源",
+      "a": "lxshiguang14_金鹰",
       "b": "nptp_s_77dpwqy",
       "jaccard": 0.67
     },
@@ -672,7 +667,17 @@
     },
     {
       "a": "lxshiguang14_艾旦",
+      "b": "lxxiaoma_非凡",
+      "jaccard": 0.67
+    },
+    {
+      "a": "lxshiguang14_艾旦",
       "b": "lxshiguang1_非凡资源",
+      "jaccard": 0.67
+    },
+    {
+      "a": "lxshiguang14_艾旦",
+      "b": "lxchuangxiang_source_1840804598",
       "jaccard": 0.67
     },
     {
@@ -681,17 +686,12 @@
       "jaccard": 0.67
     },
     {
-      "a": "lxchuangxiang_source_1840804598",
-      "b": "lxshiguang14_艾旦",
-      "jaccard": 0.67
-    },
-    {
-      "a": "lxchuangxiang_source_1016684692",
+      "a": "lxchuangxiang_source_2761253814",
       "b": "nptp_s_77dpwqy",
       "jaccard": 0.67
     },
     {
-      "a": "laoliu_虎牙",
+      "a": "lxchuangxiang_source_2680151544",
       "b": "nptp_s_77dpwqy",
       "jaccard": 0.67
     },
@@ -4054,6 +4054,38 @@
       "熊出没·狂野大陆",
       "熊出没",
       "熊出没·伴我“熊芯”"
+    ],
+    "verdict": "good",
+    "why": "命中率 100% / 100%，重合 0%"
+  },
+  "nptp_s_05b7f2c7da": {
+    "action": "keep",
+    "adult": [],
+    "adult_n": 0,
+    "api": "https://360zyzz.com/api.php/provide/vod/",
+    "hit_rate": 1.0,
+    "ms": 268,
+    "n1": 3,
+    "n2": 11,
+    "name": "探针·🦚360(7.5万)·540ms",
+    "tested_at": 1794474262,
+    "titles1": [
+      "庆余年第二季",
+      "庆余年第一季特别版",
+      "庆余年第一季"
+    ],
+    "titles2": [
+      "熊出没之神奇宝物第二季",
+      "熊出没·年年有熊",
+      "熊出没之神奇宝物",
+      "熊出没·原始时代",
+      "熊出没·狂野大陆",
+      "熊出没·重启未来—抢先版",
+      "熊出没合集",
+      "熊出没·变形记",
+      "熊出没·逆转时空",
+      "熊出没注意",
+      "熊出没·伴我熊芯"
     ],
     "verdict": "good",
     "why": "命中率 100% / 100%，重合 0%"
