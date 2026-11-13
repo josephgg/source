@@ -1,23 +1,23 @@
 {
- "generated_at": "2026-11-13T09:44:00",
- "tested_at": 1794534240,
+ "generated_at": "2026-11-13T02:08:42",
+ "tested_at": 1794535722,
  "scope": "all.json",
  "keyword": "庆余年",
  "summary": {
-  "ok": 39,
-  "direct": 21,
-  "search_fail": 26,
-  "no_result": 12,
-  "ok_secondary": 13,
+  "dead_link": 34,
+  "ok": 30,
+  "direct": 19,
+  "search_fail": 18,
   "no_episode": 6,
-  "dns_dead": 16,
-  "dead_link": 5,
-  "xml_endpoint": 3,
+  "no_result": 12,
   "search_bad": 34,
   "python_spider": 173,
   "rule_based": 4218,
+  "dns_dead": 17,
+  "xml_endpoint": 4,
   "bad_url": 5,
   "share_page": 3,
+  "html_link": 1,
   "live_format": 1
  },
  "sites": [
@@ -26,12 +26,17 @@
    "name": "老刘·🎏百度┃采集",
    "api": "https://api.apibdzy.com/api.php/provide/vod/?ac=list",
    "kind": "cms",
-   "verdict": "ok",
-   "why": "",
+   "verdict": "dead_link",
+   "why": "首集返回 403（带 Referer 也失败）；DoH 有 A 记录，属本机 DNS 被拦",
    "first_url": "https://vod6.bdzybf11.com/20250125/1cg3Vq0l/index.m3u8",
    "codec": "",
-   "ms": 3274,
-   "bad_streak": 0,
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "104.21.24.74",
+    "172.67.217.198"
+   ],
+   "bad_streak": 1,
    "prev_verdict": "ok"
   },
   {
@@ -43,7 +48,7 @@
    "why": "",
    "first_url": "https://1080p.huyall.com/play/6dBlmVNa/index.m3u8",
    "codec": "",
-   "ms": 7678,
+   "ms": 1857,
    "bad_streak": 0,
    "prev_verdict": "ok"
   },
@@ -56,21 +61,39 @@
    "why": "",
    "first_url": "https://play.hhuus.com/play/DbDpoXqb",
    "codec": "",
-   "ms": 1300,
+   "ms": 997,
    "bad_streak": 0,
    "prev_verdict": "direct"
+  },
+  {
+   "key": "lxshiguang1_360采集",
+   "name": "拾光·360｜采集",
+   "api": "https://360zy.com/api.php/provide/vod/",
+   "kind": "cms",
+   "verdict": "ok",
+   "why": "",
+   "first_url": "https://vod2.maowushi.com/20240516/zN7aNzzK/index.m3u8",
+   "codec": "",
+   "ms": 2880,
+   "bad_streak": 0,
+   "prev_verdict": "ok"
   },
   {
    "key": "lxshiguang1_无尽资源网",
    "name": "拾光·无尽｜采集",
    "api": "https://api.wujinapi.net/api.php/provide/vod/",
    "kind": "cms",
-   "verdict": "ok",
-   "why": "",
+   "verdict": "dead_link",
+   "why": "首集返回 403（带 Referer 也失败）；DoH 有 A 记录，属本机 DNS 被拦",
    "first_url": "https://v6.ppqrrs.com/wjv6/202411/27/nwMYqxMhvq78/video/index.m3u8",
    "codec": "",
-   "ms": 7634,
-   "bad_streak": 0,
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "188.114.96.3",
+    "188.114.97.3"
+   ],
+   "bad_streak": 1,
    "prev_verdict": "ok"
   },
   {
@@ -82,7 +105,38 @@
    "why": "",
    "first_url": "https://play.modujx16.com/20241127/yiLl9T4H/index.m3u8",
    "codec": "",
-   "ms": 2331,
+   "ms": 1665,
+   "bad_streak": 0,
+   "prev_verdict": "ok"
+  },
+  {
+   "key": "ivok_电影天堂",
+   "name": "OK·🎞️天堂┃采集",
+   "api": "http://caiji.dyttzyapi.com/api.php/provide/vod/from/dyttm3u8/at/m3u8/",
+   "kind": "cms",
+   "verdict": "dead_link",
+   "why": "首集返回 403（带 Referer 也失败）；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "https://vip.dytt-tvs.com/20251221/8140_e2db7186/index.m3u8",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "vvv1.heisi-dns.com.",
+    "23.225.147.246"
+   ],
+   "bad_streak": 1,
+   "prev_verdict": "ok"
+  },
+  {
+   "key": "lxchuangxiang_创享影视",
+   "name": "创享·🌟 创享影视",
+   "api": "https://ys.cxkjg.cn/api/provide/vod",
+   "kind": "cms",
+   "verdict": "ok",
+   "why": "",
+   "first_url": "https://hd.kuktxu.com/play/6dBlmVNa/index.m3u8",
+   "codec": "",
+   "ms": 7479,
    "bad_streak": 0,
    "prev_verdict": "ok"
   },
@@ -91,25 +145,17 @@
    "name": "酒店·无尽资源",
    "api": "https://api.wujinapi.com/api.php/provide/vod/",
    "kind": "cms",
-   "verdict": "ok",
-   "why": "",
+   "verdict": "dead_link",
+   "why": "首集返回 403（带 Referer 也失败）；DoH 有 A 记录，属本机 DNS 被拦",
    "first_url": "https://v6.ppqrrs.com/wjv6/202411/27/nwMYqxMhvq78/video/index.m3u8",
    "codec": "",
-   "ms": 6354,
-   "bad_streak": 0,
-   "prev_verdict": "ok"
-  },
-  {
-   "key": "lxshiguang1_360采集",
-   "name": "拾光·360｜采集",
-   "api": "https://360zy.com/api.php/provide/vod/",
-   "kind": "cms",
-   "verdict": "ok",
-   "why": "",
-   "first_url": "https://vod2.maowushi.com/20240516/zN7aNzzK/index.m3u8",
-   "codec": "",
-   "ms": 4641,
-   "bad_streak": 0,
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "104.21.40.208",
+    "172.67.157.10"
+   ],
+   "bad_streak": 1,
    "prev_verdict": "ok"
   },
   {
@@ -121,7 +167,7 @@
    "why": "",
    "first_url": "https://cdn.ryplay11.com/20241130/63415_866058d3/index.m3u8",
    "codec": "",
-   "ms": 2663,
+   "ms": 4014,
    "bad_streak": 0,
    "prev_verdict": "ok"
   },
@@ -130,25 +176,17 @@
    "name": "拾光·最大｜采集",
    "api": "https://zuida.xyz/api.php/provide/vod/",
    "kind": "cms",
-   "verdict": "ok",
-   "why": "",
+   "verdict": "dead_link",
+   "why": "首集返回 403（带 Referer 也失败）；DoH 有 A 记录，属本机 DNS 被拦",
    "first_url": "https://v4.zuidazym3u8.com/yyv4/202411/27/28HzwAj3yh19/video/index.m3u8",
    "codec": "",
-   "ms": 8284,
-   "bad_streak": 0,
-   "prev_verdict": "ok"
-  },
-  {
-   "key": "ivok_电影天堂",
-   "name": "OK·🎞️天堂┃采集",
-   "api": "http://caiji.dyttzyapi.com/api.php/provide/vod/from/dyttm3u8/at/m3u8/",
-   "kind": "cms",
-   "verdict": "ok",
-   "why": "",
-   "first_url": "https://vip.dytt-tvs.com/20251221/8140_e2db7186/index.m3u8",
-   "codec": "",
-   "ms": 3497,
-   "bad_streak": 0,
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "104.21.25.10",
+    "172.67.221.139"
+   ],
+   "bad_streak": 1,
    "prev_verdict": "ok"
   },
   {
@@ -160,22 +198,9 @@
    "why": "",
    "first_url": "https://vv.jisuzyv.com/play/oeErpY0a",
    "codec": "",
-   "ms": 1657,
+   "ms": 628,
    "bad_streak": 0,
    "prev_verdict": "direct"
-  },
-  {
-   "key": "lxchuangxiang_创享影视",
-   "name": "创享·🌟 创享影视",
-   "api": "https://ys.cxkjg.cn/api/provide/vod",
-   "kind": "cms",
-   "verdict": "ok",
-   "why": "",
-   "first_url": "https://hd.kuktxu.com/play/6dBlmVNa/index.m3u8",
-   "codec": "",
-   "ms": 6602,
-   "bad_streak": 0,
-   "prev_verdict": "ok"
   },
   {
    "key": "maoy_极速",
@@ -186,7 +211,7 @@
    "why": "",
    "first_url": "https://vv.jisuzyv.com/play/oeErpY0a",
    "codec": "",
-   "ms": 2011,
+   "ms": 636,
    "bad_streak": 0,
    "prev_verdict": "direct"
   },
@@ -199,20 +224,7 @@
    "why": "",
    "first_url": "https://play.ly166.com:65/videos/20250722/687f3d0b80eee9b955fe6960/e08efg/index.m3u8",
    "codec": "",
-   "ms": 3555,
-   "bad_streak": 0,
-   "prev_verdict": "ok"
-  },
-  {
-   "key": "lxshiguang22_csp_xml_光速",
-   "name": "拾光·❤光速资源",
-   "api": "https://api.guangsuapi.com/api.php/provide/vod/from/gsm3u8/",
-   "kind": "cms",
-   "verdict": "ok",
-   "why": "",
-   "first_url": "https://v.gsuus.com/play/kazVzrma/index.m3u8",
-   "codec": "",
-   "ms": 7008,
+   "ms": 7309,
    "bad_streak": 0,
    "prev_verdict": "ok"
   },
@@ -221,13 +233,36 @@
    "name": "拾光·❤无尽资源",
    "api": "https://api.wujinapi.me/api.php/provide/vod/?ac=list",
    "kind": "cms",
-   "verdict": "ok",
-   "why": "",
+   "verdict": "dead_link",
+   "why": "首集返回 403（带 Referer 也失败）；DoH 有 A 记录，属本机 DNS 被拦",
    "first_url": "https://v6.ppqrrs.com/wjv6/202411/27/nwMYqxMhvq78/video/index.m3u8",
    "codec": "",
-   "ms": 3346,
-   "bad_streak": 0,
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "188.114.96.3",
+    "188.114.97.3"
+   ],
+   "bad_streak": 1,
    "prev_verdict": "ok"
+  },
+  {
+   "key": "laoliu_csp_非凡资源",
+   "name": "老刘·🥗┃非凡┃资源",
+   "api": "http://ffzy1.tv/api.php/provide/vod/",
+   "kind": "cms",
+   "verdict": "dead_link",
+   "why": "首集返回 403（带 Referer 也失败）（2 条线路全部失败）；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "https://vip.ffzy-online2.com/share/116b896114ff71245852cace1f9f69c5",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "91.110.207.5",
+    "172.247.13.250"
+   ],
+   "bad_streak": 1,
+   "prev_verdict": "search_fail"
   },
   {
    "key": "lxshiguang1_光速资源",
@@ -238,7 +273,7 @@
    "why": "",
    "first_url": "https://v.gsuus.com/play/kazVzrma",
    "codec": "",
-   "ms": 1843,
+   "ms": 872,
    "bad_streak": 0,
    "prev_verdict": "direct"
   },
@@ -251,7 +286,7 @@
    "why": "",
    "first_url": "https://vv.jisuzyv.com/play/oeErpY0a",
    "codec": "",
-   "ms": 1494,
+   "ms": 530,
    "bad_streak": 0,
    "prev_verdict": "direct"
   },
@@ -260,12 +295,17 @@
    "name": "小马·影视 | 电影天堂",
    "api": "http://caiji.dyttzyapi.com/api.php/provide/vod",
    "kind": "cms",
-   "verdict": "direct",
-   "why": "",
+   "verdict": "dead_link",
+   "why": "首集返回 403（带 Referer 也失败）（2 条线路全部失败）；DoH 有 A 记录，属本机 DNS 被拦",
    "first_url": "https://vip.dytt-tvs.com/share/e2db7186375992e729165726762cb4c1",
    "codec": "",
-   "ms": 2654,
-   "bad_streak": 0,
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "vvv1.heisi-dns.com.",
+    "23.225.147.246"
+   ],
+   "bad_streak": 1,
    "prev_verdict": "direct"
   },
   {
@@ -277,7 +317,7 @@
    "why": "",
    "first_url": "https://play.xluuss.com/play/9aAjlRPb",
    "codec": "",
-   "ms": 2329,
+   "ms": 771,
    "bad_streak": 0,
    "prev_verdict": "direct"
   },
@@ -287,24 +327,42 @@
    "api": "https://www.hongniuzy2.com/api.php/provide/vod/",
    "kind": "cms",
    "verdict": "direct",
-   "why": "",
+   "why": "需 Referer，客户端不带会 403",
    "first_url": "https://hn.bfvvs.com/play/PdyQyqPd",
    "codec": "",
-   "ms": 3659,
+   "ms": 14625,
    "bad_streak": 0,
    "prev_verdict": "direct"
+  },
+  {
+   "key": "lxshiguang22_csp_xml_光速",
+   "name": "拾光·❤光速资源",
+   "api": "https://api.guangsuapi.com/api.php/provide/vod/from/gsm3u8/",
+   "kind": "cms",
+   "verdict": "ok",
+   "why": "",
+   "first_url": "https://v.gsuus.com/play/kazVzrma/index.m3u8",
+   "codec": "",
+   "ms": 1781,
+   "bad_streak": 0,
+   "prev_verdict": "ok"
   },
   {
    "key": "lxshiguang14_优质",
    "name": "拾光·优质 | 采集",
    "api": "https://api.yyzy-tv.vip/inc/apijson.php",
    "kind": "cms",
-   "verdict": "ok",
-   "why": "",
+   "verdict": "dead_link",
+   "why": "首集返回 403（带 Referer 也失败）；DoH 有 A 记录，属本机 DNS 被拦",
    "first_url": "https://svip.high25-playback.com/20250419/24287_9f62c81d/index.m3u8",
    "codec": "",
-   "ms": 5120,
-   "bad_streak": 0,
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "fb6dd06b.hdzyk-cdn.com.",
+    "caiji.hdzyk-cdn.com."
+   ],
+   "bad_streak": 1,
    "prev_verdict": "ok"
   },
   {
@@ -316,7 +374,7 @@
    "why": "",
    "first_url": "https://hd.kuktxu.com/play/6dBlmVNa/index.m3u8",
    "codec": "",
-   "ms": 7651,
+   "ms": 7148,
    "bad_streak": 0,
    "prev_verdict": "ok"
   },
@@ -329,9 +387,27 @@
    "why": "",
    "first_url": "https://cdn.ryplay11.com/20241130/63415_866058d3/index.m3u8",
    "codec": "",
-   "ms": 4730,
+   "ms": 4290,
    "bad_streak": 0,
    "prev_verdict": "ok"
+  },
+  {
+   "key": "maoy_高清影视",
+   "name": "分享·💝分享高清",
+   "api": "https://api.yzzy-api.com/inc/apijson.php",
+   "kind": "cms",
+   "verdict": "dead_link",
+   "why": "首集返回 403（带 Referer 也失败）；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "https://svip.high25-playback.com/20250419/24287_9f62c81d/index.m3u8",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "fb6dd06b.hdzyk-cdn.com.",
+    "caiji.hdzyk-cdn.com."
+   ],
+   "bad_streak": 1,
+   "prev_verdict": "search_fail"
   },
   {
    "key": "lxshiguang22_csp_xml_新浪",
@@ -342,7 +418,7 @@
    "why": "",
    "first_url": "https://play.xluuss.com/play/9aAjlRPb",
    "codec": "",
-   "ms": 1674,
+   "ms": 600,
    "bad_streak": 0,
    "prev_verdict": "direct"
   },
@@ -351,12 +427,17 @@
    "name": "拾光·天堂｜采集",
    "api": "http://caiji.dyttzyapi.com/api.php/provide/vod/",
    "kind": "cms",
-   "verdict": "direct",
-   "why": "",
+   "verdict": "dead_link",
+   "why": "首集返回 403（带 Referer 也失败）（2 条线路全部失败）；DoH 有 A 记录，属本机 DNS 被拦",
    "first_url": "https://vip.dytt-tvs.com/share/e2db7186375992e729165726762cb4c1",
    "codec": "",
-   "ms": 4408,
-   "bad_streak": 0,
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "vvv1.heisi-dns.com.",
+    "23.225.147.246"
+   ],
+   "bad_streak": 1,
    "prev_verdict": "direct"
   },
   {
@@ -368,7 +449,7 @@
    "why": "",
    "first_url": "https://play.xluuss.com/play/9aAjlRPb",
    "codec": "",
-   "ms": 1660,
+   "ms": 1133,
    "bad_streak": 0,
    "prev_verdict": "direct"
   },
@@ -381,7 +462,7 @@
    "why": "",
    "first_url": "https://hd.kuktxu.com/play/6dBlmVNa",
    "codec": "",
-   "ms": 2636,
+   "ms": 1766,
    "bad_streak": 0,
    "prev_verdict": "direct"
   },
@@ -390,16 +471,11 @@
    "name": "拾光·❤ikun资源",
    "api": "https://ikunzyapi.com/api.php/provide/vod/from/ikm3u8/at/json",
    "kind": "cms",
-   "verdict": "search_fail",
-   "why": "搜索 HTTP URLError；DoH 有 A 记录，属本机 DNS 被拦",
-   "first_url": "",
+   "verdict": "ok",
+   "why": "",
+   "first_url": "https://bfikuncdn.com/20240523/6Z9jGK4r/index.m3u8",
    "codec": "",
-   "ms": null,
-   "doh_status": 0,
-   "doh_ips": [
-    "104.21.66.124",
-    "172.67.159.232"
-   ],
+   "ms": 1315,
    "bad_streak": 0,
    "prev_verdict": "search_fail"
   },
@@ -412,7 +488,7 @@
    "why": "",
    "first_url": "https://vod2.maowushi.com/20240516/zN7aNzzK/index.m3u8",
    "codec": "",
-   "ms": 4209,
+   "ms": 3396,
    "bad_streak": 0,
    "prev_verdict": "ok"
   },
@@ -425,7 +501,7 @@
    "why": "",
    "first_url": "https://cdn.ryplay11.com/20241130/63415_866058d3/index.m3u8",
    "codec": "",
-   "ms": 3944,
+   "ms": 4158,
    "bad_streak": 0,
    "prev_verdict": "ok"
   },
@@ -434,12 +510,17 @@
    "name": "分享·💖分享最大",
    "api": "https://api.zuidapi.com/api.php/provide/vod/?ac=list",
    "kind": "cms",
-   "verdict": "ok",
-   "why": "",
+   "verdict": "dead_link",
+   "why": "首集返回 403（带 Referer 也失败）；DoH 有 A 记录，属本机 DNS 被拦",
    "first_url": "https://v4.zuidazym3u8.com/yyv4/202411/27/28HzwAj3yh19/video/index.m3u8",
    "codec": "",
-   "ms": 4471,
-   "bad_streak": 0,
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "188.114.96.3",
+    "188.114.97.3"
+   ],
+   "bad_streak": 1,
    "prev_verdict": "ok"
   },
   {
@@ -451,20 +532,7 @@
    "why": "",
    "first_url": "https://play.maoyanplay.top/20240422/mnLBbXOp/index.m3u8",
    "codec": "",
-   "ms": 2295,
-   "bad_streak": 0,
-   "prev_verdict": "ok"
-  },
-  {
-   "key": "maoy_飘零影院",
-   "name": "分享·🥀飘零天涯",
-   "api": "https://p2100.net/api.php/provide/vod/",
-   "kind": "cms",
-   "verdict": "ok",
-   "why": "",
-   "first_url": "https://v6.ppqrrs.com/wjv6/202411/27/nwMYqxMhvq78/video/index.m3u8",
-   "codec": "",
-   "ms": 4196,
+   "ms": 2531,
    "bad_streak": 0,
    "prev_verdict": "ok"
   },
@@ -477,7 +545,7 @@
    "why": "",
    "first_url": "https://v.gsuus.com/play/kazVzrma",
    "codec": "",
-   "ms": 1378,
+   "ms": 504,
    "bad_streak": 0,
    "prev_verdict": "direct"
   },
@@ -490,7 +558,7 @@
    "why": "",
    "first_url": "https://play.hhuus.com/play/DbDpoXqb",
    "codec": "",
-   "ms": 1533,
+   "ms": 863,
    "bad_streak": 0,
    "prev_verdict": "direct"
   },
@@ -499,12 +567,17 @@
    "name": "小马·百度",
    "api": "https://api.apibdzy.com/api.php/provide/vod?ac=list",
    "kind": "cms",
-   "verdict": "ok",
-   "why": "",
+   "verdict": "dead_link",
+   "why": "首集返回 403（带 Referer 也失败）；DoH 有 A 记录，属本机 DNS 被拦",
    "first_url": "https://vod6.bdzybf11.com/20250125/1cg3Vq0l/index.m3u8",
    "codec": "",
-   "ms": 3838,
-   "bad_streak": 0,
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "104.21.24.74",
+    "172.67.217.198"
+   ],
+   "bad_streak": 1,
    "prev_verdict": "ok"
   },
   {
@@ -512,16 +585,11 @@
    "name": "拾光·ikun | 采集",
    "api": "https://ikunzyapi.com/api.php/provide/vod/",
    "kind": "cms",
-   "verdict": "search_fail",
-   "why": "搜索 HTTP URLError；DoH 有 A 记录，属本机 DNS 被拦",
-   "first_url": "",
+   "verdict": "ok",
+   "why": "",
+   "first_url": "https://bfikuncdn.com/20240523/6Z9jGK4r/index.m3u8",
    "codec": "",
-   "ms": null,
-   "doh_status": 0,
-   "doh_ips": [
-    "104.21.66.124",
-    "172.67.159.232"
-   ],
+   "ms": 1286,
    "bad_streak": 0,
    "prev_verdict": "search_fail"
   },
@@ -530,12 +598,17 @@
    "name": "分享·💝分享百度",
    "api": "https://api.apibdzy.com//api.php/provide/vod/",
    "kind": "cms",
-   "verdict": "ok",
-   "why": "",
+   "verdict": "dead_link",
+   "why": "首集返回 403（带 Referer 也失败）；DoH 有 A 记录，属本机 DNS 被拦",
    "first_url": "https://vod6.bdzybf11.com/20250125/1cg3Vq0l/index.m3u8",
    "codec": "",
-   "ms": 3651,
-   "bad_streak": 0,
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "104.21.24.74",
+    "172.67.217.198"
+   ],
+   "bad_streak": 1,
    "prev_verdict": "ok"
   },
   {
@@ -547,7 +620,7 @@
    "why": "",
    "first_url": "https://play.modujx16.com/20241127/yiLl9T4H/index.m3u8",
    "codec": "",
-   "ms": 3379,
+   "ms": 1373,
    "bad_streak": 0,
    "prev_verdict": "ok"
   },
@@ -560,7 +633,7 @@
    "why": "",
    "first_url": "https://1080p.huyall.com/play/6dBlmVNa",
    "codec": "",
-   "ms": 1822,
+   "ms": 699,
    "bad_streak": 0,
    "prev_verdict": "direct"
   },
@@ -573,7 +646,7 @@
    "why": "",
    "first_url": "https://hd.kuktxu.com/play/6dBlmVNa",
    "codec": "",
-   "ms": 1030,
+   "ms": 1572,
    "bad_streak": 0,
    "prev_verdict": "direct"
   },
@@ -582,16 +655,11 @@
    "name": "小盒4K·🐓┃爱坤┃资源",
    "api": "https://ikunzyapi.com/api.php/provide/vod",
    "kind": "cms",
-   "verdict": "search_fail",
-   "why": "搜索 HTTP URLError；DoH 有 A 记录，属本机 DNS 被拦",
-   "first_url": "",
+   "verdict": "ok",
+   "why": "",
+   "first_url": "https://bfikuncdn.com/20240523/6Z9jGK4r/index.m3u8",
    "codec": "",
-   "ms": null,
-   "doh_status": 0,
-   "doh_ips": [
-    "104.21.66.124",
-    "172.67.159.232"
-   ],
+   "ms": 1150,
    "bad_streak": 0,
    "prev_verdict": "search_fail"
   },
@@ -604,93 +672,7 @@
    "why": "",
    "first_url": "https://play.ly166.com:65/videos/20250722/687f3d0b80eee9b955fe6960/e08efg/index.m3u8",
    "codec": "",
-   "ms": 3863,
-   "bad_streak": 0,
-   "prev_verdict": "ok"
-  },
-  {
-   "key": "maoy_新浪影视",
-   "name": "分享·💝分享新浪",
-   "api": "https://api.xinlangapi.com/xinlangapi.php/provide/vod/",
-   "kind": "cms",
-   "verdict": "direct",
-   "why": "",
-   "first_url": "https://play.xluuss.com/play/9aAjlRPb",
-   "codec": "",
-   "ms": 1517,
-   "bad_streak": 0,
-   "prev_verdict": "direct"
-  },
-  {
-   "key": "laoliu_csp_非凡资源",
-   "name": "老刘·🥗┃非凡┃资源",
-   "api": "http://ffzy1.tv/api.php/provide/vod/",
-   "kind": "cms",
-   "verdict": "search_fail",
-   "why": "搜索 HTTP URLError；DoH 有 A 记录，属本机 DNS 被拦",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "doh_status": 0,
-   "doh_ips": [
-    "199.16.158.104"
-   ],
-   "bad_streak": 0,
-   "prev_verdict": "search_fail"
-  },
-  {
-   "key": "lxchuangxiang_source_2761253814",
-   "name": "创享·📡 红牛",
-   "api": "https://ys.cxkjg.cn/api/provide/vod?source=2761253814",
-   "kind": "cms",
-   "verdict": "direct",
-   "why": "",
-   "first_url": "https://hn.bfvvs.com/play/PdyQyqPd",
-   "codec": "",
-   "ms": 3141,
-   "bad_streak": 0,
-   "prev_verdict": "direct"
-  },
-  {
-   "key": "lxchuangxiang_source_1016684692",
-   "name": "创享·📡 速博",
-   "api": "https://ys.cxkjg.cn/api/provide/vod?source=1016684692",
-   "kind": "cms",
-   "verdict": "direct",
-   "why": "",
-   "first_url": "https://play.xluuss.com/play/9aAjlRPb",
-   "codec": "",
-   "ms": 2799,
-   "bad_streak": 0,
-   "prev_verdict": "direct"
-  },
-  {
-   "key": "maoy_高清影视",
-   "name": "分享·💝分享高清",
-   "api": "https://api.yzzy-api.com/inc/apijson.php",
-   "kind": "cms",
-   "verdict": "search_fail",
-   "why": "搜索 HTTP URLError；DoH 有 A 记录，属本机 DNS 被拦",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "doh_status": 0,
-   "doh_ips": [
-    "174.37.54.20"
-   ],
-   "bad_streak": 0,
-   "prev_verdict": "search_fail"
-  },
-  {
-   "key": "nptp_s_0e4430721d",
-   "name": "探针·🍎高清┃2K 493ms",
-   "api": "https://api.1080zyku.com/inc/apijson.php",
-   "kind": "cms",
-   "verdict": "ok",
-   "why": "",
-   "first_url": "https://svip.high25-playback.com/20250419/24287_9f62c81d/index.m3u8",
-   "codec": "",
-   "ms": 3408,
+   "ms": 6239,
    "bad_streak": 0,
    "prev_verdict": "ok"
   },
@@ -703,269 +685,115 @@
    "why": "",
    "first_url": "https://v.gsuus.com/play/kazVzrma",
    "codec": "",
-   "ms": 2965,
+   "ms": 3044,
    "bad_streak": 0,
    "prev_verdict": "direct"
+  },
+  {
+   "key": "lxchuangxiang_source_2761253814",
+   "name": "创享·📡 红牛",
+   "api": "https://ys.cxkjg.cn/api/provide/vod?source=2761253814",
+   "kind": "cms",
+   "verdict": "direct",
+   "why": "",
+   "first_url": "https://hn.bfvvs.com/play/PdyQyqPd",
+   "codec": "",
+   "ms": 3635,
+   "bad_streak": 0,
+   "prev_verdict": "direct"
+  },
+  {
+   "key": "lxchuangxiang_source_1016684692",
+   "name": "创享·📡 速博",
+   "api": "https://ys.cxkjg.cn/api/provide/vod?source=1016684692",
+   "kind": "cms",
+   "verdict": "direct",
+   "why": "",
+   "first_url": "https://play.xluuss.com/play/9aAjlRPb",
+   "codec": "",
+   "ms": 2408,
+   "bad_streak": 0,
+   "prev_verdict": "direct"
+  },
+  {
+   "key": "maoy_新浪影视",
+   "name": "分享·💝分享新浪",
+   "api": "https://api.xinlangapi.com/xinlangapi.php/provide/vod/",
+   "kind": "cms",
+   "verdict": "direct",
+   "why": "",
+   "first_url": "https://play.xluuss.com/play/9aAjlRPb",
+   "codec": "",
+   "ms": 539,
+   "bad_streak": 0,
+   "prev_verdict": "direct"
+  },
+  {
+   "key": "nptp_s_0e4430721d",
+   "name": "探针·🍎高清┃2K 493ms",
+   "api": "https://api.1080zyku.com/inc/apijson.php",
+   "kind": "cms",
+   "verdict": "dead_link",
+   "why": "首集返回 403（带 Referer 也失败）；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "https://svip.high25-playback.com/20250419/24287_9f62c81d/index.m3u8",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "fb6dd06b.hdzyk-cdn.com.",
+    "caiji.hdzyk-cdn.com."
+   ],
+   "bad_streak": 1,
+   "prev_verdict": "ok"
+  },
+  {
+   "key": "maoy_飘零影院",
+   "name": "分享·🥀飘零天涯",
+   "api": "https://p2100.net/api.php/provide/vod/",
+   "kind": "cms",
+   "verdict": "search_fail",
+   "why": "搜索 HTTP 403；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "188.114.96.3",
+    "188.114.97.3"
+   ],
+   "bad_streak": 0,
+   "prev_verdict": "ok"
   },
   {
    "key": "lxxhzdc17_IK",
    "name": "小盒仓·IK",
    "api": "https://ikunzyapi.com/api.php/provide/vod/from/ikm3u8/",
    "kind": "cms",
-   "verdict": "search_fail",
-   "why": "搜索 HTTP URLError；DoH 有 A 记录，属本机 DNS 被拦",
-   "first_url": "",
+   "verdict": "ok",
+   "why": "",
+   "first_url": "https://bfikuncdn.com/20240523/6Z9jGK4r/index.m3u8",
    "codec": "",
-   "ms": null,
-   "doh_status": 0,
-   "doh_ips": [
-    "104.21.66.124",
-    "172.67.159.232"
-   ],
+   "ms": 1119,
    "bad_streak": 0,
    "prev_verdict": "search_fail"
-  },
-  {
-   "key": "maoy_js集合",
-   "name": "分享·💝分享js集",
-   "api": "http://zhangqun1818.serv00.net/js.php",
-   "kind": "cms",
-   "verdict": "no_result",
-   "why": "搜索无结果；DoH 有 A 记录，属本机 DNS 被拦",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "doh_status": 0,
-   "doh_ips": [
-    "128.204.223.113"
-   ],
-   "bad_streak": 0,
-   "prev_verdict": "no_result"
-  },
-  {
-   "key": "npysc_mt",
-   "name": "云镜·茅台资源",
-   "api": "https://caiji.maotaizy.cc/api.php/provide/vod/",
-   "kind": "cms",
-   "verdict": "no_result",
-   "why": "搜索无结果；DoH 有 A 记录，属本机 DNS 被拦",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "doh_status": 0,
-   "doh_ips": [
-    "kalavaxo.cdnfree.org.",
-    "51.222.139.234"
-   ],
-   "bad_streak": 0,
-   "prev_verdict": "no_result"
-  },
-  {
-   "key": "lxshiguang22_csp_xml_ckzy",
-   "name": "拾光·❤ckzy",
-   "api": "https://ckzy.me/api.php/provide/vod/?ac=list",
-   "kind": "cms",
-   "verdict": "search_fail",
-   "why": "搜索 HTTP URLError；DoH 有 A 记录，属本机 DNS 被拦",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "doh_status": 0,
-   "doh_ips": [
-    "104.21.12.238",
-    "172.67.153.237"
-   ],
-   "bad_streak": 0,
-   "prev_verdict": "search_fail"
-  },
-  {
-   "key": "lxshiguang1_茅台采集",
-   "name": "拾光·茅台｜采集",
-   "api": "https://caiji.maotaizy.cc/api.php/provide/vod/from/mtm3u8/",
-   "kind": "cms",
-   "verdict": "no_result",
-   "why": "搜索无结果；DoH 有 A 记录，属本机 DNS 被拦",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "doh_status": 0,
-   "doh_ips": [
-    "kalavaxo.cdnfree.org.",
-    "51.222.139.234"
-   ],
-   "bad_streak": 0,
-   "prev_verdict": "no_result"
-  },
-  {
-   "key": "lxxiaoma_非凡",
-   "name": "小马·影视 | 非凡[直连]",
-   "api": "http://ffzy.tv/api.php/provide/vod/",
-   "kind": "cms",
-   "verdict": "ok_secondary",
-   "why": "默认线路不可用（share_page），切到第 2 条线路才能播",
-   "first_url": "https://vip.ffzy-online2.com/20250420/49522_e3154fc9/index.m3u8",
-   "codec": "",
-   "ms": 3872,
-   "bad_streak": 2,
-   "prev_verdict": "ok_secondary"
-  },
-  {
-   "key": "lxshiguang54_油管清单播放",
-   "name": "拾光·油管清单播放",
-   "api": "http://zhangqun1818.serv00.net/zh/yt/2243.php",
-   "kind": "cms",
-   "verdict": "no_episode",
-   "why": "详情无可用分集地址",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "no_episode"
-  },
-  {
-   "key": "lxshiguang14_非凡",
-   "name": "拾光·非凡 | 采集",
-   "api": "https://cj.ffzyapi.com/api.php/provide/vod/",
-   "kind": "cms",
-   "verdict": "ok_secondary",
-   "why": "默认线路不可用（share_page），切到第 2 条线路才能播",
-   "first_url": "https://vip.ffzy-online2.com/20250420/49522_e3154fc9/index.m3u8",
-   "codec": "",
-   "ms": 4190,
-   "bad_streak": 2,
-   "prev_verdict": "ok_secondary"
-  },
-  {
-   "key": "ivcainisi_非凡",
-   "name": "菜妮丝·非凡┃影视",
-   "api": "http://cj.ffzyapi.com/api.php/provide/vod",
-   "kind": "cms",
-   "verdict": "ok_secondary",
-   "why": "默认线路不可用（share_page），切到第 2 条线路才能播",
-   "first_url": "https://vip.ffzy-online2.com/20250420/49522_e3154fc9/index.m3u8",
-   "codec": "",
-   "ms": 4022,
-   "bad_streak": 2,
-   "prev_verdict": "ok_secondary"
-  },
-  {
-   "key": "maoy_非_凡",
-   "name": "分享·💖分享非凡",
-   "api": "http://cj.ffzyapi.com/api.php/provide/vod/",
-   "kind": "cms",
-   "verdict": "ok_secondary",
-   "why": "默认线路不可用（share_page），切到第 2 条线路才能播",
-   "first_url": "https://vip.ffzy-online2.com/20250420/49522_e3154fc9/index.m3u8",
-   "codec": "",
-   "ms": 4093,
-   "bad_streak": 2,
-   "prev_verdict": "ok_secondary"
-  },
-  {
-   "key": "laoliu_可可资源",
-   "name": "老刘·⛱┃可可┃采集",
-   "api": "https://kekezy1.com/api.php/provide/vod/?ac=list",
-   "kind": "cms",
-   "verdict": "dns_dead",
-   "why": "DoH 无 A 记录（Status 3），域名已失效",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "doh_status": 3,
-   "doh_ips": [],
-   "bad_streak": 1,
-   "prev_verdict": "search_fail"
-  },
-  {
-   "key": "laoliu_奇虎资源",
-   "name": "老刘·🐯┃奇虎┃采集",
-   "api": "https://caiji.qhzyapi.com/api.php/provide/vod/",
-   "kind": "cms",
-   "verdict": "dns_dead",
-   "why": "DoH 无 A 记录（Status 3），域名已失效",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "doh_status": 3,
-   "doh_ips": [],
-   "bad_streak": 1,
-   "prev_verdict": "search_fail"
-  },
-  {
-   "key": "laoliu_csp_小胡",
-   "name": "老刘·👒┃小胡┃资源┃",
-   "api": "http://c.xn--yetu07f.icu/api.php/provide/vod/",
-   "kind": "cms",
-   "verdict": "dns_dead",
-   "why": "DoH 无 A 记录（Status 3），域名已失效",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "doh_status": 3,
-   "doh_ips": [],
-   "bad_streak": 1,
-   "prev_verdict": "search_fail"
-  },
-  {
-   "key": "laoliu_feisu",
-   "name": "老刘·🛰️飞速┃采集",
-   "api": "https://www.feisuzyapi.com/api.php/provide/vod/?ac=list",
-   "kind": "cms",
-   "verdict": "dns_dead",
-   "why": "DoH 无 A 记录（Status 3），域名已失效",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "doh_status": 3,
-   "doh_ips": [],
-   "bad_streak": 1,
-   "prev_verdict": "search_fail"
-  },
-  {
-   "key": "laoliu_49zy",
-   "name": "老刘·🦁┃四九┃资源",
-   "api": "https://49zy1.com/api.php/provide/vod/?ac=list",
-   "kind": "cms",
-   "verdict": "dns_dead",
-   "why": "DoH 无 A 记录（Status 3），域名已失效",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "doh_status": 3,
-   "doh_ips": [],
-   "bad_streak": 1,
-   "prev_verdict": "search_fail"
-  },
-  {
-   "key": "lxshiguang54_服务器油管",
-   "name": "拾光·服务器油管",
-   "api": "http://zhangqun1818.serv00.net/yt/yt0021.php",
-   "kind": "cms",
-   "verdict": "no_episode",
-   "why": "详情无可用分集地址",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "no_episode"
-  },
-  {
-   "key": "lxshiguang54_油管播放列表1",
-   "name": "拾光·油管播放列表1",
-   "api": "http://zhangqun1818.serv00.net/ytlb.php",
-   "kind": "cms",
-   "verdict": "no_episode",
-   "why": "详情无可用分集地址",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "no_episode"
   },
   {
    "key": "lxshiguang54_油管播放列表2",
    "name": "拾光·油管播放列表2",
    "api": "http://zhangqun1818.serv00.net/ytlb1.php",
+   "kind": "cms",
+   "verdict": "no_episode",
+   "why": "详情无可用分集地址",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "no_episode"
+  },
+  {
+   "key": "lxshiguang54_油管清单播放",
+   "name": "拾光·油管清单播放",
+   "api": "http://zhangqun1818.serv00.net/zh/yt/2243.php",
    "kind": "cms",
    "verdict": "no_episode",
    "why": "详情无可用分集地址",
@@ -993,36 +821,6 @@
    "prev_verdict": "no_result"
   },
   {
-   "key": "lxshiguang54_爱瓜TV",
-   "name": "拾光·爱瓜TV",
-   "api": "http://zhangqun1818.serv00.net/aigua1.php",
-   "kind": "cms",
-   "verdict": "no_result",
-   "why": "搜索无结果；DoH 有 A 记录，属本机 DNS 被拦",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "doh_status": 0,
-   "doh_ips": [
-    "128.204.223.113"
-   ],
-   "bad_streak": 0,
-   "prev_verdict": "no_result"
-  },
-  {
-   "key": "lxyingcang_feifan",
-   "name": "影仓·🍀┃非凡┃资源",
-   "api": "http://ffzy5.tv/api.php/provide/vod",
-   "kind": "cms",
-   "verdict": "ok_secondary",
-   "why": "默认线路不可用（share_page），切到第 2 条线路才能播",
-   "first_url": "https://vip.ffzy-online2.com/20250420/49522_e3154fc9/index.m3u8",
-   "codec": "",
-   "ms": 3930,
-   "bad_streak": 2,
-   "prev_verdict": "ok_secondary"
-  },
-  {
    "key": "lxshiguang54_影视文件播放",
    "name": "拾光·影视文件播放",
    "api": "http://zhangqun1818.serv00.net/zh/2242.php",
@@ -1036,48 +834,138 @@
    "prev_verdict": "no_episode"
   },
   {
-   "key": "lxshiguang14_艾旦",
-   "name": "拾光·艾旦 | 采集",
-   "api": "https://www.lovedan.net/api.php/provide/vod/",
+   "key": "lxshiguang54_油管播放列表1",
+   "name": "拾光·油管播放列表1",
+   "api": "http://zhangqun1818.serv00.net/ytlb.php",
+   "kind": "cms",
+   "verdict": "no_episode",
+   "why": "详情无可用分集地址",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "no_episode"
+  },
+  {
+   "key": "lxshiguang54_服务器油管",
+   "name": "拾光·服务器油管",
+   "api": "http://zhangqun1818.serv00.net/yt/yt0021.php",
+   "kind": "cms",
+   "verdict": "no_episode",
+   "why": "详情无可用分集地址",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "no_episode"
+  },
+  {
+   "key": "lxxiaoma_非凡",
+   "name": "小马·影视 | 非凡[直连]",
+   "api": "http://ffzy.tv/api.php/provide/vod/",
    "kind": "cms",
    "verdict": "dead_link",
-   "why": "首集返回 URLError（带 Referer 也失败）；DoH 有 A 记录，属本机 DNS 被拦",
-   "first_url": "https://hd.ijycnd.com/play/6dBlmVNa/index.m3u8",
+   "why": "首集返回 403（带 Referer 也失败）（2 条线路全部失败）；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "https://vip.ffzy-online2.com/share/116b896114ff71245852cace1f9f69c5",
    "codec": "",
    "ms": null,
    "doh_status": 0,
    "doh_ips": [
-    "172.67.206.221",
-    "104.21.37.97"
+    "172.247.73.243",
+    "91.110.207.6"
    ],
    "bad_streak": 3,
-   "prev_verdict": "dead_link"
+   "prev_verdict": "ok_secondary"
   },
   {
-   "key": "lxchuangxiang_source_2680151544",
-   "name": "创享·📡 金鹰",
-   "api": "https://ys.cxkjg.cn/api/provide/vod?source=2680151544",
+   "key": "lxxhzdc18_csp_xml_非凡资源",
+   "name": "小盒仓·🐝非凡资源",
+   "api": "http://cj.ffzyapi.com/api.php/provide/vod/?ac=list",
    "kind": "cms",
-   "verdict": "xml_endpoint",
-   "why": "接口返回 XML（/at/xml），非 JSON",
-   "first_url": "",
+   "verdict": "dead_link",
+   "why": "首集返回 403（带 Referer 也失败）（2 条线路全部失败）；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "https://vip.ffzy-online2.com/share/116b896114ff71245852cace1f9f69c5",
    "codec": "",
    "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "collect.ffzycdn8.com.",
+    "23.225.145.238"
+   ],
    "bad_streak": 3,
-   "prev_verdict": "xml_endpoint"
+   "prev_verdict": "ok_secondary"
   },
   {
-   "key": "lxchuangxiang_source_1840804598",
-   "name": "创享·📡 非凡",
-   "api": "https://ys.cxkjg.cn/api/provide/vod?source=1840804598",
+   "key": "lxshiguang14_非凡",
+   "name": "拾光·非凡 | 采集",
+   "api": "https://cj.ffzyapi.com/api.php/provide/vod/",
    "kind": "cms",
-   "verdict": "xml_endpoint",
-   "why": "接口返回 XML（/at/xml），非 JSON",
-   "first_url": "",
+   "verdict": "dead_link",
+   "why": "首集返回 403（带 Referer 也失败）（2 条线路全部失败）；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "https://vip.ffzy-online2.com/share/116b896114ff71245852cace1f9f69c5",
    "codec": "",
    "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "collect.ffzycdn8.com.",
+    "23.225.145.238"
+   ],
    "bad_streak": 3,
-   "prev_verdict": "xml_endpoint"
+   "prev_verdict": "ok_secondary"
+  },
+  {
+   "key": "ivcainisi_非凡",
+   "name": "菜妮丝·非凡┃影视",
+   "api": "http://cj.ffzyapi.com/api.php/provide/vod",
+   "kind": "cms",
+   "verdict": "dead_link",
+   "why": "首集返回 403（带 Referer 也失败）（2 条线路全部失败）；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "https://vip.ffzy-online2.com/share/116b896114ff71245852cace1f9f69c5",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "collect.ffzycdn8.com.",
+    "23.225.145.238"
+   ],
+   "bad_streak": 3,
+   "prev_verdict": "ok_secondary"
+  },
+  {
+   "key": "maoy_非_凡",
+   "name": "分享·💖分享非凡",
+   "api": "http://cj.ffzyapi.com/api.php/provide/vod/",
+   "kind": "cms",
+   "verdict": "dead_link",
+   "why": "首集返回 403（带 Referer 也失败）（2 条线路全部失败）；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "https://vip.ffzy-online2.com/share/116b896114ff71245852cace1f9f69c5",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "collect.ffzycdn8.com.",
+    "23.225.145.238"
+   ],
+   "bad_streak": 3,
+   "prev_verdict": "ok_secondary"
+  },
+  {
+   "key": "lxyingcang_feifan",
+   "name": "影仓·🍀┃非凡┃资源",
+   "api": "http://ffzy5.tv/api.php/provide/vod",
+   "kind": "cms",
+   "verdict": "dead_link",
+   "why": "首集返回 403（带 Referer 也失败）（2 条线路全部失败）；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "https://vip.ffzy-online2.com/share/116b896114ff71245852cace1f9f69c5",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "91.110.207.5",
+    "172.247.73.243"
+   ],
+   "bad_streak": 3,
+   "prev_verdict": "ok_secondary"
   },
   {
    "key": "lxshiguang8_pansou",
@@ -1093,23 +981,6 @@
    "prev_verdict": "no_episode"
   },
   {
-   "key": "lxshiguang1_旺旺采集资源",
-   "name": "拾光·短剧｜采集",
-   "api": "https://api.wwzy.tv/api.php/provide/vod/",
-   "kind": "cms",
-   "verdict": "search_fail",
-   "why": "搜索 HTTP URLError；DoH 有 A 记录，属本机 DNS 被拦",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "doh_status": 0,
-   "doh_ips": [
-    "124.11.210.175"
-   ],
-   "bad_streak": 0,
-   "prev_verdict": "search_fail"
-  },
-  {
    "key": "laoliu_csp_SNzy",
    "name": "老刘·🐉┃索尼┃高清",
    "api": "https://suoniapi.com/api.php/provide/vod/?ac=list",
@@ -1119,7 +990,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "search_bad"
   },
   {
@@ -1131,7 +1002,7 @@
    "why": "",
    "first_url": "https://cf.ddngo.space/77play?id=169370&s=1&e=1",
    "codec": "",
-   "ms": 6862,
+   "ms": 6948,
    "bad_streak": 0,
    "prev_verdict": "ok"
   },
@@ -1175,6 +1046,24 @@
    "prev_verdict": "python_spider"
   },
   {
+   "key": "lxshiguang14_艾旦",
+   "name": "拾光·艾旦 | 采集",
+   "api": "https://www.lovedan.net/api.php/provide/vod/",
+   "kind": "cms",
+   "verdict": "search_fail",
+   "why": "搜索 HTTP TimeoutError；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "188.114.97.3",
+    "188.114.96.3"
+   ],
+   "bad_streak": 0,
+   "prev_verdict": "dead_link"
+  },
+  {
    "key": "lxshiguang1_七七采集网",
    "name": "拾光·七七｜采集",
    "api": "http://6.qqqtv.top/api.php/provide/vod/",
@@ -1203,7 +1092,7 @@
    "ms": null,
    "doh_status": 0,
    "doh_ips": [
-    "96.44.137.28"
+    "103.224.212.212"
    ],
    "bad_streak": 0,
    "prev_verdict": "search_fail"
@@ -1224,21 +1113,6 @@
    "prev_verdict": "search_fail"
   },
   {
-   "key": "lxshiguang1_OK资源网采集",
-   "name": "拾光·资源｜采集",
-   "api": "https://okzyw9.com/api.php/provide/vod/",
-   "kind": "cms",
-   "verdict": "dns_dead",
-   "why": "DoH 无 A 记录（Status 3），域名已失效",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "doh_status": 3,
-   "doh_ips": [],
-   "bad_streak": 1,
-   "prev_verdict": "search_fail"
-  },
-  {
    "key": "lxshiguang1_魔抓采集资源",
    "name": "拾光·魔抓｜采集",
    "api": "https://mozhuazy.com/api.php/provide/vod/",
@@ -1256,21 +1130,6 @@
    "prev_verdict": "search_fail"
   },
   {
-   "key": "lxshiguang1_无限采集",
-   "name": "拾光·️无限｜采集",
-   "api": "https://api.wuxianzy.net/api.php/provide/vod/",
-   "kind": "cms",
-   "verdict": "dns_dead",
-   "why": "DoH 无 A 记录（Status 3），域名已失效",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "doh_status": 3,
-   "doh_ips": [],
-   "bad_streak": 1,
-   "prev_verdict": "search_fail"
-  },
-  {
    "key": "lxshiguang27_py_4K影院",
    "name": "拾光·🥭4K┃影院",
    "api": "https://bitbucket.org/guot55/ygbh/raw/main/pro/py/4K%E5%BD%B1%E9%99%A2.py",
@@ -1282,23 +1141,6 @@
    "ms": null,
    "bad_streak": 0,
    "prev_verdict": "python_spider"
-  },
-  {
-   "key": "xiangya_柚子资源",
-   "name": "香雅·🍊柚子资源",
-   "api": "https://api.yzzy-api.com/inc/api.php",
-   "kind": "cms",
-   "verdict": "search_fail",
-   "why": "搜索 HTTP URLError；DoH 有 A 记录，属本机 DNS 被拦",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "doh_status": 0,
-   "doh_ips": [
-    "174.37.54.20"
-   ],
-   "bad_streak": 0,
-   "prev_verdict": "search_fail"
   },
   {
    "key": "laoliu_zxzj",
@@ -1548,6 +1390,36 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "lxxhzdc18_csp_HG影视2",
+   "name": "小盒仓·HG影视（备用)",
+   "api": "http://cs.hgyx.vip/api/provide/vod/",
+   "kind": "cms",
+   "verdict": "dns_dead",
+   "why": "DoH 无 A 记录（Status 2），域名已失效",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 2,
+   "doh_ips": [],
+   "bad_streak": 1,
+   "prev_verdict": "search_fail"
+  },
+  {
+   "key": "lxxhzdc18_csp_xml_夸克资源",
+   "name": "小盒仓·🐝夸克资源",
+   "api": "http://kuakezy1.com/api.php/provide/vod/from/M3U8kuake/",
+   "kind": "cms",
+   "verdict": "dns_dead",
+   "why": "DoH 无 A 记录（Status 3），域名已失效",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 3,
+   "doh_ips": [],
+   "bad_streak": 1,
+   "prev_verdict": "search_fail"
+  },
+  {
    "key": "lxshiguang14_py_4KAV",
    "name": "拾光·4KAV[py]",
    "api": "https://clun.top/py/4KAV.py",
@@ -1578,12 +1450,17 @@
    "name": "拾光·❤优质资源",
    "api": "https://api.1080zyku.com/inc/api_mac10.php?ac=list",
    "kind": "cms",
-   "verdict": "ok",
-   "why": "",
+   "verdict": "dead_link",
+   "why": "首集返回 403（带 Referer 也失败）；DoH 有 A 记录，属本机 DNS 被拦",
    "first_url": "https://yzzy.play-cdn17.com/20230720/11747_44b07ed6/index.m3u8",
    "codec": "",
-   "ms": 3388,
-   "bad_streak": 0,
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "fb6dd06b.hdzyk-cdn.com.",
+    "caiji.hdzyk-cdn.com."
+   ],
+   "bad_streak": 1,
    "prev_verdict": "ok"
   },
   {
@@ -2365,21 +2242,6 @@
    "prev_verdict": "search_fail"
   },
   {
-   "key": "lxxhz4k_小胡",
-   "name": "小盒4K·🔥┃小胡┃4K",
-   "api": "http://xh1.xn--yetu07f.icu/api.php/provide/vod/",
-   "kind": "cms",
-   "verdict": "dns_dead",
-   "why": "DoH 无 A 记录（Status 3），域名已失效",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "doh_status": 3,
-   "doh_ips": [],
-   "bad_streak": 1,
-   "prev_verdict": "search_fail"
-  },
-  {
    "key": "laoliu_csp_日后",
    "name": "老刘·🅱️┃348┃影视",
    "api": "csp_XBPQ",
@@ -2631,12 +2493,17 @@
    "name": "老刘·🥑┃量子┃资源",
    "api": "https://lzizy1.com/api.php/provide/vod/",
    "kind": "cms",
-   "verdict": "ok_secondary",
-   "why": "默认线路不可用（share_page），切到第 2 条线路才能播",
-   "first_url": "https://v.lzcdn28.com/20250923/2204_417d8bba/index.m3u8",
+   "verdict": "dead_link",
+   "why": "首集返回 404（带 Referer 也失败）（2 条线路全部失败）；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "https://v.lzcdn28.com/share/4b4edc2630fe75800ddc29a7b4070add",
    "codec": "",
-   "ms": 1255,
-   "bad_streak": 2,
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "104.21.25.154",
+    "172.67.134.88"
+   ],
+   "bad_streak": 3,
    "prev_verdict": "ok_secondary"
   },
   {
@@ -2675,7 +2542,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "search_bad"
   },
   {
@@ -2688,7 +2555,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "search_bad"
   },
   {
@@ -2701,7 +2568,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "search_bad"
   },
   {
@@ -2714,7 +2581,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "search_bad"
   },
   {
@@ -2727,7 +2594,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "search_bad"
   },
   {
@@ -2770,6 +2637,19 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "ivpg_索尼资源",
+   "name": "PG·索尼┃资源",
+   "api": "https://suoniapi.com/api.php/provide/vod/from/snm3u8/",
+   "kind": "cms",
+   "verdict": "search_bad",
+   "why": "搜索响应非 JSON：暂不支持搜索",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 4,
+   "prev_verdict": "search_bad"
+  },
+  {
    "key": "lxxiaoma_天涯采集",
    "name": "小马·影视 | 天涯",
    "api": "http://tyyszy.com/api.php/provide/vod",
@@ -2779,7 +2659,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "search_bad"
   },
   {
@@ -2792,7 +2672,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "search_bad"
   },
   {
@@ -2805,23 +2685,8 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "search_bad"
-  },
-  {
-   "key": "maoy_四圈资源",
-   "name": "分享·⭕️四个圈圈",
-   "api": "https://pg.fenwe078.cf/api.php/provide/vod/",
-   "kind": "cms",
-   "verdict": "dns_dead",
-   "why": "DoH 无 A 记录（Status 3），域名已失效",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "doh_status": 3,
-   "doh_ips": [],
-   "bad_streak": 1,
-   "prev_verdict": "search_fail"
   },
   {
    "key": "xiangya_csp_XYQHiker_低端影视",
@@ -3171,7 +3036,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "search_bad"
   },
   {
@@ -3186,19 +3051,6 @@
    "ms": null,
    "bad_streak": 0,
    "prev_verdict": "rule_based"
-  },
-  {
-   "key": "lxshiguang54_采集集合",
-   "name": "拾光·采集集合",
-   "api": "http://zhangqun1818.serv00.net/cj/cjjh.php",
-   "kind": "cms",
-   "verdict": "ok_secondary",
-   "why": "默认线路不可用（share_page），切到第 2 条线路才能播",
-   "first_url": "https://v.lzcdn28.com/20250923/2204_417d8bba/index.m3u8",
-   "codec": "",
-   "ms": 12621,
-   "bad_streak": 2,
-   "prev_verdict": "ok_secondary"
   },
   {
    "key": "lxshiguang27_厂长资源",
@@ -3262,20 +3114,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 3,
-   "prev_verdict": "search_bad"
-  },
-  {
-   "key": "ivpg_索尼资源",
-   "name": "PG·索尼┃资源",
-   "api": "https://suoniapi.com/api.php/provide/vod/from/snm3u8/",
-   "kind": "cms",
-   "verdict": "search_bad",
-   "why": "搜索响应非 JSON：暂不支持搜索",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "search_bad"
   },
   {
@@ -3609,21 +3448,6 @@
    "prev_verdict": "python_spider"
   },
   {
-   "key": "maoy_官采",
-   "name": "分享·💝分享官源",
-   "api": "https://cj.jusj.top/api.php/provide/vod/?ac=list",
-   "kind": "cms",
-   "verdict": "dns_dead",
-   "why": "DoH 无 A 记录（Status 3），域名已失效",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "doh_status": 3,
-   "doh_ips": [],
-   "bad_streak": 1,
-   "prev_verdict": "search_fail"
-  },
-  {
    "key": "maoy_布布",
    "name": "分享·💝分享布布",
    "api": "https://pan.szfx.top/down.php/ca1d0aee761c0cf8d47d1fddcddb9a30.py",
@@ -3687,36 +3511,6 @@
    "ms": null,
    "bad_streak": 0,
    "prev_verdict": "python_spider"
-  },
-  {
-   "key": "maoy_kktd",
-   "name": "分享·💝分享糖豆",
-   "api": "https://kk.666888.club/vod/cibn_api.php/provide/vod/",
-   "kind": "cms",
-   "verdict": "dns_dead",
-   "why": "DoH 无 A 记录（Status 3），域名已失效",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "doh_status": 3,
-   "doh_ips": [],
-   "bad_streak": 1,
-   "prev_verdict": "search_fail"
-  },
-  {
-   "key": "maoy_金蝉",
-   "name": "分享·💝分享金蝉",
-   "api": "http://zy.jinchancaiji.com/api.php/provide/vod",
-   "kind": "cms",
-   "verdict": "dns_dead",
-   "why": "DoH 无 A 记录（Status 3），域名已失效",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "doh_status": 3,
-   "doh_ips": [],
-   "bad_streak": 1,
-   "prev_verdict": "search_fail"
   },
   {
    "key": "xiangya_csp_BLSGod",
@@ -4367,23 +4161,6 @@
    "ms": null,
    "bad_streak": 0,
    "prev_verdict": "rule_based"
-  },
-  {
-   "key": "lxshiguang54_旺旺短剧",
-   "name": "拾光·旺旺短剧",
-   "api": "http://zhangqun1818.serv00.net/ww.php",
-   "kind": "cms",
-   "verdict": "dead_link",
-   "why": "首集返回 URLError（带 Referer 也失败）；DoH 有 A 记录，属本机 DNS 被拦",
-   "first_url": "https://wwzycdn.10cong.com/20241104/fuhHUYvN/index.m3u8",
-   "codec": "",
-   "ms": null,
-   "doh_status": 0,
-   "doh_ips": [
-    "128.204.223.113"
-   ],
-   "bad_streak": 3,
-   "prev_verdict": "dead_link"
   },
   {
    "key": "lxshiguang1_回看影视",
@@ -7658,7 +7435,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "search_bad"
   },
   {
@@ -7704,25 +7481,10 @@
    "ms": null,
    "doh_status": 0,
    "doh_ips": [
-    "172.67.156.183",
-    "104.21.8.27"
+    "188.114.97.3",
+    "188.114.96.3"
    ],
    "bad_streak": 0,
-   "prev_verdict": "search_fail"
-  },
-  {
-   "key": "maoy_t4直播转点播",
-   "name": "分享·💝分享教育",
-   "api": "http://120.53.102.254/dsp16",
-   "kind": "cms",
-   "verdict": "dns_dead",
-   "why": "DoH 无 A 记录（Status 3），域名已失效",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "doh_status": 3,
-   "doh_ips": [],
-   "bad_streak": 1,
    "prev_verdict": "search_fail"
   },
   {
@@ -8800,21 +8562,6 @@
    "prev_verdict": "search_fail"
   },
   {
-   "key": "lxshiguang22_蓝光官采",
-   "name": "拾光·❤猫咪",
-   "api": "http://zy.xiaomaomi.vip/api.php/provide/vod/?ac=list",
-   "kind": "cms",
-   "verdict": "dns_dead",
-   "why": "DoH 无 A 记录（Status 3），域名已失效",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "doh_status": 3,
-   "doh_ips": [],
-   "bad_streak": 1,
-   "prev_verdict": "search_fail"
-  },
-  {
    "key": "lxshiguang1_云端PY",
    "name": "拾光·云端｜APP",
    "api": "https://gh-proxy.com/https://raw.githubusercontent.com/xmbjm/svip/refs/heads/main/py/%E4%BA%91%E7%AB%AF%E5%BD%B1%E8%A7%86.py",
@@ -9595,32 +9342,17 @@
    "prev_verdict": "python_spider"
   },
   {
-   "key": "ivcainisi_快帆",
-   "name": "菜妮丝·快帆",
-   "api": "https://api.kuaifan.tv/api.php/provide/vod",
+   "key": "lxchuangxiang_source_1208629981",
+   "name": "创享·📡 HD(SN)",
+   "api": "https://ys.cxkjg.cn/api/provide/vod?source=1208629981",
    "kind": "cms",
-   "verdict": "dns_dead",
-   "why": "DoH 无 A 记录（Status 3），域名已失效",
+   "verdict": "search_bad",
+   "why": "搜索响应非 JSON：暂不支持搜索",
    "first_url": "",
    "codec": "",
    "ms": null,
-   "doh_status": 3,
-   "doh_ips": [],
-   "bad_streak": 1,
-   "prev_verdict": "search_fail"
-  },
-  {
-   "key": "maoy_采集集合",
-   "name": "分享·💝分享合集",
-   "api": "http://zhangqun1818.serv00.net/cj/cjjh.php",
-   "kind": "cms",
-   "verdict": "ok_secondary",
-   "why": "默认线路不可用（share_page），切到第 2 条线路才能播",
-   "first_url": "https://v.lzcdn28.com/20250923/2204_417d8bba/index.m3u8",
-   "codec": "",
-   "ms": 11969,
-   "bad_streak": 2,
-   "prev_verdict": "ok_secondary"
+   "bad_streak": 4,
+   "prev_verdict": "search_bad"
   },
   {
    "key": "maoy_无水印采集",
@@ -9632,7 +9364,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "search_bad"
   },
   {
@@ -9699,6 +9431,24 @@
    "ms": null,
    "bad_streak": 0,
    "prev_verdict": "rule_based"
+  },
+  {
+   "key": "lxxhzdc18_csp_xml_量子资源",
+   "name": "小盒仓·🐝量子资源",
+   "api": "http://cj.lziapi.com/api.php/provide/vod/?ac=list",
+   "kind": "cms",
+   "verdict": "dead_link",
+   "why": "首集返回 404（带 Referer 也失败）（2 条线路全部失败）；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "https://v.lzcdn28.com/share/4b4edc2630fe75800ddc29a7b4070add",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "ba13f3df.alzcname.com.",
+    "lz7.alzcname.com."
+   ],
+   "bad_streak": 3,
+   "prev_verdict": "ok_secondary"
   },
   {
    "key": "lxshiguang8_biliys",
@@ -9965,12 +9715,17 @@
    "name": "菜妮丝·量子┃影视",
    "api": "https://cj.lziapi.com/api.php/provide/vod",
    "kind": "cms",
-   "verdict": "ok_secondary",
-   "why": "默认线路不可用（share_page），切到第 2 条线路才能播",
-   "first_url": "https://v.lzcdn28.com/20250923/2204_417d8bba/index.m3u8",
+   "verdict": "dead_link",
+   "why": "首集返回 404（带 Referer 也失败）（2 条线路全部失败）；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "https://v.lzcdn28.com/share/4b4edc2630fe75800ddc29a7b4070add",
    "codec": "",
-   "ms": 1344,
-   "bad_streak": 2,
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "ba13f3df.alzcname.com.",
+    "lz7.alzcname.com."
+   ],
+   "bad_streak": 3,
    "prev_verdict": "ok_secondary"
   },
   {
@@ -10273,9 +10028,9 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "lxshiguang54_php集合",
-   "name": "拾光·php集合",
-   "api": "http://zhangqun1818.serv00.net/php.php",
+   "key": "lxchuangxiang_source_531717376",
+   "name": "创享·📡 樱花",
+   "api": "https://ys.cxkjg.cn/api/provide/vod?source=531717376",
    "kind": "cms",
    "verdict": "no_result",
    "why": "搜索无结果；DoH 有 A 记录，属本机 DNS 被拦",
@@ -10284,24 +10039,8 @@
    "ms": null,
    "doh_status": 0,
    "doh_ips": [
-    "128.204.223.113"
-   ],
-   "bad_streak": 0,
-   "prev_verdict": "dead_link"
-  },
-  {
-   "key": "lxshiguang54_python集合",
-   "name": "拾光·python集合",
-   "api": "http://zhangqun1818.serv00.net/py.php",
-   "kind": "cms",
-   "verdict": "no_result",
-   "why": "搜索无结果；DoH 有 A 记录，属本机 DNS 被拦",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "doh_status": 0,
-   "doh_ips": [
-    "128.204.223.113"
+    "1q5bzjfj.gog.788855.xyz.",
+    "35.93.191.17"
    ],
    "bad_streak": 0,
    "prev_verdict": "no_result"
@@ -10402,12 +10141,17 @@
    "name": "分享·💖分享量子",
    "api": "https://cj.lziapi.com/api.php/provide/vod/",
    "kind": "cms",
-   "verdict": "ok_secondary",
-   "why": "默认线路不可用（share_page），切到第 2 条线路才能播",
-   "first_url": "https://v.lzcdn28.com/20250923/2204_417d8bba/index.m3u8",
+   "verdict": "dead_link",
+   "why": "首集返回 404（带 Referer 也失败）（2 条线路全部失败）；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "https://v.lzcdn28.com/share/4b4edc2630fe75800ddc29a7b4070add",
    "codec": "",
-   "ms": 1634,
-   "bad_streak": 2,
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "ba13f3df.alzcname.com.",
+    "lz7.alzcname.com."
+   ],
+   "bad_streak": 3,
    "prev_verdict": "ok_secondary"
   },
   {
@@ -16833,6 +16577,24 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "npysc_mt",
+   "name": "云镜·茅台资源",
+   "api": "https://caiji.maotaizy.cc/api.php/provide/vod/",
+   "kind": "cms",
+   "verdict": "no_result",
+   "why": "搜索无结果；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "kalavaxo.cdnfree.org.",
+    "51.222.139.234"
+   ],
+   "bad_streak": 0,
+   "prev_verdict": "no_result"
+  },
+  {
    "key": "maoy_奇优",
    "name": "分享·💖分享奇优",
    "api": "csp_XBPQ",
@@ -16924,6 +16686,24 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "lxshiguang22_csp_xml_ckzy",
+   "name": "拾光·❤ckzy",
+   "api": "https://ckzy.me/api.php/provide/vod/?ac=list",
+   "kind": "cms",
+   "verdict": "no_result",
+   "why": "搜索无结果；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "172.67.153.237",
+    "104.21.12.238"
+   ],
+   "bad_streak": 0,
+   "prev_verdict": "search_fail"
+  },
+  {
    "key": "lxshiguang1_剧下饭",
    "name": "拾光·下饭｜APP",
    "api": "csp_AppYs",
@@ -16935,6 +16715,24 @@
    "ms": null,
    "bad_streak": 0,
    "prev_verdict": "rule_based"
+  },
+  {
+   "key": "lxshiguang1_茅台采集",
+   "name": "拾光·茅台｜采集",
+   "api": "https://caiji.maotaizy.cc/api.php/provide/vod/from/mtm3u8/",
+   "kind": "cms",
+   "verdict": "no_result",
+   "why": "搜索无结果；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "kalavaxo.cdnfree.org.",
+    "51.222.139.234"
+   ],
+   "bad_streak": 0,
+   "prev_verdict": "no_result"
   },
   {
    "key": "lxshiguang27_韩剧TV",
@@ -16980,12 +16778,17 @@
    "name": "天微·《量子🔹秒播》",
    "api": "http://cj.lziapi.com/api.php/provide/vod/",
    "kind": "cms",
-   "verdict": "ok_secondary",
-   "why": "默认线路不可用（share_page），切到第 2 条线路才能播",
-   "first_url": "https://v.lzcdn28.com/20250923/2204_417d8bba/index.m3u8",
+   "verdict": "dead_link",
+   "why": "首集返回 404（带 Referer 也失败）（2 条线路全部失败）；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "https://v.lzcdn28.com/share/4b4edc2630fe75800ddc29a7b4070add",
    "codec": "",
-   "ms": 1235,
-   "bad_streak": 2,
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "ba13f3df.alzcname.com.",
+    "lz7.alzcname.com."
+   ],
+   "bad_streak": 3,
    "prev_verdict": "ok_secondary"
   },
   {
@@ -17691,37 +17494,6 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "lxchuangxiang_source_1208629981",
-   "name": "创享·📡 HD(SN)",
-   "api": "https://ys.cxkjg.cn/api/provide/vod?source=1208629981",
-   "kind": "cms",
-   "verdict": "search_bad",
-   "why": "搜索响应非 JSON：暂不支持搜索",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 3,
-   "prev_verdict": "search_bad"
-  },
-  {
-   "key": "lxchuangxiang_source_531717376",
-   "name": "创享·📡 樱花",
-   "api": "https://ys.cxkjg.cn/api/provide/vod?source=531717376",
-   "kind": "cms",
-   "verdict": "no_result",
-   "why": "搜索无结果；DoH 有 A 记录，属本机 DNS 被拦",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "doh_status": 0,
-   "doh_ips": [
-    "1q5bzjfj.gog.788855.xyz.",
-    "87.229.25.43"
-   ],
-   "bad_streak": 0,
-   "prev_verdict": "no_result"
-  },
-  {
    "key": "maoy_360影视",
    "name": "分享·💝分享360",
    "api": "csp_SP360",
@@ -17969,6 +17741,23 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "lxshiguang54_采集集合",
+   "name": "拾光·采集集合",
+   "api": "http://zhangqun1818.serv00.net/cj/cjjh.php",
+   "kind": "cms",
+   "verdict": "dead_link",
+   "why": "首集返回 404（带 Referer 也失败）（2 条线路全部失败）；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "https://v.lzcdn28.com/share/4b4edc2630fe75800ddc29a7b4070add",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "128.204.223.113"
+   ],
+   "bad_streak": 3,
+   "prev_verdict": "ok_secondary"
+  },
+  {
    "key": "lxshiguang27_稀饭动漫",
    "name": "拾光·🎉稀饭┃动漫",
    "api": "https://bitbucket.org/guot55/ygbh/raw/main/pro/js/drpy2.min.js",
@@ -18175,19 +17964,6 @@
    "ms": null,
    "bad_streak": 0,
    "prev_verdict": "rule_based"
-  },
-  {
-   "key": "lxchuangxiang_source_1470828922",
-   "name": "创享·📡 量子",
-   "api": "https://ys.cxkjg.cn/api/provide/vod?source=1470828922",
-   "kind": "cms",
-   "verdict": "xml_endpoint",
-   "why": "接口返回 XML（/at/xml），非 JSON",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 3,
-   "prev_verdict": "xml_endpoint"
   },
   {
    "key": "lxyingcang_双星",
@@ -20244,6 +20020,32 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "lxchuangxiang_source_2680151544",
+   "name": "创享·📡 金鹰",
+   "api": "https://ys.cxkjg.cn/api/provide/vod?source=2680151544",
+   "kind": "cms",
+   "verdict": "xml_endpoint",
+   "why": "接口返回 XML（/at/xml），非 JSON",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 4,
+   "prev_verdict": "xml_endpoint"
+  },
+  {
+   "key": "lxchuangxiang_source_1840804598",
+   "name": "创享·📡 非凡",
+   "api": "https://ys.cxkjg.cn/api/provide/vod?source=1840804598",
+   "kind": "cms",
+   "verdict": "xml_endpoint",
+   "why": "接口返回 XML（/at/xml），非 JSON",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 4,
+   "prev_verdict": "xml_endpoint"
+  },
+  {
    "key": "lxxhz_360",
    "name": "小盒·💘360",
    "api": "csp_SP33",
@@ -20567,6 +20369,23 @@
    "ms": null,
    "bad_streak": 0,
    "prev_verdict": "rule_based"
+  },
+  {
+   "key": "maoy_js集合",
+   "name": "分享·💝分享js集",
+   "api": "http://zhangqun1818.serv00.net/js.php",
+   "kind": "cms",
+   "verdict": "no_result",
+   "why": "搜索无结果；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "128.204.223.113"
+   ],
+   "bad_streak": 0,
+   "prev_verdict": "no_result"
   },
   {
    "key": "maoy_久久",
@@ -24434,6 +24253,23 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "lxshiguang54_爱瓜TV",
+   "name": "拾光·爱瓜TV",
+   "api": "http://zhangqun1818.serv00.net/aigua1.php",
+   "kind": "cms",
+   "verdict": "no_result",
+   "why": "搜索无结果；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "128.204.223.113"
+   ],
+   "bad_streak": 0,
+   "prev_verdict": "no_result"
+  },
+  {
    "key": "lxshiguang8_minuo",
    "name": "拾光·米诺|APP",
    "api": "csp_HBAppMNCAT",
@@ -24638,7 +24474,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "search_bad"
   },
   {
@@ -24651,7 +24487,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "search_bad"
   },
   {
@@ -24677,7 +24513,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "search_bad"
   },
   {
@@ -24690,7 +24526,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "search_bad"
   },
   {
@@ -24993,21 +24829,6 @@
    "ms": null,
    "bad_streak": 0,
    "prev_verdict": "rule_based"
-  },
-  {
-   "key": "lxxiaoma_建安采集",
-   "name": "小马·影视 | 建安",
-   "api": "http://154.219.117.232:9981/jacloudapi.php/provide/vod",
-   "kind": "cms",
-   "verdict": "dns_dead",
-   "why": "DoH 无 A 记录（Status 3），域名已失效",
-   "first_url": "https://v.youku.com/v_show/id_XNjQ4OTI5MzAwOA==.html",
-   "codec": "",
-   "ms": null,
-   "doh_status": 3,
-   "doh_ips": [],
-   "bad_streak": 3,
-   "prev_verdict": "dead_link"
   },
   {
    "key": "maoy_csp_LiteApple",
@@ -25346,6 +25167,23 @@
    "ms": null,
    "bad_streak": 0,
    "prev_verdict": "rule_based"
+  },
+  {
+   "key": "lxshiguang54_php集合",
+   "name": "拾光·php集合",
+   "api": "http://zhangqun1818.serv00.net/php.php",
+   "kind": "cms",
+   "verdict": "dead_link",
+   "why": "首集返回 URLError（带 Referer 也失败）；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "https://wwzycdn.10cong.com/20241104/fuhHUYvN/index.m3u8@@ww",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "128.204.223.113"
+   ],
+   "bad_streak": 1,
+   "prev_verdict": "no_result"
   },
   {
    "key": "lxshiguang22_FREEOK",
@@ -29131,6 +28969,19 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "lxshiguang1_旺旺采集资源",
+   "name": "拾光·短剧｜采集",
+   "api": "https://api.wwzy.tv/api.php/provide/vod/",
+   "kind": "cms",
+   "verdict": "search_bad",
+   "why": "搜索响应非 JSON：<!DOCTYPE html>\n<html lang=\"zh-CN\">\n\t<he",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 1,
+   "prev_verdict": "search_fail"
+  },
+  {
    "key": "lxshiguang40_csp_XBPQ_相声",
    "name": "拾光·雷蒙影视 | 🍚相声(XBPQ)",
    "api": "csp_XBPQ",
@@ -32368,6 +32219,24 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "lxshiguang1_九零采集资源",
+   "name": "拾光·九零｜采集",
+   "api": "https://oknnews.com/api.php/provide/vod/",
+   "kind": "cms",
+   "verdict": "search_fail",
+   "why": "搜索 HTTP 403；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "104.21.41.149",
+    "172.67.148.6"
+   ],
+   "bad_streak": 0,
+   "prev_verdict": "search_bad"
+  },
+  {
    "key": "lxshiguang54_哔哩lz",
    "name": "拾光·哔哩lz",
    "api": "csp_ProxySpider",
@@ -33640,8 +33509,25 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "search_bad"
+  },
+  {
+   "key": "lxshiguang54_旺旺短剧",
+   "name": "拾光·旺旺短剧",
+   "api": "http://zhangqun1818.serv00.net/ww.php",
+   "kind": "cms",
+   "verdict": "dead_link",
+   "why": "首集返回 URLError（带 Referer 也失败）；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "https://wwzycdn.10cong.com/20241104/fuhHUYvN/index.m3u8",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "128.204.223.113"
+   ],
+   "bad_streak": 4,
+   "prev_verdict": "dead_link"
   },
   {
    "key": "lxshiguang1_黑木耳采集",
@@ -33653,7 +33539,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "search_bad"
   },
   {
@@ -33679,7 +33565,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "search_bad"
   },
   {
@@ -33772,6 +33658,19 @@
    "ms": null,
    "bad_streak": 0,
    "prev_verdict": "rule_based"
+  },
+  {
+   "key": "xiangya_柚子资源",
+   "name": "香雅·🍊柚子资源",
+   "api": "https://api.yzzy-api.com/inc/api.php",
+   "kind": "cms",
+   "verdict": "xml_endpoint",
+   "why": "接口返回 XML（/at/xml），非 JSON",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 1,
+   "prev_verdict": "search_fail"
   },
   {
    "key": "laoliu_csp_XYQHiker_VSYY",
@@ -34138,6 +34037,23 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "maoy_采集集合",
+   "name": "分享·💝分享合集",
+   "api": "http://zhangqun1818.serv00.net/cj/cjjh.php",
+   "kind": "cms",
+   "verdict": "dead_link",
+   "why": "首集返回 404（带 Referer 也失败）（2 条线路全部失败）；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "https://v.lzcdn28.com/share/4b4edc2630fe75800ddc29a7b4070add",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "128.204.223.113"
+   ],
+   "bad_streak": 3,
+   "prev_verdict": "ok_secondary"
+  },
+  {
    "key": "xiangya_csp_Bili初中",
    "name": "香雅·🐞哔哩初中",
    "api": "csp_Bili",
@@ -34435,8 +34351,8 @@
    "ms": null,
    "doh_status": 0,
    "doh_ips": [
-    "172.67.222.218",
-    "104.21.70.104"
+    "104.21.70.104",
+    "172.67.222.218"
    ],
    "bad_streak": 0,
    "prev_verdict": "search_fail"
@@ -34802,7 +34718,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "search_bad"
   },
   {
@@ -34815,7 +34731,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "search_bad"
   },
   {
@@ -34919,7 +34835,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "search_bad"
   },
   {
@@ -34928,11 +34844,11 @@
    "api": "http://xn--ihqu10cn4c.xn--v4q818bf34b.com/api/yyutx.php",
    "kind": "cms",
    "verdict": "search_bad",
-   "why": "搜索响应非 JSON：<!-- 776484181790 -->\n<!DOCTYPE html>\n<h",
+   "why": "搜索响应非 JSON：<!-- 306735689233 -->\n<!DOCTYPE html>\n<h",
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "search_bad"
   },
   {
@@ -35578,11 +35494,11 @@
    "api": "https://collect.wolongzyw.com/api.php/provide/vod/",
    "kind": "cms",
    "verdict": "search_bad",
-   "why": "搜索响应非 JSON：<!-- 238204039319 -->\n<!DOCTYPE html>\n<h",
+   "why": "搜索响应非 JSON：<!-- 873964941533 -->\n<!DOCTYPE html>\n<h",
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "search_bad"
   },
   {
@@ -35656,11 +35572,11 @@
    "api": "https://video.adminqt.cn/api.php/provide/vod/",
    "kind": "cms",
    "verdict": "search_bad",
-   "why": "搜索响应非 JSON：",
+   "why": "搜索响应非 JSON：<!doctype html><html lang=\"en\"><head><me",
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "search_bad"
   },
   {
@@ -39755,7 +39671,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "search_bad"
   },
   {
@@ -39768,7 +39684,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "search_bad"
   },
   {
@@ -41406,7 +41322,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "search_bad"
   },
   {
@@ -41900,7 +41816,7 @@
    "first_url": "PAN1-IrJZ6bK3LUWByGYD9VpBnuCUOjIsTkEnuo9hMp_9jVKmm4f2186qU9VDnZ7JCQPe29u0KkjbQnBUOVolRBYMMn7NeYGMcrM0PisXkXvoG8Cn6UaferLtABrnuogMZPEOnohXzkwiytrICDqOfxvf2A==",
    "codec": "",
    "ms": null,
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "bad_url"
   },
   {
@@ -42693,7 +42609,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "search_bad"
   },
   {
@@ -43438,6 +43354,19 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "lxchuangxiang_source_1470828922",
+   "name": "创享·📡 量子",
+   "api": "https://ys.cxkjg.cn/api/provide/vod?source=1470828922",
+   "kind": "cms",
+   "verdict": "xml_endpoint",
+   "why": "接口返回 XML（/at/xml），非 JSON",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 4,
+   "prev_verdict": "xml_endpoint"
+  },
+  {
    "key": "lxshiguang8_磁力",
    "name": "拾光·6V|弹幕",
    "api": "csp_Xb6vCAT",
@@ -44086,6 +44015,23 @@
    "ms": null,
    "bad_streak": 0,
    "prev_verdict": "rule_based"
+  },
+  {
+   "key": "lxshiguang54_python集合",
+   "name": "拾光·python集合",
+   "api": "http://zhangqun1818.serv00.net/py.php",
+   "kind": "cms",
+   "verdict": "no_result",
+   "why": "搜索无结果；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "128.204.223.113"
+   ],
+   "bad_streak": 0,
+   "prev_verdict": "no_result"
   },
   {
    "key": "lxshiguang41_88看球",
@@ -49115,7 +49061,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "search_bad"
   },
   {
@@ -49284,7 +49230,7 @@
    "first_url": "https://p.bvvvvvvvvv1f.com/video/qingyuniandiyiji/第01集/index.m3u8",
    "codec": "",
    "ms": null,
-   "bad_streak": 5,
+   "bad_streak": 6,
    "prev_verdict": "bad_url"
   },
   {
@@ -49362,7 +49308,7 @@
    "first_url": "https://p.bvvvvvvvvv1f.com/video/qingyuniandiyiji/第01集/index.m3u8",
    "codec": "",
    "ms": null,
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "bad_url"
   },
   {
@@ -49925,19 +49871,6 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "lxshiguang1_九零采集资源",
-   "name": "拾光·九零｜采集",
-   "api": "https://oknnews.com/api.php/provide/vod/",
-   "kind": "cms",
-   "verdict": "search_bad",
-   "why": "搜索响应非 JSON：<!DOCTYPE html>\r\n<html lang=\"zh-CN\">\r\n<h",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 3,
-   "prev_verdict": "search_bad"
-  },
-  {
    "key": "lxshiguang22_drpy_js_相声随身听",
    "name": "拾光·听书 | 相声随身听",
    "api": "https://gh-proxy.com/raw.githubusercontent.com/yw88075/tvbox/main/dr/lib/drpy2.min.js",
@@ -50389,7 +50322,7 @@
    "first_url": "https://pan.quark.cn/s/0b91b87c3e0d",
    "codec": "",
    "ms": null,
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "share_page"
   },
   {
@@ -50454,7 +50387,7 @@
    "first_url": "https://p.bvvvvvvvvv1f.com/video/qingyuniandiyiji/第01集/index.m3u8",
    "codec": "",
    "ms": null,
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "bad_url"
   },
   {
@@ -50783,6 +50716,81 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "laoliu_可可资源",
+   "name": "老刘·⛱┃可可┃采集",
+   "api": "https://kekezy1.com/api.php/provide/vod/?ac=list",
+   "kind": "cms",
+   "verdict": "dns_dead",
+   "why": "DoH 无 A 记录（Status 3），域名已失效",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 3,
+   "doh_ips": [],
+   "bad_streak": 2,
+   "prev_verdict": "dns_dead"
+  },
+  {
+   "key": "laoliu_奇虎资源",
+   "name": "老刘·🐯┃奇虎┃采集",
+   "api": "https://caiji.qhzyapi.com/api.php/provide/vod/",
+   "kind": "cms",
+   "verdict": "dns_dead",
+   "why": "DoH 无 A 记录（Status 3），域名已失效",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 3,
+   "doh_ips": [],
+   "bad_streak": 2,
+   "prev_verdict": "dns_dead"
+  },
+  {
+   "key": "laoliu_csp_小胡",
+   "name": "老刘·👒┃小胡┃资源┃",
+   "api": "http://c.xn--yetu07f.icu/api.php/provide/vod/",
+   "kind": "cms",
+   "verdict": "dns_dead",
+   "why": "DoH 无 A 记录（Status 3），域名已失效",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 3,
+   "doh_ips": [],
+   "bad_streak": 2,
+   "prev_verdict": "dns_dead"
+  },
+  {
+   "key": "laoliu_feisu",
+   "name": "老刘·🛰️飞速┃采集",
+   "api": "https://www.feisuzyapi.com/api.php/provide/vod/?ac=list",
+   "kind": "cms",
+   "verdict": "dns_dead",
+   "why": "DoH 无 A 记录（Status 3），域名已失效",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 3,
+   "doh_ips": [],
+   "bad_streak": 2,
+   "prev_verdict": "dns_dead"
+  },
+  {
+   "key": "laoliu_49zy",
+   "name": "老刘·🦁┃四九┃资源",
+   "api": "https://49zy1.com/api.php/provide/vod/?ac=list",
+   "kind": "cms",
+   "verdict": "dns_dead",
+   "why": "DoH 无 A 记录（Status 3），域名已失效",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 3,
+   "doh_ips": [],
+   "bad_streak": 2,
+   "prev_verdict": "dns_dead"
+  },
+  {
    "key": "lxxhzdc17_cntv",
    "name": "小盒仓·央视[cat]",
    "api": "https://dxawi.github.io/0/cat/cntv_open.js",
@@ -50805,7 +50813,7 @@
    "first_url": "https://p.bvvvvvvvvv1f.com/video/qingyuniandiyiji/第01集/index.m3u8",
    "codec": "",
    "ms": null,
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "bad_url"
   },
   {
@@ -50848,9 +50856,35 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "lxxiaoma_建安采集",
+   "name": "小马·影视 | 建安",
+   "api": "http://154.219.117.232:9981/jacloudapi.php/provide/vod",
+   "kind": "cms",
+   "verdict": "html_link",
+   "why": "首集是网页而非视频流（HTML 页面）（2 条线路全部失败）",
+   "first_url": "https://www.iqiyi.com/v_1hn0p07xxls.html",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 4,
+   "prev_verdict": "dns_dead"
+  },
+  {
    "key": "laoliu_js_酷吧",
    "name": "老刘·😎酷吧磁力┃Js",
    "api": "https://raw.githubusercontent.com/liu673cn/box/main/libs/js/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "lxxhzdc18_js_豆瓣",
+   "name": "小盒仓·豆瓣|推荐",
+   "api": "https://api.hgyx.vip/HGBOX/JS/lib/drpy.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -51107,6 +51141,36 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "lxshiguang1_OK资源网采集",
+   "name": "拾光·资源｜采集",
+   "api": "https://okzyw9.com/api.php/provide/vod/",
+   "kind": "cms",
+   "verdict": "dns_dead",
+   "why": "DoH 无 A 记录（Status 3），域名已失效",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 3,
+   "doh_ips": [],
+   "bad_streak": 2,
+   "prev_verdict": "dns_dead"
+  },
+  {
+   "key": "lxshiguang1_无限采集",
+   "name": "拾光·️无限｜采集",
+   "api": "https://api.wuxianzy.net/api.php/provide/vod/",
+   "kind": "cms",
+   "verdict": "dns_dead",
+   "why": "DoH 无 A 记录（Status 3），域名已失效",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 3,
+   "doh_ips": [],
+   "bad_streak": 2,
+   "prev_verdict": "dns_dead"
+  },
+  {
    "key": "lxshiguang51_csp_Live2Vod_2",
    "name": "拾光·💕电视直播(远程配置版)",
    "api": "csp_Live2Vod",
@@ -51315,6 +51379,36 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "lxxhz4k_小胡",
+   "name": "小盒4K·🔥┃小胡┃4K",
+   "api": "http://xh1.xn--yetu07f.icu/api.php/provide/vod/",
+   "kind": "cms",
+   "verdict": "dns_dead",
+   "why": "DoH 无 A 记录（Status 3），域名已失效",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 3,
+   "doh_ips": [],
+   "bad_streak": 2,
+   "prev_verdict": "dns_dead"
+  },
+  {
+   "key": "maoy_四圈资源",
+   "name": "分享·⭕️四个圈圈",
+   "api": "https://pg.fenwe078.cf/api.php/provide/vod/",
+   "kind": "cms",
+   "verdict": "dns_dead",
+   "why": "DoH 无 A 记录（Status 3），域名已失效",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 3,
+   "doh_ips": [],
+   "bad_streak": 2,
+   "prev_verdict": "dns_dead"
+  },
+  {
    "key": "laoliu_js_哔哩直播",
    "name": "老刘·🅱️┃哔哩┃直播",
    "api": "https://raw.githubusercontent.com/liu673cn/box/main/libs/js/drpy2.min.js",
@@ -51339,6 +51433,81 @@
    "ms": null,
    "bad_streak": 0,
    "prev_verdict": "rule_based"
+  },
+  {
+   "key": "maoy_官采",
+   "name": "分享·💝分享官源",
+   "api": "https://cj.jusj.top/api.php/provide/vod/?ac=list",
+   "kind": "cms",
+   "verdict": "dns_dead",
+   "why": "DoH 无 A 记录（Status 3），域名已失效",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 3,
+   "doh_ips": [],
+   "bad_streak": 2,
+   "prev_verdict": "dns_dead"
+  },
+  {
+   "key": "maoy_kktd",
+   "name": "分享·💝分享糖豆",
+   "api": "https://kk.666888.club/vod/cibn_api.php/provide/vod/",
+   "kind": "cms",
+   "verdict": "dns_dead",
+   "why": "DoH 无 A 记录（Status 3），域名已失效",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 3,
+   "doh_ips": [],
+   "bad_streak": 2,
+   "prev_verdict": "dns_dead"
+  },
+  {
+   "key": "maoy_金蝉",
+   "name": "分享·💝分享金蝉",
+   "api": "http://zy.jinchancaiji.com/api.php/provide/vod",
+   "kind": "cms",
+   "verdict": "dns_dead",
+   "why": "DoH 无 A 记录（Status 3），域名已失效",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 3,
+   "doh_ips": [],
+   "bad_streak": 2,
+   "prev_verdict": "dns_dead"
+  },
+  {
+   "key": "maoy_t4直播转点播",
+   "name": "分享·💝分享教育",
+   "api": "http://120.53.102.254/dsp16",
+   "kind": "cms",
+   "verdict": "dns_dead",
+   "why": "DoH 无 A 记录（Status 3），域名已失效",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 3,
+   "doh_ips": [],
+   "bad_streak": 2,
+   "prev_verdict": "dns_dead"
+  },
+  {
+   "key": "lxshiguang22_蓝光官采",
+   "name": "拾光·❤猫咪",
+   "api": "http://zy.xiaomaomi.vip/api.php/provide/vod/?ac=list",
+   "kind": "cms",
+   "verdict": "dns_dead",
+   "why": "DoH 无 A 记录（Status 3），域名已失效",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 3,
+   "doh_ips": [],
+   "bad_streak": 2,
+   "prev_verdict": "dns_dead"
   },
   {
    "key": "lxshiguang51_csp_zhibo_bili",
@@ -51391,6 +51560,21 @@
    "ms": null,
    "bad_streak": 0,
    "prev_verdict": "rule_based"
+  },
+  {
+   "key": "ivcainisi_快帆",
+   "name": "菜妮丝·快帆",
+   "api": "https://api.kuaifan.tv/api.php/provide/vod",
+   "kind": "cms",
+   "verdict": "dns_dead",
+   "why": "DoH 无 A 记录（Status 3），域名已失效",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 3,
+   "doh_ips": [],
+   "bad_streak": 2,
+   "prev_verdict": "dns_dead"
   },
   {
    "key": "ivtiantian_哔哩直播",
@@ -51467,7 +51651,20 @@
    "first_url": "https://cloud.189.cn/t/eUBFfiieENJv",
    "codec": "",
    "ms": null,
-   "bad_streak": 3,
+   "bad_streak": 4,
+   "prev_verdict": "share_page"
+  },
+  {
+   "key": "ivxiaohuban_百度",
+   "name": "小虎斑·百度|推送",
+   "api": "https://so.yinpai.xyz/api.php?type=baidu",
+   "kind": "cms",
+   "verdict": "share_page",
+   "why": "首集是网页而非视频流（网盘分享页）",
+   "first_url": "https://pan.baidu.com/s/1KNAtpPYYZAy9QEllQj1kZg?pwd=gpvg",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 4,
    "prev_verdict": "share_page"
   },
   {
@@ -51928,6 +52125,19 @@
   {
    "key": "laoliu_鑫鑫影视",
    "name": "老刘·🥇┃鑫鑫┃App",
+   "api": "csp_AppYsV2",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "lxxhzdc18_csp_zh_HG影视",
+   "name": "小盒仓·HG影视",
    "api": "csp_AppYsV2",
    "kind": "rule",
    "verdict": "rule_based",
@@ -53913,19 +54123,6 @@
    "ms": null,
    "bad_streak": 0,
    "prev_verdict": "rule_based"
-  },
-  {
-   "key": "ivxiaohuban_百度",
-   "name": "小虎斑·百度|推送",
-   "api": "https://so.yinpai.xyz/api.php?type=baidu",
-   "kind": "cms",
-   "verdict": "share_page",
-   "why": "首集是网页而非视频流（网盘分享页）",
-   "first_url": "https://pan.baidu.com/s/1KNAtpPYYZAy9QEllQj1kZg?pwd=gpvg",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 3,
-   "prev_verdict": "share_page"
   },
   {
    "key": "lxxhzdc12_AGE动漫",
@@ -59388,84 +59585,6 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "lxxhzdc18_csp_xml_非凡资源",
-   "name": "小盒仓·🐝非凡资源",
-   "api": "http://cj.ffzyapi.com/api.php/provide/vod/?ac=list",
-   "kind": "cms",
-   "verdict": "ok_secondary",
-   "why": "默认线路不可用（share_page），切到第 2 条线路才能播",
-   "first_url": "https://vip.ffzy-online2.com/20250420/49522_e3154fc9/index.m3u8",
-   "codec": "",
-   "ms": 7196,
-   "bad_streak": 2,
-   "prev_verdict": "ok_secondary"
-  },
-  {
-   "key": "lxxhzdc18_csp_xml_量子资源",
-   "name": "小盒仓·🐝量子资源",
-   "api": "http://cj.lziapi.com/api.php/provide/vod/?ac=list",
-   "kind": "cms",
-   "verdict": "ok_secondary",
-   "why": "默认线路不可用（share_page），切到第 2 条线路才能播",
-   "first_url": "https://v.lzcdn28.com/20250923/2204_417d8bba/index.m3u8",
-   "codec": "",
-   "ms": 2034,
-   "bad_streak": 2,
-   "prev_verdict": "ok_secondary"
-  },
-  {
-   "key": "lxxhzdc18_csp_HG影视2",
-   "name": "小盒仓·HG影视（备用)",
-   "api": "http://cs.hgyx.vip/api/provide/vod/",
-   "kind": "cms",
-   "verdict": "search_fail",
-   "why": "搜索 HTTP URLError",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "search_fail"
-  },
-  {
-   "key": "lxxhzdc18_csp_xml_夸克资源",
-   "name": "小盒仓·🐝夸克资源",
-   "api": "http://kuakezy1.com/api.php/provide/vod/from/M3U8kuake/",
-   "kind": "cms",
-   "verdict": "search_fail",
-   "why": "搜索 HTTP URLError",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "search_fail"
-  },
-  {
-   "key": "lxxhzdc18_js_豆瓣",
-   "name": "小盒仓·豆瓣|推荐",
-   "api": "https://api.hgyx.vip/HGBOX/JS/lib/drpy.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "lxxhzdc18_csp_zh_HG影视",
-   "name": "小盒仓·HG影视",
-   "api": "csp_AppYsV2",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
    "key": "nptp_s_c3389de107",
    "name": "探针·🎏百度云(5万)·822ms",
    "api": "https://api.apibdzy.com/api.php/provide/vod/",
@@ -59644,7 +59763,7 @@
    "first_url": "https://m1.taopianplay1.com:43333/c56b1bc09da3/HD/2024-05-17/15/c6bcd1f9c646/58bc69952338/playlist.m3u8",
    "codec": "",
    "ms": null,
-   "bad_streak": 5,
+   "bad_streak": 6,
    "prev_verdict": "dead_link"
   },
   {
@@ -59657,7 +59776,7 @@
    "first_url": "https://ukzy.ukubf4.com/share/cUrgOEtJKRvcLBDn",
    "codec": "",
    "ms": null,
-   "bad_streak": 5,
+   "bad_streak": 6,
    "prev_verdict": "dead_link"
   },
   {
@@ -59670,7 +59789,7 @@
    "first_url": "https://ukzy.ukubf4.com/share/cUrgOEtJKRvcLBDn",
    "codec": "",
    "ms": null,
-   "bad_streak": 5,
+   "bad_streak": 6,
    "prev_verdict": "dead_link"
   },
   {
@@ -59683,7 +59802,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 5,
+   "bad_streak": 6,
    "prev_verdict": "live_format"
   }
  ]
