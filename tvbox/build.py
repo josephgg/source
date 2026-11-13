@@ -1976,10 +1976,17 @@ def main():
     # 上面「取第一个非空」只是让 40 个源的公告不打架，内容仍随源站变；
     # 想要自己的品牌就显式覆盖。留空字符串 = 删掉该字段（例如不要公告）。
     ov = bconf.get("override") or {}
+    # override 里的字符串支持 {date} 占位符，替换成构建日（北京时间）。
+    # 公告写死日期会长期停在过去时，用占位符就不会忘记改。
+    _now = datetime.now(timezone(timedelta(hours=8)))
+    _date_cn = "%d月%d日" % (_now.month, _now.day)
     for k in ("name", "notice", "wallpaper", "logo"):
         if k in ov:
-            if ov[k]:
-                merged[k] = ov[k]
+            v = ov[k]
+            if isinstance(v, str) and "{date}" in v:
+                v = v.replace("{date}", _date_cn)
+            if v:
+                merged[k] = v
             else:
                 merged.pop(k, None)
 

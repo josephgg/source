@@ -50,13 +50,13 @@
       "laoliu_taopian": "首集 playlist.m3u8 返回 404（限流端口 43333 已不可用），2026-11-13 复核",
       "lxshiguang54_CNTV低分辨": "接口 cctv.php 返回直播格式 {\"class\":[...]}，属直播源误入点播站，放进 sites 必然解析异常"
     },
-    "$override_comment": "固定输出值，覆盖各源自带的 notice/wallpaper/logo/name。留空字符串等于删掉该字段。图片放 tvbox/assets/ 时必须写完整 CDN 地址——相对路径会按源站解析，指不到本仓。",
+    "$override_comment": "固定输出值，覆盖各源自带的 notice/wallpaper/logo/name。留空字符串等于删掉该字段。notice 支持 {date} 占位符，构建时替换成当天日期（北京时间，如「11月13日」）。图片放 tvbox/assets/ 时必须写完整 CDN 地址——相对路径会按源站解析，指不到本仓。",
     "block_hosts": [
       "apiyutu.com"
     ],
     "override": {
       "name": "Joe TV",
-      "notice": "重要的事，值得慢慢做。",
+      "notice": "数据源更新 {date}",
       "wallpaper": "https://fastly.jsdelivr.net/gh/josephgg/source@main/tvbox/assets/wallpaper.webp"
     },
     "$block_hosts_comment": "域名级黑名单：命中即整站剔除（成人内容 / 已被劫持的域名），换 key 也拦得住。实测见 tools/probe_search.py"
