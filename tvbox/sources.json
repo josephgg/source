@@ -7,10 +7,10 @@
     "subdir": "tvbox",
     "branch": "main",
     "pages_base": "https://josephgg.github.io/source/tvbox/",
-    "cdn": [
-      "https://fastly.jsdelivr.net/gh/josephgg/source@main/tvbox/",
-      "https://cdn.jsdelivr.net/gh/josephgg/source@main/tvbox/"
-    ],
+  "cdn": [
+    "https://cdn.jsdelivr.net/gh/josephgg/source@main/tvbox/",
+    "https://fastly.jsdelivr.net/gh/josephgg/source@main/tvbox/"
+  ],
     "index_base": "cdn",
     "mirrors": [
       "https://gh-proxy.com/",
@@ -57,7 +57,7 @@
     "override": {
       "name": "Joe TV",
       "notice": "数据源更新 {date}",
-      "wallpaper": "https://fastly.jsdelivr.net/gh/josephgg/source@main/tvbox/assets/wallpaper.webp"
+      "wallpaper": "https://cdn.jsdelivr.net/gh/josephgg/source@main/tvbox/assets/wallpaper.webp"
     },
     "$block_hosts_comment": "域名级黑名单：命中即整站剔除（成人内容 / 已被劫持的域名），换 key 也拦得住。实测见 tools/probe_search.py"
   },

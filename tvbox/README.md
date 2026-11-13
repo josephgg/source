@@ -17,19 +17,19 @@
 精选仓（主地址）：
 
 ```
-https://fastly.jsdelivr.net/gh/josephgg/source@main/tvbox/api/lite.json
+https://cdn.jsdelivr.net/gh/josephgg/source@main/tvbox/api/lite.json
 ```
 
 全部聚合：
 
 ```
-https://fastly.jsdelivr.net/gh/josephgg/source@main/tvbox/api/all.json
+https://cdn.jsdelivr.net/gh/josephgg/source@main/tvbox/api/all.json
 ```
 
 备用地址，主地址拉不动时换着试（`api/lite.json` 同理换后缀）：
 
 ```
-https://cdn.jsdelivr.net/gh/josephgg/source@main/tvbox/api/all.json
+https://fastly.jsdelivr.net/gh/josephgg/source@main/tvbox/api/all.json
 https://raw.githubusercontent.com/josephgg/source/main/tvbox/api/all.json
 https://gh-proxy.com/https://raw.githubusercontent.com/josephgg/source/main/tvbox/api/all.json
 https://ghfast.top/https://raw.githubusercontent.com/josephgg/source/main/tvbox/api/all.json

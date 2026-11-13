@@ -1,14 +1,14 @@
 # 精选（72 站点，排序靠前、接口已验证）
-https://fastly.jsdelivr.net/gh/josephgg/source@main/tvbox/api/lite.json
 https://cdn.jsdelivr.net/gh/josephgg/source@main/tvbox/api/lite.json
+https://fastly.jsdelivr.net/gh/josephgg/source@main/tvbox/api/lite.json
 
-# 全部聚合（4528 站点，一个地址装下所有资源）
-https://fastly.jsdelivr.net/gh/josephgg/source@main/tvbox/api/all.json
+# 全部聚合（4571 站点，一个地址装下所有资源）
 https://cdn.jsdelivr.net/gh/josephgg/source@main/tvbox/api/all.json
+https://fastly.jsdelivr.net/gh/josephgg/source@main/tvbox/api/all.json
 
 # 多仓索引（仅带仓库选择器的客户端可用）
-https://fastly.jsdelivr.net/gh/josephgg/source@main/tvbox/index.json
 https://cdn.jsdelivr.net/gh/josephgg/source@main/tvbox/index.json
+https://fastly.jsdelivr.net/gh/josephgg/source@main/tvbox/index.json
 
 # 备用（GitHub raw）
 https://raw.githubusercontent.com/josephgg/source/main/tvbox/api/lite.json
