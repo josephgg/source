@@ -132,6 +132,51 @@ class BuildRulesTest(unittest.TestCase):
         picked = build.pick_lite(sites, 4, alive=alive, sq=sq)
         self.assertEqual(picked[0]["key"], "b")
 
+    # ---- 规则站体检（rule_health.json）走的是「两轮确认 + 指纹继承 + 会过期」
+    # ---- 三条约束，任何一条被改坏都会让构建批量误杀站点，所以单独锁住。
+
+    def _rule_site(self):
+        return {"key": "r1", "name": "香雅·测试动漫", "api": "csp_XYQHiker", "type": 3,
+                "searchable": 1, "ext": "https://x.example/rule.json",
+                "jar": "https://x.example/spider.jar"}
+
+    def _rh(self, level, streak=1):
+        site = self._rule_site()
+        return {site["key"]: {"key": site["key"], "sig": build.rule_sig(site),
+                              "level": level, "dead_streak": streak}}
+
+    def test_rule_health_needs_two_rounds(self):
+        site = self._rule_site()
+        once, twice = self._rh("dead", 1), self._rh("dead", 2)
+        self.assertFalse(build.rule_dead(site, once))
+        self.assertTrue(build.rule_dead(site, twice))
+        s1, _ = build.quality_score(site, 10, 1, False, rule=build.rule_record(site, once))
+        s2, _ = build.quality_score(site, 10, 1, False, rule=build.rule_record(site, twice))
+        self.assertGreater(s1, s2)
+
+    def test_rule_health_inherits_by_signature_only(self):
+        site = self._rule_site()
+        rh = {"sig#" + build.rule_sig(site): {"key": "上游改名了", "level": "ok"}}
+        self.assertEqual(build.rule_record(site, rh)["level"], "ok")
+        # 换了 jar 就是另一个规则配置，旧结论不能套过来
+        self.assertIsNone(build.rule_record(dict(site, jar="https://x.example/o.jar"), rh))
+
+    def test_stale_rule_health_is_ignored(self):
+        import tempfile
+        site = self._rule_site()
+        fd, path = tempfile.mkstemp(suffix=".json")
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
+            json.dump({"tested_at": __import__("time").time() - 40 * 86400,
+                       "sites": [{"key": site["key"], "level": "dead", "dead_streak": 5}]}, f)
+        old = build.RULE_HEALTH_FILE
+        build.RULE_HEALTH_FILE = path
+        try:
+            self.assertEqual(build.load_rule_health(), {})
+            self.assertFalse(build.rule_dead(site, {}))
+        finally:
+            build.RULE_HEALTH_FILE = old
+            os.remove(path)
+
     def test_bad_site_is_isolated(self):
         stats = {"skip_bad_site": 0}
         result = build.build_site({"key": "bad", "api": {"not": "a url"}}, {},

@@ -38,6 +38,18 @@
     "pin_keys": [
       "wuxie13_shangtou"
     ],
+    "$retire_comment": "人工下架的站点 key。用于「域名已注销 / 页面改成 SPA 只剩空壳」这类回不来的站——靠 rule_health 连续两轮判死要等两个构建周期，这里直接移除。判定依据写进同条目的 note 字段，便于日后复核。",
+    "retire_keys": {
+      "ivxiaosa_冬日动漫": "drdm.fun NXDOMAIN，DoH 复核无 A 记录（2026-11-12）",
+      "ivmoyuer_冬日": "同上，ext 指向 drdm.fun",
+      "xiangya_csp_XYQHiker_番茶动漫": "fanchawu.cc 无 A 记录，DoH 复核确认（2026-11-12）",
+      "xiangya_csp_XYQHiker_age动漫": "agedm.io 搜索页已改 SPA，结果由 api.agemys.org 提供且该域名已失效；规则选择器 cata_video_item 不再存在，另规则请求头写成 User-Agent$电脑 客户端会抛异常",
+      "duanju_cms短剧": "cmsboy.cn 全域 NXDOMAIN（阿里/腾讯 DoH 均为 Status 3），2026-11-12 复核确认",
+      "maoy_U酷资源": "首集 502，两条线路带 Referer 全失败（2026-11-13 播放体检）",
+      "lxchuangxiang_source_4194624554": "首集 502，两条线路带 Referer 全失败（2026-11-13 播放体检）",
+      "laoliu_taopian": "首集 playlist.m3u8 返回 404（限流端口 43333 已不可用），2026-11-13 复核",
+      "lxshiguang54_CNTV低分辨": "接口 cctv.php 返回直播格式 {\"class\":[...]}，属直播源误入点播站，放进 sites 必然解析异常"
+    },
     "$override_comment": "固定输出值，覆盖各源自带的 notice/wallpaper/logo/name。留空字符串等于删掉该字段。图片放 tvbox/assets/ 时必须写完整 CDN 地址——相对路径会按源站解析，指不到本仓。",
     "block_hosts": [
       "apiyutu.com"

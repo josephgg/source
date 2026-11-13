@@ -404,6 +404,13 @@ def normalize_site(site):
             out[k] = v
     # type 缺失或客户端未定义（如 4）时按 api 形态回填，否则该站点了打不开
     api = out.get("api") or ""
+    # 苹果CMS 的 /at/xml 是同一后端的 XML 输出。XML 体积是同内容的 3~5 倍，
+    # 且很多客户端只实现了 JSON 解析（拿到 <?xml 直接整站空），改成 JSON 端点
+    # 兼容面更大。注意必须在类型回填之前改：改完 api 就不再是 XML 接口。
+    if isinstance(api, str) and re.search(r"/at/xml/?$", api, re.I):
+        api = re.sub(r"/at/xml/?$", "/", api, flags=re.I)
+        out["api"] = api
+        out["type"] = 1
     if out.get("type") not in (0, 1, 3):
         out["type"] = 3 if api.startswith("csp_") else 1
     elif out.get("type") == 0 and "xml" not in api.lower():
@@ -507,14 +514,19 @@ def is_searchable(site):
     return v is None or v != 0
 
 
-def quality_score(site, priority, consensus, dead, alive=False, probe=None, search=None):
+def quality_score(site, priority, consensus, dead, alive=False, probe=None, search=None,
+                  rule=None, play=None):
     """返回 (分数, 说明)。分数越高越靠前。
 
     probe 是该站点的探活记录 {"ms","code","cls"}，来自 cms_probe。
     它让「能不能用、多快」从布尔升级为连续值：
       · 通的按耗时加分（越快越高）
       · 明确拒绝(403/401/402) 降权 —— 这类站点在客户端点进去必然空白
-      · 超时/5xx/非JSON 不评分（海外 runner 网络差异，不能误杀）"""
+      · 超时/5xx/非JSON 不评分（海外 runner 网络差异，不能误杀）
+
+    rule 是 tools/probe_rules.py 的体检记录。这类站（jar/drpy）没法用
+    ac=videolist 验活，只能验「jar 完整 + 规则可解析 + 规则里的目标站还在」，
+    所以它的结论只做加减分，不参与 alive 的「接口通 +20」。"""
     kind = api_kind(site)
     jar = (site.get("jar") or "").split(";")[0].strip()
     why = []
@@ -570,6 +582,47 @@ def quality_score(site, priority, consensus, dead, alive=False, probe=None, sear
         elif action == "disable":
             base -= 20
             why.append("搜索不可用-20")
+
+    if rule:
+        lv = rule.get("level")
+        streak = int(rule.get("dead_streak") or 1)
+        if lv == "ok":
+            base += 6
+            why.append("规则可验+6")
+        elif lv == "weak":
+            # 主页能开但选择器不命中，典型是站点改版：分类还在、点进去空白
+            base -= 12
+            why.append("规则疑似改版-12")
+        elif lv == "dead":
+            if streak >= 2:
+                base -= 90
+                why.append("规则站失效-90")
+            else:
+                base -= 30
+                why.append("规则站首轮不可达-30")
+        # unverifiable：ext 为空或目标写在 jar 内，离线无法判定，绝不扣分
+
+    # 播放链路实测（tools/probe_play.py）：接口通 ≠ 能播。
+    # 实测踩到的三类：首集是网盘分享页（返回 HTML）、分集 URL 带未编码中文
+    # （客户端拼 URL 抛异常）、清单正常但分片 404（播几秒就断）。
+    if play:
+        verdict = play.get("verdict")
+        if verdict in PLAY_STRUCTURAL:
+            base -= 60
+            why.append("播放结构性缺陷-60")
+        elif verdict in PLAY_FLAKY:
+            base -= 20
+            why.append("播放链路异常-20")
+        elif verdict == "ok":
+            base += 8
+            why.append("播放实测通过+8")
+        elif verdict == "direct":
+            base += 4
+            why.append("直链可播+4")
+        elif verdict in PLAY_SECONDARY:
+            base -= 25
+            why.append("默认线路播不了-25")
+        # python_spider / rule_based / unverifiable：解析在客户端，离线判不了，不奖惩
 
     if dead:
         base -= 80
@@ -713,6 +766,26 @@ def cms_probe(sites, timeout=12, workers=16):
 
 ALIVE_FILE = os.path.join(ROOT, "cms_alive.json")
 SEARCH_Q_FILE = os.path.join(ROOT, "search_quality.json")
+RULE_HEALTH_FILE = os.path.join(ROOT, "rule_health.json")
+PLAY_FILE = os.path.join(ROOT, "play_health.json")
+# 体检结论超过这个天数就不再采信：域名会复活，规则也会被上游修好，
+# 拿一个月前的 dead 判定去杀站，等于把可用资源当垃圾清掉。
+RULE_HEALTH_TTL_DAYS = 21
+# 播放地址比规则变化快得多（换 CDN、换线路顺序都常见），有效期要更短
+PLAY_TTL_DAYS = 10
+# 结构性缺陷：接口/线路本身出不了流，不会自愈，一轮即生效。
+# 注意不含 xml_endpoint —— normalize_site 会把 /at/xml 改写成 JSON 端点，
+# 拿旧判决去踢，等于把刚修好的站再杀一次。
+PLAY_STRUCTURAL = {"share_page", "bad_url", "live_format", "dns_dead"}
+# 默认线路不可用、备用线路可播。搜索和分类都正常，但客户端默认播第一条线路，
+# 用户点开就是黑屏/闪退（实测非凡、量子的第一条是网盘分享页）。
+# 因此不进精选，但保留在聚合搜索里 —— 会切线路的用户还能用上它的内容。
+# xml_endpoint 同理：接口回 XML 但路径里没有 /at/xml（改写规则覆盖不到），
+# 客户端按 JSON 解析必然空分类，也不该进精选。
+PLAY_SECONDARY = {"ok_secondary", "xml_endpoint"}
+# 网络侧缺陷：可能只是节点/边缘抖动，连续两轮才定案
+PLAY_FLAKY = {"dead_link", "bad_segment", "html_link"}
+PLAY_HARD = PLAY_STRUCTURAL | PLAY_SECONDARY | PLAY_FLAKY
 
 
 def load_search_quality():
@@ -724,6 +797,190 @@ def load_search_quality():
         return {}
     return {k: v for k, v in raw.items()
             if not k.startswith("_") and isinstance(v, dict)}
+
+
+def rule_sig(site):
+    """规则站指纹：api + jar + ext 三者一起算，供 key 改名后继承体检结论。
+
+    与 fingerprint() 的区别：那个用来判「同一个站点」，含 name；这里只关心
+    「同一个规则配置」，名字变了（上游加前缀/改品牌）不该丢掉健康记录。
+    """
+    api = str(site.get("api") or "").split(";")[0].strip()
+    jar = str(site.get("jar") or "").split(";")[0].strip()
+    ext = site.get("ext")
+    if isinstance(ext, (dict, list)):
+        ext = json.dumps(ext, ensure_ascii=False, sort_keys=True)
+    return hashlib.md5(
+        ("%s\n%s\n%s" % (api, jar, str(ext or "").strip())).encode("utf-8")
+    ).hexdigest()[:16]
+
+
+def load_rule_health(ttl_days=RULE_HEALTH_TTL_DAYS):
+    """读 tools/probe_rules.py 的体检结果，按 key 和规则指纹双索引。
+
+    文件不存在或过期都返回空字典：构建不该因为「没跑体检」而失败，
+    更不该因为一份旧结论把可用站点判死。
+    """
+    try:
+        with open(RULE_HEALTH_FILE, encoding="utf-8") as f:
+            raw = json.load(f)
+    except Exception:  # noqa: BLE001
+        return {}
+    recs = raw.get("sites") if isinstance(raw, dict) else raw
+    if not isinstance(recs, list):
+        return {}
+    tested = raw.get("tested_at") if isinstance(raw, dict) else 0
+    if tested and time.time() - float(tested) > ttl_days * 86400:
+        print("[rules] 体检结果已过期（>%d 天），本轮不采信" % ttl_days)
+        return {}
+    out = {}
+    for r in recs:
+        if not isinstance(r, dict) or not r.get("key"):
+            continue
+        out[r["key"]] = r
+        sig = r.get("sig") or rule_sig(r)
+        if sig:
+            out.setdefault("sig#" + sig, r)
+    return out
+
+
+def rule_record(site, rh):
+    """取站点的体检记录：先按 key 精确匹配，再按规则指纹匹配。"""
+    rh = rh or {}
+    rec = rh.get(site.get("key"))
+    if rec:
+        return rec
+    return rh.get("sig#" + rule_sig(site))
+
+
+def rule_dead(site, rh):
+    """硬失效：连续两轮判死才算。
+
+    单轮网络抖动很常见（4MB 大 jar 带保护壳，弱网首跑必超时），
+    一轮就踢站会误杀；连续两轮仍是 dead，基本可以确定站点或规则废了。
+    """
+    r = rule_record(site, rh)
+    if not r or r.get("level") != "dead":
+        return False
+    return int(r.get("dead_streak") or 1) >= 2
+
+
+def apply_rule_health(sites, rh):
+    """硬失效的规则站移出聚合搜索（站点仍留在列表里，便于用户自行核对）。
+
+    与爬虫 404 同一处置口径：搜不到内容的站留在聚合搜索里只会占并发、
+    拖慢整体返回，还会让「搜索无结果」被误认为仓里没这片子。
+    """
+    n = 0
+    for s in sites:
+        if not rule_dead(s, rh):
+            continue
+        if is_searchable(s):
+            s["searchable"] = 0
+            s["quickSearch"] = 0
+            n += 1
+    return n
+
+
+def play_sig(site):
+    """播放体检的继承键：按「同一后端」归一，不看名字也不看入口写法。
+
+    同一后端被几十个源收录，主机和路径写法各不相同，但播放行为完全一样：
+      cj.ffzyapi.com/api.php/provide/vod/
+      ffzyapi.com/api/provide/vod/
+    按 lib_key 比对仍会漏（前者 /api.php/、后者 /api/），实测「非凡」就因此
+    带着「默认线路是网盘分享页」的毛病重新混进了精选。这里把功能子域和
+    接口前缀一并抹掉，只留主机主干 + 业务路径。
+    """
+    norm = api_norm(site)
+    if not norm or not isinstance(norm, str) or norm.startswith(("csp_", "py_")):
+        return norm
+    host, _, rest = norm.partition("/")
+    for pre in ("www.", "api.", "cj.", "cms.", "vod.", "zy.", "m.", "app.", "play."):
+        if host.startswith(pre):
+            host = host[len(pre):]
+            break
+    path = "/" + rest
+    # api.php/provide/vod 与 api/provide/vod 是同一接口的两种写法
+    if path.startswith("/api.php/"):
+        path = path[len("/api.php"):]
+    elif path.startswith("/api/"):
+        path = path[len("/api"):]
+    return host + path
+
+
+def load_play_health(ttl_days=PLAY_TTL_DAYS):
+    """读 tools/probe_play.py 的播放链路体检结果。
+
+    文件不存在或过期返回空：播放地址天天变，一份两周前的「首集 404」
+    极可能已经修好，不能拿旧结论杀站。
+    """
+    try:
+        with open(PLAY_FILE, encoding="utf-8") as f:
+            raw = json.load(f)
+    except Exception:  # noqa: BLE001
+        return {}
+    recs = raw.get("sites") if isinstance(raw, dict) else raw
+    if not isinstance(recs, list):
+        return {}
+    tested = raw.get("tested_at") if isinstance(raw, dict) else 0
+    if tested and time.time() - float(tested) > ttl_days * 86400:
+        print("[play] 播放体检已过期（>%d 天），本轮不采信" % ttl_days)
+        return {}
+    out = {}
+    for r in recs:
+        if not isinstance(r, dict):
+            continue
+        if r.get("key"):
+            out[r["key"]] = r
+        sig = r.get("sig") or play_sig(r)
+        if sig:
+            out.setdefault("api#" + sig, r)
+    return out
+
+
+def play_record(site, ph):
+    """取播放体检记录：先按 key，再按归一化 api（换皮站共享结论）。"""
+    ph = ph or {}
+    rec = ph.get(site.get("key"))
+    if rec:
+        return rec
+    return ph.get("api#" + play_sig(site))
+
+
+def play_bad(site, ph, for_lite=False):
+    """返回该站的播放缺陷等级：structural / secondary / flaky / ""。
+
+    结构性缺陷（首集是网盘分享页、URL 带未编码中文、直播格式）不可能自己恢复，
+    一轮即生效；网络侧的 404/502/分片取不到要连续两轮，否则一次边缘抖动就会误杀。
+
+    for_lite=True 时把「默认线路不可用」也算进去：精选是给用户直接点的成品，
+    默认线路播不了就没有存在意义；而全量列表可以留着，让会切线路的人自己用。
+    """
+    r = play_record(site, ph)
+    if not r:
+        return ""
+    verdict = r.get("verdict")
+    if verdict in PLAY_STRUCTURAL:
+        return "structural"
+    if verdict in PLAY_SECONDARY:
+        return "secondary" if for_lite else ""
+    if verdict in PLAY_FLAKY and int(r.get("bad_streak") or 1) >= 2:
+        return "flaky"
+    return ""
+
+
+def apply_play_health(sites, ph):
+    """播放不可用的站移出聚合搜索。站点仍在列表里，用户可自行点开核对。"""
+    n = 0
+    for s in sites:
+        if not play_bad(s, ph):
+            continue
+        if is_searchable(s):
+            s["searchable"] = 0
+            s["quickSearch"] = 0
+            n += 1
+    return n
 
 
 def api_norm(site):
@@ -1067,7 +1324,11 @@ def brand_of(site, tags):
         if t:
             toks.append(t)
     if toks:
-        return "".join(toks[:2])[:8], True
+        # 「方舟丨动漫」剥掉噪音词后会剩下尾部的分隔符，精选里显示成「动漫·方舟丨」
+        # 很像 bug；品牌本身不该以符号收尾。
+        brand = "".join(toks[:2]).strip(" 丨|/\\-—_、,，.·")
+        if brand:
+            return brand[:8], True
     return _host_label(site)[:8], False
 
 
@@ -1152,7 +1413,7 @@ def lite_name(cat, brand):
 
 
 def pick_lite(sites, size, per_source=5, bucket_of=None, alive=None,
-              quota=None, tags=None, sq=None, pin=()):
+              quota=None, tags=None, sq=None, pin=(), rh=None, ph=None):
     """精选仓选站：一个资源库只留一个入口、按类目配额铺开、名字统一重写。
 
     与 all.json 的分工：all.json 保留「源前缀·原名」便于溯源排查，
@@ -1167,12 +1428,20 @@ def pick_lite(sites, size, per_source=5, bucket_of=None, alive=None,
 
     sq 是 tools/probe_search.py 的实测结果。域名不同的站可能挂着同一个内容库
     （实测有 8 个站搜同一关键词返回一模一样的 8 条），只靠 lib_key 分不出来，
-    所以再用「搜索结果指纹」兜一层：指纹相同的只留一个入口。"""
+    所以再用「搜索结果指纹」兜一层：指纹相同的只留一个入口。
+
+    rh 是 rules 体检结果。连续两轮判死的规则站直接不参与精选——分数已经很低，
+    但类目配额会把它「保回来」（每个类目至少 1 个），那样等于精选里留个空壳。
+
+    ph 是播放链路体检结果。接口通但播不了的站（首集是网盘分享页、URL 带未编码
+    中文）同样不进精选：用户点开就是闪退，这比「搜不到」更伤体验。"""
     alive = alive or {}
     quota = quota or CATEGORY_QUOTA
     bucket_of = bucket_of or {}
     tags = tags or set()
     sq = sq or {}
+    rh = rh or {}
+    ph = ph or {}
     sq_by_norm = index_search_quality(sq)
     order = {id(s): i for i, s in enumerate(sites)}
 
@@ -1191,7 +1460,14 @@ def pick_lite(sites, size, per_source=5, bucket_of=None, alive=None,
         return hashlib.md5("\n".join(sorted(t)).encode("utf-8")).hexdigest()[:12]
 
     seen_b, cand = set(), []
+    n_rdead = n_pbad = 0
     for s in sites:
+        if rule_dead(s, rh):
+            n_rdead += 1
+            continue
+        if play_bad(s, ph, for_lite=True):
+            n_pbad += 1
+            continue
         try:
             cat = site_category(s, alive)
             brand, named = brand_of(s, tags)
@@ -1337,13 +1613,19 @@ def pick_lite(sites, size, per_source=5, bucket_of=None, alive=None,
         t = dict(c["site"])
         t["name"] = lite_name(c["cat"], c["brand"])
         result.append(t)
+    if n_rdead:
+        print("[lite] 跳过 %d 个连续两轮判死的规则站" % n_rdead)
+    if n_pbad:
+        print("[lite] 跳过 %d 个播放链路不可用的站" % n_pbad)
     return result
 
 
-def rank_sites(sites, prio_map, consensus, dead, alive=None, sq=None):
+def rank_sites(sites, prio_map, consensus, dead, alive=None, sq=None, rh=None, ph=None):
     """按质量分降序，同分按源优先级、再按名称，保证每次构建顺序一致。"""
     alive = alive or {}
     sq = sq or {}
+    rh = rh or {}
+    ph = ph or {}
     sq_by_norm = index_search_quality(sq)
     scored = []
     for s in sites:
@@ -1352,7 +1634,8 @@ def rank_sites(sites, prio_map, consensus, dead, alive=None, sq=None):
         probe = alive.get(s["key"])
         search = search_record(s, sq, sq_by_norm)
         score, why = quality_score(s, prio, consensus.get(fingerprint(s), 1),
-                                   is_dead(s, dead), s["key"] in alive, probe, search)
+                                   is_dead(s, dead), s["key"] in alive, probe, search,
+                                   rule_record(s, rh), play_record(s, ph))
         scored.append((score, int(prio), s.get("name") or "", s, why))
     scored.sort(key=lambda x: (-x[0], x[1], x[2]))
     return scored
@@ -1562,6 +1845,17 @@ def main():
         src["n_sites"] = len(site_list(cfg))
         src["n_new"] = len(merged_sites) - before
 
+    # 人工下架：域名已注销 / 规则彻底不可用的站，没必要靠两轮体检才沉下去。
+    # 放在探活之前，省掉对死站的无谓请求。
+    retire = {str(k) for k in (bconf.get("retire_keys") or ())}
+    if retire:
+        kept = [s for s in merged_sites if s["key"] not in retire]
+        if len(kept) != len(merged_sites):
+            print("[retire] 按 sources.json 下架 %d 个站点：%s" % (
+                len(merged_sites) - len(kept),
+                "、".join(s["key"] for s in merged_sites if s["key"] in retire)))
+        merged_sites = kept
+
     # 爬虫文件探活：404/410 的站点移出聚合搜索（仍能在列表里点开），并在排序中沉底
     dead, demoted = set(), 0
     if bconf.get("probe_spider", True):
@@ -1611,8 +1905,37 @@ def main():
     else:
         st = {"adult": 0, "host": 0, "local": 0, "off": 0, "quick": 0}
 
+    # 规则站（jar/drpy）体检：连续两轮判死的移出聚合搜索
+    rh = load_rule_health()
+    if rh:
+        n_rdead = apply_rule_health(merged_sites, rh)
+        cnt_r = {}
+        for s in merged_sites:
+            r = rule_record(s, rh)
+            if r:
+                cnt_r[r.get("level")] = cnt_r.get(r.get("level"), 0) + 1
+        print("[rules] 体检命中 %d 站（%s），其中 %d 个硬失效已移出聚合搜索"
+              % (sum(cnt_r.values()),
+                 " / ".join("%s %d" % (k, v) for k, v in sorted(cnt_r.items())),
+                 n_rdead))
+
+    # 播放链路体检：接口通但播不了的站（网盘分享页 / 未编码中文 / 分片 404）
+    # 同样移出聚合搜索。用户能搜到却点开闪退，比搜不到更伤体验。
+    ph = load_play_health()
+    if ph:
+        n_pbad = apply_play_health(merged_sites, ph)
+        cnt_p = {}
+        for s in merged_sites:
+            r = play_record(s, ph)
+            if r:
+                cnt_p[r.get("verdict")] = cnt_p.get(r.get("verdict"), 0) + 1
+        print("[play] 体检命中 %d 站（%s），其中 %d 个播放不可用已移出聚合搜索"
+              % (sum(cnt_p.values()),
+                 " / ".join("%s %d" % (k, v) for k, v in sorted(cnt_p.items())),
+                 n_pbad))
+
     # 质量排序：首页取第一个站点，站点列表与搜索也按这个顺序
-    ranked = rank_sites(merged_sites, prio_map, consensus, dead, alive, sq)
+    ranked = rank_sites(merged_sites, prio_map, consensus, dead, alive, sq, rh, ph)
     merged_sites = [item[3] for item in ranked]
 
     merged = {}
@@ -1670,7 +1993,7 @@ def main():
     tags = {s.get("tag") for s in sources} | {s.get("name") for s in sources}
     lite_sites = pick_lite([s for s in merged_sites if is_searchable(s)],
                            lite_size, int(bconf.get("lite_per_source", 5)),
-                           bucket_of, alive, tags=tags, sq=sq,
+                           bucket_of, alive, tags=tags, sq=sq, rh=rh, ph=ph,
                            pin=bconf.get("pin_keys") or ())
     lite = {k: v for k, v in merged.items() if k != "sites"}
     lite["sites"] = lite_sites

@@ -9,6 +9,7 @@ on:
     paths:
       - "tvbox/sources.json"
       - "tvbox/build.py"
+      - "tvbox/rule_health.json"
       - "tvbox/tools/**"
       - ".github/workflows/tvbox-build.yml"
 
@@ -36,6 +37,18 @@ jobs:
         # 使用上一轮接口清单探测；新接口最迟下一轮纳入。构建阶段会按归一化 API
         # 把结论覆盖到同后端别名，不能只测 lite 里的单个 key。
         run: python tools/probe_search.py --file api/all.json --workers 16 --merge --max-age 86400
+
+      - name: 规则站体检（每天刷新一次）
+        working-directory: tvbox
+        # 全量约 8 分钟，所以用 --max-age 控制成每天只跑一次，其余两次构建直接复用。
+        # 结果里的 dead_streak 是「连续轮次」，构建只认 >=2，单轮超时不会误杀站点。
+        run: python tools/probe_rules.py --all --jobs 24 --write --max-age 20
+
+      - name: 播放链路体检（每次刷新，约 35 秒）
+        working-directory: tvbox
+        # 接口通不等于能播：首集是网盘分享页、分集地址带中文、分片 404 都会让用户
+        # 「播放几秒闪退」。规则站直接跳过，只测采集站，全量 35 秒，不需要缓存。
+        run: python tools/probe_play.py --all --jobs 16 --write
 
       - name: 抓取与合并
         working-directory: tvbox

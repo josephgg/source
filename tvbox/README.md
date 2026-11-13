@@ -97,6 +97,11 @@ tvbox/
 ├── tools/selftest.py   构建规则回归测试（含大响应、XML、缓存与去重边界）
 ├── tools/relite.py     离线预览精选仓（直接复用 build.py 的规则，不用重新抓源）
 ├── tools/probe_search.py   实测各站搜索质量：命中率 / wd 是否生效 / 成人内容
+├── tools/probe_rules.py    规则站（csp/drpy）体检：jar 完整性 / 规则可解析 / 目标站可达
+├── tools/probe_play.py     播放链路体检：首集是否真出流、默认线路能不能播
+├── tools/probe_rules.py    规则站（csp/drpy）健康度：jar 完整性 + md5 + 规则目标站可达 + 选择器是否仍命中
+├── rule_health.json    规则站体检结果（含 dead_streak；ext 为空等离线不可判定的标 unverifiable，不当死站）
+├── play_health.json    采集站播放链路体检（首集地址 / 清单 / 分片；默认线路不可用单列 ok_secondary）
 ├── search_quality.json 搜索实测结果（构建时按它决定关搜索 / 关快速搜索 / 剔除）
 ├── api/lite.json       精选仓（一库一入口 + 类目配额 + 站名重写）
 ├── api/all.json        总聚合仓（全部站点，按质量分排序）
@@ -234,6 +239,113 @@ python tools/probe_search.py --file api/all.json --merge --max-age 86400  # CI�
 构建时自动读 `search_quality.json`：`disable` / `quick_off` / `adult` 三种动作分别处置；`build.block_hosts` 里的域名无条件剔除（换 key 也拦得住）。
 
 **一个后端只认一个入口**：同一个 CMS 后端常被几十个源收录，key 和 api 写法各不相同（尾斜杠、`?ac=list`、`/from/xxx`）。质检结论和搜索指纹都按 `api_norm()` 归一化继承；同 key 换 API 时则拒绝复用旧结论。探活缓存同样绑定 API，避免旧分类与速度错套到新站。发布前 `audit_lite.py` 会再次检查重复资源库、核心类目数量及首页三类覆盖，未通过则 CI 不提交产物。
+
+## 规则站体检（csp / drpy）
+
+全量 4546 站里，规则站占 92%（csp/py 2711、drpy JS 1475），但它们没法用 `ac=videolist&wd=` 验活。`tools/probe_rules.py` 用四件事替代执行：
+
+1. **jar 完整性**：能不能下载（失败重试一次）、是不是合法 ZIP、里面有没有 `classes.dex` 或 `.class`
+2. **md5 一致性**：`jar;md5;xxx` 声明的值与实际文件是否相符（不符会让客户端缓存键错位）
+3. **配置可解析**：规则 JSON/JS 能拉到、能按 JSONC 解析（尾逗号、BOM、JS 里的 `\'`）
+4. **目标站还在不在**：XYQHiker/XBPQ 规则里写死的「首页推荐链接 / 搜索链接」请求一次，再用「搜索列表数组规则」的选择器去命中返回 HTML
+
+判决分四级，**`unverifiable` 不算死站**：ext 为空的 csp 站把目标站写死在 jar 里，离线只能验 jar，必须真机复核；403 反爬同理。域名解析失败还会用阿里/腾讯 DoH 复核一次——国内网络对影视站常见 DNS 污染，直接判死会误杀（实测 41 个「解析失败」里 15 个公网仍有 A 记录）。
+
+判死只认硬证据，另外三类一律归 `unverifiable`：
+
+- **网络侧异常**（`TimeoutError`、`RemoteDisconnected`、连接重置）：本机慢不代表站点死，海外 runner 上常常是通的；
+- **非标响应**（301 无法收敛、444 静默断开、850）：入口换了或拦了探针，不是没内容；
+- **首页 404 但站点根还活着**：规则把首页推荐链接写死成 `/xxx/22.html` 这种固定页号，站点活着、该页被删，客户端表现为「首页空白、分类能用」，判 `weak` 更准确。
+
+```bash
+cd tvbox
+python tools/probe_rules.py                      # 只测 api/lite.json（约 20 秒）
+python tools/probe_rules.py --all --limit 300    # 全量抽样
+python tools/probe_rules.py --all --limit 300 --write   # 写 rule_health.json
+python tools/probe_rules.py --all --jobs 24 --write --max-age 20   # CI：全量，每天只跑一次
+```
+
+全量 4221 个规则站的实测分布：`ok` 996（24%）、`weak` 397（9%）、`dead` 537（13%）、`unverifiable` 2284（54%）；jar 可用率 98.7%，其中 85 个是「200 但不是 ZIP」的假包。`dead` 里 535 个是连续两轮确认的，构建会把它们移出聚合搜索。
+
+### 构建怎么用这份结果
+
+`build.py` 启动时读 `rule_health.json`，只做加减分和一种硬处置，不参与「接口通」判定：
+
+| 体检等级 | 处理 |
+|---|---|
+| `ok` | 排序 +6 |
+| `weak` | −12（主页能开但选择器不命中，典型是站点改版：分类还在、点进去空白） |
+| `dead` 连续 1 轮 | −30，只沉底不下架 |
+| `dead` 连续 2 轮 | −90，且移出聚合搜索、不进精选 |
+| `unverifiable` | 不奖惩 |
+
+两个约束是有意为之：
+
+- **连续两轮才判死。** 大 jar（4 MB、带保护壳）在弱网下必超时，上游也有临时 502；单轮就踢站会误杀，所以 `probe_rules.py` 每次写盘时会把上一轮的 `dead_streak` 接上去，构建只认 `>= 2`。
+- **结论 21 天过期。** 域名会复活、上游会修规则，拿一个月前的判定杀站等于把可用资源当垃圾清掉；过期后整份文件不采信，构建照常跑。
+
+规则站 key 变化（上游改品牌前缀）时，按 `api + jar + ext` 的指纹继承结论，不会因为换个名字就丢掉健康记录。抽样跑（`--limit`）写盘时会保留未抽到的旧记录，避免把整份文件覆盖成样本。
+
+### 人工下架
+
+判定回不来的站（域名注销、页面改成 SPA 只剩空壳）不用等两个构建周期，直接写 `sources.json` 的 `retire_keys`：
+
+```json
+"retire_keys": {
+  "ivxiaosa_冬日动漫": "drdm.fun NXDOMAIN，DoH 无 A 记录（2026-11-12）"
+}
+```
+
+`retire_keys` 的值是下架依据，不是备注装饰——半年后回看时，唯一能判断「这站该不该放回来」的就是这句话。域名级黑名单（`block_hosts`）只对采集站有效，规则站的站址藏在 `ext`/`jar` 里，所以需要按 key 下架。
+
+## 播放链路体检（采集站）
+
+接口通、搜索有结果，都不代表点开能播。用户反馈的「搜索出结果后闪退」「播放几秒闪退」，
+绝大多数落在最后一跳：首集地址、清单、分片。`tools/probe_play.py` 就测这一跳。
+
+```bash
+python tools/probe_play.py                     # 只测 api/lite.json（约 18 秒）
+python tools/probe_play.py --all --jobs 16     # 全量，规则站直接跳过（约 35 秒）
+python tools/probe_play.py --all --write       # 写 play_health.json
+```
+
+对每个采集站：搜索一个关键词 → 取详情 → **逐线路**取首集地址 → 请求清单 → 取首个分片。
+判决口径：
+
+| 判决 | 含义 | 处置 |
+|---|---|---|
+| `ok` / `direct` | 清单与分片都取到（或直链 mp4） | 加分 |
+| `ok_secondary` | 默认第一条线路播不了，切线路才行 | 降权，不进精选（搜索保留） |
+| `share_page` | 首集是网盘分享页，返回 HTML 不是 m3u8 | 移出聚合搜索 |
+| `bad_url` | 分集地址含未编码中文，客户端拼 URL 会抛异常 | 移出聚合搜索 |
+| `live_format` | 接口返回 `{"class":[...]}`，直播源误入点播 | 移出聚合搜索 |
+| `dns_dead` | DoH 无 A 记录（阿里/腾讯双查） | 移出聚合搜索 |
+| `dead_link` / `bad_segment` | 清单 4xx / 分片取不到 | 连续两轮才移出 |
+| `xml_endpoint` | 接口回 XML，路径里却没有 `/at/xml` | 不进精选 |
+| `search_fail` | 搜索不通，但 DoH 有 A 记录 → 本机 DNS 被拦 | 不惩罚，只标注 |
+| `rule_based` / `python_spider` | 解析在客户端执行（jar/JS/py） | 离线判不了，不奖惩 |
+
+三条判据是踩出来的，不要随意放宽：
+
+1. **必须逐线路试。** 实测「非凡」「量子」的线路 1 是 `vip.ffzy-online2.com/share/...`（网盘分享页），
+   线路 2 才是 `ffm3u8` 的正常清单。只测第一条会把能播的站判死，只测「有任何一条能播」又会放过
+   「默认线路必崩」的站——所以 `ok_secondary` 单独成一级。
+2. **DoH 复核不可省。** 10 个 `search_fail` 的精选站里 4 个是 NXDOMAIN 真死，
+   3 个 DoH 有正常 A 记录（本机 DNS 被投毒到 `0.0.0.0`），直接判死就是误杀。
+3. **相对密钥地址要先解析。** `#EXT-X-KEY:URI="enc.key"` 是相对路径，按清单地址 `urljoin`
+   之后再请求，否则拿到的是"未知协议"而不是真正的 404。
+
+### 构建怎么用这份结果
+
+`rule_health.json` 与 `play_health.json` 是两套独立信号，互不替代：
+
+- `PLAY_STRUCTURAL`（分享页 / 中文 URL / 直播格式 / 域名失效）→ 一轮即移出聚合搜索，且不进精选；
+- `PLAY_SECONDARY`（默认线路不可用 / XML 接口）→ 不进精选，但搜索保留；
+- `PLAY_FLAKY`（4xx / 分片失败）→ 连续两轮才定案，单轮只降权；
+- 结论 **10 天过期**。播放地址比规则变化快得多，换 CDN、换线路顺序都是常态。
+
+指纹 `play_sig()` 会把功能子域（`api.` `cj.` `app.`）和接口前缀（`api.php/` 与 `api/`）抹平再比对：
+同一后端有几十个入口、写法不一，不归一就会「同一个坑换个名字再进精选一次」。
 
 ## 已知限制
 
