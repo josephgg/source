@@ -177,6 +177,23 @@ class BuildRulesTest(unittest.TestCase):
             build.RULE_HEALTH_FILE = old
             os.remove(path)
 
+    def test_search_fail_needs_doh_evidence(self):
+        """搜索不通分两种：本机 DNS 被拦（站活着）和域名真死，后者不能进精选。"""
+        site = http_site("sf", "搜索不通", "http://zzz.example/api.php/provide/vod/")
+        blocked = {"sf": {"key": "sf", "verdict": "search_fail", "bad_streak": 0,
+                          "doh_status": 0, "doh_ips": ["1.2.3.4"]}}
+        dead = {"sf": {"key": "sf", "verdict": "search_fail", "bad_streak": 0,
+                       "doh_status": 3, "doh_ips": []}}
+        twice = {"sf": {"key": "sf", "verdict": "search_fail", "bad_streak": 2,
+                        "doh_status": 3, "doh_ips": []}}
+        # 本机被拦：精选和全量都保留
+        self.assertEqual(build.play_bad(site, blocked, for_lite=True), "")
+        self.assertEqual(build.play_bad(site, blocked), "")
+        # 域名真死：精选立刻剔除，全量要连轮确认才移出聚合搜索
+        self.assertEqual(build.play_bad(site, dead, for_lite=True), "structural")
+        self.assertEqual(build.play_bad(site, dead), "")
+        self.assertEqual(build.play_bad(site, twice), "structural")
+
     def test_bad_site_is_isolated(self):
         stats = {"skip_bad_site": 0}
         result = build.build_site({"key": "bad", "api": {"not": "a url"}}, {},

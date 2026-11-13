@@ -323,6 +323,7 @@ python tools/probe_play.py --all --write       # 写 play_health.json
 | `dead_link` / `bad_segment` | 清单 4xx / 分片取不到 | 连续两轮才移出 |
 | `xml_endpoint` | 接口回 XML，路径里却没有 `/at/xml` | 不进精选 |
 | `search_fail` | 搜索不通，但 DoH 有 A 记录 → 本机 DNS 被拦 | 不惩罚，只标注 |
+| `search_fail`（DoH 也无 A 记录） | 搜索不通且域名在公共 DNS 上已失效 | 不进精选；全量连轮两轮后移出搜索 |
 | `rule_based` / `python_spider` | 解析在客户端执行（jar/JS/py） | 离线判不了，不奖惩 |
 
 三条判据是踩出来的，不要随意放宽：
@@ -340,6 +341,8 @@ python tools/probe_play.py --all --write       # 写 play_health.json
 `rule_health.json` 与 `play_health.json` 是两套独立信号，互不替代：
 
 - `PLAY_STRUCTURAL`（分享页 / 中文 URL / 直播格式 / 域名失效）→ 一轮即移出聚合搜索，且不进精选；
+- `search_fail` 且 DoH 也拿不到 A 记录 → 不进精选；全量列表要连轮两轮才移出搜索
+  （公共 DNS 偶尔 SERVFAIL，单轮就杀会误伤）；DoH 有解析的属于本机被拦，不动；
 - `PLAY_SECONDARY`（默认线路不可用 / XML 接口）→ 不进精选，但搜索保留；
 - `PLAY_FLAKY`（4xx / 分片失败）→ 连续两轮才定案，单轮只降权；
 - 结论 **10 天过期**。播放地址比规则变化快得多，换 CDN、换线路顺序都是常态。

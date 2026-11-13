@@ -956,6 +956,9 @@ def play_bad(site, ph, for_lite=False):
 
     for_lite=True 时把「默认线路不可用」也算进去：精选是给用户直接点的成品，
     默认线路播不了就没有存在意义；而全量列表可以留着，让会切线路的人自己用。
+
+    「搜索不通」则要先看 DoH：本机 DNS 被拦的站是好的，不能杀；DoH 也没有
+    A 记录的才是域名真死，同样不该进精选。
     """
     r = play_record(site, ph)
     if not r:
@@ -967,6 +970,15 @@ def play_bad(site, ph, for_lite=False):
         return "secondary" if for_lite else ""
     if verdict in PLAY_FLAKY and int(r.get("bad_streak") or 1) >= 2:
         return "flaky"
+    if verdict == "search_fail":
+        # 搜索都不通要先分清是谁的锅：DoH 拿得到 A 记录，说明只是本机 DNS 被拦，
+        # 手机上照样能用，不能杀；DoH 也没有 A 记录（NXDOMAIN / 空解析 / SERVFAIL），
+        # 那是域名自己死了，留在精选里只会让用户搜出一片空。
+        if r.get("doh_ips"):
+            return ""
+        if for_lite or int(r.get("bad_streak") or 0) >= 2:
+            return "structural"
+        return ""
     return ""
 
 
