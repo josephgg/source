@@ -782,9 +782,9 @@ PLAY_STRUCTURAL = {"share_page", "bad_url", "live_format", "dns_dead"}
 # 因此不进精选，但保留在聚合搜索里 —— 会切线路的用户还能用上它的内容。
 # xml_endpoint 同理：接口回 XML 但路径里没有 /at/xml（改写规则覆盖不到），
 # 客户端按 JSON 解析必然空分类，也不该进精选。
-PLAY_SECONDARY = {"ok_secondary", "xml_endpoint"}
+PLAY_SECONDARY = {"ok_secondary", "xml_endpoint", "unsupported_codec"}
 # 网络侧缺陷：可能只是节点/边缘抖动，连续两轮才定案
-PLAY_FLAKY = {"dead_link", "bad_segment", "html_link"}
+PLAY_FLAKY = {"dead_link", "bad_segment", "html_link", "bad_playlist", "direct_invalid"}
 PLAY_HARD = PLAY_STRUCTURAL | PLAY_SECONDARY | PLAY_FLAKY
 
 
@@ -980,6 +980,31 @@ def play_bad(site, ph, for_lite=False):
             return "structural"
         return ""
     return ""
+
+
+def play_stable(site, ph, min_streak=2, max_age_hours=36):
+    """稳定精选的硬门槛：真实媒体、多分片、连续通过且结论足够新。
+
+    与 play_bad 的「排除已知坏站」不同，这里要求有正向证据。规则站必须靠
+    Android 执行 jar/JS，离线无法证明播放稳定，因此不能进入稳定精选。
+    """
+    r = play_record(site, ph)
+    if not r or r.get("kind") != "cms" or r.get("verdict") not in ("ok", "direct"):
+        return False
+    if int(r.get("ok_streak") or 0) < min_streak:
+        return False
+    if r.get("codec_unsafe") or r.get("requires_referer"):
+        return False
+    tested = int(r.get("tested_at") or 0)
+    if not tested or time.time() - tested > max_age_hours * 3600:
+        return False
+    if r.get("verdict") == "direct":
+        return int(r.get("bytes_checked") or 0) >= 512
+    total = int(r.get("segments_total") or 0)
+    required = min(3, total)
+    return (total > 0 and int(r.get("segments_checked") or 0) >= required and
+            int(r.get("playlists_checked") or 0) >= 1 and
+            int(r.get("bytes_checked") or 0) >= required * 512)
 
 
 def apply_play_health(sites, ph):
@@ -1425,7 +1450,8 @@ def lite_name(cat, brand):
 
 
 def pick_lite(sites, size, per_source=5, bucket_of=None, alive=None,
-              quota=None, tags=None, sq=None, pin=(), rh=None, ph=None):
+              quota=None, tags=None, sq=None, pin=(), rh=None, ph=None,
+              strict_play=False, play_min_streak=2, play_max_age_hours=36):
     """精选仓选站：一个资源库只留一个入口、按类目配额铺开、名字统一重写。
 
     与 all.json 的分工：all.json 保留「源前缀·原名」便于溯源排查，
@@ -1472,8 +1498,11 @@ def pick_lite(sites, size, per_source=5, bucket_of=None, alive=None,
         return hashlib.md5("\n".join(sorted(t)).encode("utf-8")).hexdigest()[:12]
 
     seen_b, cand = set(), []
-    n_rdead = n_pbad = 0
+    n_rdead = n_pbad = n_unproven = 0
     for s in sites:
+        if strict_play and not play_stable(s, ph, play_min_streak, play_max_age_hours):
+            n_unproven += 1
+            continue
         if rule_dead(s, rh):
             n_rdead += 1
             continue
@@ -1629,6 +1658,8 @@ def pick_lite(sites, size, per_source=5, bucket_of=None, alive=None,
         print("[lite] 跳过 %d 个连续两轮判死的规则站" % n_rdead)
     if n_pbad:
         print("[lite] 跳过 %d 个播放链路不可用的站" % n_pbad)
+    if n_unproven:
+        print("[lite] 稳定模式：跳过 %d 个未连续通过多分片实测的站" % n_unproven)
     return result
 
 
@@ -1946,6 +1977,16 @@ def main():
                  " / ".join("%s %d" % (k, v) for k, v in sorted(cnt_p.items())),
                  n_pbad))
 
+    # 用户侧不再展示已确认的死站：旧逻辑仅关搜索，点进站点仍会闪退。
+    dropped_hard = 0
+    if bconf.get("drop_hard_failures", False):
+        before = len(merged_sites)
+        merged_sites = [s for s in merged_sites
+                        if not rule_dead(s, rh) and not is_dead(s, dead)
+                        and play_bad(s, ph) not in ("structural", "flaky")]
+        dropped_hard = before - len(merged_sites)
+        print("[clean] 从全量仓实体剔除 %d 个连续确认失效/播放硬伤站" % dropped_hard)
+
     # 质量排序：首页取第一个站点，站点列表与搜索也按这个顺序
     ranked = rank_sites(merged_sites, prio_map, consensus, dead, alive, sq, rh, ph)
     merged_sites = [item[3] for item in ranked]
@@ -2013,7 +2054,10 @@ def main():
     lite_sites = pick_lite([s for s in merged_sites if is_searchable(s)],
                            lite_size, int(bconf.get("lite_per_source", 5)),
                            bucket_of, alive, tags=tags, sq=sq, rh=rh, ph=ph,
-                           pin=bconf.get("pin_keys") or ())
+                           pin=bconf.get("pin_keys") or (),
+                           strict_play=bool(bconf.get("lite_verified_play", False)),
+                           play_min_streak=int(bconf.get("lite_play_min_streak", 2)),
+                           play_max_age_hours=int(bconf.get("lite_play_max_age_hours", 36)))
     lite = {k: v for k, v in merged.items() if k != "sites"}
     lite["sites"] = lite_sites
     write_json(os.path.join(ROOT, "api", "lite.json"), lite)
@@ -2029,7 +2073,7 @@ def main():
     # 多仓索引
     index = {"name": meta.get("name", "聚合影视仓"), "urls": []}
     index["urls"].append({
-        "name": "⭐ 精选（%d 站点，排序靠前的）" % len(lite_sites),
+        "name": "⭐ 稳定精选（%d 站点，连续实测通过）" % len(lite_sites),
         "url": index_base + "api/lite.json",
     })
     index["urls"].append({
@@ -2092,6 +2136,8 @@ def main():
         "search_quality": st,
         "dead_spider_files": len(dead),
         "demoted_sites": demoted,
+        "dropped_hard_failures": dropped_hard,
+        "lite_verified_play": bool(bconf.get("lite_verified_play", False)),
         "cms_probed": n_cms,
         "cms_alive": len(alive),
         "cms_alive_now": alive_now,
@@ -2113,10 +2159,11 @@ def main():
         "stats": stats,
     }
     write_json(os.path.join(ROOT, "status.json"), status)
-    write_report(status, merged, sources, top=ranked[:20], demoted=demoted)
+    write_report(status, merged, sources, top=ranked[:20], demoted=demoted,
+                 lite_sites=lite_sites, ph=ph)
 
     # 地址清单：手机端按顺序试，主地址用 CDN
-    lines = ["# 精选（%d 站点，排序靠前、接口已验证）" % len(lite_sites)]
+    lines = ["# 稳定精选（%d 站点，连续两轮多分片实测通过）" % len(lite_sites)]
     for cdn in meta.get("cdn", []):
         lines.append(cdn + "api/lite.json")
     lines += ["", "# 全部聚合（%d 站点，一个地址装下所有资源）" % len(merged_sites)]
@@ -2151,7 +2198,7 @@ def write_text(path, text):
         f.write(text)
 
 
-def write_report(status, merged, sources, top=None, demoted=0):
+def write_report(status, merged, sources, top=None, demoted=0, lite_sites=None, ph=None):
     lines = []
     lines.append("# 构建报告\n")
     lines.append("生成时间：%s\n" % status["generated_at"])
@@ -2159,7 +2206,8 @@ def write_report(status, merged, sources, top=None, demoted=0):
     lines.append("| --- | --- |")
     lines.append("| 合并后站点数 | %d |" % status["total_sites"])
     lines.append("| 参与聚合搜索 | %d |" % status.get("searchable_sites", 0))
-    lines.append("| 精选仓站点数 | %d |" % status.get("lite_sites", 0))
+    lines.append("| 稳定精选站点数 | %d |" % status.get("lite_sites", 0))
+    lines.append("| 实体剔除确认失效站 | %d |" % status.get("dropped_hard_failures", 0))
     lines.append("| 解析源数量 | %d |" % status["total_parses"])
     lines.append("| 直播源数量 | %d |" % status["total_lives"])
     lines.append("| 跨源去重丢弃 | %d |" % status["stats"]["dup"])
@@ -2172,6 +2220,19 @@ def write_report(status, merged, sources, top=None, demoted=0):
         lines.append("| 剔除：域名黑名单 | %d |" % sqs.get("host", 0))
         lines.append("| 剔除：本机代理地址 | %d |" % sqs.get("local", 0))
     lines.append("")
+    if status.get("lite_verified_play") and lite_sites is not None:
+        lines.append("## 稳定精选实测证据\n")
+        lines.append("仅保留最近 36 小时内连续两轮通过的源；HLS 抽检首/中/尾分片，直链校验媒体签名。\n")
+        lines.append("| 站点 | 类型 | 连续通过 | 分片抽检 | 抽检字节 | 耗时 |")
+        lines.append("| --- | --- | --- | --- | --- | --- |")
+        for s in lite_sites:
+            rec = play_record(s, ph) or {}
+            total = int(rec.get("segments_total") or 0)
+            seg = "%d/%d" % (int(rec.get("segments_checked") or 0), total) if total else "直链"
+            lines.append("| %s | %s | %d 轮 | %s | %d | %sms |" % (
+                s.get("name"), rec.get("verdict"), int(rec.get("ok_streak") or 0),
+                seg, int(rec.get("bytes_checked") or 0), rec.get("ms")))
+        lines.append("")
     lines.append("## 各源状态\n")
     lines.append("| 源 | 站点 | 新增 | 耗时 | 状态 |")
     lines.append("| --- | --- | --- | --- | --- |")

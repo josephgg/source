@@ -29,12 +29,16 @@
     "emit_source_repo": true,
     "min_retain_ratio": 0.85,
     "lite_size": 72,
+    "lite_verified_play": true,
+    "lite_play_min_streak": 2,
+    "lite_play_max_age_hours": 36,
+    "drop_hard_failures": true,
     "probe_spider": true,
     "probe_timeout": 10,
     "probe_cms": true,
     "cms_timeout": 12,
     "lite_per_source": 5,
-    "$pin_comment": "必收录白名单：这些 key 会被强制放进精选仓（不参与类目配额与单源上限的竞争）。用于「明明是好站，但同类目候选上百个、单源又已满额，按规则永远排不进」的情况",
+    "$pin_comment": "必收录白名单：不参与类目配额与单源上限竞争，但不能绕过稳定版的两轮多分片实测门槛",
     "pin_keys": [
       "wuxie13_shangtou"
     ],
@@ -52,7 +56,8 @@
     },
     "$override_comment": "固定输出值，覆盖各源自带的 notice/wallpaper/logo/name。留空字符串等于删掉该字段。notice 支持 {date} 占位符，构建时替换成当天日期（北京时间，如「11月13日」）。图片放 tvbox/assets/ 时必须写完整 CDN 地址——相对路径会按源站解析，指不到本仓。",
     "block_hosts": [
-      "apiyutu.com"
+      "apiyutu.com",
+      "iqiyizyapi.com"
     ],
     "override": {
       "name": "Joe TV",

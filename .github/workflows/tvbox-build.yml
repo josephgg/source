@@ -10,6 +10,7 @@ on:
       - "tvbox/sources.json"
       - "tvbox/build.py"
       - "tvbox/rule_health.json"
+      - "tvbox/play_health.json"
       - "tvbox/tools/**"
       - ".github/workflows/tvbox-build.yml"
 
@@ -44,10 +45,10 @@ jobs:
         # 结果里的 dead_streak 是「连续轮次」，构建只认 >=2，单轮超时不会误杀站点。
         run: python tools/probe_rules.py --all --jobs 24 --write --max-age 20
 
-      - name: 播放链路体检（每次刷新，约 35 秒）
+      - name: 播放链路体检（多分片实测，连续两轮才进稳定精选）
         working-directory: tvbox
         # 接口通不等于能播：首集是网盘分享页、分集地址带中文、分片 404 都会让用户
-        # 「播放几秒闪退」。规则站直接跳过，只测采集站，全量 35 秒，不需要缓存。
+        # 「播放几秒闪退」。递归子清单并抽首/中/尾分片；连续两轮通过才进稳定精选。
         run: python tools/probe_play.py --all --jobs 16 --write
 
       - name: 抓取与合并

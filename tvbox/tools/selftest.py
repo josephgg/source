@@ -14,6 +14,7 @@ sys.path.insert(0, ROOT)
 
 import build  # noqa: E402
 from tools import probe_search  # noqa: E402
+from tools import probe_play  # noqa: E402
 
 
 TITLES = ["庆余年第一季", "庆余年第二季", "庆余年特别篇", "庆余年解说", "庆余年花絮"]
@@ -193,6 +194,64 @@ class BuildRulesTest(unittest.TestCase):
         self.assertEqual(build.play_bad(site, dead, for_lite=True), "structural")
         self.assertEqual(build.play_bad(site, dead), "")
         self.assertEqual(build.play_bad(site, twice), "structural")
+
+    def test_play_stable_requires_fresh_multisegment_streak(self):
+        site = http_site("stable", "稳定站", "https://stable.example/api.php/provide/vod")
+        rec = {"key": "stable", "kind": "cms", "verdict": "ok", "ok_streak": 2,
+               "tested_at": int(__import__("time").time()), "segments_total": 5,
+               "segments_checked": 3, "playlists_checked": 1, "bytes_checked": 3072,
+               "codec_unsafe": False, "requires_referer": False}
+        self.assertTrue(build.play_stable(site, {"stable": rec}))
+        self.assertFalse(build.play_stable(site, {"stable": dict(rec, ok_streak=1)}))
+        self.assertFalse(build.play_stable(site, {"stable": dict(rec, segments_checked=1)}))
+        self.assertFalse(build.play_stable(site, {"stable": dict(rec, requires_referer=True)}))
+        self.assertFalse(build.play_stable(site, {"stable": dict(rec, tested_at=100)}))
+        self.assertFalse(build.play_stable(site, {"stable": dict(rec, kind="rule",
+                                                                  verdict="rule_based")}))
+
+    def test_hls_master_and_distributed_segments_are_checked(self):
+        media = ("#EXTM3U\n#EXT-X-TARGETDURATION:8\n" +
+                 "".join("#EXTINF:8,\n%d.ts\n" % i for i in range(5))).encode()
+        master = b'#EXTM3U\n#EXT-X-STREAM-INF:BANDWIDTH=800000,CODECS="avc1.64001f"\nindex.m3u8\n'
+        chunk = b"G" + b"\0" * 1023
+
+        class Handler(BaseHTTPRequestHandler):
+            def do_GET(self):
+                bodies = {"/master.m3u8": master, "/index.m3u8": media,
+                          "/fake-direct": b"<head><meta charset=\"utf-8\"><title>player</title>" + b" " * 600}
+                body = bodies.get(self.path, chunk if self.path.endswith(".ts") else None)
+                if body is None:
+                    self.send_response(404)
+                    self.end_headers()
+                    return
+                self.send_response(206 if self.path == "/4.ts" else 200)
+                self.send_header("Content-Length", str(len(body)))
+                self.end_headers()
+                self.wfile.write(body)
+
+            def log_message(self, *args):
+                pass
+
+        server = ThreadingHTTPServer(("127.0.0.1", 0), Handler)
+        thread = threading.Thread(target=server.serve_forever, daemon=True)
+        thread.start()
+        try:
+            url = "http://127.0.0.1:%d/master.m3u8" % server.server_port
+            verdict, why = probe_play.check_stream(url, {})
+            self.assertEqual((verdict, why), ("ok", ""))
+            rec = {}
+            probe_play.check_stream(url, rec)
+            self.assertEqual(rec["playlists_checked"], 2)
+            self.assertEqual(rec["segments_checked"], 3)
+            self.assertEqual(rec["segments_total"], 5)
+            self.assertGreaterEqual(rec["bytes_checked"], 3072)
+            fake = "http://127.0.0.1:%d/fake-direct" % server.server_port
+            verdict, _ = probe_play.check_stream(fake, {})
+            self.assertEqual(verdict, "direct_invalid")
+        finally:
+            server.shutdown()
+            server.server_close()
+            thread.join(timeout=2)
 
     def test_bad_site_is_isolated(self):
         stats = {"skip_bad_site": 0}

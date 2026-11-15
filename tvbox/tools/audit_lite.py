@@ -32,8 +32,12 @@ def main():
     errors, warns = [], []
     bconf = sources.get("build") or {}
     expected = int(bconf.get("lite_size") or 72)
+    strict = bool(bconf.get("lite_verified_play", False))
 
-    if len(sites) != expected:
+    if strict:
+        if not sites or len(sites) > expected:
+            errors.append("稳定精选数量 %d，应在 1-%d 之间" % (len(sites), expected))
+    elif len(sites) != expected:
         errors.append("精选数量 %d，期望 %d" % (len(sites), expected))
     keys = [s.get("key") for s in sites]
     if len(keys) != len(set(keys)):
@@ -48,7 +52,7 @@ def main():
         errors.append("精选显示名重复：%s" % dup_names)
 
     cats = Counter((s.get("name") or "").split("·")[0] for s in sites)
-    minimums = {"影视": 24, "动漫": 10, "4K": 8}
+    minimums = {} if strict else {"影视": 24, "动漫": 10, "4K": 8}
     for cat, minimum in minimums.items():
         if cats.get(cat, 0) < minimum:
             errors.append("%s 类仅 %d 个，低于高质量覆盖下限 %d" % (cat, cats.get(cat, 0), minimum))
@@ -133,6 +137,17 @@ def main():
         print("播放体检：命中 %d/%d 站，硬伤 %d，待观察 %d" % (
             sum(1 for s in sites if build.play_record(s, ph)),
             len(sites), len(pbad), len(pflaky)))
+        if strict:
+            unproven = [s["name"] for s in sites if not build.play_stable(
+                s, ph, int(bconf.get("lite_play_min_streak", 2)),
+                int(bconf.get("lite_play_max_age_hours", 36)))]
+            if unproven:
+                errors.append("稳定精选含未连续通过多分片实测的站：%s" % unproven)
+            all_hard = [s.get("name") for s in allconf.get("sites") or []
+                        if build.rule_dead(s, rh) or
+                        build.play_bad(s, ph) in ("structural", "flaky")]
+            if bconf.get("drop_hard_failures", False) and all_hard:
+                errors.append("全量仓仍含已确认应实体剔除的失效站：%s" % all_hard[:10])
 
     if sites:
         home = sites[0]
@@ -163,7 +178,7 @@ def main():
     if errors:
         print("内容验收失败：%d 项" % len(errors))
         return 1
-    print("内容验收通过：核心类目足量、无已知重复库，首页覆盖与搜索均合格")
+    print("内容验收通过：无已知重复库，首页覆盖与搜索合格，稳定播放证据满足当前模式")
     return 0
 
 
