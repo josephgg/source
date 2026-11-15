@@ -16,18 +16,13 @@
       "jaccard": 1.0
     },
     {
-      "a": "maoy_金鹰资源",
-      "b": "lxshiguang14_创享",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxyingcang_feifan",
-      "b": "lxxiaoma_非凡",
-      "jaccard": 1.0
-    },
-    {
       "a": "lxyingcang_feifan",
       "b": "lxxhzdc18_csp_xml_非凡资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxxiaoma_非凡",
+      "b": "lxyingcang_feifan",
       "jaccard": 1.0
     },
     {
@@ -36,8 +31,13 @@
       "jaccard": 1.0
     },
     {
+      "a": "lxxiaoma_非凡",
+      "b": "lxchuangxiang_source_1840804598",
+      "jaccard": 1.0
+    },
+    {
       "a": "lxxiaoma_红牛资源",
-      "b": "maoy_金鹰资源",
+      "b": "nptp_s_d8d52255b1",
       "jaccard": 1.0
     },
     {
@@ -52,7 +52,22 @@
     },
     {
       "a": "lxxiaoma_红牛资源",
-      "b": "lxshiguang14_创享",
+      "b": "lxshiguang1_极速资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxxiaoma_红牛资源",
+      "b": "lxshiguang14_金鹰",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxxiaoma_红牛资源",
+      "b": "lxshiguang14_速播",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxxiaoma_红牛资源",
+      "b": "lxchuangxiang_source_4247318859",
       "jaccard": 1.0
     },
     {
@@ -62,7 +77,17 @@
     },
     {
       "a": "lxxiaoma_红牛资源",
+      "b": "lxchuangxiang_source_2680151544",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxxiaoma_红牛资源",
       "b": "lxchuangxiang_source_1016684692",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxxiaoma_红牛资源",
+      "b": "laoliu_虎牙",
       "jaccard": 1.0
     },
     {
@@ -71,23 +96,8 @@
       "jaccard": 1.0
     },
     {
-      "a": "lxxiaoma_暴風",
-      "b": "laoliu_暴风采集",
-      "jaccard": 1.0
-    },
-    {
       "a": "lxxiaoma_新浪资源",
-      "b": "maoy_金鹰资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxxiaoma_新浪资源",
-      "b": "lxshiguang22_csp_xml_光速",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxxiaoma_新浪资源",
-      "b": "lxshiguang14_创享",
+      "b": "nptp_s_d8d52255b1",
       "jaccard": 1.0
     },
     {
@@ -97,32 +107,57 @@
     },
     {
       "a": "lxxiaoma_新浪资源",
+      "b": "lxchuangxiang_source_2680151544",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxxiaoma_新浪资源",
+      "b": "laoliu_虎牙",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxxhzdc18_csp_xml_量子资源",
+      "b": "lxchuangxiang_source_1470828922",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxxhzdc18_csp_xml_量子资源",
+      "b": "laoliu_量子资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxshiguang22_csp_xml_光速",
+      "b": "nptp_s_d8d52255b1",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxshiguang22_csp_xml_光速",
+      "b": "lxxiaoma_新浪资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxshiguang22_csp_xml_光速",
+      "b": "lxchuangxiang_source_2761253814",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxshiguang22_csp_xml_光速",
+      "b": "lxchuangxiang_source_2680151544",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxshiguang22_csp_xml_光速",
       "b": "lxchuangxiang_source_1016684692",
       "jaccard": 1.0
     },
     {
-      "a": "lxshiguang22_csp_xml_无尽",
-      "b": "lxshiguang1_无尽资源网",
-      "jaccard": 1.0
-    },
-    {
       "a": "lxshiguang22_csp_xml_光速",
-      "b": "maoy_金鹰资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxshiguang22_csp_xml_光速",
-      "b": "lxshiguang14_创享",
+      "b": "laoliu_虎牙",
       "jaccard": 1.0
     },
     {
       "a": "lxshiguang1_极速资源",
-      "b": "maoy_金鹰资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxshiguang1_极速资源",
-      "b": "lxxiaoma_红牛资源",
+      "b": "nptp_s_d8d52255b1",
       "jaccard": 1.0
     },
     {
@@ -137,17 +172,12 @@
     },
     {
       "a": "lxshiguang1_极速资源",
+      "b": "lxshiguang14_金鹰",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxshiguang1_极速资源",
       "b": "lxshiguang14_速播",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxshiguang1_极速资源",
-      "b": "lxshiguang14_创享",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxshiguang1_极速资源",
-      "b": "lxchuangxiang_source_4247318859",
       "jaccard": 1.0
     },
     {
@@ -167,22 +197,22 @@
     },
     {
       "a": "lxshiguang1_极速资源",
+      "b": "laoliu_虎牙",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxshiguang1_极速资源",
       "b": "laoliu_火狐",
       "jaccard": 1.0
     },
     {
-      "a": "lxshiguang1_最大采集",
-      "b": "maoy_最大资源",
+      "a": "lxshiguang1_无尽资源网",
+      "b": "lxshiguang22_csp_xml_无尽",
       "jaccard": 1.0
     },
     {
       "a": "lxshiguang14_金鹰",
-      "b": "maoy_金鹰资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxshiguang14_金鹰",
-      "b": "lxxiaoma_红牛资源",
+      "b": "nptp_s_d8d52255b1",
       "jaccard": 1.0
     },
     {
@@ -197,22 +227,7 @@
     },
     {
       "a": "lxshiguang14_金鹰",
-      "b": "lxshiguang1_极速资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxshiguang14_金鹰",
       "b": "lxshiguang14_速播",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxshiguang14_金鹰",
-      "b": "lxshiguang14_创享",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxshiguang14_金鹰",
-      "b": "lxchuangxiang_source_4247318859",
       "jaccard": 1.0
     },
     {
@@ -242,12 +257,7 @@
     },
     {
       "a": "lxshiguang14_速播",
-      "b": "maoy_金鹰资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxshiguang14_速播",
-      "b": "lxxiaoma_红牛资源",
+      "b": "nptp_s_d8d52255b1",
       "jaccard": 1.0
     },
     {
@@ -258,11 +268,6 @@
     {
       "a": "lxshiguang14_速播",
       "b": "lxshiguang22_csp_xml_光速",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxshiguang14_速播",
-      "b": "lxshiguang14_创享",
       "jaccard": 1.0
     },
     {
@@ -272,7 +277,17 @@
     },
     {
       "a": "lxshiguang14_速播",
+      "b": "lxchuangxiang_source_2680151544",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxshiguang14_速播",
       "b": "lxchuangxiang_source_1016684692",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxshiguang14_速播",
+      "b": "laoliu_虎牙",
       "jaccard": 1.0
     },
     {
@@ -281,113 +296,143 @@
       "jaccard": 1.0
     },
     {
-      "a": "lxchuangxiang_source_4247318859",
-      "b": "maoy_金鹰资源",
+      "a": "lxshiguang14_创享",
+      "b": "nptp_s_d8d52255b1",
       "jaccard": 1.0
     },
     {
-      "a": "lxchuangxiang_source_4247318859",
+      "a": "lxshiguang14_创享",
       "b": "lxxiaoma_红牛资源",
       "jaccard": 1.0
     },
     {
-      "a": "lxchuangxiang_source_4247318859",
+      "a": "lxshiguang14_创享",
       "b": "lxxiaoma_新浪资源",
       "jaccard": 1.0
     },
     {
-      "a": "lxchuangxiang_source_4247318859",
+      "a": "lxshiguang14_创享",
       "b": "lxshiguang22_csp_xml_光速",
       "jaccard": 1.0
     },
     {
-      "a": "lxchuangxiang_source_4247318859",
+      "a": "lxshiguang14_创享",
+      "b": "lxshiguang1_极速资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxshiguang14_创享",
+      "b": "lxshiguang14_金鹰",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxshiguang14_创享",
       "b": "lxshiguang14_速播",
       "jaccard": 1.0
     },
     {
-      "a": "lxchuangxiang_source_4247318859",
-      "b": "lxshiguang14_创享",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_source_4247318859",
-      "b": "lxchuangxiang_source_2761253814",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_source_4247318859",
-      "b": "lxchuangxiang_source_1016684692",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_source_4247318859",
-      "b": "laoliu_火狐",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_source_2761253814",
-      "b": "maoy_金鹰资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_source_2761253814",
-      "b": "lxshiguang22_csp_xml_光速",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_source_2761253814",
-      "b": "lxshiguang14_创享",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_source_2680151544",
-      "b": "maoy_金鹰资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_source_2680151544",
-      "b": "lxxiaoma_红牛资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_source_2680151544",
-      "b": "lxxiaoma_新浪资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_source_2680151544",
-      "b": "lxshiguang22_csp_xml_光速",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_source_2680151544",
-      "b": "lxshiguang14_速播",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_source_2680151544",
-      "b": "lxshiguang14_创享",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_source_2680151544",
+      "a": "lxshiguang14_创享",
       "b": "lxchuangxiang_source_4247318859",
       "jaccard": 1.0
     },
     {
+      "a": "lxshiguang14_创享",
+      "b": "lxchuangxiang_source_2761253814",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxshiguang14_创享",
+      "b": "lxchuangxiang_source_2680151544",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxshiguang14_创享",
+      "b": "lxchuangxiang_source_1016684692",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxshiguang14_创享",
+      "b": "laoliu_虎牙",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxshiguang14_创享",
+      "b": "laoliu_火狐",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxchuangxiang_source_4247318859",
+      "b": "nptp_s_d8d52255b1",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxchuangxiang_source_4247318859",
+      "b": "lxxiaoma_新浪资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxchuangxiang_source_4247318859",
+      "b": "lxshiguang22_csp_xml_光速",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxchuangxiang_source_4247318859",
+      "b": "lxshiguang1_极速资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxchuangxiang_source_4247318859",
+      "b": "lxshiguang14_金鹰",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxchuangxiang_source_4247318859",
+      "b": "lxshiguang14_速播",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxchuangxiang_source_4247318859",
+      "b": "lxchuangxiang_source_2761253814",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxchuangxiang_source_4247318859",
+      "b": "lxchuangxiang_source_2680151544",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxchuangxiang_source_4247318859",
+      "b": "lxchuangxiang_source_1016684692",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxchuangxiang_source_4247318859",
+      "b": "laoliu_虎牙",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxchuangxiang_source_4247318859",
+      "b": "laoliu_火狐",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxchuangxiang_source_2761253814",
+      "b": "nptp_s_d8d52255b1",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxchuangxiang_source_2680151544",
+      "b": "nptp_s_d8d52255b1",
+      "jaccard": 1.0
+    },
+    {
       "a": "lxchuangxiang_source_2680151544",
       "b": "lxchuangxiang_source_2761253814",
       "jaccard": 1.0
     },
     {
       "a": "lxchuangxiang_source_2680151544",
-      "b": "lxchuangxiang_source_1016684692",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_source_2680151544",
-      "b": "laoliu_火狐",
+      "b": "laoliu_虎牙",
       "jaccard": 1.0
     },
     {
@@ -397,112 +442,52 @@
     },
     {
       "a": "lxchuangxiang_source_1840804598",
-      "b": "lxxiaoma_非凡",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_source_1840804598",
       "b": "lxxhzdc18_csp_xml_非凡资源",
       "jaccard": 1.0
     },
     {
-      "a": "lxchuangxiang_source_1470828922",
-      "b": "lxxhzdc18_csp_xml_量子资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_source_1470828922",
-      "b": "laoliu_量子资源",
+      "a": "lxchuangxiang_source_1016684692",
+      "b": "nptp_s_d8d52255b1",
       "jaccard": 1.0
     },
     {
       "a": "lxchuangxiang_source_1016684692",
-      "b": "maoy_金鹰资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_source_1016684692",
-      "b": "lxshiguang22_csp_xml_光速",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_source_1016684692",
-      "b": "lxshiguang14_创享",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_source_1016684692",
-      "b": "lxchuangxiang_source_2761253814",
-      "jaccard": 1.0
-    },
-    {
-      "a": "laoliu_量子资源",
-      "b": "lxxhzdc18_csp_xml_量子资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "laoliu_虎牙",
-      "b": "maoy_金鹰资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "laoliu_虎牙",
-      "b": "lxxiaoma_红牛资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "laoliu_虎牙",
       "b": "lxxiaoma_新浪资源",
       "jaccard": 1.0
     },
     {
-      "a": "laoliu_虎牙",
-      "b": "lxshiguang22_csp_xml_光速",
-      "jaccard": 1.0
-    },
-    {
-      "a": "laoliu_虎牙",
-      "b": "lxshiguang1_极速资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "laoliu_虎牙",
-      "b": "lxshiguang14_速播",
-      "jaccard": 1.0
-    },
-    {
-      "a": "laoliu_虎牙",
-      "b": "lxshiguang14_创享",
-      "jaccard": 1.0
-    },
-    {
-      "a": "laoliu_虎牙",
-      "b": "lxchuangxiang_source_4247318859",
-      "jaccard": 1.0
-    },
-    {
-      "a": "laoliu_虎牙",
+      "a": "lxchuangxiang_source_1016684692",
       "b": "lxchuangxiang_source_2761253814",
       "jaccard": 1.0
     },
     {
-      "a": "laoliu_虎牙",
+      "a": "lxchuangxiang_source_1016684692",
       "b": "lxchuangxiang_source_2680151544",
       "jaccard": 1.0
     },
     {
-      "a": "laoliu_虎牙",
-      "b": "lxchuangxiang_source_1016684692",
+      "a": "lxchuangxiang_source_1016684692",
+      "b": "laoliu_虎牙",
+      "jaccard": 1.0
+    },
+    {
+      "a": "laoliu_量子资源",
+      "b": "lxchuangxiang_source_1470828922",
       "jaccard": 1.0
     },
     {
       "a": "laoliu_虎牙",
-      "b": "laoliu_火狐",
+      "b": "nptp_s_d8d52255b1",
+      "jaccard": 1.0
+    },
+    {
+      "a": "laoliu_虎牙",
+      "b": "lxchuangxiang_source_2761253814",
       "jaccard": 1.0
     },
     {
       "a": "laoliu_火狐",
-      "b": "maoy_金鹰资源",
+      "b": "nptp_s_d8d52255b1",
       "jaccard": 1.0
     },
     {
@@ -517,12 +502,12 @@
     },
     {
       "a": "laoliu_火狐",
-      "b": "lxshiguang14_创享",
+      "b": "lxchuangxiang_source_2761253814",
       "jaccard": 1.0
     },
     {
       "a": "laoliu_火狐",
-      "b": "lxchuangxiang_source_2761253814",
+      "b": "lxchuangxiang_source_2680151544",
       "jaccard": 1.0
     },
     {
@@ -531,14 +516,9 @@
       "jaccard": 1.0
     },
     {
-      "a": "nptp_s_wsyzy",
-      "b": "lxshiguang22_csp_xml_无尽",
-      "jaccard": 0.89
-    },
-    {
-      "a": "nptp_s_wsyzy",
-      "b": "lxshiguang1_无尽资源网",
-      "jaccard": 0.89
+      "a": "laoliu_火狐",
+      "b": "laoliu_虎牙",
+      "jaccard": 1.0
     },
     {
       "a": "nptp_s_1b411b52e2",
@@ -551,37 +531,77 @@
       "jaccard": 0.89
     },
     {
-      "a": "maoy_飘零影院",
-      "b": "lxshiguang22_csp_xml_无尽",
+      "a": "lxshiguang22_csp_xml_无尽",
+      "b": "nptp_s_wsyzy",
       "jaccard": 0.89
     },
     {
-      "a": "maoy_飘零影院",
-      "b": "lxshiguang1_无尽资源网",
+      "a": "lxshiguang22_csp_xml_无尽",
+      "b": "maoy_飘零影院",
+      "jaccard": 0.89
+    },
+    {
+      "a": "lxshiguang1_无尽资源网",
+      "b": "nptp_s_wsyzy",
+      "jaccard": 0.89
+    },
+    {
+      "a": "lxshiguang1_无尽资源网",
+      "b": "maoy_飘零影院",
       "jaccard": 0.89
     },
     {
       "a": "nptp_s_77dpwqy",
-      "b": "maoy_金鹰资源",
+      "b": "nptp_s_d8d52255b1",
       "jaccard": 0.67
     },
     {
       "a": "nptp_s_77dpwqy",
-      "b": "lxshiguang14_创享",
+      "b": "lxxiaoma_新浪资源",
+      "jaccard": 0.67
+    },
+    {
+      "a": "nptp_s_77dpwqy",
+      "b": "lxshiguang22_csp_xml_光速",
+      "jaccard": 0.67
+    },
+    {
+      "a": "nptp_s_77dpwqy",
+      "b": "lxshiguang14_速播",
+      "jaccard": 0.67
+    },
+    {
+      "a": "nptp_s_77dpwqy",
+      "b": "lxchuangxiang_source_2761253814",
+      "jaccard": 0.67
+    },
+    {
+      "a": "nptp_s_77dpwqy",
+      "b": "lxchuangxiang_source_2680151544",
+      "jaccard": 0.67
+    },
+    {
+      "a": "nptp_s_77dpwqy",
+      "b": "lxchuangxiang_source_1016684692",
+      "jaccard": 0.67
+    },
+    {
+      "a": "nptp_s_77dpwqy",
+      "b": "laoliu_虎牙",
+      "jaccard": 0.67
+    },
+    {
+      "a": "nptp_s_77dpwqy",
+      "b": "laoliu_火狐",
+      "jaccard": 0.67
+    },
+    {
+      "a": "lxxiaoma_非凡",
+      "b": "lxshiguang14_艾旦",
       "jaccard": 0.67
     },
     {
       "a": "lxxiaoma_红牛资源",
-      "b": "nptp_s_77dpwqy",
-      "jaccard": 0.67
-    },
-    {
-      "a": "lxxiaoma_新浪资源",
-      "b": "nptp_s_77dpwqy",
-      "jaccard": 0.67
-    },
-    {
-      "a": "lxshiguang22_csp_xml_光速",
       "b": "nptp_s_77dpwqy",
       "jaccard": 0.67
     },
@@ -596,18 +616,8 @@
       "jaccard": 0.67
     },
     {
-      "a": "lxshiguang14_速播",
-      "b": "nptp_s_77dpwqy",
-      "jaccard": 0.67
-    },
-    {
       "a": "lxshiguang14_艾旦",
       "b": "lxyingcang_feifan",
-      "jaccard": 0.67
-    },
-    {
-      "a": "lxshiguang14_艾旦",
-      "b": "lxxiaoma_非凡",
       "jaccard": 0.67
     },
     {
@@ -621,32 +631,12 @@
       "jaccard": 0.67
     },
     {
+      "a": "lxshiguang14_创享",
+      "b": "nptp_s_77dpwqy",
+      "jaccard": 0.67
+    },
+    {
       "a": "lxchuangxiang_source_4247318859",
-      "b": "nptp_s_77dpwqy",
-      "jaccard": 0.67
-    },
-    {
-      "a": "lxchuangxiang_source_2761253814",
-      "b": "nptp_s_77dpwqy",
-      "jaccard": 0.67
-    },
-    {
-      "a": "lxchuangxiang_source_2680151544",
-      "b": "nptp_s_77dpwqy",
-      "jaccard": 0.67
-    },
-    {
-      "a": "lxchuangxiang_source_1016684692",
-      "b": "nptp_s_77dpwqy",
-      "jaccard": 0.67
-    },
-    {
-      "a": "laoliu_虎牙",
-      "b": "nptp_s_77dpwqy",
-      "jaccard": 0.67
-    },
-    {
-      "a": "laoliu_火狐",
       "b": "nptp_s_77dpwqy",
       "jaccard": 0.67
     }
@@ -666,22 +656,6 @@
     "titles2": [],
     "verdict": "unknown",
     "why": "两次都没拿到 JSON（not-json/not-json）"
-  },
-  "ivcainisi_快帆": {
-    "action": "keep",
-    "adult": [],
-    "adult_n": 0,
-    "api": "https://api.kuaifan.tv/api.php/provide/vod",
-    "hit_rate": 1.0,
-    "ms": 1027,
-    "n1": 0,
-    "n2": 0,
-    "name": "菜妮丝·快帆",
-    "tested_at": 1794734198,
-    "titles1": [],
-    "titles2": [],
-    "verdict": "unknown",
-    "why": "两次都没拿到 JSON（URLError/URLError）"
   },
   "ivmoyuer_醉挽清风": {
     "action": "disable",
@@ -796,54 +770,6 @@
     "verdict": "unknown",
     "why": "两次都没拿到 JSON（not-json/not-json）"
   },
-  "ivxiaohuban_123": {
-    "action": "disable",
-    "adult": [],
-    "adult_n": 0,
-    "api": "https://so.yinpai.xyz/api.php?type=123",
-    "hit_rate": 1.0,
-    "ms": 4371,
-    "n1": 0,
-    "n2": 0,
-    "name": "小虎斑·123|推送",
-    "tested_at": 1794734206,
-    "titles1": [],
-    "titles2": [],
-    "verdict": "empty",
-    "why": "搜索返回 0 条"
-  },
-  "ivxiaohuban_优惜": {
-    "action": "keep",
-    "adult": [],
-    "adult_n": 0,
-    "api": "https://so.yinpai.xyz/api.php?type=uc",
-    "hit_rate": 1.0,
-    "ms": 12348,
-    "n1": 0,
-    "n2": 0,
-    "name": "小虎斑·优惜|推送",
-    "tested_at": 1794734215,
-    "titles1": [],
-    "titles2": [],
-    "verdict": "unknown",
-    "why": "两次都没拿到 JSON（TimeoutError/TimeoutError）"
-  },
-  "ivxiaohuban_天翼": {
-    "action": "keep",
-    "adult": [],
-    "adult_n": 0,
-    "api": "https://so.yinpai.xyz/api.php?type=tianyi",
-    "hit_rate": 1.0,
-    "ms": 12371,
-    "n1": 0,
-    "n2": 0,
-    "name": "小虎斑·天翼|推送",
-    "tested_at": 1794734215,
-    "titles1": [],
-    "titles2": [],
-    "verdict": "unknown",
-    "why": "两次都没拿到 JSON（TimeoutError/TimeoutError）"
-  },
   "ivxiaohuban_夸克推送": {
     "action": "keep",
     "adult": [],
@@ -860,24 +786,6 @@
     "verdict": "unknown",
     "why": "两次都没拿到 JSON（TimeoutError/TimeoutError）"
   },
-  "ivxiaohuban_百度": {
-    "action": "keep",
-    "adult": [],
-    "adult_n": 0,
-    "api": "https://so.yinpai.xyz/api.php?type=baidu",
-    "hit_rate": 1.0,
-    "ms": 2137,
-    "n1": 1,
-    "n2": 0,
-    "name": "小虎斑·百度|推送",
-    "tested_at": 1794734205,
-    "titles1": [
-      "🗄 庆余年2 (2024) 4K 全集"
-    ],
-    "titles2": [],
-    "verdict": "good",
-    "why": "命中率 100%（仅一次成功）"
-  },
   "ivxiaosa_天翼影视": {
     "action": "keep",
     "adult": [],
@@ -889,22 +797,6 @@
     "n2": 0,
     "name": "潇洒·天翼｜影视",
     "tested_at": 1794734184,
-    "titles1": [],
-    "titles2": [],
-    "verdict": "unknown",
-    "why": "两次都没拿到 JSON（URLError/URLError）"
-  },
-  "laoliu_49zy": {
-    "action": "keep",
-    "adult": [],
-    "adult_n": 0,
-    "api": "https://49zy1.com/api.php/provide/vod/?ac=list",
-    "hit_rate": 1.0,
-    "ms": 97,
-    "n1": 0,
-    "n2": 0,
-    "name": "老刘·🦁┃四九┃资源",
-    "tested_at": 1794734197,
     "titles1": [],
     "titles2": [],
     "verdict": "unknown",
@@ -942,22 +834,6 @@
     "verdict": "unknown",
     "why": "两次都没拿到 JSON（not-json/not-json）"
   },
-  "laoliu_csp_小胡": {
-    "action": "keep",
-    "adult": [],
-    "adult_n": 0,
-    "api": "http://c.xn--yetu07f.icu/api.php/provide/vod/",
-    "hit_rate": 1.0,
-    "ms": 251,
-    "n1": 0,
-    "n2": 0,
-    "name": "老刘·👒┃小胡┃资源┃",
-    "tested_at": 1794734197,
-    "titles1": [],
-    "titles2": [],
-    "verdict": "unknown",
-    "why": "两次都没拿到 JSON（URLError/URLError）"
-  },
   "laoliu_csp_非凡资源": {
     "action": "keep",
     "adult": [],
@@ -973,112 +849,6 @@
     "titles2": [],
     "verdict": "unknown",
     "why": "两次都没拿到 JSON（URLError/URLError）"
-  },
-  "laoliu_feisu": {
-    "action": "keep",
-    "adult": [],
-    "adult_n": 0,
-    "api": "https://www.feisuzyapi.com/api.php/provide/vod/?ac=list",
-    "hit_rate": 1.0,
-    "ms": 35,
-    "n1": 0,
-    "n2": 0,
-    "name": "老刘·🛰️飞速┃采集",
-    "tested_at": 1794734197,
-    "titles1": [],
-    "titles2": [],
-    "verdict": "unknown",
-    "why": "两次都没拿到 JSON（URLError/URLError）"
-  },
-  "laoliu_可可资源": {
-    "action": "keep",
-    "adult": [],
-    "adult_n": 0,
-    "api": "https://kekezy1.com/api.php/provide/vod/?ac=list",
-    "hit_rate": 1.0,
-    "ms": 97,
-    "n1": 0,
-    "n2": 0,
-    "name": "老刘·⛱┃可可┃采集",
-    "tested_at": 1794734196,
-    "titles1": [],
-    "titles2": [],
-    "verdict": "unknown",
-    "why": "两次都没拿到 JSON（URLError/URLError）"
-  },
-  "laoliu_奇虎资源": {
-    "action": "keep",
-    "adult": [],
-    "adult_n": 0,
-    "api": "https://caiji.qhzyapi.com/api.php/provide/vod/",
-    "hit_rate": 1.0,
-    "ms": 36,
-    "n1": 0,
-    "n2": 0,
-    "name": "老刘·🐯┃奇虎┃采集",
-    "tested_at": 1794734196,
-    "titles1": [],
-    "titles2": [],
-    "verdict": "unknown",
-    "why": "两次都没拿到 JSON（URLError/URLError）"
-  },
-  "laoliu_暴风采集": {
-    "action": "quick_off",
-    "adult": [],
-    "adult_n": 0,
-    "api": "https://app.bfzyapi.com/api.php/provide/vod/",
-    "hit_rate": 0.55,
-    "ms": 803,
-    "n1": 20,
-    "n2": 20,
-    "name": "老刘·🌪️暴风影音",
-    "tested_at": 1794734197,
-    "titles1": [
-      "庆余年第一季",
-      "庆余年 第二季[预告片]",
-      "庆余年第一季特别版",
-      "庆余年之大赵逍遥王",
-      "庆余年第二季",
-      "庆余年之帝王业",
-      "庆余年第二季粤语",
-      "庆余年之风起沧州",
-      "庆余年之少年风流",
-      "庆余年，全世界都以为我是废物太子",
-      "庆余年 第一季",
-      "大演员",
-      "大秦赋",
-      "庆余生",
-      "苏庆亮",
-      "武松斗杀西门庆",
-      "穿越庆国经营抱月楼",
-      "春酒庆团圆",
-      "宝庆码头 第一季",
-      "重庆森林 重慶森林[电影解说]"
-    ],
-    "titles2": [
-      "熊出没",
-      "熊出没·狂野大陆",
-      "熊出没·奇幻空间",
-      "熊出没·原始时代",
-      "熊出没之夺宝熊兵",
-      "熊出没之雪岭熊风",
-      "熊出没注意",
-      "熊出没·伴我“熊芯”",
-      "熊出没·逆转时空[预告片]",
-      "熊出没之过年[电影解说]",
-      "熊出没之丛林总动员",
-      "熊出没·逆转时空",
-      "熊出没之小小世界",
-      "熊出没之雪岭熊风[电影解说]",
-      "熊出没之夺宝熊兵[电影解说]",
-      "熊出没·伴我“熊芯”[电影解说]",
-      "熊出没之夏日连连看",
-      "熊出没·重启未来[预告片]",
-      "熊出没·逆转时空[电影解说]",
-      "熊出没·变形记[电影解说]"
-    ],
-    "verdict": "good",
-    "why": "命中率 55% / 100%，重合 0%"
   },
   "laoliu_火狐": {
     "action": "keep",
@@ -1949,56 +1719,6 @@
     "verdict": "good",
     "why": "命中率 100% / 100%，重合 0%"
   },
-  "lxshiguang1_OK资源网采集": {
-    "action": "keep",
-    "adult": [],
-    "adult_n": 0,
-    "api": "https://okzyw9.com/api.php/provide/vod/",
-    "hit_rate": 1.0,
-    "ms": 99,
-    "n1": 0,
-    "n2": 0,
-    "name": "拾光·资源｜采集",
-    "tested_at": 1794734197,
-    "titles1": [],
-    "titles2": [],
-    "verdict": "unknown",
-    "why": "两次都没拿到 JSON（URLError/URLError）"
-  },
-  "lxshiguang1_iQIYI采集网": {
-    "action": "keep",
-    "adult": [],
-    "adult_n": 0,
-    "api": "https://www.iqiyizyapi.com/api.php/provide/vod/?ac=list",
-    "hit_rate": 1.0,
-    "ms": 2274,
-    "n1": 2,
-    "n2": 14,
-    "name": "拾光·iQIYI｜采集",
-    "tested_at": 1794734169,
-    "titles1": [
-      "庆余年第二季",
-      "庆余年第一季"
-    ],
-    "titles2": [
-      "熊出没之神奇宝物2",
-      "熊出没·年年有熊",
-      "熊出没之神奇宝物",
-      "熊出没·重启未来",
-      "熊出没·重返地球",
-      "熊出没之年货",
-      "熊出没之雪岭熊风",
-      "熊出没之熊心归来",
-      "熊出没·原始时代",
-      "熊出没之雪岭熊风",
-      "熊出没·奇幻空间",
-      "熊出没之夺宝熊兵",
-      "熊出没·狂野大陆",
-      "熊出没·伴我“熊芯”"
-    ],
-    "verdict": "good",
-    "why": "命中率 100% / 100%，重合 0%"
-  },
   "lxshiguang1_七七采集网": {
     "action": "keep",
     "adult": [],
@@ -2215,22 +1935,6 @@
     "verdict": "good",
     "why": "命中率 100% / 100%，重合 0%"
   },
-  "lxshiguang1_无限采集": {
-    "action": "keep",
-    "adult": [],
-    "adult_n": 0,
-    "api": "https://api.wuxianzy.net/api.php/provide/vod/",
-    "hit_rate": 1.0,
-    "ms": 80,
-    "n1": 0,
-    "n2": 0,
-    "name": "拾光·️无限｜采集",
-    "tested_at": 1794734197,
-    "titles1": [],
-    "titles2": [],
-    "verdict": "unknown",
-    "why": "两次都没拿到 JSON（URLError/URLError）"
-  },
   "lxshiguang1_旺旺采集资源": {
     "action": "keep",
     "adult": [],
@@ -2246,64 +1950,6 @@
     "titles2": [],
     "verdict": "unknown",
     "why": "两次都没拿到 JSON（URLError/URLError）"
-  },
-  "lxshiguang1_最大采集": {
-    "action": "disable",
-    "adult": [],
-    "adult_n": 0,
-    "api": "https://zuida.xyz/api.php/provide/vod/",
-    "hit_rate": 0.0,
-    "ms": 1719,
-    "n1": 20,
-    "n2": 20,
-    "name": "拾光·最大｜采集",
-    "tested_at": 1794734188,
-    "titles1": [
-      "乡野丫头竟是顾少心尖宠",
-      "听见物品心声，我撕碎全职太太剧本",
-      "寿宴摊牌，告别无底洞",
-      "少夫人来自东北3",
-      "我扶发小青云志，发小还我万两金",
-      "我的老婆深藏不露",
-      "我的麻烦小助理",
-      "灵珠传：神妙奇珠",
-      "她能看见",
-      "成为休曼",
-      "11月14日 26-27赛季NBA常规赛 灰熊VS鹈鹕",
-      "11月14日 26-27赛季NBA常规赛 雷霆VS快船",
-      "11月14日 26-27赛季NBA常规赛 尼克斯VS步行者",
-      "11月14日 26-27赛季NBA常规赛 开拓者VS国王",
-      "11月14日 26-27赛季NBA常规赛 勇士VS马刺",
-      "11月14日 26-27赛季NBA常规赛 爵士VS火箭",
-      "一吻如意",
-      "别惹这个外卖员，他是修仙大佬",
-      "华丽人生：逆风者",
-      "孩子藏好，高冷上司是我前夫"
-    ],
-    "titles2": [
-      "乡野丫头竟是顾少心尖宠",
-      "听见物品心声，我撕碎全职太太剧本",
-      "寿宴摊牌，告别无底洞",
-      "少夫人来自东北3",
-      "我扶发小青云志，发小还我万两金",
-      "我的老婆深藏不露",
-      "我的麻烦小助理",
-      "灵珠传：神妙奇珠",
-      "她能看见",
-      "成为休曼",
-      "11月14日 26-27赛季NBA常规赛 灰熊VS鹈鹕",
-      "11月14日 26-27赛季NBA常规赛 雷霆VS快船",
-      "11月14日 26-27赛季NBA常规赛 尼克斯VS步行者",
-      "11月14日 26-27赛季NBA常规赛 开拓者VS国王",
-      "11月14日 26-27赛季NBA常规赛 勇士VS马刺",
-      "11月14日 26-27赛季NBA常规赛 爵士VS火箭",
-      "一吻如意",
-      "别惹这个外卖员，他是修仙大佬",
-      "华丽人生：逆风者",
-      "孩子藏好，高冷上司是我前夫"
-    ],
-    "verdict": "ignored",
-    "why": "两次结果重合 100%，wd 被忽略（回固定列表）"
   },
   "lxshiguang1_极速资源": {
     "action": "keep",
@@ -2366,6 +2012,22 @@
     "titles2": [],
     "verdict": "unknown",
     "why": "两次都没拿到 JSON（not-json/not-json）"
+  },
+  "lxshiguang1_茅台采集": {
+    "action": "disable",
+    "adult": [],
+    "adult_n": 0,
+    "api": "https://caiji.maotaizy.cc/api.php/provide/vod/from/mtm3u8/",
+    "hit_rate": 1.0,
+    "ms": 1174,
+    "n1": 0,
+    "n2": 0,
+    "name": "拾光·茅台｜采集",
+    "tested_at": 1794736002,
+    "titles1": [],
+    "titles2": [],
+    "verdict": "empty",
+    "why": "两个词都返回 0 条"
   },
   "lxshiguang1_闪电资源网": {
     "action": "disable",
@@ -2646,22 +2308,6 @@
     "verdict": "unknown",
     "why": "两次都没拿到 JSON（URLError/URLError）"
   },
-  "lxshiguang22_蓝光官采": {
-    "action": "keep",
-    "adult": [],
-    "adult_n": 0,
-    "api": "http://zy.xiaomaomi.vip/api.php/provide/vod/?ac=list",
-    "hit_rate": 1.0,
-    "ms": 1248,
-    "n1": 0,
-    "n2": 0,
-    "name": "拾光·❤猫咪",
-    "tested_at": 1794734198,
-    "titles1": [],
-    "titles2": [],
-    "verdict": "unknown",
-    "why": "两次都没拿到 JSON（URLError/URLError）"
-  },
   "lxshiguang27_移动推送": {
     "action": "disable",
     "adult": [],
@@ -2838,6 +2484,22 @@
     "verdict": "unknown",
     "why": "两次都没拿到 JSON（TimeoutError/http502）"
   },
+  "lxshiguang8_pansou": {
+    "action": "keep",
+    "adult": [],
+    "adult_n": 0,
+    "api": "http://so.yinpai.xyz/wanpan.php?type=quark%7Cuc%7Cbaidu%7Ctianyi%7Cxunlei%7C123",
+    "hit_rate": 1.0,
+    "ms": 16891,
+    "n1": 0,
+    "n2": 0,
+    "name": "拾光·盘搜|集合",
+    "tested_at": 1794736030,
+    "titles1": [],
+    "titles2": [],
+    "verdict": "unknown",
+    "why": "两次都没拿到 JSON（TimeoutError/TimeoutError）"
+  },
   "lxxhz4k_初恋资源": {
     "action": "disable",
     "adult": [],
@@ -2854,22 +2516,6 @@
     "verdict": "unknown",
     "why": "两次都没拿到 JSON（not-json/not-json）"
   },
-  "lxxhz4k_小胡": {
-    "action": "keep",
-    "adult": [],
-    "adult_n": 0,
-    "api": "http://xh1.xn--yetu07f.icu/api.php/provide/vod/",
-    "hit_rate": 1.0,
-    "ms": 588,
-    "n1": 0,
-    "n2": 0,
-    "name": "小盒4K·🔥┃小胡┃4K",
-    "tested_at": 1794734197,
-    "titles1": [],
-    "titles2": [],
-    "verdict": "unknown",
-    "why": "两次都没拿到 JSON（URLError/URLError）"
-  },
   "lxxhz4k_熊掌": {
     "action": "keep",
     "adult": [],
@@ -2881,38 +2527,6 @@
     "n2": 0,
     "name": "小盒4K·🐻┃熊掌┃高清",
     "tested_at": 1794734180,
-    "titles1": [],
-    "titles2": [],
-    "verdict": "unknown",
-    "why": "两次都没拿到 JSON（URLError/URLError）"
-  },
-  "lxxhzdc18_csp_HG影视2": {
-    "action": "keep",
-    "adult": [],
-    "adult_n": 0,
-    "api": "http://cs.hgyx.vip/api/provide/vod/",
-    "hit_rate": 1.0,
-    "ms": 79,
-    "n1": 0,
-    "n2": 0,
-    "name": "小盒仓·HG影视（备用)",
-    "tested_at": 1794734197,
-    "titles1": [],
-    "titles2": [],
-    "verdict": "unknown",
-    "why": "两次都没拿到 JSON（URLError/URLError）"
-  },
-  "lxxhzdc18_csp_xml_夸克资源": {
-    "action": "keep",
-    "adult": [],
-    "adult_n": 0,
-    "api": "http://kuakezy1.com/api.php/provide/vod/from/M3U8kuake/",
-    "hit_rate": 1.0,
-    "ms": 35,
-    "n1": 0,
-    "n2": 0,
-    "name": "小盒仓·🐝夸克资源",
-    "tested_at": 1794734197,
     "titles1": [],
     "titles2": [],
     "verdict": "unknown",
@@ -3038,64 +2652,6 @@
     "verdict": "unknown",
     "why": "两次都没拿到 JSON（not-json/not-json）"
   },
-  "lxxiaoma_建安采集": {
-    "action": "disable",
-    "adult": [],
-    "adult_n": 0,
-    "api": "http://154.219.117.232:9981/jacloudapi.php/provide/vod",
-    "hit_rate": 0.0,
-    "ms": 2021,
-    "n1": 20,
-    "n2": 20,
-    "name": "小马·影视 | 建安",
-    "tested_at": 1794734195,
-    "titles1": [
-      "第三调解室",
-      "我是烂尾世界造物主",
-      "群英会2026",
-      "小明和外星阿绿的搞笑日常",
-      "开心锤锤",
-      "假面骑士ZZZ",
-      "唐三与小舞的日常",
-      "大医本草堂",
-      "一起淋场太阳雨",
-      "今天是太阳雨",
-      "贴身保镖",
-      "当家爸爸的聚会第二季",
-      "第二次初恋",
-      "朋友别见外",
-      "请吃红小豆吧！第五季",
-      "花儿与少年2026",
-      "我家那闺女2026",
-      "雪王来了！",
-      "缔灵爱水心缠",
-      "你好，星期六2026"
-    ],
-    "titles2": [
-      "第三调解室",
-      "我是烂尾世界造物主",
-      "群英会2026",
-      "小明和外星阿绿的搞笑日常",
-      "开心锤锤",
-      "假面骑士ZZZ",
-      "唐三与小舞的日常",
-      "大医本草堂",
-      "一起淋场太阳雨",
-      "今天是太阳雨",
-      "贴身保镖",
-      "当家爸爸的聚会第二季",
-      "第二次初恋",
-      "朋友别见外",
-      "请吃红小豆吧！第五季",
-      "花儿与少年2026",
-      "我家那闺女2026",
-      "雪王来了！",
-      "缔灵爱水心缠",
-      "你好，星期六2026"
-    ],
-    "verdict": "ignored",
-    "why": "两次结果重合 100%，wd 被忽略（回固定列表）"
-  },
   "lxxiaoma_新浪资源": {
     "action": "keep",
     "adult": [],
@@ -3141,64 +2697,6 @@
     ],
     "verdict": "good",
     "why": "命中率 100% / 100%，重合 0%"
-  },
-  "lxxiaoma_暴風": {
-    "action": "quick_off",
-    "adult": [],
-    "adult_n": 0,
-    "api": "https://bfzyapi.com/api.php/provide/vod/?ac=list",
-    "hit_rate": 0.55,
-    "ms": 610,
-    "n1": 20,
-    "n2": 20,
-    "name": "小马·影视 | 暴風[直连]",
-    "tested_at": 1794734196,
-    "titles1": [
-      "庆余年第一季",
-      "庆余年 第二季[预告片]",
-      "庆余年第一季特别版",
-      "庆余年之大赵逍遥王",
-      "庆余年第二季",
-      "庆余年之帝王业",
-      "庆余年第二季粤语",
-      "庆余年之风起沧州",
-      "庆余年之少年风流",
-      "庆余年，全世界都以为我是废物太子",
-      "庆余年 第一季",
-      "大演员",
-      "大秦赋",
-      "庆余生",
-      "苏庆亮",
-      "武松斗杀西门庆",
-      "穿越庆国经营抱月楼",
-      "春酒庆团圆",
-      "宝庆码头 第一季",
-      "重庆森林 重慶森林[电影解说]"
-    ],
-    "titles2": [
-      "熊出没",
-      "熊出没·狂野大陆",
-      "熊出没·奇幻空间",
-      "熊出没·原始时代",
-      "熊出没之夺宝熊兵",
-      "熊出没之雪岭熊风",
-      "熊出没注意",
-      "熊出没·伴我“熊芯”",
-      "熊出没·逆转时空[预告片]",
-      "熊出没之过年[电影解说]",
-      "熊出没之丛林总动员",
-      "熊出没·逆转时空",
-      "熊出没之小小世界",
-      "熊出没之雪岭熊风[电影解说]",
-      "熊出没之夺宝熊兵[电影解说]",
-      "熊出没·伴我“熊芯”[电影解说]",
-      "熊出没之夏日连连看",
-      "熊出没·重启未来[预告片]",
-      "熊出没·逆转时空[电影解说]",
-      "熊出没·变形记[电影解说]"
-    ],
-    "verdict": "good",
-    "why": "命中率 55% / 100%，重合 0%"
   },
   "lxxiaoma_红牛资源": {
     "action": "keep",
@@ -3386,22 +2884,6 @@
     "verdict": "unknown",
     "why": "两次都没拿到 JSON（TimeoutError/http502）"
   },
-  "maoy_kktd": {
-    "action": "keep",
-    "adult": [],
-    "adult_n": 0,
-    "api": "https://kk.666888.club/vod/cibn_api.php/provide/vod/",
-    "hit_rate": 1.0,
-    "ms": 1117,
-    "n1": 0,
-    "n2": 0,
-    "name": "分享·💝分享糖豆",
-    "tested_at": 1794734198,
-    "titles1": [],
-    "titles2": [],
-    "verdict": "unknown",
-    "why": "两次都没拿到 JSON（URLError/URLError）"
-  },
   "maoy_py_动漫巴士": {
     "action": "keep",
     "adult": [],
@@ -3413,22 +2895,6 @@
     "n2": 0,
     "name": "分享·💝分享巴士",
     "tested_at": 1794734186,
-    "titles1": [],
-    "titles2": [],
-    "verdict": "unknown",
-    "why": "两次都没拿到 JSON（http404/http404）"
-  },
-  "maoy_t4直播转点播": {
-    "action": "keep",
-    "adult": [],
-    "adult_n": 0,
-    "api": "http://120.53.102.254/dsp16",
-    "hit_rate": 1.0,
-    "ms": 40,
-    "n1": 0,
-    "n2": 0,
-    "name": "分享·💝分享教育",
-    "tested_at": 1794734197,
     "titles1": [],
     "titles2": [],
     "verdict": "unknown",
@@ -3450,22 +2916,6 @@
     "verdict": "unknown",
     "why": "两次都没拿到 JSON（not-json/not-json）"
   },
-  "maoy_四圈资源": {
-    "action": "keep",
-    "adult": [],
-    "adult_n": 0,
-    "api": "https://pg.fenwe078.cf/api.php/provide/vod/",
-    "hit_rate": 1.0,
-    "ms": 759,
-    "n1": 0,
-    "n2": 0,
-    "name": "分享·⭕️四个圈圈",
-    "tested_at": 1794734197,
-    "titles1": [],
-    "titles2": [],
-    "verdict": "unknown",
-    "why": "两次都没拿到 JSON（URLError/URLError）"
-  },
   "maoy_天堂": {
     "action": "keep",
     "adult": [],
@@ -3482,22 +2932,6 @@
     "verdict": "unknown",
     "why": "两次都没拿到 JSON（http404/http404）"
   },
-  "maoy_官采": {
-    "action": "keep",
-    "adult": [],
-    "adult_n": 0,
-    "api": "https://cj.jusj.top/api.php/provide/vod/?ac=list",
-    "hit_rate": 1.0,
-    "ms": 51,
-    "n1": 0,
-    "n2": 0,
-    "name": "分享·💝分享官源",
-    "tested_at": 1794734197,
-    "titles1": [],
-    "titles2": [],
-    "verdict": "unknown",
-    "why": "两次都没拿到 JSON（URLError/URLError）"
-  },
   "maoy_无水印采集": {
     "action": "disable",
     "adult": [],
@@ -3513,64 +2947,6 @@
     "titles2": [],
     "verdict": "unknown",
     "why": "两次都没拿到 JSON（not-json/not-json）"
-  },
-  "maoy_最大资源": {
-    "action": "disable",
-    "adult": [],
-    "adult_n": 0,
-    "api": "https://api.zuidapi.com/api.php/provide/vod/?ac=list",
-    "hit_rate": 0.0,
-    "ms": 2000,
-    "n1": 20,
-    "n2": 20,
-    "name": "分享·💖分享最大",
-    "tested_at": 1794734191,
-    "titles1": [
-      "乡野丫头竟是顾少心尖宠",
-      "听见物品心声，我撕碎全职太太剧本",
-      "寿宴摊牌，告别无底洞",
-      "少夫人来自东北3",
-      "我扶发小青云志，发小还我万两金",
-      "我的老婆深藏不露",
-      "我的麻烦小助理",
-      "灵珠传：神妙奇珠",
-      "她能看见",
-      "成为休曼",
-      "11月14日 26-27赛季NBA常规赛 灰熊VS鹈鹕",
-      "11月14日 26-27赛季NBA常规赛 雷霆VS快船",
-      "11月14日 26-27赛季NBA常规赛 尼克斯VS步行者",
-      "11月14日 26-27赛季NBA常规赛 开拓者VS国王",
-      "11月14日 26-27赛季NBA常规赛 勇士VS马刺",
-      "11月14日 26-27赛季NBA常规赛 爵士VS火箭",
-      "一吻如意",
-      "别惹这个外卖员，他是修仙大佬",
-      "华丽人生：逆风者",
-      "孩子藏好，高冷上司是我前夫"
-    ],
-    "titles2": [
-      "乡野丫头竟是顾少心尖宠",
-      "听见物品心声，我撕碎全职太太剧本",
-      "寿宴摊牌，告别无底洞",
-      "少夫人来自东北3",
-      "我扶发小青云志，发小还我万两金",
-      "我的老婆深藏不露",
-      "我的麻烦小助理",
-      "灵珠传：神妙奇珠",
-      "她能看见",
-      "成为休曼",
-      "11月14日 26-27赛季NBA常规赛 灰熊VS鹈鹕",
-      "11月14日 26-27赛季NBA常规赛 雷霆VS快船",
-      "11月14日 26-27赛季NBA常规赛 尼克斯VS步行者",
-      "11月14日 26-27赛季NBA常规赛 开拓者VS国王",
-      "11月14日 26-27赛季NBA常规赛 勇士VS马刺",
-      "11月14日 26-27赛季NBA常规赛 爵士VS火箭",
-      "一吻如意",
-      "别惹这个外卖员，他是修仙大佬",
-      "华丽人生：逆风者",
-      "孩子藏好，高冷上司是我前夫"
-    ],
-    "verdict": "ignored",
-    "why": "两次结果重合 100%，wd 被忽略（回固定列表）"
   },
   "maoy_猫眼资源采集": {
     "action": "keep",
@@ -3615,49 +2991,6 @@
     "verdict": "unknown",
     "why": "两次都没拿到 JSON（URLError/URLError）"
   },
-  "maoy_迷你": {
-    "action": "keep",
-    "adult": [],
-    "adult_n": 0,
-    "api": "http://qp.69mini.com/api.php/provide/vod/",
-    "hit_rate": 1.0,
-    "ms": 551,
-    "n1": 5,
-    "n2": 20,
-    "name": "分享·💝分享迷你",
-    "tested_at": 1794734195,
-    "titles1": [
-      "庆余年2",
-      "庆余年",
-      "庆余年1",
-      "庆余年 第二季",
-      "庆余年第二季"
-    ],
-    "titles2": [
-      "熊出没逆转时空",
-      "熊出没伴我“熊芯”",
-      "熊出没重返地球",
-      "熊出没之冬日乐翻天",
-      "熊出没之怪兽计划2",
-      "熊出没之探险日记2",
-      "熊出没重启未来",
-      "熊出没逆转时空",
-      "熊出没重返地球",
-      "熊出没伴我“熊芯”",
-      "熊出没之神奇宝物2",
-      "熊出没",
-      "熊出没狂野大陆",
-      "熊出没之环球大冒险",
-      "熊出没伴我“熊芯”",
-      "熊出没逆转时空",
-      "熊出没之过年",
-      "熊出没注意",
-      "熊出没之丛林总动员",
-      "熊出没"
-    ],
-    "verdict": "good",
-    "why": "命中率 100% / 100%，重合 0%"
-  },
   "maoy_采集集合": {
     "action": "keep",
     "adult": [],
@@ -3673,68 +3006,6 @@
     "titles2": [],
     "verdict": "unknown",
     "why": "两次都没拿到 JSON（TimeoutError/http502）"
-  },
-  "maoy_金蝉": {
-    "action": "keep",
-    "adult": [],
-    "adult_n": 0,
-    "api": "http://zy.jinchancaiji.com/api.php/provide/vod",
-    "hit_rate": 1.0,
-    "ms": 36,
-    "n1": 0,
-    "n2": 0,
-    "name": "分享·💝分享金蝉",
-    "tested_at": 1794734197,
-    "titles1": [],
-    "titles2": [],
-    "verdict": "unknown",
-    "why": "两次都没拿到 JSON（URLError/URLError）"
-  },
-  "maoy_金鹰资源": {
-    "action": "keep",
-    "adult": [],
-    "adult_n": 0,
-    "api": "https://jyzyapi.com/provide/vod/",
-    "hit_rate": 1.0,
-    "ms": 2979,
-    "n1": 8,
-    "n2": 20,
-    "name": "分享·💖分享金鹰",
-    "tested_at": 1794734169,
-    "titles1": [
-      "庆余年 第二季",
-      "庆余年之风起沧州",
-      "庆余年之帝王业",
-      "庆余年之少年风流",
-      "庆余年，全世界都以为我是废物太子（庆余年之大凉太子爷）",
-      "庆余年第一季 特别版",
-      "庆余年之大赵逍遥王",
-      "庆余年 第一季"
-    ],
-    "titles2": [
-      "熊出没之神奇宝物第二季",
-      "熊出没·变形记",
-      "熊出没·原始时代",
-      "熊出没·年年有熊",
-      "熊出没之神奇宝物",
-      "熊出没第一季",
-      "熊出没·重启未来",
-      "熊出没之小小世界 第二季",
-      "熊出没 重启未来",
-      "熊出没之环球大冒险",
-      "熊出没之冬日乐翻天",
-      "熊出没·逆转时空",
-      "熊出没之小小世界",
-      "熊出没之探险日记第二季",
-      "熊出没之秋日团团转",
-      "熊出没之夏日连连看",
-      "熊出没之春日对对碰",
-      "熊出没之怪兽计划2",
-      "熊出没之怪兽计划",
-      "熊出没之丛林总动员"
-    ],
-    "verdict": "good",
-    "why": "命中率 100% / 100%，重合 0%"
   },
   "maoy_飘零影院": {
     "action": "keep",
@@ -4005,6 +3276,52 @@
     "verdict": "good",
     "why": "命中率 100% / 100%，重合 0%"
   },
+  "nptp_s_d8d52255b1": {
+    "action": "keep",
+    "adult": [],
+    "adult_n": 0,
+    "api": "http://jyzyapi.com/provide/vod/from/jinyingm3u8/",
+    "hit_rate": 1.0,
+    "ms": 211,
+    "n1": 8,
+    "n2": 20,
+    "name": "探针·🔰金鹰(12万)·396ms~",
+    "tested_at": 1794736001,
+    "titles1": [
+      "庆余年 第二季",
+      "庆余年之风起沧州",
+      "庆余年之帝王业",
+      "庆余年之少年风流",
+      "庆余年，全世界都以为我是废物太子（庆余年之大凉太子爷）",
+      "庆余年第一季 特别版",
+      "庆余年之大赵逍遥王",
+      "庆余年 第一季"
+    ],
+    "titles2": [
+      "熊出没之神奇宝物第二季",
+      "熊出没·变形记",
+      "熊出没·原始时代",
+      "熊出没·年年有熊",
+      "熊出没之神奇宝物",
+      "熊出没第一季",
+      "熊出没·重启未来",
+      "熊出没之小小世界 第二季",
+      "熊出没 重启未来",
+      "熊出没之环球大冒险",
+      "熊出没之冬日乐翻天",
+      "熊出没·逆转时空",
+      "熊出没之小小世界",
+      "熊出没之探险日记第二季",
+      "熊出没之秋日团团转",
+      "熊出没之夏日连连看",
+      "熊出没之春日对对碰",
+      "熊出没之怪兽计划2",
+      "熊出没之怪兽计划",
+      "熊出没之丛林总动员"
+    ],
+    "verdict": "good",
+    "why": "命中率 100% / 100%，重合 0%"
+  },
   "nptp_s_wsyzy": {
     "action": "keep",
     "adult": [],
@@ -4050,22 +3367,6 @@
     ],
     "verdict": "good",
     "why": "命中率 100% / 100%，重合 0%"
-  },
-  "npysc_mt": {
-    "action": "disable",
-    "adult": [],
-    "adult_n": 0,
-    "api": "https://caiji.maotaizy.cc/api.php/provide/vod/",
-    "hit_rate": 1.0,
-    "ms": 1848,
-    "n1": 0,
-    "n2": 0,
-    "name": "云镜·茅台资源",
-    "tested_at": 1794734187,
-    "titles1": [],
-    "titles2": [],
-    "verdict": "empty",
-    "why": "两个词都返回 0 条"
   },
   "xiangya_柚子资源": {
     "action": "keep",
