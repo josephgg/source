@@ -1,21 +1,20 @@
 {
- "generated_at": "2026-11-14T23:38:40",
- "tested_at": 1794699520,
+ "generated_at": "2026-11-15T08:44:30",
+ "tested_at": 1794732270,
  "scope": "all.json",
  "keyword": "庆余年",
  "summary": {
-  "ok": 25,
-  "direct": 20,
-  "dead_link": 39,
-  "no_result": 13,
-  "no_episode": 6,
+  "ok": 24,
+  "direct": 19,
+  "search_fail": 38,
+  "dead_link": 36,
   "search_bad": 34,
   "python_spider": 173,
-  "search_fail": 17,
   "rule_based": 4224,
-  "xml_endpoint": 4,
+  "html_link": 1,
+  "no_result": 4,
   "bad_segment": 1,
-  "share_page": 2,
+  "xml_endpoint": 4,
   "bad_url": 5,
   "dns_dead": 18,
   "live_format": 1
@@ -30,7 +29,7 @@
    "why": "",
    "first_url": "https://1080p.huyall.com/play/6dBlmVNa/index.m3u8",
    "codec": "",
-   "ms": 1340,
+   "ms": 2230,
    "bad_streak": 0,
    "prev_verdict": "ok"
   },
@@ -43,7 +42,7 @@
    "why": "",
    "first_url": "https://play.hhuus.com/play/DbDpoXqb",
    "codec": "",
-   "ms": 971,
+   "ms": 1117,
    "bad_streak": 0,
    "prev_verdict": "direct"
   },
@@ -56,7 +55,7 @@
    "why": "",
    "first_url": "https://vod2.maowushi.com/20240516/zN7aNzzK/index.m3u8",
    "codec": "",
-   "ms": 3005,
+   "ms": 4199,
    "bad_streak": 0,
    "prev_verdict": "ok"
   },
@@ -69,7 +68,7 @@
    "why": "",
    "first_url": "https://play.modujx16.com/20241127/yiLl9T4H/index.m3u8",
    "codec": "",
-   "ms": 945,
+   "ms": 1991,
    "bad_streak": 0,
    "prev_verdict": "ok"
   },
@@ -82,22 +81,9 @@
    "why": "",
    "first_url": "https://vv.jisuzyv.com/play/oeErpY0a",
    "codec": "",
-   "ms": 533,
+   "ms": 604,
    "bad_streak": 0,
    "prev_verdict": "direct"
-  },
-  {
-   "key": "lxchuangxiang_创享影视",
-   "name": "创享·🌟 创享影视",
-   "api": "https://ys.cxkjg.cn/api/provide/vod",
-   "kind": "cms",
-   "verdict": "ok",
-   "why": "",
-   "first_url": "https://hd.kuktxu.com/play/6dBlmVNa/index.m3u8",
-   "codec": "",
-   "ms": 4472,
-   "bad_streak": 0,
-   "prev_verdict": "ok"
   },
   {
    "key": "maoy_极速",
@@ -108,7 +94,7 @@
    "why": "",
    "first_url": "https://vv.jisuzyv.com/play/oeErpY0a",
    "codec": "",
-   "ms": 531,
+   "ms": 616,
    "bad_streak": 0,
    "prev_verdict": "direct"
   },
@@ -121,7 +107,7 @@
    "why": "",
    "first_url": "https://play.ly166.com:65/videos/20250722/687f3d0b80eee9b955fe6960/e08efg/index.m3u8",
    "codec": "",
-   "ms": 3645,
+   "ms": 6153,
    "bad_streak": 0,
    "prev_verdict": "ok"
   },
@@ -134,7 +120,7 @@
    "why": "",
    "first_url": "https://bfikuncdn.com/20240523/6Z9jGK4r/index.m3u8",
    "codec": "",
-   "ms": 813,
+   "ms": 1366,
    "bad_streak": 0,
    "prev_verdict": "ok"
   },
@@ -147,7 +133,7 @@
    "why": "",
    "first_url": "https://bfikuncdn.com/20240523/6Z9jGK4r/index.m3u8",
    "codec": "",
-   "ms": 819,
+   "ms": 1368,
    "bad_streak": 0,
    "prev_verdict": "ok"
   },
@@ -160,7 +146,7 @@
    "why": "",
    "first_url": "https://v.gsuus.com/play/kazVzrma/index.m3u8",
    "codec": "",
-   "ms": 951,
+   "ms": 1769,
    "bad_streak": 0,
    "prev_verdict": "ok"
   },
@@ -173,7 +159,7 @@
    "why": "",
    "first_url": "https://cdn.ryplay11.com/20241130/63415_866058d3/index.m3u8",
    "codec": "",
-   "ms": 3117,
+   "ms": 3912,
    "bad_streak": 0,
    "prev_verdict": "ok"
   },
@@ -186,7 +172,7 @@
    "why": "",
    "first_url": "https://v.gsuus.com/play/kazVzrma",
    "codec": "",
-   "ms": 762,
+   "ms": 861,
    "bad_streak": 0,
    "prev_verdict": "direct"
   },
@@ -199,7 +185,7 @@
    "why": "",
    "first_url": "https://vv.jisuzyv.com/play/oeErpY0a",
    "codec": "",
-   "ms": 524,
+   "ms": 611,
    "bad_streak": 0,
    "prev_verdict": "direct"
   },
@@ -212,7 +198,7 @@
    "why": "",
    "first_url": "https://play.xluuss.com/play/9aAjlRPb",
    "codec": "",
-   "ms": 1125,
+   "ms": 1098,
    "bad_streak": 0,
    "prev_verdict": "direct"
   },
@@ -225,9 +211,27 @@
    "why": "",
    "first_url": "https://hn.bfvvs.com/play/PdyQyqPd",
    "codec": "",
-   "ms": 1850,
+   "ms": 3237,
    "bad_streak": 0,
    "prev_verdict": "direct"
+  },
+  {
+   "key": "lxchuangxiang_创享影视",
+   "name": "创享·🌟 创享影视",
+   "api": "https://ys.cxkjg.cn/api/provide/vod",
+   "kind": "cms",
+   "verdict": "search_fail",
+   "why": "搜索 HTTP URLError；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "1q5bzjfj.gog.788855.xyz.",
+    "34.218.66.98"
+   ],
+   "bad_streak": 0,
+   "prev_verdict": "ok"
   },
   {
    "key": "maoy_cjzy_360资源",
@@ -238,7 +242,7 @@
    "why": "",
    "first_url": "https://vod2.maowushi.com/20240516/zN7aNzzK/index.m3u8",
    "codec": "",
-   "ms": 2502,
+   "ms": 3852,
    "bad_streak": 0,
    "prev_verdict": "ok"
   },
@@ -251,7 +255,7 @@
    "why": "",
    "first_url": "https://hd.kuktxu.com/play/6dBlmVNa/index.m3u8",
    "codec": "",
-   "ms": 5234,
+   "ms": 19877,
    "bad_streak": 0,
    "prev_verdict": "ok"
   },
@@ -264,7 +268,7 @@
    "why": "",
    "first_url": "https://bfikuncdn.com/20240523/6Z9jGK4r/index.m3u8",
    "codec": "",
-   "ms": 571,
+   "ms": 1050,
    "bad_streak": 0,
    "prev_verdict": "ok"
   },
@@ -277,7 +281,7 @@
    "why": "",
    "first_url": "https://play.xluuss.com/play/9aAjlRPb",
    "codec": "",
-   "ms": 685,
+   "ms": 449,
    "bad_streak": 0,
    "prev_verdict": "direct"
   },
@@ -290,7 +294,7 @@
    "why": "",
    "first_url": "https://play.xluuss.com/play/9aAjlRPb",
    "codec": "",
-   "ms": 643,
+   "ms": 834,
    "bad_streak": 0,
    "prev_verdict": "direct"
   },
@@ -303,7 +307,7 @@
    "why": "",
    "first_url": "https://hd.kuktxu.com/play/6dBlmVNa",
    "codec": "",
-   "ms": 1856,
+   "ms": 3780,
    "bad_streak": 0,
    "prev_verdict": "direct"
   },
@@ -316,7 +320,7 @@
    "why": "",
    "first_url": "https://play.maoyanplay.top/20240422/mnLBbXOp/index.m3u8",
    "codec": "",
-   "ms": 2803,
+   "ms": 2376,
    "bad_streak": 0,
    "prev_verdict": "ok"
   },
@@ -329,7 +333,7 @@
    "why": "",
    "first_url": "https://cdn.ryplay11.com/20241130/63415_866058d3/index.m3u8",
    "codec": "",
-   "ms": 2666,
+   "ms": 5042,
    "bad_streak": 0,
    "prev_verdict": "ok"
   },
@@ -342,7 +346,7 @@
    "why": "",
    "first_url": "https://v.gsuus.com/play/kazVzrma",
    "codec": "",
-   "ms": 196,
+   "ms": 233,
    "bad_streak": 0,
    "prev_verdict": "direct"
   },
@@ -355,7 +359,7 @@
    "why": "",
    "first_url": "https://play.hhuus.com/play/DbDpoXqb",
    "codec": "",
-   "ms": 570,
+   "ms": 759,
    "bad_streak": 0,
    "prev_verdict": "direct"
   },
@@ -368,7 +372,7 @@
    "why": "",
    "first_url": "https://cdn.ryplay11.com/20241130/63415_866058d3/index.m3u8",
    "codec": "",
-   "ms": 2205,
+   "ms": 3584,
    "bad_streak": 0,
    "prev_verdict": "ok"
   },
@@ -381,7 +385,7 @@
    "why": "",
    "first_url": "https://play.modujx16.com/20241127/yiLl9T4H/index.m3u8",
    "codec": "",
-   "ms": 959,
+   "ms": 1075,
    "bad_streak": 0,
    "prev_verdict": "ok"
   },
@@ -394,7 +398,7 @@
    "why": "",
    "first_url": "https://1080p.huyall.com/play/6dBlmVNa",
    "codec": "",
-   "ms": 616,
+   "ms": 861,
    "bad_streak": 0,
    "prev_verdict": "direct"
   },
@@ -407,7 +411,7 @@
    "why": "",
    "first_url": "https://hd.kuktxu.com/play/6dBlmVNa",
    "codec": "",
-   "ms": 1225,
+   "ms": 2258,
    "bad_streak": 0,
    "prev_verdict": "direct"
   },
@@ -420,98 +424,7 @@
    "why": "",
    "first_url": "https://play.ly166.com:65/videos/20250722/687f3d0b80eee9b955fe6960/e08efg/index.m3u8",
    "codec": "",
-   "ms": 5132,
-   "bad_streak": 0,
-   "prev_verdict": "ok"
-  },
-  {
-   "key": "lxchuangxiang_source_2761253814",
-   "name": "创享·📡 红牛",
-   "api": "https://ys.cxkjg.cn/api/provide/vod?source=2761253814",
-   "kind": "cms",
-   "verdict": "direct",
-   "why": "",
-   "first_url": "https://hn.bfvvs.com/play/PdyQyqPd",
-   "codec": "",
-   "ms": 3230,
-   "bad_streak": 0,
-   "prev_verdict": "direct"
-  },
-  {
-   "key": "lxchuangxiang_source_1016684692",
-   "name": "创享·📡 速博",
-   "api": "https://ys.cxkjg.cn/api/provide/vod?source=1016684692",
-   "kind": "cms",
-   "verdict": "direct",
-   "why": "",
-   "first_url": "https://play.xluuss.com/play/9aAjlRPb",
-   "codec": "",
-   "ms": 1942,
-   "bad_streak": 0,
-   "prev_verdict": "direct"
-  },
-  {
-   "key": "maoy_新浪影视",
-   "name": "分享·💝分享新浪",
-   "api": "https://api.xinlangapi.com/xinlangapi.php/provide/vod/",
-   "kind": "cms",
-   "verdict": "direct",
-   "why": "",
-   "first_url": "https://play.xluuss.com/play/9aAjlRPb",
-   "codec": "",
-   "ms": 377,
-   "bad_streak": 0,
-   "prev_verdict": "direct"
-  },
-  {
-   "key": "lxxhzdc17_IK",
-   "name": "小盒仓·IK",
-   "api": "https://ikunzyapi.com/api.php/provide/vod/from/ikm3u8/",
-   "kind": "cms",
-   "verdict": "ok",
-   "why": "",
-   "first_url": "https://bfikuncdn.com/20240523/6Z9jGK4r/index.m3u8",
-   "codec": "",
-   "ms": 606,
-   "bad_streak": 0,
-   "prev_verdict": "ok"
-  },
-  {
-   "key": "nptp_s_7d7654e3d9",
-   "name": "探针·🎯猫眼(3.4万)·181ms",
-   "api": "https://api.maoyanapi.top/api.php/provide/vod/",
-   "kind": "cms",
-   "verdict": "ok",
-   "why": "",
-   "first_url": "https://play.maoyanplay.top/20240422/mnLBbXOp/index.m3u8",
-   "codec": "",
-   "ms": 1509,
-   "bad_streak": 0,
-   "prev_verdict": "ok"
-  },
-  {
-   "key": "nptp_s_459dfdcfb4",
-   "name": "探针·🏙魔都(9.2万)·1197ms",
-   "api": "https://caiji.moduapi.cc/api.php/provide/vod/",
-   "kind": "cms",
-   "verdict": "ok",
-   "why": "",
-   "first_url": "https://play.modujx16.com/20241127/yiLl9T4H/index.m3u8",
-   "codec": "",
-   "ms": 669,
-   "bad_streak": 0,
-   "prev_verdict": "ok"
-  },
-  {
-   "key": "nptp_s_d8d52255b1",
-   "name": "探针·🔰金鹰(12万)·610ms",
-   "api": "http://jyzyapi.com/provide/vod/from/jinyingm3u8/",
-   "kind": "cms",
-   "verdict": "ok",
-   "why": "",
-   "first_url": "https://hd.kuktxu.com/play/6dBlmVNa/index.m3u8",
-   "codec": "",
-   "ms": 2171,
+   "ms": 4738,
    "bad_streak": 0,
    "prev_verdict": "ok"
   },
@@ -524,45 +437,48 @@
    "why": "",
    "first_url": "https://v.gsuus.com/play/kazVzrma",
    "codec": "",
-   "ms": 2889,
+   "ms": 15064,
    "bad_streak": 0,
    "prev_verdict": "direct"
   },
   {
-   "key": "nptp_s_297afcf867",
-   "name": "探针·📦最大(13万)·751ms",
-   "api": "https://api.zuidapi.com/api.php/provide/vod/",
+   "key": "lxchuangxiang_source_2761253814",
+   "name": "创享·📡 红牛",
+   "api": "https://ys.cxkjg.cn/api/provide/vod?source=2761253814",
    "kind": "cms",
-   "verdict": "dead_link",
-   "why": "首集返回 403（带 Referer 也失败）；DoH 有 A 记录，属本机 DNS 被拦",
-   "first_url": "https://v13.zuidazym3u8.com/yyv13/202611/15/SKWd0qV62c27/video/index.m3u8",
+   "verdict": "direct",
+   "why": "",
+   "first_url": "https://hn.bfvvs.com/play/PdyQyqPd",
    "codec": "",
-   "ms": null,
-   "doh_status": 0,
-   "doh_ips": [
-    "188.114.96.3",
-    "188.114.97.3"
-   ],
-   "bad_streak": 1,
-   "prev_verdict": "search_fail"
+   "ms": 6010,
+   "bad_streak": 0,
+   "prev_verdict": "direct"
   },
   {
-   "key": "lxshiguang1_最大采集",
-   "name": "拾光·最大｜采集",
-   "api": "https://zuida.xyz/api.php/provide/vod/",
+   "key": "maoy_新浪影视",
+   "name": "分享·💝分享新浪",
+   "api": "https://api.xinlangapi.com/xinlangapi.php/provide/vod/",
    "kind": "cms",
-   "verdict": "dead_link",
-   "why": "首集返回 403（带 Referer 也失败）；DoH 有 A 记录，属本机 DNS 被拦",
-   "first_url": "https://v13.zuidazym3u8.com/yyv13/202611/15/SKWd0qV62c27/video/index.m3u8",
+   "verdict": "direct",
+   "why": "",
+   "first_url": "https://play.xluuss.com/play/9aAjlRPb",
    "codec": "",
-   "ms": null,
-   "doh_status": 0,
-   "doh_ips": [
-    "172.67.221.139",
-    "104.21.25.10"
-   ],
-   "bad_streak": 2,
-   "prev_verdict": "dead_link"
+   "ms": 439,
+   "bad_streak": 0,
+   "prev_verdict": "direct"
+  },
+  {
+   "key": "lxxhzdc17_IK",
+   "name": "小盒仓·IK",
+   "api": "https://ikunzyapi.com/api.php/provide/vod/from/ikm3u8/",
+   "kind": "cms",
+   "verdict": "ok",
+   "why": "",
+   "first_url": "https://bfikuncdn.com/20240523/6Z9jGK4r/index.m3u8",
+   "codec": "",
+   "ms": 1286,
+   "bad_streak": 0,
+   "prev_verdict": "ok"
   },
   {
    "key": "nptp_s_wsyzy",
@@ -573,69 +489,82 @@
    "why": "",
    "first_url": "https://v11.wsyzym3u8.com/202405/16/bBax7JbMgq3/video/index.m3u8",
    "codec": "",
-   "ms": 769,
+   "ms": 4505,
    "bad_streak": 0,
    "prev_verdict": "ok"
   },
   {
-   "key": "lxshiguang54_旺旺短剧",
-   "name": "拾光·旺旺短剧",
-   "api": "http://zhangqun1818.serv00.net/ww.php",
+   "key": "nptp_s_7d7654e3d9",
+   "name": "探针·🎯猫眼(3.4万)·167ms",
+   "api": "https://api.maoyanapi.top/api.php/provide/vod/",
    "kind": "cms",
-   "verdict": "dead_link",
-   "why": "首集返回 URLError（带 Referer 也失败）；DoH 有 A 记录，属本机 DNS 被拦",
-   "first_url": "https://wwzycdn.10cong.com/20241104/fuhHUYvN/index.m3u8",
+   "verdict": "ok",
+   "why": "",
+   "first_url": "https://play.maoyanplay.top/20240422/mnLBbXOp/index.m3u8",
    "codec": "",
-   "ms": null,
-   "doh_status": 0,
-   "doh_ips": [
-    "128.204.223.113"
-   ],
-   "bad_streak": 1,
-   "prev_verdict": "search_fail"
+   "ms": 2494,
+   "bad_streak": 0,
+   "prev_verdict": "ok"
   },
   {
-   "key": "lxshiguang54_采集集合",
-   "name": "拾光·采集集合",
-   "api": "http://zhangqun1818.serv00.net/cj/cjjh.php",
+   "key": "nptp_s_459dfdcfb4",
+   "name": "探针·🏙魔都(9.2万)·1099ms",
+   "api": "https://caiji.moduapi.cc/api.php/provide/vod/",
    "kind": "cms",
-   "verdict": "dead_link",
-   "why": "首集返回 404（带 Referer 也失败）（2 条线路全部失败）；DoH 有 A 记录，属本机 DNS 被拦",
-   "first_url": "https://v.lzcdn28.com/share/4b4edc2630fe75800ddc29a7b4070add",
+   "verdict": "ok",
+   "why": "",
+   "first_url": "https://play.modujx16.com/20241127/yiLl9T4H/index.m3u8",
    "codec": "",
-   "ms": null,
-   "doh_status": 0,
-   "doh_ips": [
-    "128.204.223.113"
-   ],
-   "bad_streak": 1,
-   "prev_verdict": "search_fail"
+   "ms": 1964,
+   "bad_streak": 0,
+   "prev_verdict": "ok"
   },
   {
-   "key": "lxshiguang14_艾旦",
-   "name": "拾光·艾旦 | 采集",
-   "api": "https://www.lovedan.net/api.php/provide/vod/",
+   "key": "nptp_s_d8d52255b1",
+   "name": "探针·🔰金鹰(12万)·398ms",
+   "api": "http://jyzyapi.com/provide/vod/from/jinyingm3u8/",
    "kind": "cms",
-   "verdict": "dead_link",
-   "why": "首集返回 URLError（带 Referer 也失败）；DoH 有 A 记录，属本机 DNS 被拦",
-   "first_url": "https://hd.ijycnd.com/play/6dBlmVNa/index.m3u8",
+   "verdict": "ok",
+   "why": "",
+   "first_url": "https://hd.kuktxu.com/play/6dBlmVNa/index.m3u8",
    "codec": "",
-   "ms": null,
-   "doh_status": 0,
-   "doh_ips": [
-    "188.114.96.3",
-    "188.114.97.3"
-   ],
-   "bad_streak": 2,
-   "prev_verdict": "dead_link"
+   "ms": 4026,
+   "bad_streak": 0,
+   "prev_verdict": "ok"
+  },
+  {
+   "key": "lxchuangxiang_source_1016684692",
+   "name": "创享·📡 速博",
+   "api": "https://ys.cxkjg.cn/api/provide/vod?source=1016684692",
+   "kind": "cms",
+   "verdict": "direct",
+   "why": "",
+   "first_url": "https://play.xluuss.com/play/9aAjlRPb",
+   "codec": "",
+   "ms": 1549,
+   "bad_streak": 0,
+   "prev_verdict": "direct"
+  },
+  {
+   "key": "nptp_s_05b7f2c7da",
+   "name": "探针·🦚360(7.5万)·524ms",
+   "api": "https://360zyzz.com/api.php/provide/vod/",
+   "kind": "cms",
+   "verdict": "ok",
+   "why": "",
+   "first_url": "https://vod.guoluche.com/20240516/zN7aNzzK/index.m3u8",
+   "codec": "",
+   "ms": 2126,
+   "bad_streak": 0,
+   "prev_verdict": "ok"
   },
   {
    "key": "maoy_js集合",
    "name": "分享·💝分享js集",
    "api": "http://zhangqun1818.serv00.net/js.php",
    "kind": "cms",
-   "verdict": "no_result",
-   "why": "搜索无结果；DoH 有 A 记录，属本机 DNS 被拦",
+   "verdict": "search_fail",
+   "why": "搜索 HTTP TimeoutError；DoH 有 A 记录，属本机 DNS 被拦",
    "first_url": "",
    "codec": "",
    "ms": null,
@@ -644,7 +573,7 @@
     "128.204.223.113"
    ],
    "bad_streak": 0,
-   "prev_verdict": "search_fail"
+   "prev_verdict": "no_result"
   },
   {
    "key": "laoliu_百度",
@@ -658,10 +587,10 @@
    "ms": null,
    "doh_status": 0,
    "doh_ips": [
-    "104.21.24.74",
-    "172.67.217.198"
+    "172.67.217.198",
+    "104.21.24.74"
    ],
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "dead_link"
   },
   {
@@ -676,28 +605,11 @@
    "ms": null,
    "doh_status": 0,
    "doh_ips": [
-    "91.110.207.5",
-    "172.247.73.243"
+    "172.247.73.243",
+    "172.247.13.250"
    ],
-   "bad_streak": 7,
+   "bad_streak": 8,
    "prev_verdict": "dead_link"
-  },
-  {
-   "key": "maoy_采集集合",
-   "name": "分享·💝分享合集",
-   "api": "http://zhangqun1818.serv00.net/cj/cjjh.php",
-   "kind": "cms",
-   "verdict": "dead_link",
-   "why": "首集返回 404（带 Referer 也失败）（2 条线路全部失败）；DoH 有 A 记录，属本机 DNS 被拦",
-   "first_url": "https://v.lzcdn28.com/share/4b4edc2630fe75800ddc29a7b4070add",
-   "codec": "",
-   "ms": null,
-   "doh_status": 0,
-   "doh_ips": [
-    "128.204.223.113"
-   ],
-   "bad_streak": 1,
-   "prev_verdict": "search_fail"
   },
   {
    "key": "lxshiguang1_无尽资源网",
@@ -714,7 +626,7 @@
     "188.114.96.3",
     "188.114.97.3"
    ],
-   "bad_streak": 7,
+   "bad_streak": 8,
    "prev_verdict": "dead_link"
   },
   {
@@ -722,47 +634,8 @@
    "name": "拾光·油管播放列表1",
    "api": "http://zhangqun1818.serv00.net/ytlb.php",
    "kind": "cms",
-   "verdict": "no_episode",
-   "why": "详情无可用分集地址",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "search_fail"
-  },
-  {
-   "key": "lxshiguang54_油管播放列表2",
-   "name": "拾光·油管播放列表2",
-   "api": "http://zhangqun1818.serv00.net/ytlb1.php",
-   "kind": "cms",
-   "verdict": "no_episode",
-   "why": "详情无可用分集地址",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "search_fail"
-  },
-  {
-   "key": "lxshiguang54_油管清单播放",
-   "name": "拾光·油管清单播放",
-   "api": "http://zhangqun1818.serv00.net/zh/yt/2243.php",
-   "kind": "cms",
-   "verdict": "no_episode",
-   "why": "详情无可用分集地址",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "search_fail"
-  },
-  {
-   "key": "lxshiguang54_清单播放",
-   "name": "拾光·清单播放",
-   "api": "http://zhangqun1818.serv00.net/zh/2243.php",
-   "kind": "cms",
-   "verdict": "no_result",
-   "why": "搜索无结果；DoH 有 A 记录，属本机 DNS 被拦",
+   "verdict": "search_fail",
+   "why": "搜索 HTTP TimeoutError；DoH 有 A 记录，属本机 DNS 被拦",
    "first_url": "",
    "codec": "",
    "ms": null,
@@ -771,43 +644,24 @@
     "128.204.223.113"
    ],
    "bad_streak": 0,
-   "prev_verdict": "search_fail"
+   "prev_verdict": "no_episode"
   },
   {
-   "key": "ivok_电影天堂",
-   "name": "OK·🎞️天堂┃采集",
-   "api": "http://caiji.dyttzyapi.com/api.php/provide/vod/from/dyttm3u8/at/m3u8/",
+   "key": "lxshiguang54_油管播放列表2",
+   "name": "拾光·油管播放列表2",
+   "api": "http://zhangqun1818.serv00.net/ytlb1.php",
    "kind": "cms",
-   "verdict": "dead_link",
-   "why": "首集返回 403（带 Referer 也失败）；DoH 有 A 记录，属本机 DNS 被拦",
-   "first_url": "https://vip.dytt-tvs.com/20251221/8140_e2db7186/index.m3u8",
+   "verdict": "search_fail",
+   "why": "搜索 HTTP TimeoutError；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "",
    "codec": "",
    "ms": null,
    "doh_status": 0,
    "doh_ips": [
-    "vvv1.heisi-dns.com.",
-    "23.225.145.238"
+    "128.204.223.113"
    ],
-   "bad_streak": 7,
-   "prev_verdict": "dead_link"
-  },
-  {
-   "key": "maoy_最大资源",
-   "name": "分享·💖分享最大",
-   "api": "https://api.zuidapi.com/api.php/provide/vod/?ac=list",
-   "kind": "cms",
-   "verdict": "dead_link",
-   "why": "首集返回 403（带 Referer 也失败）；DoH 有 A 记录，属本机 DNS 被拦",
-   "first_url": "https://v13.zuidazym3u8.com/yyv13/202611/15/SKWd0qV62c27/video/index.m3u8",
-   "codec": "",
-   "ms": null,
-   "doh_status": 0,
-   "doh_ips": [
-    "188.114.96.3",
-    "188.114.97.3"
-   ],
-   "bad_streak": 2,
-   "prev_verdict": "dead_link"
+   "bad_streak": 0,
+   "prev_verdict": "no_episode"
   },
   {
    "key": "maoy_高清影视",
@@ -824,29 +678,34 @@
     "fb6dd06b.hdzyk-cdn.com.",
     "caiji.hdzyk-cdn.com."
    ],
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "dead_link"
   },
   {
-   "key": "lxshiguang54_服务器油管",
-   "name": "拾光·服务器油管",
-   "api": "http://zhangqun1818.serv00.net/yt/yt0021.php",
+   "key": "lxshiguang1_最大采集",
+   "name": "拾光·最大｜采集",
+   "api": "https://zuida.xyz/api.php/provide/vod/",
    "kind": "cms",
-   "verdict": "no_episode",
-   "why": "详情无可用分集地址",
-   "first_url": "",
+   "verdict": "dead_link",
+   "why": "首集返回 403（带 Referer 也失败）；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "https://v14.zuidazym3u8.com/yyv14/202611/15/MU3SsiRjn227/video/index.m3u8",
    "codec": "",
    "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "search_fail"
+   "doh_status": 0,
+   "doh_ips": [
+    "104.21.25.10",
+    "172.67.221.139"
+   ],
+   "bad_streak": 3,
+   "prev_verdict": "dead_link"
   },
   {
    "key": "lxshiguang54_爱瓜TV",
    "name": "拾光·爱瓜TV",
    "api": "http://zhangqun1818.serv00.net/aigua1.php",
    "kind": "cms",
-   "verdict": "no_result",
-   "why": "搜索无结果；DoH 有 A 记录，属本机 DNS 被拦",
+   "verdict": "search_fail",
+   "why": "搜索 HTTP TimeoutError；DoH 有 A 记录，属本机 DNS 被拦",
    "first_url": "",
    "codec": "",
    "ms": null,
@@ -855,7 +714,25 @@
     "128.204.223.113"
    ],
    "bad_streak": 0,
-   "prev_verdict": "search_fail"
+   "prev_verdict": "no_result"
+  },
+  {
+   "key": "ivok_电影天堂",
+   "name": "OK·🎞️天堂┃采集",
+   "api": "http://caiji.dyttzyapi.com/api.php/provide/vod/from/dyttm3u8/at/m3u8/",
+   "kind": "cms",
+   "verdict": "dead_link",
+   "why": "首集返回 403（带 Referer 也失败）；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "https://vip.dytt-tvs.com/20251221/8140_e2db7186/index.m3u8",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "vvv1.heisi-dns.com.",
+    "23.225.147.245"
+   ],
+   "bad_streak": 8,
+   "prev_verdict": "dead_link"
   },
   {
    "key": "lxxiaoma_电影天堂",
@@ -870,9 +747,9 @@
    "doh_status": 0,
    "doh_ips": [
     "vvv1.heisi-dns.com.",
-    "23.225.145.238"
+    "23.225.147.245"
    ],
-   "bad_streak": 7,
+   "bad_streak": 8,
    "prev_verdict": "dead_link"
   },
   {
@@ -887,10 +764,10 @@
    "ms": null,
    "doh_status": 0,
    "doh_ips": [
-    "172.247.13.251",
-    "91.110.207.6"
+    "172.247.73.242",
+    "172.247.13.250"
    ],
-   "bad_streak": 9,
+   "bad_streak": 10,
    "prev_verdict": "dead_link"
   },
   {
@@ -898,13 +775,17 @@
    "name": "拾光·影视文件播放",
    "api": "http://zhangqun1818.serv00.net/zh/2242.php",
    "kind": "cms",
-   "verdict": "no_episode",
-   "why": "详情无可用分集地址",
+   "verdict": "search_fail",
+   "why": "搜索 HTTP TimeoutError；DoH 有 A 记录，属本机 DNS 被拦",
    "first_url": "",
    "codec": "",
    "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "128.204.223.113"
+   ],
    "bad_streak": 0,
-   "prev_verdict": "search_fail"
+   "prev_verdict": "no_episode"
   },
   {
    "key": "nptp_s_77dpwqy",
@@ -915,7 +796,7 @@
    "why": "",
    "first_url": "https://cf.ddngo.space/77play?id=169370&s=1&e=1",
    "codec": "",
-   "ms": 5344,
+   "ms": 6168,
    "bad_streak": 0,
    "prev_verdict": "ok"
   },
@@ -932,27 +813,10 @@
    "doh_status": 0,
    "doh_ips": [
     "collect.ffzycdn8.com.",
-    "23.225.145.237"
+    "23.225.147.245"
    ],
-   "bad_streak": 9,
+   "bad_streak": 10,
    "prev_verdict": "dead_link"
-  },
-  {
-   "key": "lxshiguang54_php集合",
-   "name": "拾光·php集合",
-   "api": "http://zhangqun1818.serv00.net/php.php",
-   "kind": "cms",
-   "verdict": "no_result",
-   "why": "搜索无结果；DoH 有 A 记录，属本机 DNS 被拦",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "doh_status": 0,
-   "doh_ips": [
-    "128.204.223.113"
-   ],
-   "bad_streak": 0,
-   "prev_verdict": "search_fail"
   },
   {
    "key": "lxshiguang22_csp_xml_无尽",
@@ -969,7 +833,25 @@
     "188.114.97.3",
     "188.114.96.3"
    ],
-   "bad_streak": 7,
+   "bad_streak": 8,
+   "prev_verdict": "dead_link"
+  },
+  {
+   "key": "lxshiguang14_优质",
+   "name": "拾光·优质 | 采集",
+   "api": "https://api.yyzy-tv.vip/inc/apijson.php",
+   "kind": "cms",
+   "verdict": "dead_link",
+   "why": "首集返回 403（带 Referer 也失败）；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "https://svip.high25-playback.com/20250419/24287_9f62c81d/index.m3u8",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "fb6dd06b.hdzyk-cdn.com.",
+    "caiji.hdzyk-cdn.com."
+   ],
+   "bad_streak": 4,
    "prev_verdict": "dead_link"
   },
   {
@@ -985,9 +867,27 @@
    "doh_status": 0,
    "doh_ips": [
     "vvv1.heisi-dns.com.",
-    "23.225.145.238"
+    "23.225.147.245"
    ],
-   "bad_streak": 7,
+   "bad_streak": 8,
+   "prev_verdict": "dead_link"
+  },
+  {
+   "key": "lxshiguang14_艾旦",
+   "name": "拾光·艾旦 | 采集",
+   "api": "https://www.lovedan.net/api.php/provide/vod/",
+   "kind": "cms",
+   "verdict": "dead_link",
+   "why": "首集返回 URLError（带 Referer 也失败）；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "https://hd.ijycnd.com/play/6dBlmVNa/index.m3u8",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "188.114.96.3",
+    "188.114.97.3"
+   ],
+   "bad_streak": 3,
    "prev_verdict": "dead_link"
   },
   {
@@ -1003,9 +903,9 @@
    "doh_status": 0,
    "doh_ips": [
     "collect.ffzycdn8.com.",
-    "23.225.145.237"
+    "23.225.147.245"
    ],
-   "bad_streak": 9,
+   "bad_streak": 10,
    "prev_verdict": "dead_link"
   },
   {
@@ -1021,9 +921,9 @@
    "doh_status": 0,
    "doh_ips": [
     "collect.ffzycdn8.com.",
-    "23.225.145.237"
+    "23.225.147.245"
    ],
-   "bad_streak": 9,
+   "bad_streak": 10,
    "prev_verdict": "dead_link"
   },
   {
@@ -1036,7 +936,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 10,
+   "bad_streak": 11,
    "prev_verdict": "search_bad"
   },
   {
@@ -1066,24 +966,6 @@
    "prev_verdict": "python_spider"
   },
   {
-   "key": "maoy_非_凡",
-   "name": "分享·💖分享非凡",
-   "api": "http://cj.ffzyapi.com/api.php/provide/vod/",
-   "kind": "cms",
-   "verdict": "dead_link",
-   "why": "首集返回 403（带 Referer 也失败）（2 条线路全部失败）；DoH 有 A 记录，属本机 DNS 被拦",
-   "first_url": "https://vip.ffzy-online2.com/share/116b896114ff71245852cace1f9f69c5",
-   "codec": "",
-   "ms": null,
-   "doh_status": 0,
-   "doh_ips": [
-    "collect.ffzycdn8.com.",
-    "23.225.145.237"
-   ],
-   "bad_streak": 9,
-   "prev_verdict": "dead_link"
-  },
-  {
    "key": "maoy_4K电影网",
    "name": "分享·💝分享电影",
    "api": "https://15487.kstore.space/4K%E7%94%B5%E5%BD%B1%E7%BD%91.py",
@@ -1108,10 +990,10 @@
    "ms": null,
    "doh_status": 0,
    "doh_ips": [
-    "172.247.73.242",
-    "172.247.73.243"
+    "91.110.207.5",
+    "91.110.207.6"
    ],
-   "bad_streak": 9,
+   "bad_streak": 10,
    "prev_verdict": "dead_link"
   },
   {
@@ -1162,6 +1044,23 @@
    "doh_ips": [],
    "bad_streak": 0,
    "prev_verdict": "search_fail"
+  },
+  {
+   "key": "lxshiguang54_旺旺短剧",
+   "name": "拾光·旺旺短剧",
+   "api": "http://zhangqun1818.serv00.net/ww.php",
+   "kind": "cms",
+   "verdict": "search_fail",
+   "why": "搜索 HTTP TimeoutError；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "128.204.223.113"
+   ],
+   "bad_streak": 0,
+   "prev_verdict": "dead_link"
   },
   {
    "key": "lxshiguang1_魔抓采集资源",
@@ -1233,21 +1132,34 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "lxshiguang14_优质",
-   "name": "拾光·优质 | 采集",
-   "api": "https://api.yyzy-tv.vip/inc/apijson.php",
+   "key": "lxxiaoma_建安采集",
+   "name": "小马·影视 | 建安",
+   "api": "http://154.219.117.232:9981/jacloudapi.php/provide/vod",
+   "kind": "cms",
+   "verdict": "html_link",
+   "why": "首集是网页而非视频流（HTML 页面）（2 条线路全部失败）",
+   "first_url": "https://v.qq.com/x/cover/mzc00200vlhx16h/v0041src4wi.html",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 1,
+   "prev_verdict": "direct"
+  },
+  {
+   "key": "maoy_非_凡",
+   "name": "分享·💖分享非凡",
+   "api": "http://cj.ffzyapi.com/api.php/provide/vod/",
    "kind": "cms",
    "verdict": "dead_link",
-   "why": "首集返回 403（带 Referer 也失败）；DoH 有 A 记录，属本机 DNS 被拦",
-   "first_url": "https://svip.high25-playback.com/20250419/24287_9f62c81d/index.m3u8",
+   "why": "首集返回 403（带 Referer 也失败）（2 条线路全部失败）；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "https://vip.ffzy-online2.com/share/116b896114ff71245852cace1f9f69c5",
    "codec": "",
    "ms": null,
    "doh_status": 0,
    "doh_ips": [
-    "fb6dd06b.hdzyk-cdn.com.",
-    "caiji.hdzyk-cdn.com."
+    "collect.ffzycdn8.com.",
+    "23.225.147.245"
    ],
-   "bad_streak": 3,
+   "bad_streak": 10,
    "prev_verdict": "dead_link"
   },
   {
@@ -2051,10 +1963,10 @@
    "ms": null,
    "doh_status": 0,
    "doh_ips": [
-    "104.21.24.74",
-    "172.67.217.198"
+    "172.67.217.198",
+    "104.21.24.74"
    ],
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "dead_link"
   },
   {
@@ -2242,6 +2154,32 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "laoliu_csp_voflix",
+   "name": "老刘·🌾┃VOF┃高清",
+   "api": "csp_XBPQ",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "laoliu_csp_nkdyw",
+   "name": "老刘·💢┃南柯┃电影",
+   "api": "csp_XBPQ",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
    "key": "laoliu_csp_nkvlog",
    "name": "老刘·💢┃耐看┃电影",
    "api": "csp_XBPQ",
@@ -2307,6 +2245,74 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "lxshiguang54_php集合",
+   "name": "拾光·php集合",
+   "api": "http://zhangqun1818.serv00.net/php.php",
+   "kind": "cms",
+   "verdict": "search_fail",
+   "why": "搜索 HTTP TimeoutError；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "128.204.223.113"
+   ],
+   "bad_streak": 0,
+   "prev_verdict": "no_result"
+  },
+  {
+   "key": "lxshiguang54_服务器油管",
+   "name": "拾光·服务器油管",
+   "api": "http://zhangqun1818.serv00.net/yt/yt0021.php",
+   "kind": "cms",
+   "verdict": "search_fail",
+   "why": "搜索 HTTP TimeoutError；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "128.204.223.113"
+   ],
+   "bad_streak": 0,
+   "prev_verdict": "no_episode"
+  },
+  {
+   "key": "lxshiguang54_油管清单播放",
+   "name": "拾光·油管清单播放",
+   "api": "http://zhangqun1818.serv00.net/zh/yt/2243.php",
+   "kind": "cms",
+   "verdict": "search_fail",
+   "why": "搜索 HTTP TimeoutError；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "128.204.223.113"
+   ],
+   "bad_streak": 0,
+   "prev_verdict": "no_episode"
+  },
+  {
+   "key": "lxshiguang54_清单播放",
+   "name": "拾光·清单播放",
+   "api": "http://zhangqun1818.serv00.net/zh/2243.php",
+   "kind": "cms",
+   "verdict": "search_fail",
+   "why": "搜索 HTTP TimeoutError；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "128.204.223.113"
+   ],
+   "bad_streak": 0,
+   "prev_verdict": "no_result"
+  },
+  {
    "key": "maoy_百度影视",
    "name": "分享·💝分享百度",
    "api": "https://api.apibdzy.com//api.php/provide/vod/",
@@ -2318,10 +2324,10 @@
    "ms": null,
    "doh_status": 0,
    "doh_ips": [
-    "104.21.24.74",
-    "172.67.217.198"
+    "172.67.217.198",
+    "104.21.24.74"
    ],
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "dead_link"
   },
   {
@@ -2334,7 +2340,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 10,
+   "bad_streak": 11,
    "prev_verdict": "search_bad"
   },
   {
@@ -2347,7 +2353,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 10,
+   "bad_streak": 11,
    "prev_verdict": "search_bad"
   },
   {
@@ -2360,7 +2366,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 2,
+   "bad_streak": 3,
    "prev_verdict": "search_bad"
   },
   {
@@ -2373,7 +2379,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 10,
+   "bad_streak": 11,
    "prev_verdict": "search_bad"
   },
   {
@@ -2386,13 +2392,26 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 10,
+   "bad_streak": 11,
    "prev_verdict": "search_bad"
   },
   {
    "key": "wuxie13_Wwys",
    "name": "无邪·🍙┆糯米┆影视",
    "api": "csp_Wwys",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "ivfeimao2_厂长",
+   "name": "肥猫·🏭┃厂长┃影视",
+   "api": "csp_Czsapp",
    "kind": "rule",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -2412,7 +2431,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 10,
+   "bad_streak": 11,
    "prev_verdict": "search_bad"
   },
   {
@@ -2425,7 +2444,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 10,
+   "bad_streak": 11,
    "prev_verdict": "search_bad"
   },
   {
@@ -2438,7 +2457,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 10,
+   "bad_streak": 11,
    "prev_verdict": "search_bad"
   },
   {
@@ -2451,7 +2470,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 10,
+   "bad_streak": 11,
    "prev_verdict": "search_bad"
   },
   {
@@ -2763,13 +2782,26 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 10,
+   "bad_streak": 11,
    "prev_verdict": "search_bad"
   },
   {
    "key": "lxshiguang8_如意",
    "name": "拾光·如意|采集",
    "api": "csp_HBcms10CAT",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "lxshiguang27_厂长资源",
+   "name": "拾光·🙀厂长┃资源",
+   "api": "csp_XBPQ",
    "kind": "rule",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -2828,7 +2860,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 10,
+   "bad_streak": 11,
    "prev_verdict": "search_bad"
   },
   {
@@ -3149,6 +3181,23 @@
    "prev_verdict": "python_spider"
   },
   {
+   "key": "maoy_采集集合",
+   "name": "分享·💝分享合集",
+   "api": "http://zhangqun1818.serv00.net/cj/cjjh.php",
+   "kind": "cms",
+   "verdict": "search_fail",
+   "why": "搜索 HTTP TimeoutError；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "128.204.223.113"
+   ],
+   "bad_streak": 0,
+   "prev_verdict": "dead_link"
+  },
+  {
    "key": "maoy_土豆浏览器",
    "name": "分享·💝分享土豆",
    "api": "https://gh-proxy.com/https://raw.githubusercontent.com/maoystv/6/refs/heads/main/PY/%E5%9C%9F%E8%B1%86%E6%B5%8F%E8%A7%88%E5%99%A8.py",
@@ -3254,7 +3303,7 @@
   },
   {
    "key": "nptp_s_1b411b52e2",
-   "name": "探针·🌊无尽(13万)·619ms",
+   "name": "探针·🌊无尽(13万)·536ms",
    "api": "https://api.wujinapi.com/api.php/provide/vod/",
    "kind": "cms",
    "verdict": "dead_link",
@@ -3267,12 +3316,12 @@
     "104.21.40.208",
     "172.67.157.10"
    ],
-   "bad_streak": 5,
+   "bad_streak": 6,
    "prev_verdict": "dead_link"
   },
   {
    "key": "nptp_s_36df07a7f4",
-   "name": "探针·🍀非凡(9.9万)·308ms",
+   "name": "探针·🍀非凡(9.9万)·270ms",
    "api": "http://ffzy5.tv/api.php/provide/vod/",
    "kind": "cms",
    "verdict": "dead_link",
@@ -3282,15 +3331,15 @@
    "ms": null,
    "doh_status": 0,
    "doh_ips": [
-    "172.247.73.242",
-    "172.247.73.243"
+    "91.110.207.5",
+    "91.110.207.6"
    ],
-   "bad_streak": 5,
+   "bad_streak": 6,
    "prev_verdict": "dead_link"
   },
   {
    "key": "nptp_s_c3389de107",
-   "name": "探针·🎏百度云(5万)·923ms",
+   "name": "探针·🎏百度云(5万)·797ms",
    "api": "https://api.apibdzy.com/api.php/provide/vod/",
    "kind": "cms",
    "verdict": "dead_link",
@@ -3300,10 +3349,10 @@
    "ms": null,
    "doh_status": 0,
    "doh_ips": [
-    "104.21.24.74",
-    "172.67.217.198"
+    "172.67.217.198",
+    "104.21.24.74"
    ],
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "dead_link"
   },
   {
@@ -3361,19 +3410,6 @@
   {
    "key": "laoliu_csp_视觉",
    "name": "老刘·🅱️┃视觉┃影视",
-   "api": "csp_XBPQ",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "laoliu_csp_voflix",
-   "name": "老刘·🌾┃VOF┃高清",
    "api": "csp_XBPQ",
    "kind": "rule",
    "verdict": "rule_based",
@@ -3450,19 +3486,6 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "laoliu_csp_nkdyw",
-   "name": "老刘·💢┃南柯┃电影",
-   "api": "csp_XBPQ",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
    "key": "laoliu_cc_shdy2",
    "name": "老刘·🔥┃骚火┃电影",
    "api": "csp_XBPQ",
@@ -3490,7 +3513,7 @@
     "172.67.134.88",
     "104.21.25.154"
    ],
-   "bad_streak": 9,
+   "bad_streak": 10,
    "prev_verdict": "dead_link"
   },
   {
@@ -3780,6 +3803,19 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "lxshiguang1_囧次元",
+   "name": "拾光·囧次元┃动漫",
+   "api": "csp_AppGet",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
    "key": "lxshiguang1_巴士动漫",
    "name": "拾光·巴士｜动漫",
    "api": "csp_XYQHiker",
@@ -3830,6 +3866,24 @@
    "ms": null,
    "bad_streak": 0,
    "prev_verdict": "rule_based"
+  },
+  {
+   "key": "lxshiguang1_茅台采集",
+   "name": "拾光·茅台｜采集",
+   "api": "https://caiji.maotaizy.cc/api.php/provide/vod/from/mtm3u8/",
+   "kind": "cms",
+   "verdict": "no_result",
+   "why": "搜索无结果；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "kalavaxo.cdnfree.org.",
+    "51.222.139.234"
+   ],
+   "bad_streak": 0,
+   "prev_verdict": "no_result"
   },
   {
    "key": "lxshiguang40_csp_XBPQ_348",
@@ -3990,6 +4044,19 @@
   {
    "key": "lxshiguang40_csp_XBPQ_全民",
    "name": "拾光·雷蒙影视 | 🍚全民(XBPQ)",
+   "api": "csp_XBPQ",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "lxshiguang40_csp_XBPQ_八号",
+   "name": "拾光·雷蒙影视 | 🍚八号(XBPQ)",
    "api": "csp_XBPQ",
    "kind": "rule",
    "verdict": "rule_based",
@@ -4235,19 +4302,6 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "lxshiguang40_csp_XBPQ_影视",
-   "name": "拾光·雷蒙影视 | 🍚影视(XBPQ)",
-   "api": "csp_XBPQ",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
    "key": "lxshiguang40_csp_XBPQ_悠云",
    "name": "拾光·雷蒙影视 | 🍚悠云(XBPQ)",
    "api": "csp_XBPQ",
@@ -4328,19 +4382,6 @@
   {
    "key": "lxshiguang40_csp_XBPQ_星辰",
    "name": "拾光·雷蒙影视 | 🍚星辰(XBPQ)",
-   "api": "csp_XBPQ",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "lxshiguang40_csp_XBPQ_来看",
-   "name": "拾光·雷蒙影视 | 🍚来看(XBPQ)",
    "api": "csp_XBPQ",
    "kind": "rule",
    "verdict": "rule_based",
@@ -5028,8 +5069,8 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "lxshiguang22_皮皮影视",
-   "name": "拾光·👛皮皮影视",
+   "key": "lxshiguang22_起飞影视",
+   "name": "拾光·👐起飞影视",
    "api": "csp_XBPQ",
    "kind": "rule",
    "verdict": "rule_based",
@@ -5134,6 +5175,19 @@
   {
    "key": "lxshiguang22_影视大全",
    "name": "拾光·😐影视大全",
+   "api": "csp_XBPQ",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "lxshiguang22_鸭奈非4K",
+   "name": "拾光·😔鸭奈非4K",
    "api": "csp_XBPQ",
    "kind": "rule",
    "verdict": "rule_based",
@@ -5951,19 +6005,6 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "ivfeimao2_厂长",
-   "name": "肥猫·🏭┃厂长┃影视",
-   "api": "csp_Czsapp",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
    "key": "ivfeimao2_csp_Quanwk",
    "name": "肥猫·👀┃全看┃影视",
    "api": "csp_Quanwk",
@@ -5992,19 +6033,6 @@
   {
    "key": "ivcainisi_52看剧",
    "name": "菜妮丝·52┃影视",
-   "api": "csp_XBPQ",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "ivcainisi_APP影院",
-   "name": "菜妮丝·APP┃影视",
    "api": "csp_XBPQ",
    "kind": "rule",
    "verdict": "rule_based",
@@ -6198,6 +6226,19 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "ivmoyuer_次元动漫",
+   "name": "摸鱼儿·😋次元┃动漫┃蓝光",
+   "api": "csp_AppGet",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
    "key": "ivouge_1905",
    "name": "欧歌·💡1905｜影视",
    "api": "csp_Web1905",
@@ -6253,6 +6294,32 @@
    "key": "ivouge_米饭",
    "name": "欧歌·🤣米饭｜动漫",
    "api": "csp_AppGet",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "ivouge_八号影视",
+   "name": "欧歌·🧿八号｜影视",
+   "api": "csp_XYQHiker",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "ivxiaosa_厂长影视",
+   "name": "潇洒·厂长｜影视",
+   "api": "csp_Czsapp",
    "kind": "rule",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -6419,6 +6486,19 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "ivxiangya2_csp_XYQHiker_八号影视",
+   "name": "香雅情·8️⃣八号影视(XYQH)",
+   "api": "csp_XYQHiker",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
    "key": "ivxiangya2_csp_XYQHiker_风车动漫",
    "name": "香雅情·🌪风车动漫(XYQH)",
    "api": "csp_XYQHiker",
@@ -6510,19 +6590,6 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "ivduanju2_天龙影院",
-   "name": "短剧2·✨天龙短剧✨",
-   "api": "csp_XBPQ",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
    "key": "ivduanju2_掌心视界",
    "name": "短剧2·✨掌心短剧✨",
    "api": "csp_XBPQ",
@@ -6577,6 +6644,19 @@
   {
    "key": "ivduanju2_短剧大全",
    "name": "短剧2·✨短剧大全✨",
+   "api": "csp_XBPQ",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "ivduanju2_DJW",
+   "name": "短剧2·✨短剧网✨",
    "api": "csp_XBPQ",
    "kind": "rule",
    "verdict": "rule_based",
@@ -6835,9 +6915,9 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "lxoldliu_csp_nkdyw",
-   "name": "老刘2·💢┃南柯┃电影",
-   "api": "csp_XBPQ",
+   "key": "lxoldliu_XYQH_JOJO",
+   "name": "老刘2·🍁┃久久┃影视",
+   "api": "csp_XYQHiker",
    "kind": "rule",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -6922,7 +7002,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 10,
+   "bad_streak": 11,
    "prev_verdict": "search_bad"
   },
   {
@@ -7031,6 +7111,23 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "lxshiguang8_pansou",
+   "name": "拾光·盘搜|集合",
+   "api": "http://so.yinpai.xyz/wanpan.php?type=quark%7Cuc%7Cbaidu%7Ctianyi%7Cxunlei%7C123",
+   "kind": "cms",
+   "verdict": "search_fail",
+   "why": "搜索 HTTP TimeoutError；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "38.76.197.172"
+   ],
+   "bad_streak": 0,
+   "prev_verdict": "no_episode"
+  },
+  {
    "key": "gao_drpy_js_Anime1动畫",
    "name": "高天·动漫 | Anime1动畫[js]",
    "api": "https://raw.githubusercontent.com/gaotianliuyun/gao/master/lib/drpy2.min.js",
@@ -7098,6 +7195,19 @@
   {
    "key": "gao_drpy_js_怡萱动漫",
    "name": "高天·动漫 | 怡萱动漫[js]",
+   "api": "https://raw.githubusercontent.com/gaotianliuyun/gao/master/lib/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "gao_drpy_js_曲奇动漫",
+   "name": "高天·动漫 | 曲奇动漫[js]",
    "api": "https://raw.githubusercontent.com/gaotianliuyun/gao/master/lib/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
@@ -7254,6 +7364,19 @@
   {
    "key": "gao_drpy_js_UrleBird_飞",
    "name": "高天·影视 | UrleBird[飞][js]",
+   "api": "https://raw.githubusercontent.com/gaotianliuyun/gao/master/lib/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "gao_drpy_js_cokemv_V2",
+   "name": "高天·影视 | cokemv[V2]",
    "api": "https://raw.githubusercontent.com/gaotianliuyun/gao/master/lib/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
@@ -7551,6 +7674,19 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "gao_drpy_js_干饭影视",
+   "name": "高天·影视 | 干饭影视[js]",
+   "api": "https://raw.githubusercontent.com/gaotianliuyun/gao/master/lib/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
    "key": "gao_drpy_js_开眼视频",
    "name": "高天·影视 | 开眼视频[js]",
    "api": "https://raw.githubusercontent.com/gaotianliuyun/gao/master/lib/drpy2.min.js",
@@ -7566,19 +7702,6 @@
   {
    "key": "gao_drpy_js_影视工场",
    "name": "高天·影视 | 影视工场[js]",
-   "api": "https://raw.githubusercontent.com/gaotianliuyun/gao/master/lib/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "gao_drpy_js_快看",
-   "name": "高天·影视 | 快看[js]",
    "api": "https://raw.githubusercontent.com/gaotianliuyun/gao/master/lib/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
@@ -7735,6 +7858,19 @@
   {
    "key": "gao_drpy_js_看了么",
    "name": "高天·影视 | 看了么[js]",
+   "api": "https://raw.githubusercontent.com/gaotianliuyun/gao/master/lib/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "gao_drpy_js_看韩剧",
+   "name": "高天·影视 | 看韩剧[js]",
    "api": "https://raw.githubusercontent.com/gaotianliuyun/gao/master/lib/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
@@ -8877,7 +9013,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 10,
+   "bad_streak": 11,
    "prev_verdict": "search_bad"
   },
   {
@@ -9154,6 +9290,23 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "lxshiguang54_采集集合",
+   "name": "拾光·采集集合",
+   "api": "http://zhangqun1818.serv00.net/cj/cjjh.php",
+   "kind": "cms",
+   "verdict": "search_fail",
+   "why": "搜索 HTTP TimeoutError；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "128.204.223.113"
+   ],
+   "bad_streak": 0,
+   "prev_verdict": "dead_link"
+  },
+  {
    "key": "lxshiguang14_py_yangguang",
    "name": "拾光·阳光影视[py]",
    "api": "https://clun.top/py/yangguang.py",
@@ -9182,19 +9335,6 @@
   {
    "key": "lxshiguang27_夸克资源站",
    "name": "拾光·🎁夸克┃资源",
-   "api": "csp_XBPQ",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "lxshiguang27_厂长资源",
-   "name": "拾光·🙀厂长┃资源",
    "api": "csp_XBPQ",
    "kind": "rule",
    "verdict": "rule_based",
@@ -9393,17 +9533,17 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "lxshiguang8_pansou",
-   "name": "拾光·盘搜|集合",
-   "api": "http://so.yinpai.xyz/wanpan.php?type=quark%7Cuc%7Cbaidu%7Ctianyi%7Cxunlei%7C123",
+   "key": "nptp_s_1dc3ecbe6d",
+   "name": "探针·🐳巨量(35万)·765ms",
+   "api": "https://api.juliang.live/api/provide/vod/",
    "kind": "cms",
-   "verdict": "no_episode",
-   "why": "详情无可用分集地址",
-   "first_url": "",
+   "verdict": "bad_segment",
+   "why": "首个分片 404（清单正常但内容取不到）（2 条线路全部失败）",
+   "first_url": "https://jimaoys88.com/public/playback/72a8dc1cd30dccf81bf2f43826cde250/smart.m3u8",
    "codec": "",
    "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "search_fail"
+   "bad_streak": 6,
+   "prev_verdict": "bad_segment"
   },
   {
    "key": "maoy_58动漫网",
@@ -9592,8 +9732,8 @@
    "name": "拾光·python集合",
    "api": "http://zhangqun1818.serv00.net/py.php",
    "kind": "cms",
-   "verdict": "no_result",
-   "why": "搜索无结果；DoH 有 A 记录，属本机 DNS 被拦",
+   "verdict": "search_fail",
+   "why": "搜索 HTTP TimeoutError；DoH 有 A 记录，属本机 DNS 被拦",
    "first_url": "",
    "codec": "",
    "ms": null,
@@ -9602,7 +9742,7 @@
     "128.204.223.113"
    ],
    "bad_streak": 0,
-   "prev_verdict": "search_fail"
+   "prev_verdict": "no_result"
   },
   {
    "key": "lxchuangxiang_source_1208629981",
@@ -9614,26 +9754,8 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 4,
+   "bad_streak": 5,
    "prev_verdict": "search_bad"
-  },
-  {
-   "key": "lxchuangxiang_source_531717376",
-   "name": "创享·📡 樱花",
-   "api": "https://ys.cxkjg.cn/api/provide/vod?source=531717376",
-   "kind": "cms",
-   "verdict": "no_result",
-   "why": "搜索无结果；DoH 有 A 记录，属本机 DNS 被拦",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "doh_status": 0,
-   "doh_ips": [
-    "1q5bzjfj.gog.788855.xyz.",
-    "34.218.66.98"
-   ],
-   "bad_streak": 0,
-   "prev_verdict": "no_result"
   },
   {
    "key": "gao_UP云搜",
@@ -10172,19 +10294,6 @@
    "key": "lxshiguang3_4K影视",
    "name": "拾光·四K｜影视",
    "api": "csp_HBPQ",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "lxshiguang1_囧次元",
-   "name": "拾光·囧次元┃动漫",
-   "api": "csp_AppGet",
    "kind": "rule",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -10744,6 +10853,19 @@
    "key": "lxshiguang14_策弛影视",
    "name": "拾光·策弛影视",
    "api": "csp_XBPQ",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "lxshiguang3_全集影视",
+   "name": "拾光·网集｜影视",
+   "api": "csp_XYQHiker",
    "kind": "rule",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -11469,19 +11591,6 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "lxshiguang40_csp_XBPQ_八号",
-   "name": "拾光·雷蒙影视 | 🍚八号(XBPQ)",
-   "api": "csp_XBPQ",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
    "key": "lxshiguang40_csp_XBPQ_六八",
    "name": "拾光·雷蒙影视 | 🍚六八(XBPQ)",
    "api": "csp_XBPQ",
@@ -12158,6 +12267,19 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "lxshiguang40_csp_XBPQ_影视",
+   "name": "拾光·雷蒙影视 | 🍚影视(XBPQ)",
+   "api": "csp_XBPQ",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
    "key": "lxshiguang40_csp_XBPQ_影院",
    "name": "拾光·雷蒙影视 | 🍚影院(XBPQ)",
    "api": "csp_XBPQ",
@@ -12355,6 +12477,19 @@
   {
    "key": "lxshiguang40_csp_XBPQ_朵朵",
    "name": "拾光·雷蒙影视 | 🍚朵朵(XBPQ)",
+   "api": "csp_XBPQ",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "lxshiguang40_csp_XBPQ_来看",
+   "name": "拾光·雷蒙影视 | 🍚来看(XBPQ)",
    "api": "csp_XBPQ",
    "kind": "rule",
    "verdict": "rule_based",
@@ -13757,8 +13892,8 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "lxshiguang22_起飞影视",
-   "name": "拾光·👐起飞影视",
+   "key": "lxshiguang22_皮皮影视",
+   "name": "拾光·👛皮皮影视",
    "api": "csp_XBPQ",
    "kind": "rule",
    "verdict": "rule_based",
@@ -13902,19 +14037,6 @@
   {
    "key": "lxshiguang22_西瓜影视",
    "name": "拾光·😑西瓜影视",
-   "api": "csp_XBPQ",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "lxshiguang22_鸭奈非4K",
-   "name": "拾光·😔鸭奈非4K",
    "api": "csp_XBPQ",
    "kind": "rule",
    "verdict": "rule_based",
@@ -14693,6 +14815,19 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "ivcainisi_APP影院",
+   "name": "菜妮丝·APP┃影视",
+   "api": "csp_XBPQ",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
    "key": "ivcainisi_南坊",
    "name": "菜妮丝·南坊┃影视",
    "api": "csp_AppMao",
@@ -14888,19 +15023,6 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "ivmoyuer_次元动漫",
-   "name": "摸鱼儿·😋次元┃动漫┃蓝光",
-   "api": "csp_AppGet",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
    "key": "ivmoyuer_方舟",
    "name": "摸鱼儿·🛶方舟┃动漫┃蓝光",
    "api": "csp_AppGet",
@@ -14969,19 +15091,6 @@
    "key": "ivouge_影视影视",
    "name": "欧歌·🅰影视┃哔哩",
    "api": "csp_Bili",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "ivouge_八号影视",
-   "name": "欧歌·🧿八号｜影视",
-   "api": "csp_XYQHiker",
    "kind": "rule",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -15086,19 +15195,6 @@
    "key": "ivxiaosa_云播影视",
    "name": "潇洒·云播｜影视",
    "api": "csp_Tvyb",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "ivxiaosa_厂长影视",
-   "name": "潇洒·厂长｜影视",
-   "api": "csp_Czsapp",
    "kind": "rule",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -15502,19 +15598,6 @@
    "key": "ivtiantian_白嫖者",
    "name": "天天开心·🧿白嫖┃影视",
    "api": "csp_XBPQ",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "ivxiangya2_csp_XYQHiker_八号影视",
-   "name": "香雅情·8️⃣八号影视(XYQH)",
-   "api": "csp_XYQHiker",
    "kind": "rule",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -16006,6 +16089,19 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "ivduanju2_天龙影院",
+   "name": "短剧2·✨天龙短剧✨",
+   "api": "csp_XBPQ",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
    "key": "ivduanju2_妖狐短剧",
    "name": "短剧2·✨妖狐短剧✨",
    "api": "csp_XBPQ",
@@ -16073,32 +16169,6 @@
   {
    "key": "ivduanju2_爱看4K",
    "name": "短剧2·✨爱看4K短剧✨",
-   "api": "csp_XBPQ",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "ivduanju2_白嫖者联盟",
-   "name": "短剧2·✨白嫖短剧✨",
-   "api": "csp_XBPQ",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "ivduanju2_DJW",
-   "name": "短剧2·✨短剧网✨",
    "api": "csp_XBPQ",
    "kind": "rule",
    "verdict": "rule_based",
@@ -16466,24 +16536,6 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "lxshiguang1_茅台采集",
-   "name": "拾光·茅台｜采集",
-   "api": "https://caiji.maotaizy.cc/api.php/provide/vod/from/mtm3u8/",
-   "kind": "cms",
-   "verdict": "no_result",
-   "why": "搜索无结果；DoH 有 A 记录，属本机 DNS 被拦",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "doh_status": 0,
-   "doh_ips": [
-    "kalavaxo.cdnfree.org.",
-    "51.222.139.234"
-   ],
-   "bad_streak": 0,
-   "prev_verdict": "no_result"
-  },
-  {
    "key": "lxshiguang27_啊哈DJ网",
    "name": "拾光·🎵啊哈┃DJ",
    "api": "csp_XBPQ",
@@ -16679,19 +16731,6 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "gao_drpy_js_cokemv_V2",
-   "name": "高天·影视 | cokemv[V2]",
-   "api": "https://raw.githubusercontent.com/gaotianliuyun/gao/master/lib/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
    "key": "gao_drpy_js_两个BT",
    "name": "高天·影视 | 两个BT[js]",
    "api": "https://raw.githubusercontent.com/gaotianliuyun/gao/master/lib/drpy2.min.js",
@@ -16796,8 +16835,8 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "gao_drpy_js_干饭影视",
-   "name": "高天·影视 | 干饭影视[js]",
+   "key": "gao_drpy_js_影探_V2",
+   "name": "高天·影视 | 影探[V2]",
    "api": "https://raw.githubusercontent.com/gaotianliuyun/gao/master/lib/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
@@ -16809,8 +16848,8 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "gao_drpy_js_影探_V2",
-   "name": "高天·影视 | 影探[V2]",
+   "key": "gao_drpy_js_快看",
+   "name": "高天·影视 | 快看[js]",
    "api": "https://raw.githubusercontent.com/gaotianliuyun/gao/master/lib/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
@@ -16915,19 +16954,6 @@
   {
    "key": "gao_drpy_js_皮皮鸭",
    "name": "高天·影视 | 皮皮鸭[js]",
-   "api": "https://raw.githubusercontent.com/gaotianliuyun/gao/master/lib/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "gao_drpy_js_看韩剧",
-   "name": "高天·影视 | 看韩剧[js]",
    "api": "https://raw.githubusercontent.com/gaotianliuyun/gao/master/lib/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
@@ -17134,6 +17160,24 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "lxchuangxiang_source_531717376",
+   "name": "创享·📡 樱花",
+   "api": "https://ys.cxkjg.cn/api/provide/vod?source=531717376",
+   "kind": "cms",
+   "verdict": "no_result",
+   "why": "搜索无结果；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "1q5bzjfj.gog.788855.xyz.",
+    "34.218.66.98"
+   ],
+   "bad_streak": 0,
+   "prev_verdict": "no_result"
+  },
+  {
    "key": "maoy_360影视",
    "name": "分享·💝分享360",
    "api": "csp_SP360",
@@ -17277,6 +17321,19 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "lxxhzdc12_drpy_js_曲奇动漫",
+   "name": "小盒仓·动漫 | 曲奇动漫[js]",
+   "api": "https://www.yingm.cc/dm/js/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
    "key": "lxxhzdc12_drpy_js_动漫岛",
    "name": "小盒仓·动漫岛",
    "api": "https://www.yingm.cc/dm/js/drpy2.min.js",
@@ -17343,8 +17400,21 @@
     "ba13f3df.alzcname.com.",
     "lz7.alzcname.com."
    ],
-   "bad_streak": 9,
+   "bad_streak": 10,
    "prev_verdict": "dead_link"
+  },
+  {
+   "key": "lxshiguang40_drjs_最新4K",
+   "name": "拾光·雷蒙影视 | 👺最新4K(DRPY)",
+   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
   },
   {
    "key": "lxshiguang40_drjs_爱看机器人2",
@@ -17529,6 +17599,19 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "lxshiguang27_夸克影视",
+   "name": "拾光·💕夸克┃影视",
+   "api": "https://bitbucket.org/guot55/ygbh/raw/main/pro/js/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
    "key": "lxshiguang19_Hgdh",
    "name": "拾光·🔥短剧推荐",
    "api": "csp_HgdhAmns",
@@ -17582,7 +17665,7 @@
     "ba13f3df.alzcname.com.",
     "lz7.alzcname.com."
    ],
-   "bad_streak": 9,
+   "bad_streak": 10,
    "prev_verdict": "dead_link"
   },
   {
@@ -18691,19 +18774,6 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "lxshiguang22_app影院",
-   "name": "拾光·😻app影院",
-   "api": "csp_XBPQ",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
    "key": "lxshiguang22_我爱跟剧",
    "name": "拾光·🙄我爱跟剧",
    "api": "csp_XBPQ",
@@ -19714,7 +19784,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 4,
+   "bad_streak": 5,
    "prev_verdict": "xml_endpoint"
   },
   {
@@ -19727,7 +19797,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 4,
+   "bad_streak": 5,
    "prev_verdict": "xml_endpoint"
   },
   {
@@ -20186,6 +20256,19 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "gao_drpy_js_起飞影院",
+   "name": "高天·起飞 | 起飞影院[js]",
+   "api": "https://raw.githubusercontent.com/gaotianliuyun/gao/master/lib/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
    "key": "maoy_全片源",
    "name": "分享·💖分享全网",
    "api": "csp_AppYsV2",
@@ -20197,24 +20280,6 @@
    "ms": null,
    "bad_streak": 0,
    "prev_verdict": "rule_based"
-  },
-  {
-   "key": "maoy_量子-资源",
-   "name": "分享·💖分享量子",
-   "api": "https://cj.lziapi.com/api.php/provide/vod/",
-   "kind": "cms",
-   "verdict": "dead_link",
-   "why": "首集返回 404（带 Referer 也失败）（2 条线路全部失败）；DoH 有 A 记录，属本机 DNS 被拦",
-   "first_url": "https://v.lzcdn28.com/share/4b4edc2630fe75800ddc29a7b4070add",
-   "codec": "",
-   "ms": null,
-   "doh_status": 0,
-   "doh_ips": [
-    "ba13f3df.alzcname.com.",
-    "lz7.alzcname.com."
-   ],
-   "bad_streak": 9,
-   "prev_verdict": "dead_link"
   },
   {
    "key": "maoy_久久",
@@ -20635,32 +20700,6 @@
   {
    "key": "lxshiguang3_片吧影院",
    "name": "拾光·片吧｜影视",
-   "api": "https://jiekou.netlify.app/drpy_libs/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "lxshiguang1_红果短剧",
-   "name": "拾光·红果｜短剧",
-   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/xmbjm/svip/refs/heads/main/drpy_libs/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "lxshiguang3_红果短剧",
-   "name": "拾光·红果｜短剧",
    "api": "https://jiekou.netlify.app/drpy_libs/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
@@ -21129,45 +21168,6 @@
   {
    "key": "lxshiguang40_drjs_xvideos涩涩_密",
    "name": "拾光·雷蒙影视 | 👺xvideos涩涩[密](DRPY)",
-   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "lxshiguang40_drjs_一起看",
-   "name": "拾光·雷蒙影视 | 👺一起看(DRPY)",
-   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "lxshiguang40_drjs_一起看_优",
-   "name": "拾光·雷蒙影视 | 👺一起看[优](DRPY)",
-   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "lxshiguang40_drjs_七七看片网",
-   "name": "拾光·雷蒙影视 | 👺七七看片网(DRPY)",
    "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
@@ -21712,19 +21712,6 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "lxshiguang40_drjs_嘀哩嘀哩",
-   "name": "拾光·雷蒙影视 | 👺嘀哩嘀哩(DRPY)",
-   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
    "key": "lxshiguang40_drjs_团长资源",
    "name": "拾光·雷蒙影视 | 👺团长资源(DRPY)",
    "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
@@ -21753,19 +21740,6 @@
   {
    "key": "lxshiguang40_drjs_在线之家",
    "name": "拾光·雷蒙影视 | 👺在线之家(DRPY)",
-   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "lxshiguang40_drjs_多多影视",
-   "name": "拾光·雷蒙影视 | 👺多多影视(DRPY)",
    "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
@@ -21868,8 +21842,47 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "lxshiguang40_drjs_奇米动漫",
+   "name": "拾光·雷蒙影视 | 👺奇米动漫(DRPY)",
+   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
    "key": "lxshiguang40_drjs_奇米动漫_漫",
    "name": "拾光·雷蒙影视 | 👺奇米动漫[漫](DRPY)",
+   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "lxshiguang40_drjs_奈飞中文",
+   "name": "拾光·雷蒙影视 | 👺奈飞中文(DRPY)",
+   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "lxshiguang40_drjs_奈飞中文_自动",
+   "name": "拾光·雷蒙影视 | 👺奈飞中文[自动](DRPY)",
    "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
@@ -22012,19 +22025,6 @@
   },
   {
    "key": "lxshiguang40_drjs_小白菜电影",
-   "name": "拾光·雷蒙影视 | 👺小白菜电影(DRPY)",
-   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "lxshiguang40_drjs_小白菜电影_2",
    "name": "拾光·雷蒙影视 | 👺小白菜电影(DRPY)",
    "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
    "kind": "drpy",
@@ -22492,6 +22492,19 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "lxshiguang40_drjs_曲奇动漫",
+   "name": "拾光·雷蒙影视 | 👺曲奇动漫(DRPY)",
+   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
    "key": "lxshiguang40_drjs_木偶哥哥_盘",
    "name": "拾光·雷蒙影视 | 👺木偶哥哥[盘](DRPY)",
    "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
@@ -22533,19 +22546,6 @@
   {
    "key": "lxshiguang40_drjs_柠檬影视_V2",
    "name": "拾光·雷蒙影视 | 👺柠檬影视[V2](DRPY)",
-   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "lxshiguang40_drjs_樱花动漫_漫",
-   "name": "拾光·雷蒙影视 | 👺樱花动漫[漫](DRPY)",
    "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
@@ -22843,19 +22843,6 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "lxshiguang40_drjs_猫视界",
-   "name": "拾光·雷蒙影视 | 👺猫视界(DRPY)",
-   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
    "key": "lxshiguang40_drjs_瓜子影视",
    "name": "拾光·雷蒙影视 | 👺瓜子影视(DRPY)",
    "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
@@ -22975,19 +22962,6 @@
   {
    "key": "lxshiguang40_drjs_看韩剧",
    "name": "拾光·雷蒙影视 | 👺看韩剧(DRPY)",
-   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "lxshiguang40_drjs_短剧天堂",
-   "name": "拾光·雷蒙影视 | 👺短剧天堂(DRPY)",
    "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
@@ -23144,6 +23118,32 @@
   {
    "key": "lxshiguang40_drjs_美剧窝",
    "name": "拾光·雷蒙影视 | 👺美剧窝(DRPY)",
+   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "lxshiguang40_drjs_美剧网",
+   "name": "拾光·雷蒙影视 | 👺美剧网(DRPY)",
+   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "lxshiguang40_drjs_美益达",
+   "name": "拾光·雷蒙影视 | 👺美益达(DRPY)",
    "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
@@ -23313,6 +23313,45 @@
   {
    "key": "lxshiguang40_drjs_蛋蛋剧",
    "name": "拾光·雷蒙影视 | 👺蛋蛋剧(DRPY)",
+   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "lxshiguang40_drjs_蛋蛋赞",
+   "name": "拾光·雷蒙影视 | 👺蛋蛋赞(DRPY)",
+   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "lxshiguang40_drjs_蜥蜴影视_优",
+   "name": "拾光·雷蒙影视 | 👺蜥蜴影视[优](DRPY)",
+   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "lxshiguang40_drjs_起飞影院",
+   "name": "拾光·雷蒙影视 | 👺起飞影院(DRPY)",
    "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
@@ -23831,6 +23870,19 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "ivtiantian_爱动漫_js",
+   "name": "天天开心·💝爱┃动漫",
+   "api": "https://play.iptv365.org/%E5%A4%A9%E5%A4%A9%E5%BC%80%E5%BF%83/api/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
    "key": "ivxiangya2_drpy_js_金牌",
    "name": "香雅情·金牌影视[js]",
    "api": "https://play.iptv365.org/%E9%A6%99%E9%9B%85%E6%83%85/api/drpy2.min.js",
@@ -23857,9 +23909,9 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "ivsaoling_drpy_js_奇米动漫",
-   "name": "骚零·奇米动漫[js]",
-   "api": "https://play.iptv365.org/%E9%AA%9A%E9%9B%B6/api/drpy2.min.js",
+   "key": "ivdongman_drpy_js_奇米动漫",
+   "name": "动漫·动漫 | 奇米动漫[js]",
+   "api": "https://play.iptv365.org/%E5%8A%A8%E6%BC%AB%E9%A2%91%E9%81%93/api/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -23870,8 +23922,8 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "ivdongman_drpy_js_奇米动漫",
-   "name": "动漫·动漫 | 奇米动漫[js]",
+   "key": "ivdongman_drpy_js_曲奇动漫",
+   "name": "动漫·动漫 | 曲奇动漫[js]",
    "api": "https://play.iptv365.org/%E5%8A%A8%E6%BC%AB%E9%A2%91%E9%81%93/api/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
@@ -24140,7 +24192,7 @@
    "codec": "",
    "ms": null,
    "bad_streak": 0,
-   "prev_verdict": null
+   "prev_verdict": "rule_based"
   },
   {
    "key": "lxshiguang8_HBXingKong4K",
@@ -24373,7 +24425,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 10,
+   "bad_streak": 11,
    "prev_verdict": "search_bad"
   },
   {
@@ -24386,7 +24438,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 10,
+   "bad_streak": 11,
    "prev_verdict": "search_bad"
   },
   {
@@ -24417,7 +24469,7 @@
     "ba13f3df.alzcname.com.",
     "lz7.alzcname.com."
    ],
-   "bad_streak": 9,
+   "bad_streak": 10,
    "prev_verdict": "dead_link"
   },
   {
@@ -24430,7 +24482,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 10,
+   "bad_streak": 11,
    "prev_verdict": "search_bad"
   },
   {
@@ -24443,7 +24495,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 10,
+   "bad_streak": 11,
    "prev_verdict": "search_bad"
   },
   {
@@ -24614,19 +24666,6 @@
    "ms": null,
    "bad_streak": 0,
    "prev_verdict": "rule_based"
-  },
-  {
-   "key": "nptp_s_1dc3ecbe6d",
-   "name": "探针·🐳巨量(35万)·703ms",
-   "api": "https://api.juliang.live/api/provide/vod/",
-   "kind": "cms",
-   "verdict": "bad_segment",
-   "why": "首个分片 404（清单正常但内容取不到）（2 条线路全部失败）",
-   "first_url": "https://jimaoys88.com/public/playback/72a8dc1cd30dccf81bf2f43826cde250/smart.m3u8",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 5,
-   "prev_verdict": "bad_segment"
   },
   {
    "key": "npysc_半日99",
@@ -24826,6 +24865,24 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "maoy_量子-资源",
+   "name": "分享·💖分享量子",
+   "api": "https://cj.lziapi.com/api.php/provide/vod/",
+   "kind": "cms",
+   "verdict": "dead_link",
+   "why": "首集返回 404（带 Referer 也失败）（2 条线路全部失败）；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "https://v.lzcdn28.com/share/4b4edc2630fe75800ddc29a7b4070add",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "ba13f3df.alzcname.com.",
+    "lz7.alzcname.com."
+   ],
+   "bad_streak": 10,
+   "prev_verdict": "dead_link"
+  },
+  {
    "key": "maoy_csp_Jpys",
    "name": "分享·💖分享金牌",
    "api": "csp_XBPQ",
@@ -24867,6 +24924,19 @@
   {
    "key": "laoliu_dr_腾云驾雾",
    "name": "老刘·☁️┃腾云┃驾雾",
+   "api": "https://raw.githubusercontent.com/liu673cn/box/main/libs/js/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "laoliu_js_czsapp",
+   "name": "老刘·🏭️┃厂长┃Js",
    "api": "https://raw.githubusercontent.com/liu673cn/box/main/libs/js/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
@@ -24956,19 +25026,6 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "wang2_Douban",
-   "name": "王二·🐮【免费分享】🐮",
-   "api": "csp_DoubanGuard",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
    "key": "lxxhzdc12_58动漫网",
    "name": "小盒仓·58┃动漫",
    "api": "https://www.yingm.cc/dm/js/drpy2.min.js",
@@ -24998,32 +25055,6 @@
    "key": "lxxhzdc12_风车动漫",
    "name": "小盒仓·风车动漫",
    "api": "https://www.yingm.cc/dm/js/drpy.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "lxshiguang40_drjs_最新4K",
-   "name": "拾光·雷蒙影视 | 👺最新4K(DRPY)",
-   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "lxshiguang27_夸克影视",
-   "name": "拾光·💕夸克┃影视",
-   "api": "https://bitbucket.org/guot55/ygbh/raw/main/pro/js/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -26168,6 +26199,19 @@
    "key": "lxshiguang19_傻样",
    "name": "拾光·😹傻样",
    "api": "csp_kongbai",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "lxshiguang22_app影院",
+   "name": "拾光·😻app影院",
+   "api": "csp_XBPQ",
    "kind": "rule",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -28739,6 +28783,19 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "maoy_csp_XPath_企鹅体育",
+   "name": "分享·🐧企鹅体育",
+   "api": "csp_XPath",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
    "key": "xiangya_drpy_js_优酷",
    "name": "香雅·优酷[js]",
    "api": "https://raw.githubusercontent.com/xyq254245/xyqonlinerule/main/dr_py/libs/drpy2.min.js",
@@ -28792,7 +28849,7 @@
     "fb6dd06b.hdzyk-cdn.com.",
     "caiji.hdzyk-cdn.com."
    ],
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "dead_link"
   },
   {
@@ -28805,7 +28862,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 7,
+   "bad_streak": 8,
    "prev_verdict": "search_bad"
   },
   {
@@ -29017,19 +29074,6 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "gao_drpy_js_起飞影院",
-   "name": "高天·起飞 | 起飞影院[js]",
-   "api": "https://raw.githubusercontent.com/gaotianliuyun/gao/master/lib/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
    "key": "maoy_哔哩戏曲",
    "name": "分享·🅱️分享戏曲",
    "api": "https://gh-proxy.com/https://raw.githubusercontent.com/maoystv/api/refs/heads/main/JS/drpy2.min.js",
@@ -29162,19 +29206,6 @@
   {
    "key": "maoy_腾讯视频",
    "name": "分享·💝分享腾讯",
-   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/maoystv/api/refs/heads/main/JS/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "maoy_飞牛影视",
-   "name": "分享·💝分享飞牛",
    "api": "https://gh-proxy.com/https://raw.githubusercontent.com/maoystv/api/refs/heads/main/JS/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
@@ -29966,6 +29997,45 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "lxshiguang40_drjs_一起看",
+   "name": "拾光·雷蒙影视 | 👺一起看(DRPY)",
+   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "lxshiguang40_drjs_一起看_优",
+   "name": "拾光·雷蒙影视 | 👺一起看[优](DRPY)",
+   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "lxshiguang40_drjs_七七看片网",
+   "name": "拾光·雷蒙影视 | 👺七七看片网(DRPY)",
+   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
    "key": "lxshiguang40_drjs_三集电影_自动",
    "name": "拾光·雷蒙影视 | 👺三集电影[自动](DRPY)",
    "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
@@ -30174,6 +30244,32 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "lxshiguang40_drjs_嘀哩嘀哩",
+   "name": "拾光·雷蒙影视 | 👺嘀哩嘀哩(DRPY)",
+   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "lxshiguang40_drjs_多多影视",
+   "name": "拾光·雷蒙影视 | 👺多多影视(DRPY)",
+   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
    "key": "lxshiguang40_drjs_多多追剧_优",
    "name": "拾光·雷蒙影视 | 👺多多追剧[优](DRPY)",
    "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
@@ -30291,45 +30387,6 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "lxshiguang40_drjs_奇米动漫",
-   "name": "拾光·雷蒙影视 | 👺奇米动漫(DRPY)",
-   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "lxshiguang40_drjs_奈飞中文",
-   "name": "拾光·雷蒙影视 | 👺奈飞中文(DRPY)",
-   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "lxshiguang40_drjs_奈飞中文_自动",
-   "name": "拾光·雷蒙影视 | 👺奈飞中文[自动](DRPY)",
-   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
    "key": "lxshiguang40_drjs_子子影视",
    "name": "拾光·雷蒙影视 | 👺子子影视(DRPY)",
    "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
@@ -30345,6 +30402,19 @@
   {
    "key": "lxshiguang40_drjs_小宝影院",
    "name": "拾光·雷蒙影视 | 👺小宝影院(DRPY)",
+   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "lxshiguang40_drjs_小白菜电影_2",
+   "name": "拾光·雷蒙影视 | 👺小白菜电影(DRPY)",
    "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
@@ -30538,6 +30608,19 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "lxshiguang40_drjs_樱花动漫_漫",
+   "name": "拾光·雷蒙影视 | 👺樱花动漫[漫](DRPY)",
+   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
    "key": "lxshiguang40_drjs_次元城动漫_漫",
    "name": "拾光·雷蒙影视 | 👺次元城动漫[漫](DRPY)",
    "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
@@ -30566,6 +30649,19 @@
   {
    "key": "lxshiguang40_drjs_毛驴影视",
    "name": "拾光·雷蒙影视 | 👺毛驴影视(DRPY)",
+   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "lxshiguang40_drjs_永乐视频",
+   "name": "拾光·雷蒙影视 | 👺永乐视频(DRPY)",
    "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
@@ -30657,6 +30753,19 @@
   {
    "key": "lxshiguang40_drjs_片多多_优",
    "name": "拾光·雷蒙影视 | 👺片多多[优](DRPY)",
+   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "lxshiguang40_drjs_猫视界",
+   "name": "拾光·雷蒙影视 | 👺猫视界(DRPY)",
    "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
@@ -30850,6 +30959,19 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "lxshiguang40_drjs_短剧天堂",
+   "name": "拾光·雷蒙影视 | 👺短剧天堂(DRPY)",
+   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
    "key": "lxshiguang40_drjs_神仙影视",
    "name": "拾光·雷蒙影视 | 👺神仙影视(DRPY)",
    "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
@@ -30993,32 +31115,6 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "lxshiguang40_drjs_美剧网",
-   "name": "拾光·雷蒙影视 | 👺美剧网(DRPY)",
-   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "lxshiguang40_drjs_美益达",
-   "name": "拾光·雷蒙影视 | 👺美益达(DRPY)",
-   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
    "key": "lxshiguang40_drjs_美益达_V2",
    "name": "拾光·雷蒙影视 | 👺美益达[V2](DRPY)",
    "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
@@ -31034,32 +31130,6 @@
   {
    "key": "lxshiguang40_drjs_老白故事_听",
    "name": "拾光·雷蒙影视 | 👺老白故事[听](DRPY)",
-   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "lxshiguang40_drjs_蛋蛋赞",
-   "name": "拾光·雷蒙影视 | 👺蛋蛋赞(DRPY)",
-   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "lxshiguang40_drjs_蜥蜴影视_优",
-   "name": "拾光·雷蒙影视 | 👺蜥蜴影视[优](DRPY)",
    "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
@@ -31112,19 +31182,6 @@
   {
    "key": "lxshiguang40_drjs_西瓜影院",
    "name": "拾光·雷蒙影视 | 👺西瓜影院(DRPY)",
-   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "lxshiguang40_drjs_起飞影院",
-   "name": "拾光·雷蒙影视 | 👺起飞影院(DRPY)",
    "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
@@ -31487,19 +31544,6 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "ivtiantian_爱动漫_js",
-   "name": "天天开心·💝爱┃动漫",
-   "api": "https://play.iptv365.org/%E5%A4%A9%E5%A4%A9%E5%BC%80%E5%BF%83/api/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
    "key": "ivxiangya2_csp_XYQHiker_樱花动漫",
    "name": "香雅情·🌸樱花动漫(XYQH)",
    "api": "csp_XYQHiker",
@@ -31517,6 +31561,19 @@
    "name": "香雅情·🧲修罗影视(XYQH)",
    "api": "csp_XYQHiker",
    "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "ivsaoling_drpy_js_奇米动漫",
+   "name": "骚零·奇米动漫[js]",
+   "api": "https://play.iptv365.org/%E9%AA%9A%E9%9B%B6/api/drpy2.min.js",
+   "kind": "drpy",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
    "first_url": "",
@@ -31643,19 +31700,6 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "lxoldliu_XYQH_JOJO",
-   "name": "老刘2·🍁┃久久┃影视",
-   "api": "csp_XYQHiker",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
    "key": "lxoldliu_虎虎1",
    "name": "老刘2·🐯┃虎虎┃影视",
    "api": "csp_XBPQ",
@@ -31734,9 +31778,9 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "lxxhzdc12_异世界",
-   "name": "小盒仓·异世界",
-   "api": "https://www.yingm.cc/dm/js/drpy.min.js",
+   "key": "lxxhzdc12_drpy_js_路漫漫",
+   "name": "小盒仓·路漫漫",
+   "api": "https://www.yingm.cc/dm/js/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -31823,8 +31867,8 @@
    "ms": null,
    "doh_status": 0,
    "doh_ips": [
-    "104.21.41.149",
-    "172.67.148.6"
+    "172.67.148.6",
+    "104.21.41.149"
    ],
    "bad_streak": 0,
    "prev_verdict": "search_fail"
@@ -32439,19 +32483,6 @@
    "ms": null,
    "bad_streak": 0,
    "prev_verdict": "rule_based"
-  },
-  {
-   "key": "lxxiaoma_建安采集",
-   "name": "小马·影视 | 建安",
-   "api": "http://154.219.117.232:9981/jacloudapi.php/provide/vod",
-   "kind": "cms",
-   "verdict": "direct",
-   "why": "",
-   "first_url": "https://v.youku.com/v_show/id_XNjQ4OTI5MzAwOA==.html",
-   "codec": "",
-   "ms": 2387,
-   "bad_streak": 0,
-   "prev_verdict": "ok_secondary"
   },
   {
    "key": "lxxiaoma_AQY",
@@ -33167,7 +33198,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 10,
+   "bad_streak": 11,
    "prev_verdict": "search_bad"
   },
   {
@@ -33180,7 +33211,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 10,
+   "bad_streak": 11,
    "prev_verdict": "search_bad"
   },
   {
@@ -33206,7 +33237,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 10,
+   "bad_streak": 11,
    "prev_verdict": "search_bad"
   },
   {
@@ -33301,19 +33332,6 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "laoliu_js_czsapp",
-   "name": "老刘·🏭️┃厂长┃Js",
-   "api": "https://raw.githubusercontent.com/liu673cn/box/main/libs/js/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
    "key": "laoliu_dr_360影视",
    "name": "老刘·📺┃360(官)",
    "api": "https://raw.githubusercontent.com/liu673cn/box/main/libs/js/drpy2.min.js",
@@ -33344,6 +33362,19 @@
    "name": "老刘·🧗‍┃童趣┃播视",
    "api": "https://raw.githubusercontent.com/liu673cn/box/main/libs/js/drpy2.min.js",
    "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "wang2_Douban",
+   "name": "王二·🐮【免费分享】🐮",
+   "api": "csp_DoubanGuard",
+   "kind": "rule",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
    "first_url": "",
@@ -33408,19 +33439,6 @@
    "key": "wuxie13_Sir88",
    "name": "无邪·🏟️┆超全┆体育",
    "api": "csp_Sir88",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "wuxie110_Douban",
-   "name": "无邪·🐮【免费分享】🐮",
-   "api": "csp_NewDouBanGuard",
    "kind": "rule",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -34372,19 +34390,6 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "lxoldliu_js_czsapp",
-   "name": "老刘2·🏭️┃厂长┃Js",
-   "api": "https://raw.liucn.cc/box/libs/js/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
    "key": "lxoldliu_dr_qq",
    "name": "老刘2·🐧┃腾讯(官)",
    "api": "https://raw.liucn.cc/box/libs/js/drpy2.min.js",
@@ -34463,17 +34468,22 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "maoy_csp_XPath_企鹅体育",
-   "name": "分享·🐧企鹅体育",
-   "api": "csp_XPath",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
+   "key": "maoy_最大资源",
+   "name": "分享·💖分享最大",
+   "api": "https://api.zuidapi.com/api.php/provide/vod/?ac=list",
+   "kind": "cms",
+   "verdict": "dead_link",
+   "why": "首集返回 403（带 Referer 也失败）；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "https://v14.zuidazym3u8.com/yyv14/202611/15/MU3SsiRjn227/video/index.m3u8",
    "codec": "",
    "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
+   "doh_status": 0,
+   "doh_ips": [
+    "188.114.97.3",
+    "188.114.96.3"
+   ],
+   "bad_streak": 3,
+   "prev_verdict": "dead_link"
   },
   {
    "key": "maoy_初中课堂",
@@ -34550,7 +34560,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 10,
+   "bad_streak": 11,
    "prev_verdict": "search_bad"
   },
   {
@@ -34563,7 +34573,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 10,
+   "bad_streak": 11,
    "prev_verdict": "search_bad"
   },
   {
@@ -34654,7 +34664,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 10,
+   "bad_streak": 11,
    "prev_verdict": "search_bad"
   },
   {
@@ -34663,12 +34673,25 @@
    "api": "http://xn--ihqu10cn4c.xn--v4q818bf34b.com/api/yyutx.php",
    "kind": "cms",
    "verdict": "search_bad",
-   "why": "搜索响应非 JSON：<!-- 538334124177 -->\n<!DOCTYPE html>\n<h",
+   "why": "搜索响应非 JSON：<!-- 335775107360 -->\n<!DOCTYPE html>\n<h",
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 10,
+   "bad_streak": 11,
    "prev_verdict": "search_bad"
+  },
+  {
+   "key": "gao_drpy_js_爱弹幕",
+   "name": "高天·动漫 | 爱弹幕[js]",
+   "api": "https://raw.githubusercontent.com/gaotianliuyun/gao/master/lib/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
   },
   {
    "key": "gao_drpy_js_哔哩影视",
@@ -34801,6 +34824,19 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "maoy_泥巴视频",
+   "name": "分享·💝分享泥巴",
+   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/maoystv/api/refs/heads/main/JS/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
    "key": "maoy_火云",
    "name": "分享·💝分享火云",
    "api": "https://gh-proxy.com/https://raw.githubusercontent.com/maoystv/6/main/JS/hy.js",
@@ -34818,6 +34854,19 @@
    "name": "分享·💝分享起跑",
    "api": "csp_AppYsV2",
    "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "maoy_飞牛影视",
+   "name": "分享·💝分享飞牛",
+   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/maoystv/api/refs/heads/main/JS/drpy2.min.js",
+   "kind": "drpy",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
    "first_url": "",
@@ -34987,8 +35036,8 @@
    "name": "拾光·👍移动┃推送",
    "api": "https://so.yinpai.xyz/api.php?type=mobile",
    "kind": "cms",
-   "verdict": "no_result",
-   "why": "搜索无结果；DoH 有 A 记录，属本机 DNS 被拦",
+   "verdict": "search_fail",
+   "why": "搜索 HTTP TimeoutError；DoH 有 A 记录，属本机 DNS 被拦",
    "first_url": "",
    "codec": "",
    "ms": null,
@@ -34997,7 +35046,7 @@
     "38.76.197.172"
    ],
    "bad_streak": 0,
-   "prev_verdict": "search_fail"
+   "prev_verdict": "no_result"
   },
   {
    "key": "wuxie18_push_agent",
@@ -35043,8 +35092,8 @@
    "name": "小虎斑·123|推送",
    "api": "https://so.yinpai.xyz/api.php?type=123",
    "kind": "cms",
-   "verdict": "no_result",
-   "why": "搜索无结果；DoH 有 A 记录，属本机 DNS 被拦",
+   "verdict": "search_fail",
+   "why": "搜索 HTTP TimeoutError；DoH 有 A 记录，属本机 DNS 被拦",
    "first_url": "",
    "codec": "",
    "ms": null,
@@ -35053,15 +35102,15 @@
     "38.76.197.172"
    ],
    "bad_streak": 0,
-   "prev_verdict": "search_fail"
+   "prev_verdict": "no_result"
   },
   {
    "key": "ivxiaohuban_优惜",
    "name": "小虎斑·优惜|推送",
    "api": "https://so.yinpai.xyz/api.php?type=uc",
    "kind": "cms",
-   "verdict": "no_result",
-   "why": "搜索无结果；DoH 有 A 记录，属本机 DNS 被拦",
+   "verdict": "search_fail",
+   "why": "搜索 HTTP TimeoutError；DoH 有 A 记录，属本机 DNS 被拦",
    "first_url": "",
    "codec": "",
    "ms": null,
@@ -35070,28 +35119,15 @@
     "38.76.197.172"
    ],
    "bad_streak": 0,
-   "prev_verdict": "search_fail"
-  },
-  {
-   "key": "ivxiaohuban_天翼",
-   "name": "小虎斑·天翼|推送",
-   "api": "https://so.yinpai.xyz/api.php?type=tianyi",
-   "kind": "cms",
-   "verdict": "share_page",
-   "why": "首集是网页而非视频流（网盘分享页）",
-   "first_url": "https://cloud.189.cn/t/eUBFfiieENJv",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 1,
-   "prev_verdict": "search_fail"
+   "prev_verdict": "no_result"
   },
   {
    "key": "ivxiaohuban_夸克推送",
    "name": "小虎斑·夸克|推送",
    "api": "https://so.yinpai.xyz/api.php?type=quark",
    "kind": "cms",
-   "verdict": "no_result",
-   "why": "搜索无结果；DoH 有 A 记录，属本机 DNS 被拦",
+   "verdict": "search_fail",
+   "why": "搜索 HTTP TimeoutError；DoH 有 A 记录，属本机 DNS 被拦",
    "first_url": "",
    "codec": "",
    "ms": null,
@@ -35100,20 +35136,7 @@
     "38.76.197.172"
    ],
    "bad_streak": 0,
-   "prev_verdict": "search_fail"
-  },
-  {
-   "key": "ivxiaohuban_百度",
-   "name": "小虎斑·百度|推送",
-   "api": "https://so.yinpai.xyz/api.php?type=baidu",
-   "kind": "cms",
-   "verdict": "share_page",
-   "why": "首集是网页而非视频流（网盘分享页）",
-   "first_url": "https://pan.baidu.com/s/1KNAtpPYYZAy9QEllQj1kZg?pwd=gpvg",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 1,
-   "prev_verdict": "search_fail"
+   "prev_verdict": "no_result"
   },
   {
    "key": "ivxiaosa_哔哩直播",
@@ -35259,9 +35282,9 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "lxxhzdc17_荐片",
-   "name": "小盒仓·荐片P2P",
-   "api": "https://gitlab.com/fantaiying/ext/-/raw/main/drpy2.min.js",
+   "key": "lxxhzdc12_异世界",
+   "name": "小盒仓·异世界",
+   "api": "https://www.yingm.cc/dm/js/drpy.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -35272,9 +35295,9 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "lxxhzdc12_drpy_js_路漫漫",
-   "name": "小盒仓·路漫漫",
-   "api": "https://www.yingm.cc/dm/js/drpy2.min.js",
+   "key": "lxxhzdc17_荐片",
+   "name": "小盒仓·荐片P2P",
+   "api": "https://gitlab.com/fantaiying/ext/-/raw/main/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -35381,11 +35404,11 @@
    "api": "https://collect.wolongzyw.com/api.php/provide/vod/",
    "kind": "cms",
    "verdict": "search_bad",
-   "why": "搜索响应非 JSON：<!-- 783824194252 -->\n<!DOCTYPE html>\n<h",
+   "why": "搜索响应非 JSON：<!-- 10451277952 -->\n<!DOCTYPE html>\n<ht",
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 10,
+   "bad_streak": 11,
    "prev_verdict": "search_bad"
   },
   {
@@ -35459,11 +35482,11 @@
    "api": "https://video.adminqt.cn/api.php/provide/vod/",
    "kind": "cms",
    "verdict": "search_bad",
-   "why": "搜索响应非 JSON：<!doctype html>\n<html lang=\"en\">\n<head>\n",
+   "why": "搜索响应非 JSON：",
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 10,
+   "bad_streak": 11,
    "prev_verdict": "search_bad"
   },
   {
@@ -36442,6 +36465,19 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "wuxie110_Douban",
+   "name": "无邪·🐮【免费分享】🐮",
+   "api": "csp_NewDouBanGuard",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
    "key": "wuxie13_初中课堂",
    "name": "无邪·📐┆初中┆课堂",
    "api": "csp_Bili",
@@ -36705,6 +36741,19 @@
    "key": "ivmoyuer_高中教育",
    "name": "摸鱼儿·📚高中┃课堂┃教育",
    "api": "csp_BiliGuard",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "ivpg_SambaShare",
+   "name": "PG·Samba分享",
+   "api": "csp_SambaShare",
    "kind": "rule",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -38364,8 +38413,8 @@
    "ms": null,
    "doh_status": 0,
    "doh_ips": [
-    "188.114.97.3",
-    "188.114.96.3"
+    "188.114.96.3",
+    "188.114.97.3"
    ],
    "bad_streak": 0,
    "prev_verdict": "search_fail"
@@ -38774,6 +38823,19 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "ivxiaohuban_紫萱",
+   "name": "小虎斑·紫萱|4K弹幕",
+   "api": "csp_AppZzun",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
    "key": "ivxiaohuban_花落",
    "name": "小虎斑·花落|4K弹幕",
    "api": "csp_HBT4",
@@ -38790,6 +38852,32 @@
    "key": "ivxiaohuban_薄心",
    "name": "小虎斑·薄心|4K弹幕",
    "api": "csp_HBT4",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "ivxiaohuban_魔尊",
+   "name": "小虎斑·重楼|4K弹幕",
+   "api": "csp_HBcms10",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "ivxiaohuban_至尊",
+   "name": "小虎斑·魔尊|4K弹幕",
+   "api": "csp_AppZzun",
    "kind": "rule",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -38904,9 +38992,87 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "ivpg_4KHDR",
+   "name": "PG·4KHDR|网盘",
+   "api": "csp_FourKHDR",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
    "key": "ivpg_PikPakShare",
    "name": "PG·PikPak分享",
    "api": "csp_PikPakShare",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "ivpg_Gaoqing",
+   "name": "PG·中国高清网|网盘",
+   "api": "csp_Gaoqing",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "ivpg_YunPan",
+   "name": "PG·云盘资源|网盘",
+   "api": "csp_YunPan",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "ivpg_ddys",
+   "name": "PG·低端影视|网盘",
+   "api": "csp_Ddys",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "ivpg_团长资源",
+   "name": "PG·团长资源|网盘",
+   "api": "csp_TZFile",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "ivpg_校长影视",
+   "name": "PG·校长影视|网盘",
+   "api": "csp_XiaoZhang",
    "kind": "rule",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -38972,6 +39138,19 @@
    "key": "ivpg_UP云搜",
    "name": "PG·阿里|UP云搜",
    "api": "csp_UpYun",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "ivpg_AliShare",
+   "name": "PG·阿里云盘影视分享",
+   "api": "csp_AliShare",
    "kind": "rule",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -39294,6 +39473,19 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "lxoldliu_js_czsapp",
+   "name": "老刘2·🏭️┃厂长┃Js",
+   "api": "https://raw.liucn.cc/box/libs/js/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
    "key": "lxoldliu_dr_360影视",
    "name": "老刘2·📺┃360(官)",
    "api": "https://raw.liucn.cc/box/libs/js/drpy2.min.js",
@@ -39342,7 +39534,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 4,
+   "bad_streak": 5,
    "prev_verdict": "search_bad"
   },
   {
@@ -39355,7 +39547,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 4,
+   "bad_streak": 5,
    "prev_verdict": "search_bad"
   },
   {
@@ -39467,19 +39659,6 @@
    "name": "肥猫·🏔️┃修罗┃磁力",
    "api": "csp_Xlys",
    "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "gao_drpy_js_爱弹幕",
-   "name": "高天·动漫 | 爱弹幕[js]",
-   "api": "https://raw.githubusercontent.com/gaotianliuyun/gao/master/lib/drpy2.min.js",
-   "kind": "drpy",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
    "first_url": "",
@@ -40993,7 +41172,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 10,
+   "bad_streak": 11,
    "prev_verdict": "search_bad"
   },
   {
@@ -41309,19 +41488,6 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "ivdongman_妮可动漫",
-   "name": "动漫·妮可动漫",
-   "api": "https://play.iptv365.org/%E5%8A%A8%E6%BC%AB%E9%A2%91%E9%81%93/api/drpy.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
    "key": "lxoldliu_云播影视",
    "name": "老刘2·☁️┃云播┃影视",
    "api": "https://raw.liucn.cc/box/libs/js/drpy2.min.js",
@@ -41452,6 +41618,24 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "nptp_s_297afcf867",
+   "name": "探针·📦最大(13万)·581ms",
+   "api": "https://api.zuidapi.com/api.php/provide/vod/",
+   "kind": "cms",
+   "verdict": "dead_link",
+   "why": "首集返回 403（带 Referer 也失败）；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "https://v14.zuidazym3u8.com/yyv14/202611/15/MU3SsiRjn227/video/index.m3u8",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "188.114.97.3",
+    "188.114.96.3"
+   ],
+   "bad_streak": 2,
+   "prev_verdict": "dead_link"
+  },
+  {
    "key": "npysc_douban",
    "name": "云镜·%F0%9F%8E%AC%E8%B1%86%E7%93%A3%E2%94%83%E6%8E%A8%E8%8D%90%E5%8F%8D%E9%A6%88%E7%BE%A4%EF%BC%9Ahttps://t.me/diaosikaifei",
    "api": "csp_Douban",
@@ -41520,6 +41704,19 @@
    "key": "lxxhzdc17_tuxiaobei_open",
    "name": "小盒仓·兔小贝[cat]",
    "api": "https://dxawi.github.io/0/cat/tuxiaobei_open.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "lxxhzdc12_drpy_js_爱弹幕",
+   "name": "小盒仓·动漫 | 爱弹幕[js]",
+   "api": "https://www.yingm.cc/dm/js/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -42293,26 +42490,13 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 10,
+   "bad_streak": 11,
    "prev_verdict": "search_bad"
   },
   {
    "key": "ivfantaiying_dr_兔小贝",
    "name": "饭太硬·📚儿童┃启蒙",
    "api": "https://play.iptv365.org/%E9%A5%AD%E5%A4%AA%E7%A1%AC/api/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "ivfeimao2_儿童",
-   "name": "肥猫·📚┃儿童┃启蒙",
-   "api": "https://play.iptv365.org/%E8%82%A5%E7%8C%AB/api/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -42518,19 +42702,6 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "gao_drpy_js_极影网",
-   "name": "高天·磁力 | 极影网[js]",
-   "api": "https://raw.githubusercontent.com/gaotianliuyun/gao/master/lib/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
    "key": "gao_drpy_js_磁力熊_磁",
    "name": "高天·磁力 | 磁力熊[js]",
    "api": "https://raw.githubusercontent.com/gaotianliuyun/gao/master/lib/drpy2.min.js",
@@ -42592,7 +42763,7 @@
    "first_url": "PAN1-IrJZ6bK3LUWByGYD9VpBnuCUOjIsTkEnuo9hMp_9jVKmm4f2186qU9VDnZ7JCQPe29u0KkjbQnBUOVolRBYMMn7NeYGMcrM0PisXkXvoG8Cn6UaferLtABrnuogMZPEOnohXzkwiytrICDqOfxvf2A==",
    "codec": "",
    "ms": null,
-   "bad_streak": 10,
+   "bad_streak": 11,
    "prev_verdict": "bad_url"
   },
   {
@@ -42713,6 +42884,32 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "lxshiguang1_爱弹幕",
+   "name": "拾光·爱弹幕｜动漫",
+   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/xmbjm/svip/refs/heads/main/js/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "lxshiguang3_爱弹幕",
+   "name": "拾光·爱弹幕｜动漫",
+   "api": "https://jiekou.netlify.app/js/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
    "key": "lxshiguang40_drjs_172MV_听",
    "name": "拾光·雷蒙影视 | 👺172MV[听](DRPY)",
    "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
@@ -42780,19 +42977,6 @@
   {
    "key": "lxshiguang40_drjs_世纪DJ音乐网_听",
    "name": "拾光·雷蒙影视 | 👺世纪DJ音乐网[听](DRPY)",
-   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "lxshiguang40_drjs_云盘资源网_盘",
-   "name": "拾光·雷蒙影视 | 👺云盘资源网[盘](DRPY)",
    "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
@@ -42921,6 +43105,32 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "lxshiguang40_drjs_爱弹幕",
+   "name": "拾光·雷蒙影视 | 👺爱弹幕(DRPY)",
+   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "lxshiguang40_drjs_爱弹幕_漫",
+   "name": "拾光·雷蒙影视 | 👺爱弹幕[漫](DRPY)",
+   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
    "key": "lxshiguang40_drjs_番茄小说_书",
    "name": "拾光·雷蒙影视 | 👺番茄小说[书](DRPY)",
    "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
@@ -42986,19 +43196,6 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "lxshiguang40_drjs_顶点小说2_书",
-   "name": "拾光·雷蒙影视 | 👺顶点小说2[书](DRPY)",
-   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
    "key": "lxshiguang40_drjs_kkpans_PG",
    "name": "拾光·雷蒙影视 | 📀KK网盘(DRPY)",
    "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
@@ -43034,7 +43231,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 4,
+   "bad_streak": 5,
    "prev_verdict": "xml_endpoint"
   },
   {
@@ -43740,8 +43937,21 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "lxshiguang40_csp_XBPQ_南柯",
-   "name": "拾光·雷蒙影视 | 🍚南柯(XBPQ)",
+   "key": "ivduanju2_白嫖者联盟",
+   "name": "短剧2·✨白嫖短剧✨",
+   "api": "csp_XBPQ",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "lxoldliu_csp_nkdyw",
+   "name": "老刘2·💢┃南柯┃电影",
    "api": "csp_XBPQ",
    "kind": "rule",
    "verdict": "rule_based",
@@ -43805,35 +44015,9 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "lxxhzdc12_drpy_js_爱弹幕",
-   "name": "小盒仓·动漫 | 爱弹幕[js]",
-   "api": "https://www.yingm.cc/dm/js/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
    "key": "lxshiguang8_静月",
    "name": "拾光·养生|京城",
    "api": "http://38.76.197.42:25252/%E4%BB%85%E4%BE%9B%E6%B5%8B%E8%AF%95/lib/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "gao_drpy_js_曲奇动漫",
-   "name": "高天·动漫 | 曲奇动漫[js]",
-   "api": "https://raw.githubusercontent.com/gaotianliuyun/gao/master/lib/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -44793,45 +44977,6 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "ivxiaohuban_七点",
-   "name": "小虎斑·七点|弹幕",
-   "api": "csp_HBPQ",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "ivxiaohuban_三九",
-   "name": "小虎斑·三九|弹幕",
-   "api": "csp_HBPQ",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "ivxiaohuban_三四",
-   "name": "小虎斑·三四|弹幕",
-   "api": "csp_HBPQ",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
    "key": "ivxiaohuban_二小",
    "name": "小虎斑·二小|4k网盘",
    "api": "csp_Mogg",
@@ -44874,19 +45019,6 @@
    "key": "ivxiaohuban_HBqwKan",
    "name": "小虎斑·全网|弹幕",
    "api": "csp_HBqwKan",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "ivxiaohuban_咳咳",
-   "name": "小虎斑·可可|弹幕",
-   "api": "csp_HBPQ",
    "kind": "rule",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -45014,19 +45146,6 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "ivxiaohuban_樱花",
-   "name": "小虎斑·樱花|弹幕",
-   "api": "csp_HBPQ",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
    "key": "ivxiaohuban_橘子",
    "name": "小虎斑·橘子|弹幕",
    "api": "csp_HBmoou",
@@ -45040,35 +45159,9 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "ivxiaohuban_永乐",
-   "name": "小虎斑·永乐|弹幕",
-   "api": "csp_HBPQ",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
    "key": "ivxiaohuban_盼盼",
    "name": "小虎斑·海棉|盘搜",
    "api": "csp_HBhaiM",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "ivxiaohuban_海纳",
-   "name": "小虎斑·海纳|弹幕",
-   "api": "csp_HBPQ",
    "kind": "rule",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -45196,19 +45289,6 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "ivxiaohuban_雪糕",
-   "name": "小虎斑·雪糕|弹幕",
-   "api": "csp_HBPQ",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
    "key": "ivxiaohuban_雷静",
    "name": "小虎斑·雷静|盘搜",
    "api": "csp_HBleiJing",
@@ -45222,35 +45302,9 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "ivxiaohuban_面包",
-   "name": "小虎斑·面包|弹幕",
-   "api": "csp_HBPQ",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
    "key": "ivxiaohuban_风神",
    "name": "小虎斑·风神|弹幕",
    "api": "csp_HBv1Class",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "ivxiaohuban_骚火",
-   "name": "小虎斑·骚火|弹幕",
-   "api": "csp_HBPQ",
    "kind": "rule",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -45797,19 +45851,6 @@
    "key": "ivpg_盘友圈",
    "name": "PG·盘友圈|网盘搜索",
    "api": "csp_Panyq",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "ivpg_AList",
-   "name": "PG·网盘|Alist[jar]",
-   "api": "csp_AList",
    "kind": "rule",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -46808,32 +46849,6 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "ivcainisi_豆瓣",
-   "name": "菜妮丝·豆瓣┃影视",
-   "api": "csp_Douban",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "ivpg_SambaShare",
-   "name": "PG·Samba分享",
-   "api": "csp_SambaShare",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
    "key": "ivpg_應用商店",
    "name": "PG·應用商店",
    "api": "csp_Market",
@@ -47354,6 +47369,19 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "gao_drpy_js_极影网",
+   "name": "高天·磁力 | 极影网[js]",
+   "api": "https://raw.githubusercontent.com/gaotianliuyun/gao/master/lib/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
    "key": "gao_drpy_js_kuba",
    "name": "高天·磁力 | 酷吧[js]",
    "api": "https://raw.githubusercontent.com/gaotianliuyun/gao/master/lib/drpy2.min.js",
@@ -47588,32 +47616,6 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "lxshiguang1_爱弹幕",
-   "name": "拾光·爱弹幕｜动漫",
-   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/xmbjm/svip/refs/heads/main/js/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "lxshiguang3_爱弹幕",
-   "name": "拾光·爱弹幕｜动漫",
-   "api": "https://jiekou.netlify.app/js/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
    "key": "lxshiguang1_豆瓣影院",
    "name": "拾光·豆瓣｜影视",
    "api": "https://gh-proxy.com/https://raw.githubusercontent.com/xmbjm/svip/refs/heads/main/drpy_libs/drpy2.min.js",
@@ -47718,6 +47720,19 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "lxshiguang40_drjs_云盘资源网_盘",
+   "name": "拾光·雷蒙影视 | 👺云盘资源网[盘](DRPY)",
+   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
    "key": "lxshiguang40_drjs_六月听书_听",
    "name": "拾光·雷蒙影视 | 👺六月听书[听](DRPY)",
    "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
@@ -47809,34 +47824,21 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "lxshiguang40_drjs_爱弹幕",
-   "name": "拾光·雷蒙影视 | 👺爱弹幕(DRPY)",
-   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "lxshiguang40_drjs_爱弹幕_漫",
-   "name": "拾光·雷蒙影视 | 👺爱弹幕[漫](DRPY)",
-   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
    "key": "lxshiguang40_drjs_爱车MV_听",
    "name": "拾光·雷蒙影视 | 👺爱车MV[听](DRPY)",
+   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "lxshiguang40_drjs_顶点小说2_书",
+   "name": "拾光·雷蒙影视 | 👺顶点小说2[书](DRPY)",
    "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
@@ -47952,45 +47954,6 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "ivxiaohuban_紫萱",
-   "name": "小虎斑·紫萱|4K弹幕",
-   "api": "csp_AppZzun",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "ivxiaohuban_魔尊",
-   "name": "小虎斑·重楼|4K弹幕",
-   "api": "csp_HBcms10",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "ivxiaohuban_至尊",
-   "name": "小虎斑·魔尊|4K弹幕",
-   "api": "csp_AppZzun",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
    "key": "ivmoyuer_玩偶哥哥",
    "name": "摸鱼儿·♨️玩偶备用┃4K弹幕",
    "api": "csp_PanWebShare",
@@ -48056,100 +48019,9 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "ivpg_4KHDR",
-   "name": "PG·4KHDR|网盘",
-   "api": "csp_FourKHDR",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "ivpg_Gaoqing",
-   "name": "PG·中国高清网|网盘",
-   "api": "csp_Gaoqing",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "ivpg_YunPan",
-   "name": "PG·云盘资源|网盘",
-   "api": "csp_YunPan",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "ivpg_ddys",
-   "name": "PG·低端影视|网盘",
-   "api": "csp_Ddys",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "ivpg_团长资源",
-   "name": "PG·团长资源|网盘",
-   "api": "csp_TZFile",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "ivpg_校长影视",
-   "name": "PG·校长影视|网盘",
-   "api": "csp_XiaoZhang",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
    "key": "ivpg_Wo4k",
    "name": "PG·玩偶4K|磁力",
    "api": "csp_Wo4k",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "ivpg_AliShare",
-   "name": "PG·阿里云盘影视分享",
-   "api": "csp_AliShare",
    "kind": "rule",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -48862,6 +48734,19 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "lxshiguang22_drpy_js_爱弹幕",
+   "name": "拾光·爱弹幕",
+   "api": "https://gh-proxy.com/raw.githubusercontent.com/yw88075/tvbox/main/dr/lib/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
    "key": "lxshiguang51_drpy_js_JRKAN直播",
    "name": "拾光·💥JRKAN直播(体育)",
    "api": "https://gh-proxy.com/raw.githubusercontent.com/gaotianliuyun/gao/master/lib/drpy2.min.js",
@@ -48966,6 +48851,19 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "ivxiangya2_drpy_js_豆瓣",
+   "name": "香雅情·豆瓣[js]",
+   "api": "https://play.iptv365.org/%E9%A6%99%E9%9B%85%E6%83%85/api/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
    "key": "lxoldliu_js_6V",
    "name": "老刘2·✡️六维磁力┃Js",
    "api": "https://raw.liucn.cc/box/libs/js/drpy2.min.js",
@@ -49018,6 +48916,19 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "gao_drpy_js_磁力熊搜索",
+   "name": "高天·搜索 | 磁力熊[js]",
+   "api": "https://raw.githubusercontent.com/gaotianliuyun/gao/master/lib/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
    "key": "xiangya_csp_XYQHiker_斗鱼直播",
    "name": "香雅·🐠斗鱼直播(XYQH)",
    "api": "csp_XYQHiker",
@@ -49053,7 +48964,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 3,
+   "bad_streak": 4,
    "prev_verdict": "search_bad"
   },
   {
@@ -49061,19 +48972,6 @@
    "name": "老刘·🛴手机┃推送",
    "api": "csp_Push",
    "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "lxxhzdc12_drpy_js_曲奇动漫",
-   "name": "小盒仓·动漫 | 曲奇动漫[js]",
-   "api": "https://www.yingm.cc/dm/js/drpy2.min.js",
-   "kind": "drpy",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
    "first_url": "",
@@ -49157,7 +49055,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 7,
+   "bad_streak": 8,
    "prev_verdict": "xml_endpoint"
   },
   {
@@ -49235,7 +49133,7 @@
    "first_url": "https://p.bvvvvvvvvv1f.com/video/qingyuniandiyiji/第01集/index.m3u8",
    "codec": "",
    "ms": null,
-   "bad_streak": 12,
+   "bad_streak": 13,
    "prev_verdict": "bad_url"
   },
   {
@@ -49317,9 +49215,9 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "lxshiguang40_drjs_哩咕TV",
-   "name": "拾光·雷蒙影视 | 👺哩咕TV(DRPY)",
-   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
+   "key": "lxshiguang1_红果短剧",
+   "name": "拾光·红果｜短剧",
+   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/xmbjm/svip/refs/heads/main/drpy_libs/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -49330,9 +49228,9 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "lxshiguang40_drjs_曲奇动漫",
-   "name": "拾光·雷蒙影视 | 👺曲奇动漫(DRPY)",
-   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
+   "key": "lxshiguang3_红果短剧",
+   "name": "拾光·红果｜短剧",
+   "api": "https://jiekou.netlify.app/drpy_libs/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -49343,9 +49241,9 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "ivdongman_drpy_js_曲奇动漫",
-   "name": "动漫·动漫 | 曲奇动漫[js]",
-   "api": "https://play.iptv365.org/%E5%8A%A8%E6%BC%AB%E9%A2%91%E9%81%93/api/drpy2.min.js",
+   "key": "ivdongman_妮可动漫",
+   "name": "动漫·妮可动漫",
+   "api": "https://play.iptv365.org/%E5%8A%A8%E6%BC%AB%E9%A2%91%E9%81%93/api/drpy.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -49365,7 +49263,7 @@
    "first_url": "https://p.bvvvvvvvvv1f.com/video/qingyuniandiyiji/第01集/index.m3u8",
    "codec": "",
    "ms": null,
-   "bad_streak": 10,
+   "bad_streak": 11,
    "prev_verdict": "bad_url"
   },
   {
@@ -49577,6 +49475,32 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "ivcainisi_演唱会",
+   "name": "菜妮丝·🅱哔哩┃音乐",
+   "api": "csp_Bili",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "ivcainisi_酷奇MV",
+   "name": "菜妮丝·🎵酷奇┃MV",
+   "api": "csp_XBPQ",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
    "key": "ivwangerxiao_Pandalivetv",
    "name": "王二小·😍韩国┃直播😍",
    "api": "csp_WexPandalivetvGuard",
@@ -49616,9 +49540,9 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "ivpg_AliShareEBook",
-   "name": "PG·阿里云盘书籍分享",
-   "api": "csp_AliShare",
+   "key": "ivpg_豆瓣",
+   "name": "PG·豆瓣",
+   "api": "csp_Douban",
    "kind": "rule",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -49759,9 +49683,22 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "ivshaoer_push_agent",
-   "name": "少儿·▶┃推送┃磁力",
-   "api": "csp_Push",
+   "key": "ivxiqu_MTV",
+   "name": "戏曲·🎧明星┃MV",
+   "api": "csp_Bili",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "ivshaoer_ysjd",
+   "name": "少儿·🅱️央视┃经典",
+   "api": "csp_Bili",
    "kind": "rule",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -49863,9 +49800,9 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "lxshiguang22_drpy_js_爱弹幕",
-   "name": "拾光·爱弹幕",
-   "api": "https://gh-proxy.com/raw.githubusercontent.com/yw88075/tvbox/main/dr/lib/drpy2.min.js",
+   "key": "lxshiguang51_drpy_js_有声绘本网",
+   "name": "拾光·💥有声绘本(少儿)",
+   "api": "https://gh-proxy.com/raw.githubusercontent.com/gaotianliuyun/gao/master/lib/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -49876,10 +49813,127 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "lxshiguang51_drpy_js_有声绘本网",
-   "name": "拾光·💥有声绘本(少儿)",
-   "api": "https://gh-proxy.com/raw.githubusercontent.com/gaotianliuyun/gao/master/lib/drpy2.min.js",
-   "kind": "drpy",
+   "key": "ivxiaohuban_七点",
+   "name": "小虎斑·七点|弹幕",
+   "api": "csp_HBPQ",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "ivxiaohuban_三九",
+   "name": "小虎斑·三九|弹幕",
+   "api": "csp_HBPQ",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "ivxiaohuban_三四",
+   "name": "小虎斑·三四|弹幕",
+   "api": "csp_HBPQ",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "ivxiaohuban_咳咳",
+   "name": "小虎斑·可可|弹幕",
+   "api": "csp_HBPQ",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "ivxiaohuban_樱花",
+   "name": "小虎斑·樱花|弹幕",
+   "api": "csp_HBPQ",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "ivxiaohuban_永乐",
+   "name": "小虎斑·永乐|弹幕",
+   "api": "csp_HBPQ",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "ivxiaohuban_海纳",
+   "name": "小虎斑·海纳|弹幕",
+   "api": "csp_HBPQ",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "ivxiaohuban_雪糕",
+   "name": "小虎斑·雪糕|弹幕",
+   "api": "csp_HBPQ",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "ivxiaohuban_面包",
+   "name": "小虎斑·面包|弹幕",
+   "api": "csp_HBPQ",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "ivxiaohuban_骚火",
+   "name": "小虎斑·骚火|弹幕",
+   "api": "csp_HBPQ",
+   "kind": "rule",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
    "first_url": "",
@@ -49967,6 +50021,19 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "ivpg_drpy_js_愛盤搜",
+   "name": "PG·爱盘搜[js]|夸",
+   "api": "https://play.iptv365.org/PG/lib/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
    "key": "ivpg_yydsys",
    "name": "PG·玩你老哥|网盘",
    "api": "csp_Wobg",
@@ -49996,6 +50063,19 @@
    "key": "ivpg_秒搜",
    "name": "PG·秒搜|网盘搜索",
    "api": "csp_MiaoSou",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "ivpg_AList",
+   "name": "PG·网盘|Alist[jar]",
+   "api": "csp_AList",
    "kind": "rule",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -50036,6 +50116,19 @@
    "name": "潇洒·狐狸君｜磁力",
    "api": "csp_XBPQ",
    "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "ivtiantian_六月听书",
+   "name": "天天开心·📚️听书┃六月",
+   "api": "https://play.iptv365.org/%E5%A4%A9%E5%A4%A9%E5%BC%80%E5%BF%83/api/drpy2.min.js",
+   "kind": "drpy",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
    "first_url": "",
@@ -50088,19 +50181,6 @@
    "name": "高天·弹幕 | Samba分享[jar]",
    "api": "csp_SambaShare",
    "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "gao_drpy_js_磁力熊搜索",
-   "name": "高天·搜索 | 磁力熊[js]",
-   "api": "https://raw.githubusercontent.com/gaotianliuyun/gao/master/lib/drpy2.min.js",
-   "kind": "drpy",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
    "first_url": "",
@@ -50188,6 +50268,32 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "ivfeimao2_儿童",
+   "name": "肥猫·📚┃儿童┃启蒙",
+   "api": "https://play.iptv365.org/%E8%82%A5%E7%8C%AB/api/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "ivcainisi_豆瓣",
+   "name": "菜妮丝·豆瓣┃影视",
+   "api": "csp_Douban",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
    "key": "ivmoyuer_cloudLJ",
    "name": "摸鱼儿·🐋天翼雷鲸┃4K弹幕",
    "api": "csp_PanWebShareCloudLJ",
@@ -50223,7 +50329,7 @@
    "first_url": "https://p.bvvvvvvvvv1f.com/video/qingyuniandiyiji/第01集/index.m3u8",
    "codec": "",
    "ms": null,
-   "bad_streak": 10,
+   "bad_streak": 11,
    "prev_verdict": "bad_url"
   },
   {
@@ -50563,7 +50669,7 @@
    "ms": null,
    "doh_status": 3,
    "doh_ips": [],
-   "bad_streak": 8,
+   "bad_streak": 9,
    "prev_verdict": "dns_dead"
   },
   {
@@ -50578,7 +50684,7 @@
    "ms": null,
    "doh_status": 3,
    "doh_ips": [],
-   "bad_streak": 8,
+   "bad_streak": 9,
    "prev_verdict": "dns_dead"
   },
   {
@@ -50593,7 +50699,7 @@
    "ms": null,
    "doh_status": 3,
    "doh_ips": [],
-   "bad_streak": 8,
+   "bad_streak": 9,
    "prev_verdict": "dns_dead"
   },
   {
@@ -50608,7 +50714,7 @@
    "ms": null,
    "doh_status": 3,
    "doh_ips": [],
-   "bad_streak": 8,
+   "bad_streak": 9,
    "prev_verdict": "dns_dead"
   },
   {
@@ -50623,7 +50729,7 @@
    "ms": null,
    "doh_status": 3,
    "doh_ips": [],
-   "bad_streak": 8,
+   "bad_streak": 9,
    "prev_verdict": "dns_dead"
   },
   {
@@ -50649,7 +50755,7 @@
    "first_url": "https://p.bvvvvvvvvv1f.com/video/qingyuniandiyiji/第01集/index.m3u8",
    "codec": "",
    "ms": null,
-   "bad_streak": 10,
+   "bad_streak": 11,
    "prev_verdict": "bad_url"
   },
   {
@@ -50770,6 +50876,97 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "ivfantaiying_斗鱼js",
+   "name": "饭太硬·🐟斗鱼┃直播",
+   "api": "https://play.iptv365.org/%E9%A5%AD%E5%A4%AA%E7%A1%AC/api/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "ivpg_drpy_js_磁力熊",
+   "name": "PG·磁力熊[js]|索引",
+   "api": "https://play.iptv365.org/PG/lib/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "ivtiantian_斗鱼js",
+   "name": "天天开心·🐟斗鱼┃直播",
+   "api": "https://play.iptv365.org/%E5%A4%A9%E5%A4%A9%E5%BC%80%E5%BF%83/api/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "ivtiantian_虎牙直播",
+   "name": "天天开心·🐯虎牙直播",
+   "api": "https://play.iptv365.org/%E5%A4%A9%E5%A4%A9%E5%BC%80%E5%BF%83/api/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "ivxiangya2_DRJS_虎牙",
+   "name": "香雅情·虎牙直播(JS)",
+   "api": "https://play.iptv365.org/%E9%A6%99%E9%9B%85%E6%83%85/api/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "ivnanfeng_斗鱼",
+   "name": "南风·🐟斗鱼直播",
+   "api": "https://play.iptv365.org/%E5%8D%97%E9%A3%8E/api/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "ivshaoer_py_cctv_1",
+   "name": "少儿·🅱️央视-少儿",
+   "api": "py_cctv",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
    "key": "lxoldliu_py_cctv",
    "name": "老刘2·❤️┃央视┃py",
    "api": "py_cctv",
@@ -50846,7 +51043,7 @@
    "ms": null,
    "doh_status": 3,
    "doh_ips": [],
-   "bad_streak": 8,
+   "bad_streak": 9,
    "prev_verdict": "dns_dead"
   },
   {
@@ -50861,39 +51058,13 @@
    "ms": null,
    "doh_status": 3,
    "doh_ips": [],
-   "bad_streak": 8,
+   "bad_streak": 9,
    "prev_verdict": "dns_dead"
   },
   {
    "key": "lxshiguang51_csp_Live2Vod_2",
    "name": "拾光·💕电视直播(远程配置版)",
    "api": "csp_Live2Vod",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "ivcainisi_演唱会",
-   "name": "菜妮丝·🅱哔哩┃音乐",
-   "api": "csp_Bili",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "ivcainisi_酷奇MV",
-   "name": "菜妮丝·🎵酷奇┃MV",
-   "api": "csp_XBPQ",
    "kind": "rule",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -50917,9 +51088,9 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "ivpg_豆瓣",
-   "name": "PG·豆瓣",
-   "api": "csp_Douban",
+   "key": "ivpg_AliShareEBook",
+   "name": "PG·阿里云盘书籍分享",
+   "api": "csp_AliShare",
    "kind": "rule",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -50930,10 +51101,10 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "ivxiqu_MTV",
-   "name": "戏曲·🎧明星┃MV",
-   "api": "csp_Bili",
-   "kind": "rule",
+   "key": "ivtiantian_酷奇",
+   "name": "天天开心·🎤酷奇┃MV",
+   "api": "https://play.iptv365.org/%E5%A4%A9%E5%A4%A9%E5%BC%80%E5%BF%83/api/drpy2.min.js",
+   "kind": "drpy",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
    "first_url": "",
@@ -50943,10 +51114,10 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "ivshaoer_py_cctv_1",
-   "name": "少儿·🅱️央视-少儿",
-   "api": "py_cctv",
-   "kind": "rule",
+   "key": "ivnanfeng_有声小说吧",
+   "name": "南风·📚有声小说吧",
+   "api": "https://play.iptv365.org/%E5%8D%97%E9%A3%8E/api/drpy2.min.js",
+   "kind": "drpy",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
    "first_url": "",
@@ -50956,9 +51127,22 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "ivshaoer_ysjd",
-   "name": "少儿·🅱️央视┃经典",
-   "api": "csp_Bili",
+   "key": "ivxiqu_酷奇",
+   "name": "戏曲·🎤酷奇┃MV",
+   "api": "https://play.iptv365.org/%E6%88%8F%E6%9B%B2%E9%9F%B3%E4%B9%90/api/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "ivshaoer_push_agent",
+   "name": "少儿·▶┃推送┃磁力",
+   "api": "csp_Push",
    "kind": "rule",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -51021,35 +51205,9 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "ivpg_drpy_js_愛盤搜",
-   "name": "PG·爱盘搜[js]|夸",
-   "api": "https://play.iptv365.org/PG/lib/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
    "key": "ivpg_drpy_js_Alist",
    "name": "PG·网盘 | Alist[js]",
    "api": "https://play.iptv365.org/PG/lib/alist.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "ivtianwei_哔哩直播",
-   "name": "天微·《哔哩🅱直播》",
-   "api": "https://play.iptv365.org/%E5%A4%A9%E5%BE%AE/api/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -51073,22 +51231,9 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "ivtiantian_六月听书",
-   "name": "天天开心·📚️听书┃六月",
-   "api": "https://play.iptv365.org/%E5%A4%A9%E5%A4%A9%E5%BC%80%E5%BF%83/api/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "ivxiangya2_drpy_js_豆瓣",
-   "name": "香雅情·豆瓣[js]",
-   "api": "https://play.iptv365.org/%E9%A6%99%E9%9B%85%E6%83%85/api/drpy2.min.js",
+   "key": "iviptv365_TV直播test",
+   "name": "iptv·TV直播test",
+   "api": "http://ttkx.live:55/lib/drpy_libs/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -51123,7 +51268,7 @@
    "ms": null,
    "doh_status": 2,
    "doh_ips": [],
-   "bad_streak": 2,
+   "bad_streak": 3,
    "prev_verdict": "dns_dead"
   },
   {
@@ -51138,7 +51283,7 @@
    "ms": null,
    "doh_status": 3,
    "doh_ips": [],
-   "bad_streak": 7,
+   "bad_streak": 8,
    "prev_verdict": "dns_dead"
   },
   {
@@ -51153,7 +51298,7 @@
    "ms": null,
    "doh_status": 3,
    "doh_ips": [],
-   "bad_streak": 10,
+   "bad_streak": 11,
    "prev_verdict": "dns_dead"
   },
   {
@@ -51168,7 +51313,7 @@
    "ms": null,
    "doh_status": 3,
    "doh_ips": [],
-   "bad_streak": 8,
+   "bad_streak": 9,
    "prev_verdict": "dns_dead"
   },
   {
@@ -51183,7 +51328,7 @@
    "ms": null,
    "doh_status": 3,
    "doh_ips": [],
-   "bad_streak": 8,
+   "bad_streak": 9,
    "prev_verdict": "dns_dead"
   },
   {
@@ -51224,7 +51369,7 @@
    "ms": null,
    "doh_status": 3,
    "doh_ips": [],
-   "bad_streak": 8,
+   "bad_streak": 9,
    "prev_verdict": "dns_dead"
   },
   {
@@ -51239,7 +51384,7 @@
    "ms": null,
    "doh_status": 3,
    "doh_ips": [],
-   "bad_streak": 8,
+   "bad_streak": 9,
    "prev_verdict": "dns_dead"
   },
   {
@@ -51254,7 +51399,7 @@
    "ms": null,
    "doh_status": 3,
    "doh_ips": [],
-   "bad_streak": 2,
+   "bad_streak": 3,
    "prev_verdict": "dns_dead"
   },
   {
@@ -51269,7 +51414,7 @@
    "ms": null,
    "doh_status": 3,
    "doh_ips": [],
-   "bad_streak": 8,
+   "bad_streak": 9,
    "prev_verdict": "dns_dead"
   },
   {
@@ -51284,7 +51429,7 @@
    "ms": null,
    "doh_status": 3,
    "doh_ips": [],
-   "bad_streak": 2,
+   "bad_streak": 3,
    "prev_verdict": "dns_dead"
   },
   {
@@ -51327,19 +51472,6 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "ivfantaiying_斗鱼js",
-   "name": "饭太硬·🐟斗鱼┃直播",
-   "api": "https://play.iptv365.org/%E9%A5%AD%E5%A4%AA%E7%A1%AC/api/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
    "key": "ivfantaiying_虎牙直播js",
    "name": "饭太硬·🐯虎牙┃直播",
    "api": "https://play.iptv365.org/%E9%A5%AD%E5%A4%AA%E7%A1%AC/api/drpy2.js",
@@ -51364,78 +51496,13 @@
    "ms": null,
    "doh_status": 3,
    "doh_ips": [],
-   "bad_streak": 2,
+   "bad_streak": 3,
    "prev_verdict": "dns_dead"
-  },
-  {
-   "key": "ivpg_drpy_js_磁力熊",
-   "name": "PG·磁力熊[js]|索引",
-   "api": "https://play.iptv365.org/PG/lib/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
   },
   {
    "key": "ivpg_直播转点播",
    "name": "PG·🐼️┃电视┃直播",
    "api": "https://play.iptv365.org/PG/lib/live2vod.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "ivtiantian_哔哩直播",
-   "name": "天天开心·🅱️哔哩┃直播",
-   "api": "https://play.iptv365.org/%E5%A4%A9%E5%A4%A9%E5%BC%80%E5%BF%83/api/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "ivtiantian_酷奇",
-   "name": "天天开心·🎤酷奇┃MV",
-   "api": "https://play.iptv365.org/%E5%A4%A9%E5%A4%A9%E5%BC%80%E5%BF%83/api/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "ivtiantian_斗鱼js",
-   "name": "天天开心·🐟斗鱼┃直播",
-   "api": "https://play.iptv365.org/%E5%A4%A9%E5%A4%A9%E5%BC%80%E5%BF%83/api/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "ivtiantian_虎牙直播",
-   "name": "天天开心·🐯虎牙直播",
-   "api": "https://play.iptv365.org/%E5%A4%A9%E5%A4%A9%E5%BC%80%E5%BF%83/api/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -51459,74 +51526,9 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "ivxiangya2_JS哔哩直播",
-   "name": "香雅情·哔哩直播[js]",
-   "api": "https://play.iptv365.org/%E9%A6%99%E9%9B%85%E6%83%85/api/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "ivxiangya2_DRJS_虎牙",
-   "name": "香雅情·虎牙直播(JS)",
-   "api": "https://play.iptv365.org/%E9%A6%99%E9%9B%85%E6%83%85/api/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "ivnanfeng_斗鱼",
-   "name": "南风·🐟斗鱼直播",
-   "api": "https://play.iptv365.org/%E5%8D%97%E9%A3%8E/api/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
    "key": "ivnanfeng_虎牙",
    "name": "南风·🐯虎牙直播",
    "api": "https://play.iptv365.org/%E5%8D%97%E9%A3%8E/api/drpy2.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "ivnanfeng_有声小说吧",
-   "name": "南风·📚有声小说吧",
-   "api": "https://play.iptv365.org/%E5%8D%97%E9%A3%8E/api/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "ivxiqu_酷奇",
-   "name": "戏曲·🎤酷奇┃MV",
-   "api": "https://play.iptv365.org/%E6%88%8F%E6%9B%B2%E9%9F%B3%E4%B9%90/api/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -51550,9 +51552,9 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "iviptv365_TV直播test",
-   "name": "iptv·TV直播test",
-   "api": "http://ttkx.live:55/lib/drpy_libs/drpy2.min.js",
+   "key": "ivtianwei_哔哩直播",
+   "name": "天微·《哔哩🅱直播》",
+   "api": "https://play.iptv365.org/%E5%A4%A9%E5%BE%AE/api/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
    "why": "解析在客户端执行",
@@ -51602,6 +51604,32 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "ivtiantian_哔哩直播",
+   "name": "天天开心·🅱️哔哩┃直播",
+   "api": "https://play.iptv365.org/%E5%A4%A9%E5%A4%A9%E5%BC%80%E5%BF%83/api/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "ivxiangya2_JS哔哩直播",
+   "name": "香雅情·哔哩直播[js]",
+   "api": "https://play.iptv365.org/%E9%A6%99%E9%9B%85%E6%83%85/api/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
    "key": "top98_csp_xb_cokemv",
    "name": "俊佬·cokemv(XBiu)",
    "api": "csp_XBiu",
@@ -51626,6 +51654,40 @@
    "ms": null,
    "bad_streak": 0,
    "prev_verdict": "rule_based"
+  },
+  {
+   "key": "ivxiaohuban_天翼",
+   "name": "小虎斑·天翼|推送",
+   "api": "https://so.yinpai.xyz/api.php?type=tianyi",
+   "kind": "cms",
+   "verdict": "search_fail",
+   "why": "搜索 HTTP TimeoutError；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "38.76.197.172"
+   ],
+   "bad_streak": 0,
+   "prev_verdict": "share_page"
+  },
+  {
+   "key": "ivxiaohuban_百度",
+   "name": "小虎斑·百度|推送",
+   "api": "https://so.yinpai.xyz/api.php?type=baidu",
+   "kind": "cms",
+   "verdict": "search_fail",
+   "why": "搜索 HTTP TimeoutError；DoH 有 A 记录，属本机 DNS 被拦",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "doh_status": 0,
+   "doh_ips": [
+    "38.76.197.172"
+   ],
+   "bad_streak": 0,
+   "prev_verdict": "share_page"
   },
   {
    "key": "top98_csp_XBPQ_98影院",
@@ -52109,19 +52171,6 @@
    "prev_verdict": "rule_based"
   },
   {
-   "key": "lxshiguang3_全集影视",
-   "name": "拾光·网集｜影视",
-   "api": "csp_XYQHiker",
-   "kind": "rule",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
    "key": "lxshiguang1_蓝光",
    "name": "拾光·蓝光｜APP",
    "api": "csp_AppGet",
@@ -52215,6 +52264,19 @@
   {
    "key": "lxshiguang40_csp_XBPQ_九三",
    "name": "拾光·雷蒙影视 | 🍚九三(XBPQ)",
+   "api": "csp_XBPQ",
+   "kind": "rule",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
+   "key": "lxshiguang40_csp_XBPQ_南柯",
+   "name": "拾光·雷蒙影视 | 🍚南柯(XBPQ)",
    "api": "csp_XBPQ",
    "kind": "rule",
    "verdict": "rule_based",
@@ -55788,6 +55850,19 @@
    "prev_verdict": "rule_based"
   },
   {
+   "key": "lxshiguang40_drjs_哩咕TV",
+   "name": "拾光·雷蒙影视 | 👺哩咕TV(DRPY)",
+   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
+   "kind": "drpy",
+   "verdict": "rule_based",
+   "why": "解析在客户端执行",
+   "first_url": "",
+   "codec": "",
+   "ms": null,
+   "bad_streak": 0,
+   "prev_verdict": "rule_based"
+  },
+  {
    "key": "lxshiguang40_drjs_嗷呜动漫",
    "name": "拾光·雷蒙影视 | 👺嗷呜动漫(DRPY)",
    "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
@@ -56167,19 +56242,6 @@
   {
    "key": "lxshiguang40_drjs_欧帝影院",
    "name": "拾光·雷蒙影视 | 👺欧帝影院(DRPY)",
-   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "lxshiguang40_drjs_永乐视频",
-   "name": "拾光·雷蒙影视 | 👺永乐视频(DRPY)",
    "api": "https://gh-proxy.com/https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/dr_py/libs/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
@@ -57584,19 +57646,6 @@
   {
    "key": "maoy_hipy_js_KTV歌厅_听",
    "name": "分享·💖分享歌厅",
-   "api": "https://gh-proxy.com/https://raw.githubusercontent.com/maoystv/api/refs/heads/main/JS/drpy2.min.js",
-   "kind": "drpy",
-   "verdict": "rule_based",
-   "why": "解析在客户端执行",
-   "first_url": "",
-   "codec": "",
-   "ms": null,
-   "bad_streak": 0,
-   "prev_verdict": "rule_based"
-  },
-  {
-   "key": "maoy_泥巴视频",
-   "name": "分享·💝分享泥巴",
    "api": "https://gh-proxy.com/https://raw.githubusercontent.com/maoystv/api/refs/heads/main/JS/drpy2.min.js",
    "kind": "drpy",
    "verdict": "rule_based",
@@ -59351,7 +59400,7 @@
     "172.67.157.10",
     "104.21.40.208"
    ],
-   "bad_streak": 7,
+   "bad_streak": 8,
    "prev_verdict": "dead_link"
   },
   {
@@ -59369,21 +59418,8 @@
     "fb6dd06b.hdzyk-cdn.com.",
     "caiji.hdzyk-cdn.com."
    ],
-   "bad_streak": 7,
+   "bad_streak": 8,
    "prev_verdict": "dead_link"
-  },
-  {
-   "key": "nptp_s_05b7f2c7da",
-   "name": "探针·🦚360(7.5万)·733ms",
-   "api": "https://360zyzz.com/api.php/provide/vod/",
-   "kind": "cms",
-   "verdict": "ok",
-   "why": "",
-   "first_url": "https://vod.guoluche.com/20240516/zN7aNzzK/index.m3u8",
-   "codec": "",
-   "ms": 3017,
-   "bad_streak": 0,
-   "prev_verdict": "ok"
   },
   {
    "key": "nptp_s_f93b6d4dd2",
@@ -59400,7 +59436,7 @@
     "vvv1.heisi-dns.com.",
     "23.225.145.238"
    ],
-   "bad_streak": 5,
+   "bad_streak": 6,
    "prev_verdict": "dead_link"
   },
   {
@@ -59881,7 +59917,7 @@
    "first_url": "https://m1.taopianplay1.com:43333/c56b1bc09da3/HD/2024-05-17/15/c6bcd1f9c646/58bc69952338/playlist.m3u8",
    "codec": "",
    "ms": null,
-   "bad_streak": 12,
+   "bad_streak": 13,
    "prev_verdict": "dead_link"
   },
   {
@@ -59894,7 +59930,7 @@
    "first_url": "https://ukzy.ukubf4.com/share/cUrgOEtJKRvcLBDn",
    "codec": "",
    "ms": null,
-   "bad_streak": 12,
+   "bad_streak": 13,
    "prev_verdict": "dead_link"
   },
   {
@@ -59907,7 +59943,7 @@
    "first_url": "https://ukzy.ukubf4.com/share/cUrgOEtJKRvcLBDn",
    "codec": "",
    "ms": null,
-   "bad_streak": 12,
+   "bad_streak": 13,
    "prev_verdict": "dead_link"
   },
   {
@@ -59920,7 +59956,7 @@
    "first_url": "",
    "codec": "",
    "ms": null,
-   "bad_streak": 12,
+   "bad_streak": 13,
    "prev_verdict": "live_format"
   }
  ]
