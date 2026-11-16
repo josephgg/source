@@ -791,7 +791,10 @@ async function cachedResponse(request, ctx, producer) {
     // cache is an optimization only
   }
   const response = await producer();
-  if (response.ok) {
+  // 详情失败（code=0）多半是上游 CDN 这一瞬间限流，属于「再点一次就好」的临时态。
+  // 把它写进 60 秒缓存，用户连点两次拿到的还是同一条空结果，体验比慢更糟。
+  const noStore = /no-store/i.test(response.headers.get("cache-control") || "");
+  if (response.ok && !noStore) {
     try {
       ctx?.waitUntil?.(cache.put(key, response.clone()));
     } catch {
@@ -844,7 +847,12 @@ export async function handle(request, ctx = null) {
   }
 
   try {
-    return await cachedResponse(request, ctx, async () => jsonResponse(await routeApi(url)));
+    return await cachedResponse(request, ctx, async () => {
+      const data = await routeApi(url);
+      // 只给失败的详情请求打 no-store；正常结果仍走 60 秒缓存。
+      const failedDetail = data.code === 0 && url.searchParams.has("ids");
+      return jsonResponse(data, 200, failedDetail ? { "Cache-Control": "no-store" } : {});
+    });
   } catch (error) {
     return jsonResponse(
       {

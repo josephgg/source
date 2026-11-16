@@ -161,3 +161,14 @@ test("详情抽检：限流/超时不算坏线路，HTML 播放页才算", async
     globalThis.fetch = orig;
   }
 });
+
+test("失败的详情不打长缓存，用户重试能拿到新结果", async () => {
+  const bad = await handle(new Request("https://joetv.example/api.php/provide/vod/?ac=detail&ids=Jbad"));
+  const badData = await bad.json();
+  assert.equal(badData.code, 0);
+  assert.match(bad.headers.get("cache-control") || "", /no-store/i, "失败详情必须 no-store");
+
+  const ready = await handle(new Request("https://joetv.example/api.php/provide/vod/"));
+  assert.equal((await ready.json()).code, 1);
+  assert.doesNotMatch(ready.headers.get("cache-control") || "", /no-store/i, "正常结果仍可缓存");
+});
