@@ -1,19 +1,19 @@
 # 构建报告
 
-生成时间：2026-11-16T07:44:26+08:00
+生成时间：2026-11-16T11:02:59+08:00
 
 | 指标 | 数值 |
 | --- | --- |
-| 合并后站点数 | 3915 |
-| 参与聚合搜索 | 3393 |
+| 合并后站点数 | 3907 |
+| 参与聚合搜索 | 3383 |
 | 稳定精选站点数 | 8 |
-| 实体剔除确认失效站 | 616 |
+| 实体剔除确认失效站 | 613 |
 | 解析源数量 | 36 |
 | 直播源数量 | 12 |
-| 跨源去重丢弃 | 3417 |
-| 爬虫文件失效 | 23 |
-| 搜索实测：关搜索 | 36 |
-| 搜索实测：仅关快速搜索 | 1 |
+| 跨源去重丢弃 | 3404 |
+| 爬虫文件失效 | 21 |
+| 搜索实测：关搜索 | 35 |
+| 搜索实测：仅关快速搜索 | 3 |
 | 剔除：成人内容 | 0 |
 | 剔除：域名黑名单 | 2 |
 | 剔除：本机代理地址 | 9 |
@@ -24,183 +24,183 @@
 
 | 站点 | 类型 | 连续通过 | 分片抽检 | 抽检字节 | 耗时 |
 | --- | --- | --- | --- | --- | --- |
-| 影视·360 | ok | 8 轮 | 3/958 | 911648 | 8631ms |
-| 影视·虎牙 | ok | 8 轮 | 3/625 | 1055472 | 3222ms |
-| 影视·如意 | ok | 7 轮 | 3/40 | 3336812 | 6172ms |
-| 影视·分享猫眼 | ok | 8 轮 | 3/477 | 2669488 | 4997ms |
-| 影视·分享魔都 | ok | 5 轮 | 3/20 | 2200164 | 3576ms |
-| 影视·ikun | ok | 2 轮 | 3/1466 | 1297200 | 2653ms |
-| 动漫·魔都 | ok | 5 轮 | 3/20 | 2200164 | 3670ms |
-| 动漫·仓腾讯B站 | ok | 8 轮 | 3/337 | 4767079 | 8578ms |
+| 影视·360 | ok | 9 轮 | 3/958 | 911648 | 8473ms |
+| 影视·虎牙 | ok | 9 轮 | 3/625 | 1055472 | 1303ms |
+| 影视·ikun | ok | 3 轮 | 3/1466 | 1297200 | 1783ms |
+| 影视·如意 | ok | 9 轮 | 3/40 | 3336812 | 4171ms |
+| 影视·分享魔都 | ok | 6 轮 | 3/20 | 2200164 | 1898ms |
+| 影视·分享猫眼 | ok | 9 轮 | 3/477 | 2669488 | 2517ms |
+| 动漫·魔都 | ok | 6 轮 | 3/20 | 2200164 | 1911ms |
+| 动漫·仓腾讯B站 | ok | 9 轮 | 3/337 | 4767079 | 9218ms |
 
 ## 各源状态
 
 | 源 | 站点 | 新增 | 耗时 | 状态 |
 | --- | --- | --- | --- | --- |
-| 高天流云 | 298 | 295 | 76ms | OK |
-| 老刘备 | 234 | 229 | 115ms | OK |
-| 分享者 | 168 | 164 | 168ms | OK |
-| 王二小放牛娃 | 63 | 61 | 1372ms | OK |
-| 香雅晴 | 48 | 45 | 126ms | OK |
-| 短剧专线 | - | 0 | 116977ms | 失败：URLError: <urlopen error timed out> |
-| 俊佬 | 24 | 23 | 934ms | OK |
-| 无邪 / 💚无邪优选仓🍭热门推荐🍭 / 🚀无邪┃饭太硬线路 | - | 0 | 6550ms | 失败：ValueError: not json | head=����..JFIF..........��.�............ . . .... ................!...!.1&""&18/-/8D==DVQVpp�........... |
-| 无邪 / 💚无邪优选仓🍭热门推荐🍭 / 🚀无邪┃肥猫线路 | 41 | 37 | 6550ms | OK |
-| 无邪 / 💚无邪优选仓🍭热门推荐🍭 / 🚀无邪┃摸鱼线路 | 111 | 107 | 6550ms | OK |
-| 无邪 / 💚无邪优选仓🍭热门推荐🍭 / 🚀无邪┃王二小线路 | 63 | 0 | 6550ms | OK |
-| 无邪 / 💚无邪优选仓🍭热门推荐🍭 / 🚀无邪┃短剧专线 | - | 0 | 6550ms | 失败：URLError: <urlopen error timed out> |
-| 无邪 / 💚无邪优选仓🍭热门推荐🍭 / 🚀无邪┃儿童专线 | - | 0 | 6550ms | 失败：ValueError: not json | head=�PNG  . ... IHDR...x...�.....����....sRGB.��.�....sBIT....|.d�.. .IDATx���Y�e�u��[{8Ýr�.3@....��lY�Z |
-| 无邪 / 💚无邪优选仓🍭热门推荐🍭 / 🚀无邪┃饭太硬备用 | - | 0 | 6550ms | 失败：ValueError: not json | head=����..JFIF..........��.�............ . . .... ................!...!.1&""&18/-/8D==DVQVpp�........... |
-| 无邪 / 💚无邪优选仓🍭热门推荐🍭 / 🚀无邪┃肥猫备用 | 41 | 1 | 6550ms | OK |
-| 无邪 / 💚无邪优选仓🍭热门推荐🍭 / 🚀无邪┃摸鱼备用 | 111 | 0 | 6550ms | OK |
-| 无邪 / 💚无邪优选仓🍭热门推荐🍭 / 🚀无邪┃王二小备用 | 100 | 91 | 6550ms | OK |
-| 无邪 / 💛无邪聚合仓🍭聚合全网🍭 / 💎无邪┃饭太硬线路 | - | 0 | 6550ms | 失败：ValueError: not json | head=����..JFIF..........��.�............ . . .... ................!...!.1&""&18/-/8D==DVQVpp�........... |
-| 无邪 / 💛无邪聚合仓🍭聚合全网🍭 / 💎无邪┃肥猫线路 | - | 0 | 6550ms | 失败：HTTPError: HTTP Error 404: Not Found |
-| 无邪 / 💛无邪聚合仓🍭聚合全网🍭 / 💎无邪┃摸鱼线路 | 111 | 0 | 6550ms | OK |
-| 无邪 / 💛无邪聚合仓🍭聚合全网🍭 / 💎无邪┃王二小线路 | 63 | 0 | 6550ms | OK |
-| 无邪 / 💛无邪聚合仓🍭聚合全网🍭 / 💎无邪┃短剧专线 | - | 0 | 6550ms | 失败：URLError: <urlopen error timed out> |
-| 无邪 / 💛无邪聚合仓🍭聚合全网🍭 / 💎无邪┃儿童专线 | - | 0 | 6550ms | 失败：ValueError: not json | head=�PNG  . ... IHDR...x...�.....����....sRGB.��.�....sBIT....|.d�.. .IDATx���Y�e�u��[{8Ýr�.3@....��lY�Z |
-| 无邪 / 💛无邪聚合仓🍭聚合全网🍭 / 💎无邪┃俊佬线路 | 24 | 0 | 6550ms | OK |
-| 无邪 / 💛无邪聚合仓🍭聚合全网🍭 / 💎无邪┃老刘备线路 | 234 | 0 | 6550ms | OK |
-| 无邪 / 💛无邪聚合仓🍭聚合全网🍭 / 💎无邪┃分享者线路 | 168 | 1 | 6550ms | OK |
-| 无邪 / 💛无邪聚合仓🍭聚合全网🍭 / 💎无邪┃高天流云线路 | 298 | 1 | 6550ms | OK |
-| 无邪 / 💛无邪聚合仓🍭聚合全网🍭 / 💎无邪┃香雅晴线路 | 48 | 0 | 6550ms | OK |
-| 肥猫 | 41 | 0 | 5865ms | OK |
-| 饭太硬 | 49 | 47 | 130ms | OK |
-| 小米 | 36 | 27 | 169ms | OK |
-| 肥猫(iptv) | 61 | 37 | 167ms | OK |
-| 菜妮丝 | 104 | 85 | 129ms | OK |
-| 王二小(iptv) | 86 | 26 | 165ms | OK |
-| 小虎斑 | 88 | 85 | 114ms | OK |
-| 摸鱼儿 | 107 | 81 | 196ms | OK |
-| PG | 106 | 91 | 156ms | OK |
+| 高天流云 | 298 | 295 | 294ms | OK |
+| 老刘备 | 234 | 229 | 331ms | OK |
+| 分享者 | 168 | 164 | 358ms | OK |
+| 王二小放牛娃 | 63 | 61 | 1688ms | OK |
+| 香雅晴 | 48 | 45 | 720ms | OK |
+| 短剧专线 | - | 0 | 116136ms | 失败：URLError: <urlopen error timed out> |
+| 俊佬 | 24 | 23 | 2025ms | OK |
+| 无邪 / 💚无邪优选仓🍭热门推荐🍭 / 🚀无邪┃饭太硬线路 | - | 0 | 6711ms | 失败：ValueError: not json | head=����..JFIF..........��.�............ . . .... ................!...!.1&""&18/-/8D==DVQVpp�........... |
+| 无邪 / 💚无邪优选仓🍭热门推荐🍭 / 🚀无邪┃肥猫线路 | 41 | 37 | 6711ms | OK |
+| 无邪 / 💚无邪优选仓🍭热门推荐🍭 / 🚀无邪┃摸鱼线路 | 111 | 107 | 6711ms | OK |
+| 无邪 / 💚无邪优选仓🍭热门推荐🍭 / 🚀无邪┃王二小线路 | 63 | 0 | 6711ms | OK |
+| 无邪 / 💚无邪优选仓🍭热门推荐🍭 / 🚀无邪┃短剧专线 | - | 0 | 6711ms | 失败：URLError: <urlopen error timed out> |
+| 无邪 / 💚无邪优选仓🍭热门推荐🍭 / 🚀无邪┃儿童专线 | - | 0 | 6711ms | 失败：ValueError: not json | head=�PNG  . ... IHDR...x...�.....����....sRGB.��.�....sBIT....|.d�.. .IDATx���Y�e�u��[{8Ýr�.3@....��lY�Z |
+| 无邪 / 💚无邪优选仓🍭热门推荐🍭 / 🚀无邪┃饭太硬备用 | - | 0 | 6711ms | 失败：ValueError: not json | head=����..JFIF..........��.�............ . . .... ................!...!.1&""&18/-/8D==DVQVpp�........... |
+| 无邪 / 💚无邪优选仓🍭热门推荐🍭 / 🚀无邪┃肥猫备用 | 41 | 1 | 6711ms | OK |
+| 无邪 / 💚无邪优选仓🍭热门推荐🍭 / 🚀无邪┃摸鱼备用 | 111 | 0 | 6711ms | OK |
+| 无邪 / 💚无邪优选仓🍭热门推荐🍭 / 🚀无邪┃王二小备用 | 100 | 91 | 6711ms | OK |
+| 无邪 / 💛无邪聚合仓🍭聚合全网🍭 / 💎无邪┃饭太硬线路 | - | 0 | 6711ms | 失败：ValueError: not json | head=����..JFIF..........��.�............ . . .... ................!...!.1&""&18/-/8D==DVQVpp�........... |
+| 无邪 / 💛无邪聚合仓🍭聚合全网🍭 / 💎无邪┃肥猫线路 | - | 0 | 6711ms | 失败：HTTPError: HTTP Error 404: Not Found |
+| 无邪 / 💛无邪聚合仓🍭聚合全网🍭 / 💎无邪┃摸鱼线路 | 111 | 0 | 6711ms | OK |
+| 无邪 / 💛无邪聚合仓🍭聚合全网🍭 / 💎无邪┃王二小线路 | 63 | 0 | 6711ms | OK |
+| 无邪 / 💛无邪聚合仓🍭聚合全网🍭 / 💎无邪┃短剧专线 | - | 0 | 6711ms | 失败：URLError: <urlopen error timed out> |
+| 无邪 / 💛无邪聚合仓🍭聚合全网🍭 / 💎无邪┃儿童专线 | - | 0 | 6711ms | 失败：ValueError: not json | head=�PNG  . ... IHDR...x...�.....����....sRGB.��.�....sBIT....|.d�.. .IDATx���Y�e�u��[{8Ýr�.3@....��lY�Z |
+| 无邪 / 💛无邪聚合仓🍭聚合全网🍭 / 💎无邪┃俊佬线路 | 24 | 0 | 6711ms | OK |
+| 无邪 / 💛无邪聚合仓🍭聚合全网🍭 / 💎无邪┃老刘备线路 | 234 | 0 | 6711ms | OK |
+| 无邪 / 💛无邪聚合仓🍭聚合全网🍭 / 💎无邪┃分享者线路 | 168 | 1 | 6711ms | OK |
+| 无邪 / 💛无邪聚合仓🍭聚合全网🍭 / 💎无邪┃高天流云线路 | 298 | 1 | 6711ms | OK |
+| 无邪 / 💛无邪聚合仓🍭聚合全网🍭 / 💎无邪┃香雅晴线路 | 48 | 0 | 6711ms | OK |
+| 肥猫 | 41 | 0 | 1482ms | OK |
+| 饭太硬 | 49 | 47 | 186ms | OK |
+| 小米 | 36 | 27 | 161ms | OK |
+| 肥猫(iptv) | 61 | 37 | 204ms | OK |
+| 菜妮丝 | 104 | 85 | 201ms | OK |
+| 王二小(iptv) | 86 | 26 | 171ms | OK |
+| 小虎斑 | 88 | 85 | 181ms | OK |
+| 摸鱼儿 | 107 | 81 | 171ms | OK |
+| PG | 106 | 91 | 158ms | OK |
 | 欧歌 | 106 | 72 | 177ms | OK |
-| 潇洒 | 160 | 105 | 147ms | OK |
-| 天微 | 97 | 77 | 134ms | OK |
-| 天天开心 | 126 | 90 | 207ms | OK |
-| 香雅情(iptv) | 55 | 39 | 127ms | OK |
-| 南风 | 78 | 56 | 210ms | OK |
-| 骚零 | 37 | 17 | 195ms | OK |
-| 白嫖 | 9 | 8 | 160ms | OK |
-| OK | 76 | 71 | 153ms | OK |
-| 戏曲音乐 | 10 | 10 | 183ms | OK |
-| 短剧频道 | 35 | 35 | 160ms | OK |
-| 少儿频道 | 30 | 30 | 185ms | OK |
-| 动漫频道 | 19 | 16 | 125ms | OK |
-| iptv365直播 | 4 | 4 | 181ms | OK |
-| 老刘备(liucn) | 234 | 142 | 434ms | OK |
-| 小马 | 62 | 35 | 1680ms | OK |
-| 创享影视 | 12 | 12 | 24719ms | OK |
-| 影仓 | 37 | 29 | 660ms | OK |
-| 小盒子单仓 | 54 | 34 | 437ms | OK |
-| 小盒子4K | 53 | 35 | 224ms | OK |
-| 小盒子多仓 / 🚀小盒子 | 54 | 0 | 1018ms | OK |
-| 小盒子多仓 / 🐔肥猫 | - | 0 | 1018ms | 失败：HTTPError: HTTP Error 404: Not Found |
-| 小盒子多仓 / 🐟 摸 鱼 | 111 | 0 | 1018ms | OK |
-| 小盒子多仓 / 🍯毒盒 | - | 0 | 1018ms | 失败：URLError: <urlopen error [Errno -5] No address associated with hostname> |
-| 小盒子多仓 / 🍯PG线路 | - | 0 | 1018ms | 失败：HTTPError: HTTP Error 403: Forbidden |
-| 小盒子多仓 / 🍯影视仓 | - | 0 | 1018ms | 失败：HTTPError: HTTP Error 401:  |
-| 小盒子多仓 / 🦆神仙线路 | - | 0 | 1018ms | 失败：URLError: <urlopen error [Errno -2] Name or service not known> |
-| 小盒子多仓 / 🦆俊于 | 24 | 0 | 1018ms | OK |
-| 小盒子多仓 / 😹影视资源 | - | 0 | 1018ms | 失败：ValueError: not json（返回的是图片/二进制，不是配置） | head=<!DOCTYPE html> <html><head> .<meta name="robots" content="noarchive">     <meta http-equiv="Content |
-| 小盒子多仓 / 😹玄珠 | - | 0 | 1018ms | 失败：HTTPError: HTTP Error 403: Forbidden |
-| 小盒子多仓 / 😹吾爱 | - | 0 | 1018ms | 失败：URLError: <urlopen error [Errno 111] Connection refused> |
-| 小盒子多仓 / 😹动漫城 | 27 | 23 | 1018ms | OK |
-| 小盒子多仓 / 🚀喵影视 | - | 0 | 1018ms | 失败：URLError: <urlopen error [Errno -3] Temporary failure in name resolution> |
-| 小盒子多仓 / 🚀摸鱼 | 111 | 0 | 1018ms | OK |
-| 小盒子多仓 / 🚀小马 | 62 | 0 | 1018ms | OK |
-| 小盒子多仓 / 🦉飘零 | - | 0 | 1018ms | 失败：URLError: <urlopen error [Errno -5] No address associated with hostname> |
-| 小盒子多仓 / 🐹dxawi | 48 | 14 | 1018ms | OK |
-| 小盒子多仓 / 🍯HG | 10 | 6 | 1018ms | OK |
-| 拾光多仓 / SVIP📚在线 | 246 | 201 | 2564ms | OK |
-| 拾光多仓 / 备用📚在线 | - | 0 | 2564ms | 失败：URLError: <urlopen error [Errno -2] Name or service not known> |
-| 拾光多仓 / VIP📚在线 | 246 | 154 | 2564ms | OK |
-| 拾光多仓 / 小米📚在线 | - | 0 | 2564ms | 失败：URLError: <urlopen error [Errno -3] Temporary failure in name resolution> |
-| 拾光多仓 / 动漫城📚在线 | 27 | 0 | 2564ms | OK |
-| 拾光多仓 / 喵影视📚在线 | - | 0 | 2564ms | 失败：HTTPError: HTTP Error 404: Not Found |
-| 拾光多仓 / 小脑斧📚在线 | - | 0 | 2564ms | 失败：HTTPError: HTTP Error 401:  |
-| 拾光多仓 / 小虎斑📚在线 | 119 | 117 | 2564ms | OK |
-| 拾光多仓 / 潇洒📚在线 | - | 0 | 2564ms | 失败：HTTPError: HTTP Error 404:  |
-| 拾光多仓 / 肥猫📚在线 | - | 0 | 2564ms | 失败：ValueError: not json（返回的是图片/二进制，不是配置） | head=<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8"> <meta name="viewport" content="width= |
-| 拾光多仓 / 欧歌📚在线 | - | 0 | 2564ms | 失败：HTTPError: HTTP Error 403: Forbidden |
-| 拾光多仓 / 乐哥📚在线 | - | 0 | 2564ms | 失败：URLError: <urlopen error [Errno -2] Name or service not known> |
-| 拾光多仓 / 老虎📚在线 | - | 0 | 2564ms | 失败：URLError: <urlopen error [Errno -2] Name or service not known> |
-| 拾光多仓 / Clun📚在线 | 101 | 84 | 2564ms | OK |
-| 拾光多仓 / O  K📚在线 | - | 0 | 2564ms | 失败：URLError: <urlopen error [Errno -5] No address associated with hostname> |
-| 拾光多仓 / 俊佬📚在线 | 24 | 0 | 2564ms | OK |
-| 拾光多仓 / 短剧📚在线 | - | 0 | 2564ms | 失败：URLError: <urlopen error timed out> |
-| 拾光多仓 / 驸马📚在线 | - | 0 | 2564ms | 失败：HTTPError: HTTP Error 404: Not Found |
-| 拾光多仓 / 南风📚在线 | 93 | 82 | 2564ms | OK |
-| 拾光多仓 / 二小📚在线 | 63 | 0 | 2564ms | OK |
-| 拾光多仓 / 毒盒📚在线 | - | 0 | 2564ms | 失败：URLError: <urlopen error [Errno -5] No address associated with hostname> |
-| 拾光多仓 / 心魔📚在线 | 151 | 142 | 2564ms | OK |
-| 拾光多仓 / D佬📚在线 | - | 0 | 2564ms | 失败：HTTPError: HTTP Error 401:  |
-| 拾光多仓 / 小马📚在线 | 62 | 0 | 2564ms | OK |
-| 拾光多仓 / 星辰📚在线 | - | 0 | 2564ms | 失败：HTTPError: HTTP Error 403: Forbidden |
-| 拾光多仓 / 龙伊📚在线 | - | 0 | 2564ms | 失败：ValueError: not json（返回的是图片/二进制，不是配置） | head=<!DOCTYPE html> <html lang="en"> .<head> ..<meta name="360-analysis-id" content="1k1c1k1e39331c2v">  |
-| 拾光多仓 / 寳盒📚在线 | 77 | 67 | 2564ms | OK |
-| 拾光多仓 / 挺好📚在线 | 46 | 22 | 2564ms | OK |
-| 拾光多仓 / 传说📚在线 | - | 0 | 2564ms | 失败：URLError: <urlopen error [Errno 104] Connection reset by peer> |
-| 拾光多仓 / 多多📚在线 | - | 0 | 2564ms | 失败：HTTPError: HTTP Error 404: Not Found |
-| 拾光多仓 / 分享📚在线 | - | 0 | 2564ms | 失败：ValueError: not json | head={ // 每日一言 (随机显示欢迎语) "dairyWords": [{     "name": "rating",     "request": {      "method": "GET",    |
-| 拾光多仓 / 蓝天📚在线 | - | 0 | 2564ms | 失败：HTTPError: HTTP Error 423: Locked |
-| 拾光多仓 / 青龙📚在线 | - | 0 | 2564ms | 失败：HTTPError: HTTP Error 423: Locked |
-| 拾光多仓 / 黄金📚在线 | - | 0 | 2564ms | 失败：ValueError: not json | head=�PNG  . ... IHDR...�...�......�1?....sRGB.��.�....sBIT....|.d�.. .IDATx��I�e�u����Ϲ��/��l.I�4�T�T.<� |
-| 拾光多仓 / 道长📚在线 | - | 0 | 2564ms | 失败：HTTPError: HTTP Error 404: Not Found |
-| 拾光多仓 / PG📚在线 | - | 0 | 2564ms | 失败：HTTPError: HTTP Error 403: Forbidden |
-| 拾光多仓 / 真訫📚在线 | - | 0 | 2564ms | 失败：HTTPError: HTTP Error 403: Forbidden |
-| 拾光多仓 / 琉芸📚在线 | - | 0 | 2564ms | 失败：HTTPError: HTTP Error 403: Forbidden |
-| 拾光多仓 / 月光📚在线 | 77 | 1 | 2564ms | OK |
-| 拾光多仓 / 雷霆📚在线 | 1063 | 1045 | 2564ms | OK |
-| 拾光多仓 / 小凯📚在线 | 28 | 15 | 2564ms | OK |
-| 拾光多仓 / 公子📚在线 | - | 0 | 2564ms | 失败：URLError: <urlopen error timed out> |
-| 拾光多仓 / 短剧📚在线 | - | 0 | 2564ms | 失败：ValueError: not json（返回的是图片/二进制，不是配置） | head=<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"> <h |
-| 拾光多仓 / 特别📚在线 | - | 0 | 2564ms | 失败：HTTPError: HTTP Error 404: Not Found |
-| 拾光多仓 / 蜂蜜📚在线 | - | 0 | 2564ms | 失败：ValueError: not json（返回的是图片/二进制，不是配置） | head=<!DOCTYPE html>  <html lang="en">  <head>      <meta charset="UTF-8">      <meta name="viewport" con |
-| 拾光多仓 / 传说📚在线 | - | 0 | 2564ms | 失败：ValueError: not json | head=.//资源来自网络，南风的jar加上其他大神资源，介意请联系删除。  {  "sites":[          {"key":"t42直播转点播","name":"♥️Q群621399056","t |
-| 拾光多仓 / 多多📚在线 | - | 0 | 2564ms | 失败：ValueError: not json（返回的是图片/二进制，不是配置） | head=<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr> |
-| 拾光多仓 / 刺刺📚在线 | - | 0 | 2564ms | 失败：HTTPError: HTTP Error 404:  |
-| 拾光多仓 / 剧场📚在线 | - | 0 | 2564ms | 失败：URLError: <urlopen error [Errno -2] Name or service not known> |
-| 拾光多仓 / 听书📚在线 | - | 0 | 2564ms | 失败：URLError: <urlopen error [Errno -2] Name or service not known> |
-| 拾光多仓 / CandyMu📚在线 | 64 | 57 | 2564ms | OK |
-| 拾光多仓 / 欧歌备用📚在线 | - | 0 | 2564ms | 失败：HTTPError: HTTP Error 404: Not Found |
-| 拾光多仓 / 各种网盘📚在线 | - | 0 | 2564ms | 失败：HTTPError: HTTP Error 404: Not Found |
-| 拾光多仓 / 请勿贩卖📚在线 | 19 | 18 | 2564ms | OK |
-| 挺好分享多仓 / 📛挺好分享 | 46 | 0 | 4304ms | OK |
-| 挺好分享多仓 / 🍳挺好丨讴歌线路 | - | 0 | 4304ms | 失败：HTTPError: HTTP Error 403: Forbidden |
-| 挺好分享多仓 / 🐯小虎斑线路 | 119 | 0 | 4304ms | OK |
-| 挺好分享多仓 / 🚀One线路 | - | 0 | 4304ms | 失败：ValueError: not json（返回的是图片/二进制，不是配置） | head=<!-- 185832581956 --> <!DOCTYPE html> <html lang="en"> <head>     <meta charset="utf-8">     <meta n |
-| 挺好分享多仓 / 🚀南风线路 | - | 0 | 4304ms | 失败：URLError: <urlopen error [Errno -2] Name or service not known> |
-| 挺好分享多仓 / 🚀刘伟线路 | - | 0 | 4304ms | 失败：HTTPError: HTTP Error 403: Forbidden |
-| 挺好分享多仓 / 🚀剪影线路 | - | 0 | 4304ms | 失败：HTTPError: HTTP Error 403: Forbidden |
-| 挺好分享多仓 / 🚀讴歌线路 | - | 0 | 4304ms | 失败：ValueError: not json | head={ "logo":"https://ncstatic-file.clewm.net/rsrc/2025/0930/20/945a6372224243d3f3d63cb309c0b7b1.png", " |
-| 挺好分享多仓 / 🚀小虎斑线 | - | 0 | 4304ms | 失败：URLError: <urlopen error [Errno -2] Name or service not known> |
-| 挺好分享多仓 / 🚀小米线路 | - | 0 | 4304ms | 失败：HTTPError: HTTP Error 404: Not Found |
-| 挺好分享多仓 / 🚀王二小线 | 63 | 0 | 4304ms | OK |
-| 挺好分享多仓 / 🚀潇洒专线 | - | 0 | 4304ms | 失败：HTTPError: HTTP Error 404:  |
-| 挺好分享多仓 / 🚀摸鱼线路 | - | 0 | 4304ms | 失败：ValueError: not json（返回的是图片/二进制，不是配置） | head=<!-- 658277225462 --> <!DOCTYPE html> <html lang="en"> <head>     <meta charset="utf-8">     <meta n |
-| 挺好分享多仓 / 🚀环宇轩线 | - | 0 | 4304ms | 失败：HTTPError: HTTP Error 401:  |
-| 挺好分享多仓 / 🚀小苹果线 | - | 0 | 4304ms | 失败：HTTPError: HTTP Error 404: Not Found |
-| 挺好分享多仓 / 🚀驸马线路 | - | 0 | 4304ms | 失败：HTTPError: HTTP Error 404: Not Found |
-| 挺好分享多仓 / 🚀拾光线路 | - | 0 | 4304ms | 失败：HTTPError: HTTP Error 401:  |
-| 挺好分享多仓 / 🚀宝盒线路 | - | 0 | 4304ms | 失败：URLError: <urlopen error [Errno -2] Name or service not known> |
-| 挺好分享多仓 / 🚀小马线路 | 62 | 0 | 4304ms | OK |
-| 挺好分享多仓 / 🚀俊佬在线 | 24 | 0 | 4304ms | OK |
-| 挺好分享多仓 / 🚀分享者线 | - | 0 | 4304ms | 失败：ValueError: not json | head={ // 每日一言 (随机显示欢迎语) "dairyWords": [{     "name": "rating",     "request": {      "method": "GET",    |
-| 挺好分享多仓 / 🚀老刘线路 | - | 0 | 4304ms | 失败：URLError: <urlopen error [Errno -2] Name or service not known> |
-| 挺好分享多仓 / 🚀传说线路 | - | 0 | 4304ms | 失败：URLError: <urlopen error [Errno 104] Connection reset by peer> |
-| 挺好分享多仓 / 🚀蓝天线路 | - | 0 | 4304ms | 失败：HTTPError: HTTP Error 423: Locked |
-| 挺好分享多仓 / 🚀高天流云 | 298 | 0 | 4304ms | OK |
-| 挺好分享多仓 / 🚀俊佬线路 | 24 | 0 | 4304ms | OK |
-| 挺好分享多仓 / 🚀毒盒线路 | - | 0 | 4304ms | 失败：URLError: <urlopen error [Errno -5] No address associated with hostname> |
-| 挺好分享多仓 / 📛公众号丨挺好分享 | - | 0 | 4304ms | 失败：URLError: <urlopen error [Errno 111] Connection refused> |
-| 挺好分享多仓 / 🌠公众号丨挺好专享 | - | 0 | 4304ms | 失败：URLError: <urlopen error [Errno 111] Connection refused> |
-| 挺好分享多仓 / 🚀青龙影线 | - | 0 | 4304ms | 失败：HTTPError: HTTP Error 423: Locked |
-| 挺好分享多仓 / 🍨饭硬专线 | - | 0 | 4304ms | 失败：ValueError: not json | head=����..JFIF..........��.�............ . . .... ................!...!.1&""&18/-/8D==DVQVpp�........... |
-| 挺好分享多仓 / 🚀短剧大全 | - | 0 | 4304ms | 失败：URLError: <urlopen error timed out> |
-| tvbox-probe 精选 | 107 | 6 | 163ms | OK |
-| ysc-api 聚合 | 52 | 44 | 167ms | OK |
-| 酒店电视 | 8 | 1 | 177ms | OK |
+| 潇洒 | 160 | 105 | 181ms | OK |
+| 天微 | 97 | 77 | 184ms | OK |
+| 天天开心 | 126 | 90 | 170ms | OK |
+| 香雅情(iptv) | 55 | 39 | 143ms | OK |
+| 南风 | 78 | 56 | 156ms | OK |
+| 骚零 | 37 | 17 | 151ms | OK |
+| 白嫖 | 9 | 8 | 223ms | OK |
+| OK | 76 | 71 | 210ms | OK |
+| 戏曲音乐 | 10 | 10 | 172ms | OK |
+| 短剧频道 | 35 | 35 | 194ms | OK |
+| 少儿频道 | 30 | 30 | 170ms | OK |
+| 动漫频道 | 19 | 16 | 162ms | OK |
+| iptv365直播 | 4 | 4 | 235ms | OK |
+| 老刘备(liucn) | 234 | 142 | 220ms | OK |
+| 小马 | 62 | 35 | 1300ms | OK |
+| 创享影视 | 12 | 12 | 348ms | OK |
+| 影仓 | 37 | 29 | 594ms | OK |
+| 小盒子单仓 | 54 | 34 | 135ms | OK |
+| 小盒子4K | 53 | 35 | 91ms | OK |
+| 小盒子多仓 / 🚀小盒子 | 54 | 0 | 1007ms | OK |
+| 小盒子多仓 / 🐔肥猫 | - | 0 | 1007ms | 失败：HTTPError: HTTP Error 404: Not Found |
+| 小盒子多仓 / 🐟 摸 鱼 | 111 | 0 | 1007ms | OK |
+| 小盒子多仓 / 🍯毒盒 | - | 0 | 1007ms | 失败：URLError: <urlopen error [Errno -5] No address associated with hostname> |
+| 小盒子多仓 / 🍯PG线路 | - | 0 | 1007ms | 失败：HTTPError: HTTP Error 403: Forbidden |
+| 小盒子多仓 / 🍯影视仓 | - | 0 | 1007ms | 失败：HTTPError: HTTP Error 401:  |
+| 小盒子多仓 / 🦆神仙线路 | - | 0 | 1007ms | 失败：URLError: <urlopen error [Errno -2] Name or service not known> |
+| 小盒子多仓 / 🦆俊于 | 24 | 0 | 1007ms | OK |
+| 小盒子多仓 / 😹影视资源 | - | 0 | 1007ms | 失败：ValueError: not json（返回的是图片/二进制，不是配置） | head=<!DOCTYPE html> <html><head> .<meta name="robots" content="noarchive">     <meta http-equiv="Content |
+| 小盒子多仓 / 😹玄珠 | - | 0 | 1007ms | 失败：HTTPError: HTTP Error 403: Forbidden |
+| 小盒子多仓 / 😹吾爱 | - | 0 | 1007ms | 失败：URLError: <urlopen error [Errno 111] Connection refused> |
+| 小盒子多仓 / 😹动漫城 | 27 | 23 | 1007ms | OK |
+| 小盒子多仓 / 🚀喵影视 | - | 0 | 1007ms | 失败：URLError: <urlopen error [Errno -3] Temporary failure in name resolution> |
+| 小盒子多仓 / 🚀摸鱼 | 111 | 0 | 1007ms | OK |
+| 小盒子多仓 / 🚀小马 | 62 | 0 | 1007ms | OK |
+| 小盒子多仓 / 🦉飘零 | - | 0 | 1007ms | 失败：URLError: <urlopen error [Errno -5] No address associated with hostname> |
+| 小盒子多仓 / 🐹dxawi | 48 | 14 | 1007ms | OK |
+| 小盒子多仓 / 🍯HG | 10 | 6 | 1007ms | OK |
+| 拾光多仓 / SVIP📚在线 | 246 | 201 | 2549ms | OK |
+| 拾光多仓 / 备用📚在线 | - | 0 | 2549ms | 失败：URLError: <urlopen error [Errno -2] Name or service not known> |
+| 拾光多仓 / VIP📚在线 | 246 | 154 | 2549ms | OK |
+| 拾光多仓 / 小米📚在线 | - | 0 | 2549ms | 失败：URLError: <urlopen error [Errno -3] Temporary failure in name resolution> |
+| 拾光多仓 / 动漫城📚在线 | 27 | 0 | 2549ms | OK |
+| 拾光多仓 / 喵影视📚在线 | - | 0 | 2549ms | 失败：HTTPError: HTTP Error 404: Not Found |
+| 拾光多仓 / 小脑斧📚在线 | - | 0 | 2549ms | 失败：HTTPError: HTTP Error 401:  |
+| 拾光多仓 / 小虎斑📚在线 | 108 | 106 | 2549ms | OK |
+| 拾光多仓 / 潇洒📚在线 | - | 0 | 2549ms | 失败：HTTPError: HTTP Error 404:  |
+| 拾光多仓 / 肥猫📚在线 | - | 0 | 2549ms | 失败：ValueError: not json（返回的是图片/二进制，不是配置） | head=<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8"> <meta name="viewport" content="width= |
+| 拾光多仓 / 欧歌📚在线 | - | 0 | 2549ms | 失败：HTTPError: HTTP Error 403: Forbidden |
+| 拾光多仓 / 乐哥📚在线 | - | 0 | 2549ms | 失败：URLError: <urlopen error [Errno -2] Name or service not known> |
+| 拾光多仓 / 老虎📚在线 | - | 0 | 2549ms | 失败：URLError: <urlopen error [Errno -2] Name or service not known> |
+| 拾光多仓 / Clun📚在线 | 101 | 84 | 2549ms | OK |
+| 拾光多仓 / O  K📚在线 | - | 0 | 2549ms | 失败：URLError: <urlopen error [Errno -5] No address associated with hostname> |
+| 拾光多仓 / 俊佬📚在线 | 24 | 0 | 2549ms | OK |
+| 拾光多仓 / 短剧📚在线 | - | 0 | 2549ms | 失败：URLError: <urlopen error timed out> |
+| 拾光多仓 / 驸马📚在线 | - | 0 | 2549ms | 失败：HTTPError: HTTP Error 404: Not Found |
+| 拾光多仓 / 南风📚在线 | 93 | 82 | 2549ms | OK |
+| 拾光多仓 / 二小📚在线 | 63 | 0 | 2549ms | OK |
+| 拾光多仓 / 毒盒📚在线 | - | 0 | 2549ms | 失败：URLError: <urlopen error [Errno -5] No address associated with hostname> |
+| 拾光多仓 / 心魔📚在线 | 151 | 142 | 2549ms | OK |
+| 拾光多仓 / D佬📚在线 | - | 0 | 2549ms | 失败：HTTPError: HTTP Error 401:  |
+| 拾光多仓 / 小马📚在线 | 62 | 0 | 2549ms | OK |
+| 拾光多仓 / 星辰📚在线 | - | 0 | 2549ms | 失败：HTTPError: HTTP Error 403: Forbidden |
+| 拾光多仓 / 龙伊📚在线 | - | 0 | 2549ms | 失败：ValueError: not json（返回的是图片/二进制，不是配置） | head=<!DOCTYPE html> <html lang="en"> .<head> ..<meta name="360-analysis-id" content="1k1c1k1e39331c2v">  |
+| 拾光多仓 / 寳盒📚在线 | 77 | 67 | 2549ms | OK |
+| 拾光多仓 / 挺好📚在线 | 46 | 22 | 2549ms | OK |
+| 拾光多仓 / 传说📚在线 | - | 0 | 2549ms | 失败：URLError: <urlopen error [Errno 104] Connection reset by peer> |
+| 拾光多仓 / 多多📚在线 | - | 0 | 2549ms | 失败：HTTPError: HTTP Error 404: Not Found |
+| 拾光多仓 / 分享📚在线 | - | 0 | 2549ms | 失败：ValueError: not json | head={ // 每日一言 (随机显示欢迎语) "dairyWords": [{     "name": "rating",     "request": {      "method": "GET",    |
+| 拾光多仓 / 蓝天📚在线 | - | 0 | 2549ms | 失败：HTTPError: HTTP Error 423: Locked |
+| 拾光多仓 / 青龙📚在线 | - | 0 | 2549ms | 失败：HTTPError: HTTP Error 423: Locked |
+| 拾光多仓 / 黄金📚在线 | - | 0 | 2549ms | 失败：ValueError: not json | head=�PNG  . ... IHDR...�...�......�1?....sRGB.��.�....sBIT....|.d�.. .IDATx��I�e�u����Ϲ��/��l.I�4�T�T.<� |
+| 拾光多仓 / 道长📚在线 | - | 0 | 2549ms | 失败：HTTPError: HTTP Error 404: Not Found |
+| 拾光多仓 / PG📚在线 | - | 0 | 2549ms | 失败：HTTPError: HTTP Error 403: Forbidden |
+| 拾光多仓 / 真訫📚在线 | - | 0 | 2549ms | 失败：HTTPError: HTTP Error 403: Forbidden |
+| 拾光多仓 / 琉芸📚在线 | - | 0 | 2549ms | 失败：HTTPError: HTTP Error 403: Forbidden |
+| 拾光多仓 / 月光📚在线 | 77 | 1 | 2549ms | OK |
+| 拾光多仓 / 雷霆📚在线 | 1063 | 1045 | 2549ms | OK |
+| 拾光多仓 / 小凯📚在线 | 28 | 15 | 2549ms | OK |
+| 拾光多仓 / 公子📚在线 | - | 0 | 2549ms | 失败：URLError: <urlopen error timed out> |
+| 拾光多仓 / 短剧📚在线 | - | 0 | 2549ms | 失败：ValueError: not json（返回的是图片/二进制，不是配置） | head=<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"> <h |
+| 拾光多仓 / 特别📚在线 | - | 0 | 2549ms | 失败：HTTPError: HTTP Error 404: Not Found |
+| 拾光多仓 / 蜂蜜📚在线 | - | 0 | 2549ms | 失败：ValueError: not json（返回的是图片/二进制，不是配置） | head=<!DOCTYPE html>  <html lang="en">  <head>      <meta charset="UTF-8">      <meta name="viewport" con |
+| 拾光多仓 / 传说📚在线 | - | 0 | 2549ms | 失败：ValueError: not json | head=.//资源来自网络，南风的jar加上其他大神资源，介意请联系删除。  {  "sites":[          {"key":"t42直播转点播","name":"♥️Q群621399056","t |
+| 拾光多仓 / 多多📚在线 | - | 0 | 2549ms | 失败：ValueError: not json（返回的是图片/二进制，不是配置） | head=<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr> |
+| 拾光多仓 / 刺刺📚在线 | - | 0 | 2549ms | 失败：HTTPError: HTTP Error 404:  |
+| 拾光多仓 / 剧场📚在线 | - | 0 | 2549ms | 失败：URLError: <urlopen error [Errno -2] Name or service not known> |
+| 拾光多仓 / 听书📚在线 | - | 0 | 2549ms | 失败：URLError: <urlopen error [Errno -2] Name or service not known> |
+| 拾光多仓 / CandyMu📚在线 | 64 | 57 | 2549ms | OK |
+| 拾光多仓 / 欧歌备用📚在线 | - | 0 | 2549ms | 失败：HTTPError: HTTP Error 404: Not Found |
+| 拾光多仓 / 各种网盘📚在线 | - | 0 | 2549ms | 失败：HTTPError: HTTP Error 404: Not Found |
+| 拾光多仓 / 请勿贩卖📚在线 | 19 | 18 | 2549ms | OK |
+| 挺好分享多仓 / 📛挺好分享 | 46 | 0 | 4299ms | OK |
+| 挺好分享多仓 / 🍳挺好丨讴歌线路 | - | 0 | 4299ms | 失败：HTTPError: HTTP Error 403: Forbidden |
+| 挺好分享多仓 / 🐯小虎斑线路 | 108 | 0 | 4299ms | OK |
+| 挺好分享多仓 / 🚀One线路 | - | 0 | 4299ms | 失败：ValueError: not json（返回的是图片/二进制，不是配置） | head=<!-- 25364612780 --> <!DOCTYPE html> <html lang="en"> <head>     <meta charset="utf-8">     <meta na |
+| 挺好分享多仓 / 🚀南风线路 | - | 0 | 4299ms | 失败：URLError: <urlopen error [Errno -2] Name or service not known> |
+| 挺好分享多仓 / 🚀刘伟线路 | - | 0 | 4299ms | 失败：HTTPError: HTTP Error 403: Forbidden |
+| 挺好分享多仓 / 🚀剪影线路 | - | 0 | 4299ms | 失败：HTTPError: HTTP Error 403: Forbidden |
+| 挺好分享多仓 / 🚀讴歌线路 | - | 0 | 4299ms | 失败：ValueError: not json | head={ "logo":"https://ncstatic-file.clewm.net/rsrc/2025/0930/20/945a6372224243d3f3d63cb309c0b7b1.png", " |
+| 挺好分享多仓 / 🚀小虎斑线 | - | 0 | 4299ms | 失败：URLError: <urlopen error [Errno -2] Name or service not known> |
+| 挺好分享多仓 / 🚀小米线路 | - | 0 | 4299ms | 失败：HTTPError: HTTP Error 404: Not Found |
+| 挺好分享多仓 / 🚀王二小线 | 63 | 0 | 4299ms | OK |
+| 挺好分享多仓 / 🚀潇洒专线 | - | 0 | 4299ms | 失败：HTTPError: HTTP Error 404:  |
+| 挺好分享多仓 / 🚀摸鱼线路 | - | 0 | 4299ms | 失败：ValueError: not json（返回的是图片/二进制，不是配置） | head=<!-- 432503699276 --> <!DOCTYPE html> <html lang="en"> <head>     <meta charset="utf-8">     <meta n |
+| 挺好分享多仓 / 🚀环宇轩线 | - | 0 | 4299ms | 失败：HTTPError: HTTP Error 401:  |
+| 挺好分享多仓 / 🚀小苹果线 | - | 0 | 4299ms | 失败：HTTPError: HTTP Error 404: Not Found |
+| 挺好分享多仓 / 🚀驸马线路 | - | 0 | 4299ms | 失败：HTTPError: HTTP Error 404: Not Found |
+| 挺好分享多仓 / 🚀拾光线路 | - | 0 | 4299ms | 失败：HTTPError: HTTP Error 401:  |
+| 挺好分享多仓 / 🚀宝盒线路 | - | 0 | 4299ms | 失败：URLError: <urlopen error [Errno -2] Name or service not known> |
+| 挺好分享多仓 / 🚀小马线路 | 62 | 0 | 4299ms | OK |
+| 挺好分享多仓 / 🚀俊佬在线 | 24 | 0 | 4299ms | OK |
+| 挺好分享多仓 / 🚀分享者线 | - | 0 | 4299ms | 失败：ValueError: not json | head={ // 每日一言 (随机显示欢迎语) "dairyWords": [{     "name": "rating",     "request": {      "method": "GET",    |
+| 挺好分享多仓 / 🚀老刘线路 | - | 0 | 4299ms | 失败：URLError: <urlopen error [Errno -2] Name or service not known> |
+| 挺好分享多仓 / 🚀传说线路 | - | 0 | 4299ms | 失败：URLError: <urlopen error [Errno 104] Connection reset by peer> |
+| 挺好分享多仓 / 🚀蓝天线路 | - | 0 | 4299ms | 失败：HTTPError: HTTP Error 423: Locked |
+| 挺好分享多仓 / 🚀高天流云 | 298 | 0 | 4299ms | OK |
+| 挺好分享多仓 / 🚀俊佬线路 | 24 | 0 | 4299ms | OK |
+| 挺好分享多仓 / 🚀毒盒线路 | - | 0 | 4299ms | 失败：URLError: <urlopen error [Errno -5] No address associated with hostname> |
+| 挺好分享多仓 / 📛公众号丨挺好分享 | - | 0 | 4299ms | 失败：URLError: <urlopen error [Errno 111] Connection refused> |
+| 挺好分享多仓 / 🌠公众号丨挺好专享 | - | 0 | 4299ms | 失败：URLError: <urlopen error [Errno 111] Connection refused> |
+| 挺好分享多仓 / 🚀青龙影线 | - | 0 | 4299ms | 失败：HTTPError: HTTP Error 423: Locked |
+| 挺好分享多仓 / 🍨饭硬专线 | - | 0 | 4299ms | 失败：ValueError: not json | head=����..JFIF..........��.�............ . . .... ................!...!.1&""&18/-/8D==DVQVpp�........... |
+| 挺好分享多仓 / 🚀短剧大全 | - | 0 | 4299ms | 失败：URLError: <urlopen error timed out> |
+| tvbox-probe 精选 | 105 | 6 | 146ms | OK |
+| ysc-api 聚合 | 52 | 44 | 121ms | OK |
+| 酒店电视 | 8 | 1 | 133ms | OK |
 
 > 69 个站点的爬虫文件返回 404/410，已移出聚合搜索（仍可在站点列表中打开）。
 
@@ -210,23 +210,23 @@
 | --- | --- | --- | --- |
 | 1 | 老刘·🐯虎牙采集 | 108.0 | http+34 影视+10 3源+6 搜索精准+12 播放实测通过+8 接口通+20 极速+6 |
 | 2 | 欧歌·🤣魔都┃动漫 | 104.0 | http+34 影视+10 3源+6 搜索精准+12 播放实测通过+8 接口通+20 极速+6 |
-| 3 | 拾光·360｜采集 | 101.0 | http+34 影视+10 3源+6 搜索精准+12 播放实测通过+8 接口通+20 较快+3 |
-| 4 | 拾光·❤光速资源 | 98.0 | http+34 影视+10 搜索精准+12 播放实测通过+8 接口通+20 极速+6 |
-| 5 | 分享·💖分享卫士 | 92.5 | http+34 6源+6 搜索精准+12 播放实测通过+8 接口通+20 较快+3 |
-| 6 | 创享·🌟 创享影视 | 92.0 | http+34 无jar+8 影视+10 搜索精准+12 接口通+20 较快+3 |
-| 7 | 影仓·🍀┃如意┃资源 | 92.0 | http+34 影视+10 搜索精准+12 播放实测通过+8 接口通+20 较快+3 |
-| 8 | 拾光·如意｜采集 | 91.0 | http+34 影视+10 2源+3 搜索精准+12 播放实测通过+8 接口通+20 偏慢-4 |
-| 9 | 分享·💖分享如意 | 89.5 | http+34 2源+3 搜索精准+12 播放实测通过+8 接口通+20 较快+3 |
-| 10 | 分享·💝分享猫眼 | 89.5 | http+34 2源+3 搜索精准+12 播放实测通过+8 接口通+20 较快+3 |
-| 11 | 分享·💝分享魔都 | 89.5 | http+34 搜索精准+12 播放实测通过+8 接口通+20 极速+6 |
-| 12 | 拾光·❤ikun资源 | 89.0 | http+34 影视+10 2源+3 播放实测通过+8 接口通+20 极速+6 |
-| 13 | 拾光·创享 | 采集 | 87.0 | http+34 影视+10 搜索精准+12 接口通+20 较快+3 |
-| 14 | 拾光·ikun | 采集 | 86.0 | http+34 影视+10 播放实测通过+8 接口通+20 极速+6 |
-| 15 | 小盒4K·🐓┃爱坤┃资源 | 83.0 | http+34 影视+10 播放实测通过+8 接口通+20 极速+6 |
-| 16 | 老刘·🦊火狐采集 | 75.0 | http+34 影视+10 6源+6 搜索精准+12 默认线路播不了-25 接口通+20 极速+6 |
-| 17 | 小盒仓·IK | 73.0 | http+34 播放实测通过+8 接口通+20 极速+6 |
+| 3 | 创享·🌟 创享影视 | 103.0 | http+34 无jar+8 影视+10 搜索精准+12 播放实测通过+8 接口通+20 极速+6 |
+| 4 | 拾光·360｜采集 | 101.0 | http+34 影视+10 3源+6 搜索精准+12 播放实测通过+8 接口通+20 较快+3 |
+| 5 | 拾光·❤ikun资源 | 101.0 | http+34 影视+10 2源+3 搜索精准+12 播放实测通过+8 接口通+20 极速+6 |
+| 6 | 拾光·ikun | 采集 | 98.0 | http+34 影视+10 搜索精准+12 播放实测通过+8 接口通+20 极速+6 |
+| 7 | 拾光·❤光速资源 | 98.0 | http+34 影视+10 搜索精准+12 播放实测通过+8 接口通+20 极速+6 |
+| 8 | 拾光·创享 | 采集 | 98.0 | http+34 影视+10 搜索精准+12 播放实测通过+8 接口通+20 极速+6 |
+| 9 | 拾光·如意｜采集 | 98.0 | http+34 影视+10 2源+3 搜索精准+12 播放实测通过+8 接口通+20 较快+3 |
+| 10 | 小盒4K·🐓┃爱坤┃资源 | 95.0 | http+34 影视+10 搜索精准+12 播放实测通过+8 接口通+20 极速+6 |
+| 11 | 分享·💖分享卫士 | 92.5 | http+34 5源+6 搜索精准+12 播放实测通过+8 接口通+20 较快+3 |
+| 12 | 影仓·🍀┃如意┃资源 | 92.0 | http+34 影视+10 搜索精准+12 播放实测通过+8 接口通+20 较快+3 |
+| 13 | 分享·💝分享魔都 | 89.5 | http+34 搜索精准+12 播放实测通过+8 接口通+20 极速+6 |
+| 14 | 分享·💝分享猫眼 | 86.5 | http+34 2源+3 搜索精准+12 播放实测通过+8 接口通+20 |
+| 15 | 小盒仓·IK | 85.0 | http+34 搜索精准+12 播放实测通过+8 接口通+20 极速+6 |
+| 16 | 分享·💖分享如意 | 82.5 | http+34 2源+3 搜索精准+12 播放实测通过+8 接口通+20 偏慢-4 |
+| 17 | 老刘·🦊火狐采集 | 75.0 | http+34 影视+10 6源+6 搜索精准+12 默认线路播不了-25 接口通+20 极速+6 |
 | 18 | 拾光·极速｜采集 | 71.0 | http+34 影视+10 6源+6 搜索精准+12 默认线路播不了-25 接口通+20 极速+6 |
 | 19 | 分享·️✈️极速采集 | 69.5 | http+34 影视+10 2源+3 搜索精准+12 默认线路播不了-25 接口通+20 极速+6 |
-| 20 | 拾光·光速｜采集 | 68.0 | http+34 影视+10 2源+3 搜索精准+12 默认线路播不了-25 接口通+20 极速+6 |
+| 20 | 分享·💝分享js集 | 69.5 | http+34 接口通+20 极速+6 |
 
 排序口径：接口类型 + jar 成本 + 跨源收录 + CMS 探活/速度 + 搜索实测 − 工具类站点 − 搜索杂乱 − 爬虫失效，同分按源优先级。首页另需三类覆盖。
