@@ -77,7 +77,10 @@ test("根路径返回状态，未知路径返回 404", async () => {
   assert.equal(missing.status, 404);
 });
 
-test("真实上游：分类、搜索、详情和播放地址", { timeout: 60000 }, async () => {
+// 真实上游用例依赖外网；CI 里先用 JOETV_SKIP_LIVE=1 跑离线集，再单独跑这一组。
+const SKIP_LIVE = process.env.JOETV_SKIP_LIVE === "1";
+
+test("真实上游：分类、搜索、详情和播放地址", { timeout: 60000, skip: SKIP_LIVE }, async () => {
   const base = "https://joetv.example/api.php/provide/vod/";
   const classes = await (await handle(new Request(base + "?ac=list"))).json();
   assert.equal(classes.code, 1);
@@ -98,7 +101,7 @@ test("真实上游：分类、搜索、详情和播放地址", { timeout: 60000 
   assert.ok(!detail.list[0].vod_play_url.includes("pan.baidu.com"));
 });
 
-test("真实上游：电影分类可返回列表", { timeout: 60000 }, async () => {
+test("真实上游：电影分类可返回列表", { timeout: 60000, skip: SKIP_LIVE }, async () => {
   const url = "https://joetv.example/api.php/provide/vod/?ac=detail&t=movie&pg=1";
   const data = await (await handle(new Request(url))).json();
   assert.equal(data.code, 1);
