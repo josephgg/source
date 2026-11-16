@@ -1,0 +1,15 @@
+{
+  "sites": [
+    {
+      "key": "joetv",
+      "name": "JoeTV",
+      "type": 1,
+      "api": "https://joetv-joe.pages.dev/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "timeout": 20
+    }
+  ],
+  "parses": [],
+  "flags": []
+}
