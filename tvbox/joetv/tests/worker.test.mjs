@@ -131,3 +131,33 @@ test("同名搜索：版本条目优先于共享前缀的其他作品", () => {
   assert.equal(scoreTitle({ name: "一路繁花" }, kw), 40);
   assert.equal(scoreTitle({ name: "某部无关片" }, kw), 0);
 });
+
+test("详情抽检：限流/超时不算坏线路，HTML 播放页才算", async () => {
+  const { probeMediaState } = __test__;
+  const orig = globalThis.fetch;
+  const stub = (body, status = 200, ctype = "text/html") => async () =>
+    new Response(body, { status, headers: { "content-type": ctype } });
+  try {
+    // 403（CDN 限流）与网络异常 → unknown，保留给客户端
+    globalThis.fetch = stub("", 403);
+    assert.equal(await probeMediaState("https://cdn.example/a/index.m3u8"), "unknown");
+
+    globalThis.fetch = async () => {
+      throw new TypeError("network error");
+    };
+    assert.equal(await probeMediaState("https://cdn.example/b/index.m3u8"), "unknown");
+
+    // 真 HTML 播放器页/网盘页 → bad，必须丢，否则点开黑屏或闪退
+    globalThis.fetch = stub("<!DOCTYPE html><html><head></head></html>", 200, "text/html");
+    assert.equal(await probeMediaState("https://cdn.example/c/share/abc"), "bad");
+
+    // 正常清单与 TS 流 → ok
+    globalThis.fetch = stub("#EXTM3U\n#EXT-X-VERSION:3", 200, "application/vnd.apple.mpegurl");
+    assert.equal(await probeMediaState("https://cdn.example/d/index.m3u8"), "ok");
+
+    globalThis.fetch = stub(new Uint8Array([0x47, 0x40, 0x11, 0x10]), 200, "video/mp2t");
+    assert.equal(await probeMediaState("https://cdn.example/e/index.ts"), "ok");
+  } finally {
+    globalThis.fetch = orig;
+  }
+});

@@ -490,15 +490,20 @@ function looksLikeHtml(probe) {
   );
 }
 
-async function mediaLooksPlayable(url) {
-  // 播放分片的深度检测已由构建期 probe_play 完成。这里只做一次轻量响应
-  // 检查，目的是拦住 HTML 播放器页、网盘页和错误直链；避免在详情请求里
-  // 对同一 CDN 连环探测，反而触发限流把正常线路误删。
+// 三态判定，区分「内容确实是坏的」和「这次没探测到」：
+//   ok      = 确认是 HLS 清单或媒体流，可放心给客户端
+//   bad     = 确认是 HTML 播放器页/网盘页，给客户端会黑屏或闪退，必须丢
+//   unknown = 探测失败（超时、403、CDN 限流、空响应体），内容未知
+// 早先把 unknown 和 bad 一并丢弃，结果是同一部片第一次点「暂不可用」、
+// 再点一次又正常 —— 限流误杀被用户读成「不稳定」，代价比多一条可疑线路更大。
+async function probeMediaState(url) {
   const probe = await fetchHead(url, 8192);
-  if (!probe || looksLikeHtml(probe)) return false;
-  if (probe.head.includes("#EXTM3U")) return true;
-  if (isDirectMedia(probe)) return true;
-  return probe.ctype.includes("mpegurl");
+  if (!probe) return "unknown";
+  if (probe.head.includes("#EXTM3U")) return "ok";
+  if (isDirectMedia(probe)) return "ok";
+  if (probe.ctype.includes("mpegurl")) return "ok";
+  if (looksLikeHtml(probe)) return "bad";
+  return "bad";
 }
 
 function pickMeta(target, item) {
@@ -706,18 +711,21 @@ async function detail(routeList) {
     }
     if (lines.length >= 8) break;
   }
-  // 详情在返回前抽检每条线路的首个播放地址，能挡住“URL 长得像 m3u8、
-  // 实际返回 HTML 播放器/网盘页”的情况；失败线路不给客户端，避免点开闪退。
+  // 详情在返回前抽检每条线路的首个播放地址：确认是 HTML 播放器页/网盘页的
+  // 直接丢弃（这类点开必黑屏或闪退）；探测失败的保留并排到后面，因为 CDN 限流
+  // 在并发详情里很常见，全部判死会让整个详情变成「暂不可用」。
   const checked = await mapLimit(lines, 8, async (line) => {
     const first = line.episodes[0];
     const url = first.slice(first.indexOf("$") + 1);
-    return { line, ok: await mediaLooksPlayable(url) };
+    return { line, state: await probeMediaState(url) };
   });
-  const playableLines = checked.filter((x) => x.ok).map((x) => x.line);
+  const confirmedLines = checked.filter((x) => x.state === "ok").map((x) => x.line);
+  const unprovenLines = checked.filter((x) => x.state === "unknown").map((x) => x.line);
+  const playableLines = confirmedLines.concat(unprovenLines);
   if (!base || !playableLines.length) return emptyResult("详情或播放地址暂不可用");
   return {
     code: 1,
-    msg: `ok ${playableLines.length} lines`,
+    msg: `ok ${playableLines.length} lines (${confirmedLines.length} verified)`,
     page: 1,
     pagecount: 1,
     limit: RESULT_LIMIT,
@@ -868,4 +876,5 @@ export const __test__ = {
   normalizeTitle,
   titleKey,
   scoreTitle,
+  probeMediaState,
 };
