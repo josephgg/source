@@ -10,6 +10,7 @@ const {
   normalizePlayLines,
   parsePayload,
   normalizeTitle,
+  scoreTitle,
 } = __test__;
 
 test("资源 ID 可逆且不含 URL 危险字符", () => {
@@ -107,4 +108,26 @@ test("真实上游：电影分类可返回列表", { timeout: 60000, skip: SKIP_
   assert.equal(data.code, 1);
   assert.ok(data.list.length > 0, "电影分类至少应有一个上游返回数据");
   assert.ok(data.list.every((x) => String(x.vod_id).startsWith("J")));
+});
+
+test("同名搜索：版本条目优先于共享前缀的其他作品", () => {
+  const kw = "繁花";
+  const exact = scoreTitle({ name: "繁花" }, kw);
+  const version = scoreTitle({ name: "繁花 普通话" }, kw);
+  const versionB = scoreTitle({ name: "繁花 沪语版" }, kw);
+  const shortTail = scoreTitle({ name: "繁花错" }, kw);
+  const longTail = scoreTitle({ name: "繁花照春晚" }, kw);
+  const longer = scoreTitle({ name: "繁花之东北爱情故事" }, kw);
+
+  assert.equal(exact, 100);
+  assert.ok(version > shortTail, "「繁花 普通话」应高于「繁花错」");
+  assert.ok(versionB > shortTail, "「繁花 沪语版」应高于「繁花错」");
+  assert.ok(shortTail > longTail, "标题越接近原名越靠前");
+  assert.ok(longTail > longer);
+  // 前缀条目不能被溢出长度惩罚压到「包含匹配」档以下
+  assert.ok(longer >= 40, "长标题仍需高于 includes 档");
+
+  // 非前缀命中不受影响
+  assert.equal(scoreTitle({ name: "一路繁花" }, kw), 40);
+  assert.equal(scoreTitle({ name: "某部无关片" }, kw), 0);
 });

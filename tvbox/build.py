@@ -2070,14 +2070,28 @@ def main():
     _rev.update({v: k for k, v in CAT_PREFIX.items()})
     lite_cat = _C(_rev.get(s["name"].split("·")[0], "其他") for s in lite_sites)
 
-    # 多仓索引
+    # 多仓索引：按「首选 / 最稳 / 最全 / 单源」四档排列，名字里直接写明能不能合并。
+    #   · 首选 = JoeTV 聚合层 + 稳定精选：站点全是 type=1，只依赖 MacCMS JSON，
+    #     不引用任何 csp_* 类，因此与任何配置并存都不会打架。
+    #   · iv-* 是 iptv 脚本源，站点 api 写成 csp_* 类名、站点级不写 jar，
+    #     完全依赖配置里的全局 spider/flags/parses；一旦和别的配置合并，
+    #     全局字段只留一套，另一批站会整批失效（典型症状：站还在、点开空白或闪退）。
     index = {"name": meta.get("name", "聚合影视仓"), "urls": []}
+    # 稳定优先：精选仓排第一。这 8 站全部通过「默认线路可播 + 首/中/尾分片抽检」，
+    # 是唯一有正向播放证据的集合；JoeTV 聚合层另有 10 个 ok_secondary 上游靠丢首条线路兜底，
+    # 广度更好但单点置信度低，因此排在推荐位之后。
     index["urls"].append({
-        "name": "⭐ 稳定精选（%d 站点，连续实测通过）" % len(lite_sites),
+        "name": "🎬 稳定精选（%d 站点，连续实测通过）" % len(lite_sites),
         "url": index_base + "api/lite.json",
     })
+    plus_stable = os.path.join(ROOT, "api", "JoeTV-plus-stable.json")
+    if os.path.exists(plus_stable):
+        index["urls"].append({
+            "name": "⭐ JoeTV + 稳定精选（覆盖更广，含 8 精选 + 12 上游）",
+            "url": index_base + "api/JoeTV-plus-stable.json",
+        })
     index["urls"].append({
-        "name": "🌟 全部聚合（%d 站点）" % len(merged_sites),
+        "name": "📦 全部聚合（%d 站点）" % len(merged_sites),
         "url": index_base + "api/all.json",
     })
     for src in ok:
@@ -2086,10 +2100,11 @@ def main():
             continue
         if not src.get("n_sites") or src.get("n_new", 0) < 20:
             continue
-        index["urls"].append({
-            "name": "%s（%d 站点）" % (src["name"][:24], src["n_sites"]),
-            "url": index_base + "api/src-%s.json" % src["id"],
-        })
+        if str(src.get("id", "")).startswith("iv-"):
+            label = "🧩 %s（%d 站点·独立spider，勿合并）" % (src["name"][:18], src["n_sites"])
+        else:
+            label = "📡 %s（%d 站点）" % (src["name"][:18], src["n_sites"])
+        index["urls"].append({"name": label, "url": index_base + "api/src-%s.json" % src["id"]})
     write_json(os.path.join(ROOT, "index.json"), index)
 
     # 孤儿产物清理（只针对 src-*）：

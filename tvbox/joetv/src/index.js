@@ -321,12 +321,27 @@ function titleKey(item) {
   return normalizeTitle(item.name);
 }
 
+// 关键词后面紧跟这些词，说明是同一部片的版本条目（「繁花 普通话」「繁花 沪语版」），
+// 而不是只是共享前缀的另一部作品（「繁花照春晚」「繁花之东北爱情故事」）。
+// 短剧采集站里后者数量极多、更新又频繁，不区分就会把正片挤到十名开外。
+const VERSION_WORDS = [
+  "普通话", "国语", "粤语", "沪语", "川话", "中字", "中文字幕",
+  "高清", "超清", "蓝光", "正片", "完整版", "未删减", "无删减",
+  "加长版", "导演剪辑", "原声",
+];
+
 function scoreTitle(item, keyword) {
   const target = normalizeTitle(keyword);
   const name = normalizeTitle(item.name);
   if (!target) return 0;
   if (name === target) return 100;
-  if (name.startsWith(target)) return 70;
+  const extra = Math.max(0, name.length - target.length);
+  if (name.startsWith(target)) {
+    const rest = name.slice(target.length);
+    const isVersion = VERSION_WORDS.some((w) => rest.startsWith(w));
+    // 版本条目排在前面；其余按标题溢出长度扣分，越接近原名越靠前。
+    return (isVersion ? 88 : 70) - Math.min(18, extra * 3);
+  }
   if (name.includes(target)) return 40;
   return 0;
 }
@@ -852,4 +867,5 @@ export const __test__ = {
   parsePayload,
   normalizeTitle,
   titleKey,
+  scoreTitle,
 };
