@@ -3,22 +3,14 @@
   "sites": [
     {
       "key": "s01",
-      "name": "金鹰",
+      "name": "分享猫眼",
       "type": 1,
-      "api": "http://jyzyapi.com/provide/vod/from/jinyingm3u8/",
+      "api": "https://api.maoyanapi.top/api.php/provide/vod/at/json",
       "searchable": 1,
       "quickSearch": 1
     },
     {
       "key": "s02",
-      "name": "光速资源",
-      "type": 1,
-      "api": "https://api.guangsuapi.com/api.php/provide/vod/from/gsm3u8/",
-      "searchable": 1,
-      "quickSearch": 1
-    },
-    {
-      "key": "s03",
       "name": "极速",
       "type": 1,
       "api": "https://jszyapi.com/api.php/provide/vod/",
@@ -26,31 +18,31 @@
       "quickSearch": 1
     },
     {
-      "key": "s04",
-      "name": "火狐",
+      "key": "s03",
+      "name": "火焰狐妖",
       "type": 1,
-      "api": "https://hhzyapi.com/api.php/provide/vod/",
+      "api": "https://hhzyapi.com/api.php/provide/vod/?ac=list",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s04",
+      "name": "光速",
+      "type": 1,
+      "api": "http://api.guangsuapi.com/api.php/provide/vod/",
       "searchable": 1,
       "quickSearch": 1
     },
     {
       "key": "s05",
-      "name": "金鹰2",
+      "name": "新浪资源(切)",
       "type": 1,
-      "api": "https://jyzyapi.com/api.php/provide/vod/",
+      "api": "http://api.xinlangapi.com/xinlangapi.php/provide/vod/",
       "searchable": 1,
       "quickSearch": 1
     },
     {
       "key": "s06",
-      "name": "新浪资源",
-      "type": 1,
-      "api": "https://api.xinlangapi.com/xinlangapi.php/provide//vod/",
-      "searchable": 1,
-      "quickSearch": 1
-    },
-    {
-      "key": "s07",
       "name": "红牛资源(切)",
       "type": 1,
       "api": "https://www.hongniuzy2.com/api.php/provide/vod/",
@@ -58,7 +50,7 @@
       "quickSearch": 1
     },
     {
-      "key": "s08",
+      "key": "s07",
       "name": "速播",
       "type": 1,
       "api": "https://subocaiji.com/api.php/provide/vod/",
@@ -66,8 +58,16 @@
       "quickSearch": 1
     },
     {
-      "key": "s09",
+      "key": "s08",
       "name": "创享",
+      "type": 1,
+      "api": "https://ys.cxkjg.cn/api/provide/vod?source=4247318859",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s09",
+      "name": "创享2",
       "type": 1,
       "api": "https://ys.cxkjg.cn/api/provide/vod?source=1016684692",
       "searchable": 1,
@@ -75,7 +75,7 @@
     },
     {
       "key": "s10",
-      "name": "创享2",
+      "name": "创享3",
       "type": 1,
       "api": "https://ys.cxkjg.cn/api/provide/vod?source=2761253814",
       "searchable": 1,
@@ -83,86 +83,22 @@
     },
     {
       "key": "s11",
-      "name": "创享3",
+      "name": "虎口拔牙",
       "type": 1,
-      "api": "https://ys.cxkjg.cn/api/provide/vod?source=4247318859",
+      "api": "https://www.huyaapi.com/api.php/provide/vod/",
       "searchable": 1,
       "quickSearch": 1
     },
     {
       "key": "s12",
-      "name": "清单播放",
+      "name": "金鹰",
       "type": 1,
-      "api": "http://zhangqun1818.serv00.net/zh/2243.php",
+      "api": "https://jyzyapi.com/api.php/provide/vod/",
       "searchable": 1,
       "quickSearch": 1
     },
     {
       "key": "s13",
-      "name": "油管播放列表1",
-      "type": 1,
-      "api": "http://zhangqun1818.serv00.net/ytlb.php",
-      "searchable": 1,
-      "quickSearch": 1
-    },
-    {
-      "key": "s14",
-      "name": "油管播放列表2",
-      "type": 1,
-      "api": "http://zhangqun1818.serv00.net/ytlb1.php",
-      "searchable": 1,
-      "quickSearch": 1
-    },
-    {
-      "key": "s15",
-      "name": "服务器油管",
-      "type": 1,
-      "api": "http://zhangqun1818.serv00.net/yt/yt0021.php",
-      "searchable": 1,
-      "quickSearch": 1
-    },
-    {
-      "key": "s16",
-      "name": "分享js集",
-      "type": 1,
-      "api": "http://zhangqun1818.serv00.net/js.php",
-      "searchable": 1,
-      "quickSearch": 1
-    },
-    {
-      "key": "s17",
-      "name": "爱瓜TV",
-      "type": 1,
-      "api": "http://zhangqun1818.serv00.net/aigua1.php",
-      "searchable": 1,
-      "quickSearch": 1
-    },
-    {
-      "key": "s18",
-      "name": "油管清单播放",
-      "type": 1,
-      "api": "http://zhangqun1818.serv00.net/zh/yt/2243.php",
-      "searchable": 1,
-      "quickSearch": 1
-    },
-    {
-      "key": "s19",
-      "name": "php集合",
-      "type": 1,
-      "api": "http://zhangqun1818.serv00.net/php.php",
-      "searchable": 1,
-      "quickSearch": 1
-    },
-    {
-      "key": "s20",
-      "name": "影视文件播放",
-      "type": 1,
-      "api": "http://zhangqun1818.serv00.net/zh/2242.php",
-      "searchable": 1,
-      "quickSearch": 1
-    },
-    {
-      "key": "s21",
       "name": "旺旺短剧",
       "type": 1,
       "api": "http://zhangqun1818.serv00.net/ww.php",
@@ -170,10 +106,82 @@
       "quickSearch": 1
     },
     {
-      "key": "s22",
+      "key": "s14",
+      "name": "清单播放",
+      "type": 1,
+      "api": "http://zhangqun1818.serv00.net/zh/2243.php",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s15",
+      "name": "油管播放列表1",
+      "type": 1,
+      "api": "http://zhangqun1818.serv00.net/ytlb.php",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s16",
+      "name": "油管播放列表2",
+      "type": 1,
+      "api": "http://zhangqun1818.serv00.net/ytlb1.php",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s17",
       "name": "采集集合",
       "type": 1,
       "api": "http://zhangqun1818.serv00.net/cj/cjjh.php",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s18",
+      "name": "服务器油管",
+      "type": 1,
+      "api": "http://zhangqun1818.serv00.net/yt/yt0021.php",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s19",
+      "name": "分享js集",
+      "type": 1,
+      "api": "http://zhangqun1818.serv00.net/js.php",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s20",
+      "name": "爱瓜TV",
+      "type": 1,
+      "api": "http://zhangqun1818.serv00.net/aigua1.php",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s21",
+      "name": "油管清单播放",
+      "type": 1,
+      "api": "http://zhangqun1818.serv00.net/zh/yt/2243.php",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s22",
+      "name": "php集合",
+      "type": 1,
+      "api": "http://zhangqun1818.serv00.net/php.php",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s23",
+      "name": "影视文件播放",
+      "type": 1,
+      "api": "http://zhangqun1818.serv00.net/zh/2242.php",
       "searchable": 1,
       "quickSearch": 1
     }

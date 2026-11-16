@@ -1,20 +1,16 @@
 {
-  "generated_at": "2026-11-16T04:16:26+0000",
+  "generated_at": "2026-11-16T09:02:53+0000",
   "excluded_lite_keys": [
     "ivouge_魔都资源",
-    "laoliu_虎牙",
-    "lxchuangxiang_创享影视",
-    "lxshiguang14_ikun",
+    "lxshiguang14_创享",
     "lxshiguang1_360采集",
     "lxshiguang1_如意采集资源",
-    "maoy_猫眼资源采集",
+    "lxshiguang22_csp_xml_ikun",
     "maoy_魔都影视",
-    "nptp_s_05b7f2c7da",
-    "nptp_s_77dpwqy",
-    "nptp_s_wsyzy"
+    "nptp_s_77dpwqy"
   ],
-  "source_count": 11,
-  "candidate_count": 22,
+  "source_count": 9,
+  "candidate_count": 23,
   "classes": [
     {
       "type_id": "movie",
@@ -43,133 +39,11 @@
   ],
   "sources": [
     {
-      "key": "nptp_s_d8d52255b1",
-      "name": "探针·🔰金鹰(12万)·460ms",
-      "api": "http://jyzyapi.com/provide/vod/from/jinyingm3u8/",
-      "aliases": 2,
-      "alive_ms": 112,
-      "search_action": "keep",
-      "play_verdict": "ok",
-      "play_streak": 7,
-      "requires_referer": false,
-      "codec_unsafe": false,
-      "skip_first_line": false,
-      "verified": true,
-      "categories": {
-        "movie": [
-          "9",
-          "10",
-          "11",
-          "12",
-          "13",
-          "14",
-          "15",
-          "16",
-          "23"
-        ],
-        "tv": [
-          "3",
-          "4",
-          "5",
-          "6",
-          "7",
-          "20",
-          "28"
-        ],
-        "anime": [
-          "24",
-          "25",
-          "26"
-        ],
-        "variety": [
-          "36",
-          "37",
-          "38",
-          "39"
-        ],
-        "short": [
-          "40",
-          "41",
-          "42",
-          "43",
-          "44",
-          "45",
-          "46",
-          "47",
-          "48"
-        ]
-      },
-      "id": "s01",
-      "label": "金鹰"
-    },
-    {
-      "key": "lxshiguang22_csp_xml_光速",
-      "name": "拾光·❤光速资源",
-      "api": "https://api.guangsuapi.com/api.php/provide/vod/from/gsm3u8/",
-      "aliases": 3,
-      "alive_ms": 513,
-      "search_action": "keep",
-      "play_verdict": "ok",
-      "play_streak": 9,
-      "requires_referer": false,
-      "codec_unsafe": false,
-      "skip_first_line": false,
-      "verified": true,
-      "categories": {
-        "movie": [
-          "6",
-          "7",
-          "8",
-          "9",
-          "10",
-          "11",
-          "12",
-          "20"
-        ],
-        "tv": [
-          "13",
-          "14",
-          "15",
-          "16",
-          "21",
-          "22",
-          "23"
-        ],
-        "anime": [
-          "41",
-          "42",
-          "43"
-        ],
-        "variety": [
-          "37",
-          "38",
-          "39",
-          "40"
-        ],
-        "short": [
-          "44",
-          "45",
-          "46",
-          "47",
-          "48",
-          "49",
-          "50",
-          "51",
-          "52"
-        ],
-        "documentary": [
-          "24"
-        ]
-      },
-      "id": "s02",
-      "label": "光速资源"
-    },
-    {
       "key": "lxshiguang1_极速资源",
       "name": "拾光·极速｜采集",
       "api": "https://jszyapi.com/api.php/provide/vod/",
       "aliases": 3,
-      "alive_ms": 47,
+      "alive_ms": 18,
       "search_action": "keep",
       "play_verdict": "ok_secondary",
       "play_streak": 0,
@@ -225,15 +99,15 @@
           "54"
         ]
       },
-      "id": "s03",
+      "id": "s02",
       "label": "极速"
     },
     {
-      "key": "laoliu_火狐",
-      "name": "老刘·🦊火狐采集",
-      "api": "https://hhzyapi.com/api.php/provide/vod/",
+      "key": "maoy_火狐",
+      "name": "分享·📛火焰狐妖",
+      "api": "https://hhzyapi.com/api.php/provide/vod/?ac=list",
       "aliases": 2,
-      "alive_ms": 56,
+      "alive_ms": 24,
       "search_action": "keep",
       "play_verdict": "ok_secondary",
       "play_streak": 0,
@@ -289,15 +163,15 @@
           "53"
         ]
       },
-      "id": "s04",
-      "label": "火狐"
+      "id": "s03",
+      "label": "火焰狐妖"
     },
     {
-      "key": "lxshiguang14_金鹰",
-      "name": "拾光·金鹰 | 采集",
-      "api": "https://jyzyapi.com/api.php/provide/vod/",
-      "aliases": 1,
-      "alive_ms": 65,
+      "key": "lxshiguang1_光速资源",
+      "name": "拾光·光速｜采集",
+      "api": "http://api.guangsuapi.com/api.php/provide/vod/",
+      "aliases": 3,
+      "alive_ms": 28,
       "search_action": "keep",
       "play_verdict": "ok_secondary",
       "play_streak": 0,
@@ -307,57 +181,59 @@
       "verified": true,
       "categories": {
         "movie": [
+          "6",
+          "7",
+          "8",
           "9",
           "10",
           "11",
           "12",
+          "20"
+        ],
+        "tv": [
           "13",
           "14",
           "15",
           "16",
+          "21",
+          "22",
           "23"
         ],
-        "tv": [
-          "3",
-          "4",
-          "5",
-          "6",
-          "7",
-          "20",
-          "28"
-        ],
         "anime": [
-          "24",
-          "25",
-          "26"
-        ],
-        "variety": [
-          "36",
-          "37",
-          "38",
-          "39"
-        ],
-        "short": [
-          "40",
           "41",
           "42",
-          "43",
+          "43"
+        ],
+        "variety": [
+          "37",
+          "38",
+          "39",
+          "40"
+        ],
+        "short": [
           "44",
           "45",
           "46",
           "47",
-          "48"
+          "48",
+          "49",
+          "50",
+          "51",
+          "52"
+        ],
+        "documentary": [
+          "24"
         ]
       },
-      "id": "s05",
-      "label": "金鹰2"
+      "id": "s04",
+      "label": "光速"
     },
     {
-      "key": "lxshiguang22_csp_xml_新浪",
-      "name": "拾光·❤新浪资源",
-      "api": "https://api.xinlangapi.com/xinlangapi.php/provide//vod/",
+      "key": "lxxiaoma_新浪资源",
+      "name": "小马·新浪资源(切)",
+      "api": "http://api.xinlangapi.com/xinlangapi.php/provide/vod/",
       "aliases": 3,
-      "alive_ms": 136,
+      "alive_ms": 114,
       "search_action": "keep",
       "play_verdict": "ok_secondary",
       "play_streak": 0,
@@ -413,15 +289,15 @@
           "57"
         ]
       },
-      "id": "s06",
-      "label": "新浪资源"
+      "id": "s05",
+      "label": "新浪资源(切)"
     },
     {
       "key": "lxxiaoma_红牛资源",
       "name": "小马·红牛资源(切)",
       "api": "https://www.hongniuzy2.com/api.php/provide/vod/",
       "aliases": 1,
-      "alive_ms": 143,
+      "alive_ms": 145,
       "search_action": "keep",
       "play_verdict": "ok_secondary",
       "play_streak": 0,
@@ -459,7 +335,7 @@
           "19"
         ]
       },
-      "id": "s07",
+      "id": "s06",
       "label": "红牛资源(切)"
     },
     {
@@ -467,7 +343,7 @@
       "name": "拾光·速播 | 采集",
       "api": "https://subocaiji.com/api.php/provide/vod/",
       "aliases": 1,
-      "alive_ms": 364,
+      "alive_ms": 358,
       "search_action": "keep",
       "play_verdict": "ok_secondary",
       "play_streak": 0,
@@ -521,15 +397,77 @@
           "5"
         ]
       },
-      "id": "s08",
+      "id": "s07",
       "label": "速播"
+    },
+    {
+      "key": "lxchuangxiang_source_4247318859",
+      "name": "创享·📡 光速",
+      "api": "https://ys.cxkjg.cn/api/provide/vod?source=4247318859",
+      "aliases": 1,
+      "alive_ms": 1287,
+      "search_action": "keep",
+      "play_verdict": "ok_secondary",
+      "play_streak": 0,
+      "requires_referer": false,
+      "codec_unsafe": false,
+      "skip_first_line": true,
+      "verified": true,
+      "categories": {
+        "movie": [
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "20"
+        ],
+        "tv": [
+          "13",
+          "14",
+          "15",
+          "16",
+          "21",
+          "22",
+          "23"
+        ],
+        "anime": [
+          "41",
+          "42",
+          "43"
+        ],
+        "variety": [
+          "37",
+          "38",
+          "39",
+          "40"
+        ],
+        "short": [
+          "44",
+          "45",
+          "46",
+          "47",
+          "48",
+          "49",
+          "50",
+          "51",
+          "52"
+        ],
+        "documentary": [
+          "24"
+        ]
+      },
+      "id": "s08",
+      "label": "创享"
     },
     {
       "key": "lxchuangxiang_source_1016684692",
       "name": "创享·📡 速博",
       "api": "https://ys.cxkjg.cn/api/provide/vod?source=1016684692",
       "aliases": 1,
-      "alive_ms": 743,
+      "alive_ms": 1558,
       "search_action": "keep",
       "play_verdict": "ok_secondary",
       "play_streak": 0,
@@ -584,14 +522,14 @@
         ]
       },
       "id": "s09",
-      "label": "创享"
+      "label": "创享2"
     },
     {
       "key": "lxchuangxiang_source_2761253814",
       "name": "创享·📡 红牛",
       "api": "https://ys.cxkjg.cn/api/provide/vod?source=2761253814",
       "aliases": 1,
-      "alive_ms": 802,
+      "alive_ms": 1628,
       "search_action": "keep",
       "play_verdict": "ok_secondary",
       "play_streak": 0,
@@ -630,68 +568,6 @@
         ]
       },
       "id": "s10",
-      "label": "创享2"
-    },
-    {
-      "key": "lxchuangxiang_source_4247318859",
-      "name": "创享·📡 光速",
-      "api": "https://ys.cxkjg.cn/api/provide/vod?source=4247318859",
-      "aliases": 1,
-      "alive_ms": 830,
-      "search_action": "keep",
-      "play_verdict": "ok_secondary",
-      "play_streak": 0,
-      "requires_referer": false,
-      "codec_unsafe": false,
-      "skip_first_line": true,
-      "verified": true,
-      "categories": {
-        "movie": [
-          "6",
-          "7",
-          "8",
-          "9",
-          "10",
-          "11",
-          "12",
-          "20"
-        ],
-        "tv": [
-          "13",
-          "14",
-          "15",
-          "16",
-          "21",
-          "22",
-          "23"
-        ],
-        "anime": [
-          "41",
-          "42",
-          "43"
-        ],
-        "variety": [
-          "37",
-          "38",
-          "39",
-          "40"
-        ],
-        "short": [
-          "44",
-          "45",
-          "46",
-          "47",
-          "48",
-          "49",
-          "50",
-          "51",
-          "52"
-        ],
-        "documentary": [
-          "24"
-        ]
-      },
-      "id": "s11",
       "label": "创享3"
     }
   ]
