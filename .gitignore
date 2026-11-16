@@ -1,3 +1,7 @@
 *.bak.*
 *.log
 *.m3u.bak
+tvbox/joetv/dist/
+tvbox/joetv/node_modules/
+tvbox/joetv/.wrangler/
+tvbox/joetv/tools/__pycache__/

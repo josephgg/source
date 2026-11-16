@@ -1,0 +1,15 @@
+{
+  "name": "joetv-worker",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "JoeTV unified TVBox CMS aggregator",
+  "scripts": {
+    "test": "node --test tests/worker.test.mjs",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

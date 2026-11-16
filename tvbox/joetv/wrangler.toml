@@ -1,0 +1,8 @@
+# Cloudflare Pages 部署配置：入口是 dist/_worker.js（Pages 高级模式），
+# 由 tools/bundle.py 生成，因此这里只需要指出产物目录。
+name = "joetv-joe"
+compatibility_date = "2025-01-01"
+pages_build_output_dir = "dist"
+
+[observability]
+enabled = true

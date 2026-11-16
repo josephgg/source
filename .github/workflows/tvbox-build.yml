@@ -12,6 +12,7 @@ on:
       - "tvbox/rule_health.json"
       - "tvbox/play_health.json"
       - "tvbox/tools/**"
+      - "tvbox/joetv/**"
       - ".github/workflows/tvbox-build.yml"
 
 concurrency:
@@ -29,6 +30,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
 
       - name: 安装依赖
         run: pip install -r tvbox/requirements.txt
@@ -110,3 +115,48 @@ jobs:
               "https://purge.jsdelivr.net/gh/josephgg/source@main/tvbox/$f" || echo "ERR")
             echo "$f -> $code"
           done
+
+      # ---------------- JoeTV 聚合站 ----------------
+      # 放在主产物提交之后，聚合层出问题时不会影响 TVBox 主配置的更新。
+      # 上游目录取自本轮刚构建好的 api/lite.json + play_health.json + cms_alive.json。
+      - name: 重建 JoeTV 上游目录
+        working-directory: tvbox/joetv
+        run: python tools/build_catalog.py
+
+      - name: JoeTV 回归测试
+        working-directory: tvbox/joetv
+        # 含真实上游搜索/详情断言，上游抖动时会红；先修上游数据再看这里。
+        run: node --test tests/worker.test.mjs
+
+      - name: 打包 JoeTV 并生成配置
+        working-directory: tvbox/joetv
+        run: python tools/bundle.py && python tools/make_config.py
+
+      - name: 提交 JoeTV 产物
+        id: joetv
+        run: |
+          git add tvbox/api tvbox/joetv/data
+          if git diff --cached --quiet; then
+            echo "JoeTV 产物无变化"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "chore(joetv): rebuild $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # 需要仓库 Secrets 里的 CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID；
+      # 没配就跳过部署，产物仍会正常提交，本地手动 deploy 即可。
+      - name: 部署 JoeTV 到 Cloudflare Pages
+        working-directory: tvbox/joetv
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+            echo "未配置 CLOUDFLARE_API_TOKEN，跳过 Pages 部署"
+            exit 0
+          fi
+          npx --yes wrangler@4 pages deploy dist \
+            --project-name joetv-joe --branch main --commit-dirty=true
+

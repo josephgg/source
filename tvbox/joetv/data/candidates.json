@@ -1,0 +1,189 @@
+{
+  "_comment": "JoeTV 候选播放抽检，不属于最终 TVBox 配置",
+  "sites": [
+    {
+      "key": "s01",
+      "name": "光速资源",
+      "type": 1,
+      "api": "https://api.guangsuapi.com/api.php/provide/vod/from/gsm3u8/",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s02",
+      "name": "极速",
+      "type": 1,
+      "api": "https://jszyapi.com/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s03",
+      "name": "新浪资源(切)",
+      "type": 1,
+      "api": "http://api.xinlangapi.com/xinlangapi.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s04",
+      "name": "金鹰",
+      "type": 1,
+      "api": "https://jyzyapi.com/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s05",
+      "name": "分享金鹰",
+      "type": 1,
+      "api": "https://jyzyapi.com/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s06",
+      "name": "红牛资源(切)",
+      "type": 1,
+      "api": "https://www.hongniuzy2.com/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s07",
+      "name": "火狐",
+      "type": 1,
+      "api": "https://hhzyapi.com/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s08",
+      "name": "速播",
+      "type": 1,
+      "api": "https://subocaiji.com/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s09",
+      "name": "创享",
+      "type": 1,
+      "api": "https://ys.cxkjg.cn/api/provide/vod?source=4247318859",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s10",
+      "name": "创享",
+      "type": 1,
+      "api": "https://ys.cxkjg.cn/api/provide/vod?source=1016684692",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s11",
+      "name": "创享2",
+      "type": 1,
+      "api": "https://ys.cxkjg.cn/api/provide/vod?source=2761253814",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s12",
+      "name": "创享",
+      "type": 1,
+      "api": "https://ys.cxkjg.cn/api/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s13",
+      "name": "油管播放列表2",
+      "type": 1,
+      "api": "http://zhangqun1818.serv00.net/ytlb1.php",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s14",
+      "name": "爱瓜TV",
+      "type": 1,
+      "api": "http://zhangqun1818.serv00.net/aigua1.php",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s15",
+      "name": "分享js集",
+      "type": 1,
+      "api": "http://zhangqun1818.serv00.net/js.php",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s16",
+      "name": "油管清单播放",
+      "type": 1,
+      "api": "http://zhangqun1818.serv00.net/zh/yt/2243.php",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s17",
+      "name": "清单播放",
+      "type": 1,
+      "api": "http://zhangqun1818.serv00.net/zh/2243.php",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s18",
+      "name": "油管播放列表1",
+      "type": 1,
+      "api": "http://zhangqun1818.serv00.net/ytlb.php",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s19",
+      "name": "服务器油管",
+      "type": 1,
+      "api": "http://zhangqun1818.serv00.net/yt/yt0021.php",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s20",
+      "name": "影视文件播放",
+      "type": 1,
+      "api": "http://zhangqun1818.serv00.net/zh/2242.php",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s21",
+      "name": "旺旺短剧",
+      "type": 1,
+      "api": "http://zhangqun1818.serv00.net/ww.php",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s22",
+      "name": "分享合集",
+      "type": 1,
+      "api": "http://zhangqun1818.serv00.net/cj/cjjh.php",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s23",
+      "name": "php集合",
+      "type": 1,
+      "api": "http://zhangqun1818.serv00.net/php.php",
+      "searchable": 1,
+      "quickSearch": 1
+    }
+  ]
+}
