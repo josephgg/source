@@ -172,3 +172,49 @@ test("失败的详情不打长缓存，用户重试能拿到新结果", async ()
   assert.equal((await ready.json()).code, 1);
   assert.doesNotMatch(ready.headers.get("cache-control") || "", /no-store/i, "正常结果仍可缓存");
 });
+
+test("详情线路：按源质量排序，同一内容库最多占 3 条", () => {
+  const { rankRoutes } = __test__;
+  const sources = [
+    { id: "s1", rank: 1, cluster: "same" },
+    { id: "s2", rank: 2, cluster: "same" },
+    { id: "s3", rank: 3, cluster: "same" },
+    { id: "s4", rank: 4, cluster: "same" },
+    { id: "s5", rank: 5, cluster: "other-a" },
+    { id: "s6", rank: 6, cluster: "other-b" },
+  ];
+  const routes = sources.map((s, i) => ({ sourceIndex: i, id: `id-${i}` }));
+  // 故意打乱顺序，验证排序按 source.rank 而不是传入顺序
+  const picked = rankRoutes([routes[4], routes[0], routes[3], routes[5], routes[1], routes[2]], sources);
+  assert.deepEqual(picked.map((r) => r.sourceIndex), [0, 1, 2, 4, 5, 3],
+    "同库先给 3 条，再给其他库，最后名额没用满才回填");
+  assert.equal(rankRoutes(routes, sources, 3).length, 3, "limit 生效");
+});
+
+test("聚合搜索跳过只可浏览的上游", async () => {
+  const { CATALOG } = await import("../data/catalog.js");
+  const browseOnly = (CATALOG.sources || []).filter((s) => s.no_search);
+  if (!browseOnly.length) return;
+  const orig = globalThis.fetch;
+  const hit = [];
+  globalThis.fetch = async (url) => {
+    hit.push(String(url));
+    return new Response(
+      JSON.stringify({ code: 1, pagecount: 1, list: [{ vod_id: "1", vod_name: "繁花" }] }),
+      { headers: { "content-type": "application/json" } },
+    );
+  };
+  try {
+    const data = await (
+      await handle(new Request("https://joetv.example/api.php/provide/vod/?ac=videolist&wd=繁花"))
+    ).json();
+    assert.equal(data.code, 1);
+    for (const site of browseOnly) {
+      const api = String(site.api);
+      assert.ok(!hit.some((url) => url.startsWith(api)), `不应请求只可浏览的 ${site.label}`);
+    }
+    assert.deepEqual(data.list.map((x) => x.vod_name), ["繁花"], "同名结果合并为一条");
+  } finally {
+    globalThis.fetch = orig;
+  }
+});

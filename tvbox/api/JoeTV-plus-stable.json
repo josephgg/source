@@ -711,20 +711,6 @@
       "timeout": 20
     },
     {
-      "key": "lxshiguang1_360采集",
-      "name": "影视·360",
-      "type": 1,
-      "api": "https://360zy.com/api.php/provide/vod/",
-      "searchable": 1,
-      "changeable": 1,
-      "categories": [
-        "国产动漫",
-        "日韩动漫",
-        "国产剧"
-      ],
-      "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/xmbjm/svip/refs/heads/main/svip.jar"
-    },
-    {
       "key": "lxshiguang22_csp_xml_ikun",
       "name": "影视·ikun",
       "type": 1,
@@ -769,84 +755,6 @@
         "欧美综艺"
       ],
       "jar": "https://gh-proxy.com/raw.githubusercontent.com/yw88075/tvbox/main/HeChengChaXiu.jar"
-    },
-    {
-      "key": "lxshiguang1_如意采集资源",
-      "name": "影视·如意",
-      "type": 1,
-      "api": "https://cj.rycjapi.com/api.php/provide/vod/at/json/",
-      "playerType": 1,
-      "searchable": 1,
-      "changeable": 1,
-      "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/xmbjm/svip/refs/heads/main/svip.jar"
-    },
-    {
-      "key": "maoy_魔都影视",
-      "name": "影视·分享魔都",
-      "type": 1,
-      "api": "https://www.mdzyapi.com/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1,
-      "categories": [
-        "国产动漫",
-        "港台动漫",
-        "日韩动漫",
-        "欧美动漫",
-        "港台动漫",
-        "里番动漫",
-        "动漫电影",
-        "电影",
-        "喜剧片",
-        "爱情片",
-        "恐怖片",
-        "战争片",
-        "科幻片",
-        "动作片",
-        "惊悚片",
-        "古装片",
-        "家庭片",
-        "悬疑片",
-        "犯罪片",
-        "剧情片",
-        "灾难片",
-        "历史片",
-        "记录片",
-        "短片",
-        "国产剧",
-        "台湾剧",
-        "韩国剧",
-        "日本剧",
-        "欧美剧",
-        "香港剧",
-        "泰国剧",
-        "海外剧",
-        "短剧",
-        "大陆综艺",
-        "港台综艺",
-        "日韩综艺",
-        "欧美综艺"
-      ],
-      "jar": "https://d.kstore.dev/download/4127/Jar/%E5%88%86%E4%BA%AB%E8%80%850.zip;md5;f2f74d72c025a19ba4ade4d148d6d419"
-    },
-    {
-      "key": "ivouge_魔都资源",
-      "name": "动漫·魔都",
-      "type": 1,
-      "api": "https://caiji.moduapi.cc/api.php/provide/vod/?ac=list",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "jar": "https://play.iptv365.org/%E6%AC%A7%E6%AD%8C/spider.jar"
-    },
-    {
-      "key": "nptp_s_77dpwqy",
-      "name": "动漫·仓腾讯B站",
-      "type": 1,
-      "api": "https://cf.ddngo.space/77",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filter": 1,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/11/17/ff5af105e608d6389b89d59586515c70.jpg"
     }
   ]
 }

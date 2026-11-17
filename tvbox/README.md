@@ -358,6 +358,54 @@ python tools/probe_play.py --all --write       # 写 play_health.json
 指纹 `play_sig()` 会把功能子域（`api.` `cj.` `app.`）和接口前缀（`api.php/` 与 `api/`）抹平再比对：
 同一后端有几十个入口、写法不一，不归一就会「同一个坑换个名字再进精选一次」。
 
+## JoeTV 聚合站（`joetv/`）
+
+把全仓所有可用的 CMS 采集源合并成**一个** CMS 兼容接口，客户端只填一个地址就能同时搜到全部上游：
+
+```
+https://joetv-joe.pages.dev/api.php/provide/vod/
+```
+
+Worker 跑在 Cloudflare Pages（`dist/_worker.js` 高级模式），只中转 JSON、不碰视频流。搜索时并发查全部可搜上游、按片名归一化去重；分类按 `t=` 扇出后二次校验 `type_name`；详情把同名资源的多条上游路由合并成多线路，返回前对每条线路首地址做一次 `HEAD`/`#EXTM3U` 探测。
+
+### 只能聚合 CMS，不能聚合规则站
+
+全仓 3800+ 站里 92% 是 `csp_*`/`jar`/JS 规则站，解析在 Android 客户端里用 DexClassLoader 执行，服务端拿不到可播放地址。所以 JoeTV 的池子是 `type=1` 的 HTTP CMS 库（归并后约 67 个），规则站继续走 `api/lite.json` / `api/all.json`。
+
+### 选源口径：以本地直连实测为准
+
+`tools/probe_live.py` 用与 Worker **完全相同的参数**逐库实测，结果写 `data/live.json` 并入仓：
+
+| 结果 | 判定 | 进 JoeTV 的方式 |
+|---|---|---|
+| 搜索命中 ≥ 50% 且关键词生效 | `searchable` | 参与搜索 + 分类 + 详情 |
+| 分类能真出内容（≥ 8 条）但搜索不通 | `no_search` | 只参与分类与详情，**不参与聚合搜索**（否则只会浪费请求） |
+| 分类也是空 | 不收 | — |
+| 结构性硬伤（分享页 / 裸中文 / 直播格式 / DNS 失效） | 不收 | — |
+
+之所以不用 CI runner 的探针结果：runner 在海外，对境内采集站常被判成 `no_result` / `search_fail`，实测因此一度把 12 个活上游缩到 5 个。`live.json` 超过 72 小时只告警、超过 30 天才阻断，避免海外 CI 因数据过期停摆。
+
+**内容库去重**：同一后端换个域名/CDN 会导致十几个库返回同一批片名。构建时按搜索指纹把它们标成同一个 `cluster`，Worker 详情阶段每个 cluster 最多取 3 条线路，其余名额留给别的库 —— 既保留换 CDN 的兜底，也不会让 8 条线路全是同一部片。
+
+**搜索限流**：`金鹰`/`虎牙`/`光速` 按 IP 限流搜索（CF 边缘回 200 但 `list` 为空、本机连打几次直接 403），但分类浏览正常，且内容与其他入口同属一个 cluster，因此固定标 `no_search`。
+
+### 维护流程
+
+```bash
+cd tvbox/joetv
+python tools/probe_live.py --force        # 1. 本地实测全池（约 4 分钟，需境内网络）
+python tools/build_catalog.py             # 2. 生成 data/catalog.json + candidates.json
+node --test tests/worker.test.mjs         # 3. 回归（含真实上游用例；JOETV_SKIP_LIVE=1 只跑离线集）
+python tools/bundle.py                    # 4. 打 dist/worker.js 单文件
+python tools/make_config.py               # 5. 重写 api/JoeTV.json 与 api/JoeTV-plus-stable.json
+npx wrangler@4 pages deploy dist --project-name joetv-joe --branch main --commit-dirty=true
+python tools/verify_online.py             # 6. 线上验收：健康、逐源、搜索排序、详情线路、六类覆盖
+```
+
+线上自检入口：`/health`（源数量、可搜/可浏览/簇数）、`/diag?wd=繁花`（逐源耗时与条数）。
+
+`api/JoeTV-plus-stable.json` 仍保留「JoeTV + 未被 JoeTV 覆盖的精选站」，现在已经只剩 `影视·ikun`（其余精选站都已被聚进 JoeTV），日常直接用 `api/JoeTV.json` 一个地址即可。
+
 ## 已知限制
 
 - **源站会失效。** 构建只保证产物结构合法、链接可达，不代表每个站点的爬虫都能取到内容。`report.md` 记录每个源的抓取状态。

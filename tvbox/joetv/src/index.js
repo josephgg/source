@@ -6,10 +6,17 @@ const API_PATHS = new Set([
   "/vod",
   "/vod/",
 ]);
-const UPSTREAM_TIMEOUT_MS = 7500;
-const UPSTREAM_CONCURRENCY = 18;
+const UPSTREAM_TIMEOUT_MS = 6500;
+const UPSTREAM_CONCURRENCY = 24;
 const RESULT_LIMIT = 30;
 const MAX_DETAIL_ROUTES = 8;
+// 同一个内容库常被十来个采集站转发，只是 CDN 不同。详情线路若全给同一库，
+// 用户看到的是 8 条「同一部片」，换个库就断的收益远小于多样性，所以按 cluster 限量。
+const DETAIL_PER_CLUSTER = 3;
+// 上游多到 20 个后，最慢的那个（实测有 14s 的）会拖垮整次搜索。
+// 到达预算就先回已经拿到的结果，慢源下次再补。
+const SEARCH_BUDGET_MS = 2800;
+const CATEGORY_BUDGET_MS = 3200;
 const CACHE_SECONDS = 60;
 const UA = "Mozilla/5.0 (Linux; Android 12) AppleWebKit/537.36 JoeTV/1.0";
 
@@ -253,6 +260,71 @@ async function mapLimit(items, limit, worker) {
   }
   await Promise.all(Array.from({ length: Math.min(limit, items.length) }, run));
   return out;
+}
+
+// 并发请求全部上游，但最多等 budgetMs：到点就带着已返回的结果先响应。
+// 慢源只会让自己缺席这一次，不会把整页拖成超时。
+async function fanout(items, budgetMs, worker) {
+  const out = new Array(items.length);
+  const tasks = items.map((item, index) =>
+    Promise.resolve()
+      .then(() => worker(item, index))
+      .then((value) => {
+        out[index] = value;
+      })
+      .catch(() => {}),
+  );
+  if (!budgetMs) {
+    await Promise.all(tasks);
+    return out.filter(Boolean);
+  }
+  let timer;
+  const budget = new Promise((resolve) => {
+    timer = setTimeout(resolve, budgetMs);
+  });
+  await Promise.race([Promise.all(tasks), budget]);
+  clearTimeout(timer);
+  return out.filter(Boolean);
+}
+
+function searchableSources() {
+  return CATALOG.sources
+    .map((source, index) => ({ source, index }))
+    .filter(({ source }) => !source.no_search);
+}
+
+function sourceRank(source, index) {
+  const rank = Number(source?.rank);
+  return Number.isFinite(rank) ? rank : index + 100;
+}
+
+// 线路排序 + 同库限量：先按源质量排，再保证每个内容库最多 perCluster 条，
+// 名额没用满时用剩余线路补齐，最坏情况退化成原来的「按源顺序取前 N 条」。
+function rankRoutes(routeList, sources, limit = MAX_DETAIL_ROUTES, perCluster = DETAIL_PER_CLUSTER) {
+  const list = (routeList || []).filter((r) => r && Number.isInteger(r.sourceIndex) && r.id);
+  const sorted = [...list].sort(
+    (a, b) =>
+      sourceRank(sources[a.sourceIndex], a.sourceIndex) -
+      sourceRank(sources[b.sourceIndex], b.sourceIndex),
+  );
+  const picked = [];
+  const used = new Map();
+  for (const route of sorted) {
+    if (picked.length >= limit) break;
+    const source = sources[route.sourceIndex];
+    const cluster = source?.cluster || `i${route.sourceIndex}`;
+    const count = used.get(cluster) || 0;
+    if (count >= perCluster) continue;
+    used.set(cluster, count + 1);
+    picked.push(route);
+  }
+  if (picked.length < limit) {
+    for (const route of sorted) {
+      if (picked.length >= limit) break;
+      if (!picked.includes(route)) picked.push(route);
+    }
+  }
+  return picked;
 }
 
 function absolutePic(pic, api) {
@@ -521,7 +593,7 @@ function buildSearchList(groups, keyword) {
     return a.name.localeCompare(b.name, "zh-CN");
   });
   return list.slice(0, RESULT_LIMIT).map((group) => ({
-    vod_id: encodeId(group.routes),
+    vod_id: encodeId(rankRoutes(group.routes, CATALOG.sources)),
     vod_name: group.name,
     vod_pic: group.pic,
     vod_remarks: group.remarks,
@@ -538,7 +610,8 @@ function buildSearchList(groups, keyword) {
 
 async function search(keyword, page) {
   const sources = CATALOG.sources;
-  const results = await mapLimit(sources, UPSTREAM_CONCURRENCY, (source, sourceIndex) =>
+  const targets = searchableSources();
+  const results = await fanout(targets, SEARCH_BUDGET_MS, ({ source }) =>
     fetchUpstream(source, { ac: "videolist", wd: keyword, pg: page }),
   );
   const groups = new Map();
@@ -585,7 +658,7 @@ async function search(keyword, page) {
   }
   return {
     code: 1,
-    msg: `ok ${successes}/${sources.length}`,
+    msg: `ok ${successes}/${targets.length}`,
     page,
     pagecount,
     limit: RESULT_LIMIT,
@@ -604,7 +677,7 @@ async function category(typeId, page) {
     .filter(({ source }) => (source.categories?.[typeId] || []).length > 0);
   if (!sources.length) return emptyResult("该分类暂无可用上游");
 
-  const results = await mapLimit(sources, UPSTREAM_CONCURRENCY, ({ source }) =>
+  const results = await fanout(sources, CATEGORY_BUDGET_MS, ({ source }) =>
     fetchUpstream(source, {
       ac: "detail",
       t: (source.categories[typeId] || []).join(","),
@@ -664,7 +737,8 @@ async function category(typeId, page) {
 
 async function detail(routeList) {
   if (!routeList.length) return emptyResult("无效的资源 ID");
-  const results = await mapLimit(routeList, MAX_DETAIL_ROUTES, (route) => {
+  const ordered = rankRoutes(routeList, CATALOG.sources);
+  const results = await mapLimit(ordered, MAX_DETAIL_ROUTES, (route) => {
     const source = sourceByIndex(route.sourceIndex);
     if (!source) return Promise.resolve({ ok: false, source: null, items: [] });
     return fetchUpstream(source, { ac: "detail", ids: route.id });
@@ -732,7 +806,7 @@ async function detail(routeList) {
     total: 1,
     list: [
       {
-        vod_id: encodeId(routeList),
+        vod_id: encodeId(ordered),
         vod_name: base.name,
         vod_pic: base.pic,
         vod_remarks: base.remarks,
@@ -815,8 +889,11 @@ export async function handle(request, ctx = null) {
     return jsonResponse({
       code: 1,
       name: "JoeTV",
-      version: "1.0",
+      version: "1.1",
       sources: CATALOG.source_count,
+      searchable: CATALOG.stats?.searchable ?? null,
+      browse_only: CATALOG.stats?.browse_only ?? null,
+      clusters: CATALOG.stats?.clusters ?? null,
       generated_at: CATALOG.generated_at,
       endpoint: `${url.origin}/api.php/provide/vod/`,
     });
@@ -824,7 +901,8 @@ export async function handle(request, ctx = null) {
   if (url.pathname === "/diag") {
     const keyword = cleanText(url.searchParams.get("wd") || "庆余年").slice(0, 50);
     const started = Date.now();
-    const results = await mapLimit(CATALOG.sources, UPSTREAM_CONCURRENCY, (source) =>
+    const targets = searchableSources();
+    const results = await fanout(targets, 0, ({ source }) =>
       fetchUpstream(source, { ac: "videolist", wd: keyword, pg: 1 }),
     );
     return jsonResponse({
@@ -832,14 +910,20 @@ export async function handle(request, ctx = null) {
       keyword,
       total_ms: Date.now() - started,
       ok: results.filter((x) => x.ok).length,
-      sources: results.map((x) => ({
-        id: x.source.id,
-        label: x.source.label,
-        ok: x.ok,
-        items: x.items.length,
-        error: x.error || "",
-        elapsed_ms: x.elapsed,
-      })),
+      sources: CATALOG.sources.map((source, index) => {
+        const hit = results.find((x) => x.source === source);
+        return {
+          id: source.id,
+          label: source.label,
+          rank: source.rank,
+          no_search: Boolean(source.no_search),
+          ok: hit ? hit.ok : false,
+          items: hit ? hit.items.length : 0,
+          error: hit ? hit.error || "" : "skipped(no_search)",
+          elapsed_ms: hit ? hit.elapsed : 0,
+          index,
+        };
+      }),
     });
   }
   if (!API_PATHS.has(url.pathname)) {
@@ -885,4 +969,6 @@ export const __test__ = {
   titleKey,
   scoreTitle,
   probeMediaState,
+  rankRoutes,
+  searchableSources,
 };
