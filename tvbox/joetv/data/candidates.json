@@ -43,6 +43,14 @@
     },
     {
       "key": "s06",
+      "name": "创享",
+      "type": 1,
+      "api": "https://ys.cxkjg.cn/api/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s07",
       "name": "火狐",
       "type": 1,
       "api": "https://hhzyapi.com/api.php/provide/vod/",
@@ -50,7 +58,7 @@
       "quickSearch": 1
     },
     {
-      "key": "s07",
+      "key": "s08",
       "name": "速播",
       "type": 1,
       "api": "https://subocaiji.com/api.php/provide/vod/",
@@ -58,7 +66,7 @@
       "quickSearch": 1
     },
     {
-      "key": "s08",
+      "key": "s09",
       "name": "极速",
       "type": 1,
       "api": "https://jszyapi.com/api.php/provide/vod/",
@@ -66,7 +74,7 @@
       "quickSearch": 1
     },
     {
-      "key": "s09",
+      "key": "s10",
       "name": "新浪资源(切)",
       "type": 1,
       "api": "http://api.xinlangapi.com/xinlangapi.php/provide/vod/",
@@ -74,18 +82,10 @@
       "quickSearch": 1
     },
     {
-      "key": "s10",
+      "key": "s11",
       "name": "红牛资源(切)",
       "type": 1,
       "api": "https://www.hongniuzy2.com/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1
-    },
-    {
-      "key": "s11",
-      "name": "创享",
-      "type": 1,
-      "api": "https://ys.cxkjg.cn/api/provide/vod/",
       "searchable": 1,
       "quickSearch": 1
     },
