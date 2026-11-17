@@ -13,6 +13,9 @@ const MAX_DETAIL_ROUTES = 8;
 // 同一个内容库常被十来个采集站转发，只是 CDN 不同。详情线路若全给同一库，
 // 用户看到的是 8 条「同一部片」，换个库就断的收益远小于多样性，所以按 cluster 限量。
 const DETAIL_PER_CLUSTER = 3;
+// 一个采集站的响应里常带 5–6 组播放线路（爱奇艺/腾讯/优酷…）。全放进来会挤掉
+// 其他库的线路，8 条线路变成「两家站各一半」，换库兜底的意义就没了。
+const MAX_LINES_PER_SOURCE = 3;
 // 上游多到 20 个后，最慢的那个（实测有 14s 的）会拖垮整次搜索。
 // 到达预算就先回已经拿到的结果，慢源下次再补。
 const SEARCH_BUDGET_MS = 2800;
@@ -748,9 +751,11 @@ async function detail(routeList) {
   const lines = [];
   const seenBlocks = new Set();
   const usedLabels = new Set();
+  const perSourceLines = new Map();
   for (const result of results) {
     if (!result.ok || !result.source) continue;
     const sourceIndex = CATALOG.sources.indexOf(result.source);
+    const sourceKey = result.source.id || String(sourceIndex);
     for (const raw of result.items) {
       const item = normalizeItem(raw, result.source, sourceIndex);
       if (!item) continue;
@@ -771,6 +776,7 @@ async function detail(routeList) {
       }
       const playLines = normalizePlayLines(item, result.source);
       for (const line of playLines) {
+        if ((perSourceLines.get(sourceKey) || 0) >= MAX_LINES_PER_SOURCE) break;
         const blockKey = line.episodes.map((x) => x.slice(x.indexOf("$") + 1)).join("|");
         if (!blockKey || seenBlocks.has(blockKey)) continue;
         seenBlocks.add(blockKey);
@@ -779,6 +785,7 @@ async function detail(routeList) {
         while (usedLabels.has(label)) label = `${result.source.label}${n++}`;
         usedLabels.add(label);
         lines.push({ from: label, episodes: line.episodes });
+        perSourceLines.set(sourceKey, (perSourceLines.get(sourceKey) || 0) + 1);
         if (lines.length >= 8) break;
       }
       if (lines.length >= 8) break;
