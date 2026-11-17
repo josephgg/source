@@ -2,7 +2,7 @@
   "_dups": [
     {
       "a": "lxxiaoma_红牛资源",
-      "b": "laoliu_火狐",
+      "b": "lxshiguang1_光速资源",
       "jaccard": 1.0
     },
     {
@@ -12,12 +12,12 @@
     },
     {
       "a": "lxxiaoma_新浪资源",
-      "b": "lxshiguang14_速播",
+      "b": "lxshiguang1_光速资源",
       "jaccard": 1.0
     },
     {
       "a": "lxxiaoma_新浪资源",
-      "b": "laoliu_火狐",
+      "b": "lxshiguang14_速播",
       "jaccard": 1.0
     },
     {
@@ -32,12 +32,12 @@
     },
     {
       "a": "lxshiguang1_极速资源",
-      "b": "lxshiguang14_速播",
+      "b": "lxshiguang1_光速资源",
       "jaccard": 1.0
     },
     {
       "a": "lxshiguang1_极速资源",
-      "b": "laoliu_火狐",
+      "b": "lxshiguang14_速播",
       "jaccard": 1.0
     },
     {
@@ -47,7 +47,32 @@
     },
     {
       "a": "lxshiguang14_速播",
-      "b": "laoliu_火狐",
+      "b": "lxshiguang1_光速资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "laoliu_火狐",
+      "b": "lxxiaoma_红牛资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "laoliu_火狐",
+      "b": "lxxiaoma_新浪资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "laoliu_火狐",
+      "b": "lxshiguang1_极速资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "laoliu_火狐",
+      "b": "lxshiguang1_光速资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "laoliu_火狐",
+      "b": "lxshiguang14_速播",
       "jaccard": 1.0
     },
     {
@@ -57,7 +82,7 @@
     },
     {
       "a": "nptp_s_77dpwqy",
-      "b": "laoliu_火狐",
+      "b": "lxshiguang1_光速资源",
       "jaccard": 0.67
     },
     {
@@ -72,6 +97,11 @@
     },
     {
       "a": "lxshiguang14_速播",
+      "b": "nptp_s_77dpwqy",
+      "jaccard": 0.67
+    },
+    {
+      "a": "laoliu_火狐",
       "b": "nptp_s_77dpwqy",
       "jaccard": 0.67
     }
@@ -269,166 +299,6 @@
     "titles2": [],
     "verdict": "empty",
     "why": "两个词都返回 0 条"
-  },
-  "lxchuangxiang_source_1016684692": {
-    "action": "keep",
-    "adult": [],
-    "adult_n": 0,
-    "api": "https://ys.cxkjg.cn/api/provide/vod?source=1016684692",
-    "hit_rate": 1.0,
-    "ms": 24,
-    "n1": 0,
-    "n2": 0,
-    "name": "创享·📡 速博",
-    "tested_at": 1794883419,
-    "titles1": [],
-    "titles2": [],
-    "verdict": "unknown",
-    "why": "两次都没拿到 JSON（URLError/URLError）"
-  },
-  "lxchuangxiang_source_1208629981": {
-    "action": "keep",
-    "adult": [],
-    "adult_n": 0,
-    "api": "https://ys.cxkjg.cn/api/provide/vod?source=1208629981",
-    "hit_rate": 1.0,
-    "ms": 35,
-    "n1": 0,
-    "n2": 0,
-    "name": "创享·📡 HD(SN)",
-    "tested_at": 1794883422,
-    "titles1": [],
-    "titles2": [],
-    "verdict": "unknown",
-    "why": "两次都没拿到 JSON（URLError/URLError）"
-  },
-  "lxchuangxiang_source_1470828922": {
-    "action": "keep",
-    "adult": [],
-    "adult_n": 0,
-    "api": "https://ys.cxkjg.cn/api/provide/vod?source=1470828922",
-    "hit_rate": 1.0,
-    "ms": 23,
-    "n1": 0,
-    "n2": 0,
-    "name": "创享·📡 量子",
-    "tested_at": 1794883423,
-    "titles1": [],
-    "titles2": [],
-    "verdict": "unknown",
-    "why": "两次都没拿到 JSON（URLError/URLError）"
-  },
-  "lxchuangxiang_source_1840804598": {
-    "action": "keep",
-    "adult": [],
-    "adult_n": 0,
-    "api": "https://ys.cxkjg.cn/api/provide/vod?source=1840804598",
-    "hit_rate": 1.0,
-    "ms": 23,
-    "n1": 0,
-    "n2": 0,
-    "name": "创享·📡 非凡",
-    "tested_at": 1794883422,
-    "titles1": [],
-    "titles2": [],
-    "verdict": "unknown",
-    "why": "两次都没拿到 JSON（URLError/URLError）"
-  },
-  "lxchuangxiang_source_2680151544": {
-    "action": "keep",
-    "adult": [],
-    "adult_n": 0,
-    "api": "https://ys.cxkjg.cn/api/provide/vod?source=2680151544",
-    "hit_rate": 1.0,
-    "ms": 30,
-    "n1": 0,
-    "n2": 0,
-    "name": "创享·📡 金鹰",
-    "tested_at": 1794883422,
-    "titles1": [],
-    "titles2": [],
-    "verdict": "unknown",
-    "why": "两次都没拿到 JSON（URLError/URLError）"
-  },
-  "lxchuangxiang_source_2761253814": {
-    "action": "keep",
-    "adult": [],
-    "adult_n": 0,
-    "api": "https://ys.cxkjg.cn/api/provide/vod?source=2761253814",
-    "hit_rate": 1.0,
-    "ms": 29,
-    "n1": 0,
-    "n2": 0,
-    "name": "创享·📡 红牛",
-    "tested_at": 1794883419,
-    "titles1": [],
-    "titles2": [],
-    "verdict": "unknown",
-    "why": "两次都没拿到 JSON（URLError/URLError）"
-  },
-  "lxchuangxiang_source_3848762792": {
-    "action": "keep",
-    "adult": [],
-    "adult_n": 0,
-    "api": "https://ys.cxkjg.cn/api/provide/vod?source=3848762792",
-    "hit_rate": 1.0,
-    "ms": 29,
-    "n1": 0,
-    "n2": 0,
-    "name": "创享·📡 闪电",
-    "tested_at": 1794883422,
-    "titles1": [],
-    "titles2": [],
-    "verdict": "unknown",
-    "why": "两次都没拿到 JSON（URLError/URLError）"
-  },
-  "lxchuangxiang_source_4118858385": {
-    "action": "keep",
-    "adult": [],
-    "adult_n": 0,
-    "api": "https://ys.cxkjg.cn/api/provide/vod?source=4118858385",
-    "hit_rate": 1.0,
-    "ms": 29,
-    "n1": 0,
-    "n2": 0,
-    "name": "创享·📡 WS",
-    "tested_at": 1794883422,
-    "titles1": [],
-    "titles2": [],
-    "verdict": "unknown",
-    "why": "两次都没拿到 JSON（URLError/URLError）"
-  },
-  "lxchuangxiang_source_4247318859": {
-    "action": "keep",
-    "adult": [],
-    "adult_n": 0,
-    "api": "https://ys.cxkjg.cn/api/provide/vod?source=4247318859",
-    "hit_rate": 1.0,
-    "ms": 37,
-    "n1": 0,
-    "n2": 0,
-    "name": "创享·📡 光速",
-    "tested_at": 1794883418,
-    "titles1": [],
-    "titles2": [],
-    "verdict": "unknown",
-    "why": "两次都没拿到 JSON（URLError/URLError）"
-  },
-  "lxchuangxiang_source_531717376": {
-    "action": "keep",
-    "adult": [],
-    "adult_n": 0,
-    "api": "https://ys.cxkjg.cn/api/provide/vod?source=531717376",
-    "hit_rate": 1.0,
-    "ms": 22,
-    "n1": 0,
-    "n2": 0,
-    "name": "创享·📡 樱花",
-    "tested_at": 1794883421,
-    "titles1": [],
-    "titles2": [],
-    "verdict": "unknown",
-    "why": "两次都没拿到 JSON（URLError/URLError）"
   },
   "lxshiguang14_创享": {
     "action": "keep",
@@ -636,6 +506,52 @@
     "verdict": "unknown",
     "why": "两次都没拿到 JSON（http403/http403）"
   },
+  "lxshiguang1_光速资源": {
+    "action": "keep",
+    "adult": [],
+    "adult_n": 0,
+    "api": "http://api.guangsuapi.com/api.php/provide/vod/",
+    "hit_rate": 1.0,
+    "ms": 200,
+    "n1": 8,
+    "n2": 20,
+    "name": "拾光·光速｜采集",
+    "tested_at": 1794916005,
+    "titles1": [
+      "庆余年 第二季",
+      "庆余年之风起沧州",
+      "庆余年之帝王业",
+      "庆余年之少年风流",
+      "庆余年，全世界都以为我是废物太子（庆余年之大凉太子爷）",
+      "庆余年第一季 特别版",
+      "庆余年之大赵逍遥王",
+      "庆余年 第一季"
+    ],
+    "titles2": [
+      "熊出没之神奇宝物第二季",
+      "熊出没·变形记",
+      "熊出没·原始时代",
+      "熊出没·年年有熊",
+      "熊出没之神奇宝物",
+      "熊出没第一季",
+      "熊出没·重启未来",
+      "熊出没之小小世界 第二季",
+      "熊出没 重启未来",
+      "熊出没之春日对对碰",
+      "熊出没之夏日连连看",
+      "熊出没之秋日团团转",
+      "熊出没之探险日记",
+      "熊出没之冬日乐翻天",
+      "熊出没之环球大冒险",
+      "熊出没之怪兽计划",
+      "熊出没·逆转时空",
+      "熊出没之小小世界",
+      "熊出没之丛林总动员",
+      "熊出没之探险日记第二季"
+    ],
+    "verdict": "good",
+    "why": "命中率 100% / 100%，重合 0%"
+  },
   "lxshiguang1_华为采集资源": {
     "action": "keep",
     "adult": [],
@@ -706,11 +622,11 @@
     "adult_n": 0,
     "api": "https://cj.rycjapi.com/api.php/provide/vod/at/json/",
     "hit_rate": 1.0,
-    "ms": 1681,
+    "ms": 1618,
     "n1": 3,
     "n2": 20,
     "name": "拾光·如意｜采集",
-    "tested_at": 1794802339,
+    "tested_at": 1794916008,
     "titles1": [
       "庆余年之风起沧州",
       "庆余年第二季",
@@ -841,11 +757,11 @@
     "adult_n": 0,
     "api": "https://caiji.maotaizy.cc/api.php/provide/vod/from/mtm3u8/",
     "hit_rate": 1.0,
-    "ms": 1140,
+    "ms": 1313,
     "n1": 0,
     "n2": 0,
     "name": "拾光·茅台｜采集",
-    "tested_at": 1794802338,
+    "tested_at": 1794916007,
     "titles1": [],
     "titles2": [],
     "verdict": "empty",
@@ -953,22 +869,6 @@
     ],
     "verdict": "good",
     "why": "命中率 100% / 100%，重合 0%"
-  },
-  "lxshiguang22_csp_xml_光速": {
-    "action": "disable",
-    "adult": [],
-    "adult_n": 0,
-    "api": "https://api.guangsuapi.com/api.php/provide/vod/from/gsm3u8/",
-    "hit_rate": 1.0,
-    "ms": 177,
-    "n1": 0,
-    "n2": 0,
-    "name": "拾光·❤光速资源",
-    "tested_at": 1794883418,
-    "titles1": [],
-    "titles2": [],
-    "verdict": "empty",
-    "why": "两个词都返回 0 条"
   },
   "lxshiguang22_csp_xml_天空": {
     "action": "disable",
@@ -1308,22 +1208,6 @@
     "verdict": "empty",
     "why": "两个词都返回 0 条"
   },
-  "lxshiguang54_采集集合": {
-    "action": "keep",
-    "adult": [],
-    "adult_n": 0,
-    "api": "http://zhangqun1818.serv00.net/cj/cjjh.php",
-    "hit_rate": 1.0,
-    "ms": 12543,
-    "n1": 0,
-    "n2": 0,
-    "name": "拾光·采集集合",
-    "tested_at": 1794819216,
-    "titles1": [],
-    "titles2": [],
-    "verdict": "unknown",
-    "why": "两次都没拿到 JSON（TimeoutError/TimeoutError）"
-  },
   "lxshiguang8_pansou": {
     "action": "keep",
     "adult": [],
@@ -1634,6 +1518,22 @@
     "titles2": [],
     "verdict": "unknown",
     "why": "两次都没拿到 JSON（URLError/URLError）"
+  },
+  "maoy_采集集合": {
+    "action": "keep",
+    "adult": [],
+    "adult_n": 0,
+    "api": "http://zhangqun1818.serv00.net/cj/cjjh.php",
+    "hit_rate": 1.0,
+    "ms": 504,
+    "n1": 0,
+    "n2": 0,
+    "name": "分享·💝分享合集",
+    "tested_at": 1794916006,
+    "titles1": [],
+    "titles2": [],
+    "verdict": "unknown",
+    "why": "两次都没拿到 JSON（http502/http502）"
   },
   "maoy_金鹰资源": {
     "action": "disable",
