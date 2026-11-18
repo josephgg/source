@@ -43,78 +43,14 @@
     },
     {
       "key": "s06",
-      "name": "火狐",
+      "name": "猫眼",
       "type": 1,
-      "api": "https://hhzyapi.com/api.php/provide/vod/",
+      "api": "https://api.maoyanapi.top/api.php/provide/vod/at/json",
       "searchable": 1,
       "quickSearch": 1
     },
     {
       "key": "s07",
-      "name": "速播",
-      "type": 1,
-      "api": "https://subocaiji.com/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1
-    },
-    {
-      "key": "s08",
-      "name": "极速",
-      "type": 1,
-      "api": "https://jszyapi.com/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1
-    },
-    {
-      "key": "s09",
-      "name": "新浪资源(切)",
-      "type": 1,
-      "api": "http://api.xinlangapi.com/xinlangapi.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1
-    },
-    {
-      "key": "s10",
-      "name": "红牛资源(切)",
-      "type": 1,
-      "api": "https://www.hongniuzy2.com/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1
-    },
-    {
-      "key": "s11",
-      "name": "360",
-      "type": 1,
-      "api": "https://360zy.com/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1
-    },
-    {
-      "key": "s12",
-      "name": "索尼",
-      "type": 1,
-      "api": "https://suoniapi.com/api.php/provide/vod/",
-      "searchable": 0,
-      "quickSearch": 0
-    },
-    {
-      "key": "s13",
-      "name": "牛牛",
-      "type": 1,
-      "api": "https://api.niuniuzy.me/api.php/provide/vod/",
-      "searchable": 0,
-      "quickSearch": 0
-    },
-    {
-      "key": "s14",
-      "name": "金鹰",
-      "type": 1,
-      "api": "https://jyzyapi.com/api.php/provide/vod/",
-      "searchable": 0,
-      "quickSearch": 0
-    },
-    {
-      "key": "s15",
       "name": "虎牙",
       "type": 1,
       "api": "https://www.huyaapi.com/api.php/provide/vod/from/hym3u8",
@@ -122,18 +58,82 @@
       "quickSearch": 0
     },
     {
-      "key": "s16",
-      "name": "丫丫",
+      "key": "s08",
+      "name": "光速",
       "type": 1,
-      "api": "https://yayazy2.com/api.php/provide/vod/",
+      "api": "http://api.guangsuapi.com/api.php/provide/vod/",
+      "searchable": 0,
+      "quickSearch": 0
+    },
+    {
+      "key": "s09",
+      "name": "火狐",
+      "type": 1,
+      "api": "https://hhzyapi.com/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s10",
+      "name": "极速",
+      "type": 1,
+      "api": "https://jszyapi.com/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s11",
+      "name": "新浪资源(切)",
+      "type": 1,
+      "api": "http://api.xinlangapi.com/xinlangapi.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s12",
+      "name": "红牛资源(切)",
+      "type": 1,
+      "api": "https://www.hongniuzy2.com/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s13",
+      "name": "金鹰",
+      "type": 1,
+      "api": "https://jyzyapi.com/api.php/provide/vod/",
+      "searchable": 0,
+      "quickSearch": 0
+    },
+    {
+      "key": "s14",
+      "name": "360",
+      "type": 1,
+      "api": "https://360zy.com/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s15",
+      "name": "索尼",
+      "type": 1,
+      "api": "https://suoniapi.com/api.php/provide/vod/",
+      "searchable": 0,
+      "quickSearch": 0
+    },
+    {
+      "key": "s16",
+      "name": "牛牛",
+      "type": 1,
+      "api": "https://api.niuniuzy.me/api.php/provide/vod/",
       "searchable": 0,
       "quickSearch": 0
     },
     {
       "key": "s17",
-      "name": "光速",
+      "name": "丫丫",
       "type": 1,
-      "api": "http://api.guangsuapi.com/api.php/provide/vod/",
+      "api": "https://yayazy2.com/api.php/provide/vod/",
       "searchable": 0,
       "quickSearch": 0
     },
@@ -155,9 +155,9 @@
     },
     {
       "key": "s20",
-      "name": "猫眼",
+      "name": "速播",
       "type": 1,
-      "api": "https://api.maoyanapi.top/api.php/provide/vod/at/json",
+      "api": "https://subocaiji.com/api.php/provide/vod/",
       "searchable": 1,
       "quickSearch": 1
     }
