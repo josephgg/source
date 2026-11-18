@@ -1,8 +1,8 @@
-# 稳定精选（8 站点，连续两轮多分片实测通过）
+# 稳定精选（7 站点，连续两轮多分片实测通过）
 https://cdn.jsdelivr.net/gh/josephgg/source@main/tvbox/api/lite.json
 https://fastly.jsdelivr.net/gh/josephgg/source@main/tvbox/api/lite.json
 
-# 全部聚合（3827 站点，一个地址装下所有资源）
+# 全部聚合（3809 站点，一个地址装下所有资源）
 https://cdn.jsdelivr.net/gh/josephgg/source@main/tvbox/api/all.json
 https://fastly.jsdelivr.net/gh/josephgg/source@main/tvbox/api/all.json
 
