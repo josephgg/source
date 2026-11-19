@@ -76,7 +76,34 @@ def main() -> int:
         dump(path, data)
         print("wrote %s sites=%d" % (path, len(data["sites"])))
     print("JoeTV upstreams=%d lite=%d" % (catalog["source_count"], len(lite.get("sites") or [])))
+
+    # plus-stable 比 index.json 晚生成（依赖 build 产出的 lite.json），
+    # 索引里的站点数由本脚本回写，避免写死数字后与实际产物脱节。
+    sync_index_count(len(combined["sites"]))
     return 0
+
+
+def sync_index_count(n: int) -> None:
+    index_path = TVBOX / "index.json"
+    if not index_path.exists():
+        return
+    try:
+        with index_path.open(encoding="utf-8") as f:
+            idx = json.load(f)
+        label = "⭐ JoeTV + 稳定精选（覆盖更广，共 %d 站点）" % n
+        changed = False
+        for item in idx.get("urls") or []:
+            if str(item.get("url", "")).endswith("api/JoeTV-plus-stable.json"):
+                if item.get("name") != label:
+                    item["name"] = label
+                    changed = True
+                break
+        if changed:
+            with index_path.open("w", encoding="utf-8", newline="\n") as f:
+                json.dump(idx, f, ensure_ascii=False, separators=(",", ":"))
+            print("synced index.json 文案：%s" % label)
+    except Exception as exc:  # 文案同步失败不应阻断产物生成
+        print("warn: 未能同步 index.json 文案: %s" % exc)
 
 
 if __name__ == "__main__":

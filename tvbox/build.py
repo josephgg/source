@@ -2086,8 +2086,15 @@ def main():
     })
     plus_stable = os.path.join(ROOT, "api", "JoeTV-plus-stable.json")
     if os.path.exists(plus_stable):
+        # 文案按实际产物计数，别写死数字：JoeTV 上游会变化，
+        # 写死「8 精选 + 12 上游」在实测只剩 2 站时会直接误导用户。
+        try:
+            with open(plus_stable, encoding="utf-8") as _f:
+                _plus_n = len(json.load(_f).get("sites") or [])
+        except Exception:
+            _plus_n = 0
         index["urls"].append({
-            "name": "⭐ JoeTV + 稳定精选（覆盖更广，含 8 精选 + 12 上游）",
+            "name": "⭐ JoeTV + 稳定精选（覆盖更广，共 %d 站点）" % _plus_n,
             "url": index_base + "api/JoeTV-plus-stable.json",
         })
     index["urls"].append({

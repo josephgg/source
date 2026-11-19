@@ -41,6 +41,12 @@ LOCAL = re.compile(r"(北京|上海|天津|重庆|河北|山西|辽宁|吉林|�
                    r"成都|西安|郑州|昆明|福州|南昌|合肥|石家庄|太原|兰州|乌鲁木齐|呼和浩特|拉萨|"
                    r"南宁|贵阳|海口|银川|西宁|长春|哈尔滨|鞍山|淄博|烟台|洛阳|绵阳)")
 JUNK = re.compile(r"(mtv|music|音乐|电台|广播|radio|测试|test|广告|备用|线路|p2p|蜜桃|福利)")
+# 点播文件不是直播流：影视仓的 lives 里常混入春晚录像、老片全集这类 .mp4，
+# 探活一定能过（文件真实存在），但客户端切过去就是播一段录像，不进直播列表。
+VOD_FILE = re.compile(r"\.(mp4|mkv|avi|mov|wmv|m4v)(\?|$)", re.I)
+# HLS 封装的回看/下载同样不是直播：路径带 playback、/vod/ 或 8 位日期归档目录
+# （例：svip.high24-playback.com/20250129/.../mixed.m3u8 是春晚录像）。
+VOD_PATH = re.compile(r"(playback|/vod/|/(19|20)\d{6}/)", re.I)
 RANK = {"央视": 0, "卫视": 1, "港澳台": 2, "地方台": 3, "其他": 4}
 
 
@@ -200,6 +206,10 @@ def main():
         if not n or n in cur_names or JUNK.search(n):
             continue
         if not (CORE.search(n) or LOCAL.search(n)):
+            continue
+        if VOD_FILE.search(url.split("|")[0]):
+            continue
+        if VOD_PATH.search(url.split("|")[0]):
             continue
         item = by_name.setdefault(n, {"name": title.strip(), "urls": [], "seen": 0})
         item["seen"] += 1
