@@ -1,7 +1,7 @@
 {
   "spider": "https://raw.githubusercontent.com/gaotianliuyun/gao/master/jar/pg.jar;md5;dffec63fb83a2b31b8606bd4bf6bead9",
   "wallpaper": "https://cdn.jsdelivr.net/gh/josephgg/source@main/tvbox/assets/wallpaper.webp",
-  "notice": "数据源更新 11月18日",
+  "notice": "数据源更新 11月19日",
   "parses": [
     {
       "name": "Web聚合",
@@ -711,34 +711,50 @@
       "timeout": 20
     },
     {
-      "key": "lxshiguang14_ikun",
+      "key": "lxshiguang22_csp_xml_ikun",
       "name": "影视·ikun",
       "type": 1,
-      "api": "https://ikunzyapi.com/api.php/provide/vod/",
-      "playerType": 1,
+      "api": "https://ikunzyapi.com/api.php/provide/vod/from/ikm3u8/at/json",
       "searchable": 1,
-      "changeable": 1,
-      "jar": "https://clun.top/jar/xs.jar"
-    },
-    {
-      "key": "nptp_s_wsyzy",
-      "name": "影视·无损云",
-      "type": 1,
-      "api": "https://cf.ddngo.space/wsy",
-      "searchable": 1,
+      "playUrl": "https://www.ikdmjx.com/?url=",
       "quickSearch": 1,
-      "filter": 1,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/31/272e922132480799981a031067b6d722.jpg"
-    },
-    {
-      "key": "nptp_s_05b7f2c7da",
-      "name": "影视·A",
-      "type": 1,
-      "api": "https://360zyzz.com/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filter": 1,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/31/272e922132480799981a031067b6d722.jpg"
+      "filterable": 1,
+      "playerType": 2,
+      "categories": [
+        "动作片",
+        "喜剧片",
+        "科幻片",
+        "恐怖片",
+        "爱情片",
+        "剧情片",
+        "战争片",
+        "记录片",
+        "国产剧",
+        "欧美剧",
+        "犯罪片",
+        "惊悚片",
+        "古装片",
+        "灾难片",
+        "历史片",
+        "香港剧",
+        "韩国剧",
+        "台湾剧",
+        "日本剧",
+        "海外剧",
+        "泰国剧",
+        "其他片",
+        "悬疑片",
+        "奇幻片",
+        "动画片",
+        "国产动漫",
+        "日韩动漫",
+        "欧美动漫",
+        "大陆综艺",
+        "港台综艺",
+        "日韩综艺",
+        "欧美综艺"
+      ],
+      "jar": "https://gh-proxy.com/raw.githubusercontent.com/yw88075/tvbox/main/HeChengChaXiu.jar"
     }
   ]
 }
