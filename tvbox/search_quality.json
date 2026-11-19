@@ -1,63 +1,73 @@
 {
   "_dups": [
     {
-      "a": "lxxiaoma_新浪资源",
-      "b": "lxxiaoma_红牛资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxxiaoma_新浪资源",
-      "b": "lxshiguang1_极速资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxxiaoma_新浪资源",
-      "b": "lxchuangxiang_创享影视",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxxiaoma_新浪资源",
-      "b": "laoliu_火狐",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxshiguang1_极速资源",
-      "b": "lxxiaoma_红牛资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_创享影视",
-      "b": "lxxiaoma_红牛资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_创享影视",
-      "b": "lxshiguang1_极速资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_创享影视",
-      "b": "laoliu_火狐",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_source_2761253814",
-      "b": "lxxiaoma_红牛资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_source_2761253814",
+      "a": "lxxiaoma_红牛资源",
       "b": "lxxiaoma_新浪资源",
       "jaccard": 1.0
     },
     {
+      "a": "lxxiaoma_红牛资源",
+      "b": "lxshiguang1_极速资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxxiaoma_红牛资源",
+      "b": "lxshiguang14_创享",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxxiaoma_红牛资源",
+      "b": "lxchuangxiang_source_2761253814",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxxiaoma_红牛资源",
+      "b": "lxchuangxiang_source_2680151544",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxxiaoma_红牛资源",
+      "b": "lxchuangxiang_source_1016684692",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxxiaoma_新浪资源",
+      "b": "lxshiguang1_极速资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxxiaoma_新浪资源",
+      "b": "lxshiguang14_创享",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxxiaoma_新浪资源",
+      "b": "lxchuangxiang_source_2761253814",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxxiaoma_新浪资源",
+      "b": "lxchuangxiang_source_1016684692",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxshiguang1_极速资源",
+      "b": "lxshiguang14_创享",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxshiguang1_极速资源",
+      "b": "lxchuangxiang_source_1016684692",
+      "jaccard": 1.0
+    },
+    {
       "a": "lxchuangxiang_source_2761253814",
       "b": "lxshiguang1_极速资源",
       "jaccard": 1.0
     },
     {
       "a": "lxchuangxiang_source_2761253814",
-      "b": "lxchuangxiang_创享影视",
+      "b": "lxshiguang14_创享",
       "jaccard": 1.0
     },
     {
@@ -66,33 +76,38 @@
       "jaccard": 1.0
     },
     {
-      "a": "lxchuangxiang_source_2761253814",
-      "b": "laoliu_火狐",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_source_1016684692",
-      "b": "lxxiaoma_红牛资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_source_1016684692",
+      "a": "lxchuangxiang_source_2680151544",
       "b": "lxxiaoma_新浪资源",
       "jaccard": 1.0
     },
     {
-      "a": "lxchuangxiang_source_1016684692",
+      "a": "lxchuangxiang_source_2680151544",
       "b": "lxshiguang1_极速资源",
       "jaccard": 1.0
     },
     {
-      "a": "lxchuangxiang_source_1016684692",
-      "b": "lxchuangxiang_创享影视",
+      "a": "lxchuangxiang_source_2680151544",
+      "b": "lxshiguang14_创享",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxchuangxiang_source_2680151544",
+      "b": "lxchuangxiang_source_2761253814",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxchuangxiang_source_2680151544",
+      "b": "lxchuangxiang_source_1016684692",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxchuangxiang_source_1470828922",
+      "b": "maoy_采集集合",
       "jaccard": 1.0
     },
     {
       "a": "lxchuangxiang_source_1016684692",
-      "b": "laoliu_火狐",
+      "b": "lxshiguang14_创享",
       "jaccard": 1.0
     },
     {
@@ -102,7 +117,32 @@
     },
     {
       "a": "laoliu_火狐",
+      "b": "lxxiaoma_新浪资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "laoliu_火狐",
       "b": "lxshiguang1_极速资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "laoliu_火狐",
+      "b": "lxshiguang14_创享",
+      "jaccard": 1.0
+    },
+    {
+      "a": "laoliu_火狐",
+      "b": "lxchuangxiang_source_2761253814",
+      "jaccard": 1.0
+    },
+    {
+      "a": "laoliu_火狐",
+      "b": "lxchuangxiang_source_2680151544",
+      "jaccard": 1.0
+    },
+    {
+      "a": "laoliu_火狐",
+      "b": "lxchuangxiang_source_1016684692",
       "jaccard": 1.0
     },
     {
@@ -111,33 +151,38 @@
       "jaccard": 0.67
     },
     {
-      "a": "lxxiaoma_新浪资源",
-      "b": "nptp_s_77dpwqy",
+      "a": "nptp_s_77dpwqy",
+      "b": "lxxiaoma_新浪资源",
       "jaccard": 0.67
     },
     {
-      "a": "lxshiguang1_极速资源",
-      "b": "nptp_s_77dpwqy",
+      "a": "nptp_s_77dpwqy",
+      "b": "lxshiguang1_极速资源",
       "jaccard": 0.67
     },
     {
-      "a": "lxchuangxiang_创享影视",
-      "b": "nptp_s_77dpwqy",
+      "a": "nptp_s_77dpwqy",
+      "b": "lxshiguang14_创享",
       "jaccard": 0.67
     },
     {
-      "a": "lxchuangxiang_source_2761253814",
-      "b": "nptp_s_77dpwqy",
+      "a": "nptp_s_77dpwqy",
+      "b": "lxchuangxiang_source_2761253814",
       "jaccard": 0.67
     },
     {
-      "a": "lxchuangxiang_source_1016684692",
-      "b": "nptp_s_77dpwqy",
+      "a": "nptp_s_77dpwqy",
+      "b": "lxchuangxiang_source_2680151544",
       "jaccard": 0.67
     },
     {
-      "a": "laoliu_火狐",
-      "b": "nptp_s_77dpwqy",
+      "a": "nptp_s_77dpwqy",
+      "b": "lxchuangxiang_source_1016684692",
+      "jaccard": 0.67
+    },
+    {
+      "a": "nptp_s_77dpwqy",
+      "b": "laoliu_火狐",
       "jaccard": 0.67
     }
   ],
@@ -341,11 +386,11 @@
     "adult_n": 0,
     "api": "https://ys.cxkjg.cn/api/provide/vod?source=1016684692",
     "hit_rate": 1.0,
-    "ms": 1876,
+    "ms": 2751,
     "n1": 8,
     "n2": 20,
     "name": "创享·📡 速博",
-    "tested_at": 1794935823,
+    "tested_at": 1795052196,
     "titles1": [
       "庆余年 第二季",
       "庆余年之风起沧州",
@@ -387,11 +432,11 @@
     "adult_n": 0,
     "api": "https://ys.cxkjg.cn/api/provide/vod?source=1208629981",
     "hit_rate": 1.0,
-    "ms": 1980,
+    "ms": 2094,
     "n1": 0,
     "n2": 0,
     "name": "创享·📡 HD(SN)",
-    "tested_at": 1794935819,
+    "tested_at": 1795052191,
     "titles1": [],
     "titles2": [],
     "verdict": "unknown",
@@ -403,11 +448,11 @@
     "adult_n": 0,
     "api": "https://ys.cxkjg.cn/api/provide/vod?source=1470828922",
     "hit_rate": 0.15,
-    "ms": 3507,
+    "ms": 4567,
     "n1": 20,
     "n2": 20,
     "name": "创享·📡 量子",
-    "tested_at": 1794935823,
+    "tested_at": 1795052196,
     "titles1": [
       "庆余年第二季",
       "庆余年第一季",
@@ -461,11 +506,11 @@
     "adult_n": 0,
     "api": "https://ys.cxkjg.cn/api/provide/vod?source=1840804598",
     "hit_rate": 1.0,
-    "ms": 3031,
+    "ms": 4310,
     "n1": 8,
     "n2": 20,
     "name": "创享·📡 非凡",
-    "tested_at": 1794935824,
+    "tested_at": 1795052198,
     "titles1": [
       "庆余年第二季粤语",
       "庆余年之风起沧州",
@@ -502,20 +547,50 @@
     "why": "命中率 100% / 100%，重合 0%"
   },
   "lxchuangxiang_source_2680151544": {
-    "action": "disable",
+    "action": "keep",
     "adult": [],
     "adult_n": 0,
     "api": "https://ys.cxkjg.cn/api/provide/vod?source=2680151544",
     "hit_rate": 1.0,
-    "ms": 1813,
-    "n1": 0,
-    "n2": 0,
+    "ms": 3185,
+    "n1": 8,
+    "n2": 20,
     "name": "创享·📡 金鹰",
-    "tested_at": 1794935819,
-    "titles1": [],
-    "titles2": [],
-    "verdict": "empty",
-    "why": "两个词都返回 0 条"
+    "tested_at": 1795052196,
+    "titles1": [
+      "庆余年 第二季",
+      "庆余年之风起沧州",
+      "庆余年之帝王业",
+      "庆余年之少年风流",
+      "庆余年，全世界都以为我是废物太子（庆余年之大凉太子爷）",
+      "庆余年第一季 特别版",
+      "庆余年之大赵逍遥王",
+      "庆余年 第一季"
+    ],
+    "titles2": [
+      "熊出没之神奇宝物第二季",
+      "熊出没·变形记",
+      "熊出没·原始时代",
+      "熊出没·年年有熊",
+      "熊出没之神奇宝物",
+      "熊出没第一季",
+      "熊出没·重启未来",
+      "熊出没之小小世界 第二季",
+      "熊出没 重启未来",
+      "熊出没之环球大冒险",
+      "熊出没之冬日乐翻天",
+      "熊出没·逆转时空",
+      "熊出没之小小世界",
+      "熊出没之探险日记第二季",
+      "熊出没之秋日团团转",
+      "熊出没之夏日连连看",
+      "熊出没之春日对对碰",
+      "熊出没之怪兽计划2",
+      "熊出没之怪兽计划",
+      "熊出没之丛林总动员"
+    ],
+    "verdict": "good",
+    "why": "命中率 100% / 100%，重合 0%"
   },
   "lxchuangxiang_source_2761253814": {
     "action": "keep",
@@ -523,11 +598,11 @@
     "adult_n": 0,
     "api": "https://ys.cxkjg.cn/api/provide/vod?source=2761253814",
     "hit_rate": 1.0,
-    "ms": 2651,
+    "ms": 3840,
     "n1": 8,
     "n2": 20,
     "name": "创享·📡 红牛",
-    "tested_at": 1794935825,
+    "tested_at": 1795052212,
     "titles1": [
       "庆余年 第二季",
       "庆余年之风起沧州",
@@ -569,11 +644,11 @@
     "adult_n": 0,
     "api": "https://ys.cxkjg.cn/api/provide/vod?source=3848762792",
     "hit_rate": 1.0,
-    "ms": 1760,
+    "ms": 1716,
     "n1": 0,
     "n2": 0,
     "name": "创享·📡 闪电",
-    "tested_at": 1794935819,
+    "tested_at": 1795052191,
     "titles1": [],
     "titles2": [],
     "verdict": "unknown",
@@ -585,11 +660,11 @@
     "adult_n": 0,
     "api": "https://ys.cxkjg.cn/api/provide/vod?source=4118858385",
     "hit_rate": 1.0,
-    "ms": 1972,
+    "ms": 1693,
     "n1": 0,
     "n2": 0,
     "name": "创享·📡 WS",
-    "tested_at": 1794935819,
+    "tested_at": 1795052191,
     "titles1": [],
     "titles2": [],
     "verdict": "unknown",
@@ -601,11 +676,11 @@
     "adult_n": 0,
     "api": "https://ys.cxkjg.cn/api/provide/vod?source=4247318859",
     "hit_rate": 1.0,
-    "ms": 1690,
+    "ms": 1719,
     "n1": 0,
     "n2": 0,
     "name": "创享·📡 光速",
-    "tested_at": 1794935819,
+    "tested_at": 1795052191,
     "titles1": [],
     "titles2": [],
     "verdict": "empty",
@@ -617,61 +692,15 @@
     "adult_n": 0,
     "api": "https://ys.cxkjg.cn/api/provide/vod?source=531717376",
     "hit_rate": 1.0,
-    "ms": 1818,
+    "ms": 2089,
     "n1": 0,
     "n2": 0,
     "name": "创享·📡 樱花",
-    "tested_at": 1794935819,
+    "tested_at": 1795052191,
     "titles1": [],
     "titles2": [],
     "verdict": "empty",
     "why": "两个词都返回 0 条"
-  },
-  "lxchuangxiang_创享影视": {
-    "action": "keep",
-    "adult": [],
-    "adult_n": 0,
-    "api": "https://ys.cxkjg.cn/api/provide/vod",
-    "hit_rate": 1.0,
-    "ms": 12464,
-    "n1": 8,
-    "n2": 20,
-    "name": "创享·🌟 创享影视",
-    "tested_at": 1794967176,
-    "titles1": [
-      "庆余年 第二季",
-      "庆余年 第一季",
-      "庆余年之帝王业",
-      "庆余年之风起沧州",
-      "庆余年之少年风流",
-      "庆余年第一季 特别版",
-      "庆余年之大赵逍遥王",
-      "庆余年，全世界都以为我是废物太子（庆余年之大凉太子爷）"
-    ],
-    "titles2": [
-      "熊出没注意",
-      "熊出没·变形记",
-      "熊出没第一季",
-      "熊出没之年货",
-      "熊出没·原始时代",
-      "熊出没·年年有熊",
-      "熊出没·重启未来",
-      "熊出没 重启未来",
-      "熊出没·逆转时空",
-      "熊出没·伴我“熊芯”",
-      "熊出没·狂野大陆",
-      "熊出没·伴我“熊芯”",
-      "熊出没·重返地球",
-      "熊出没·奇幻空间",
-      "熊出没之神奇宝物",
-      "熊出没之小小世界",
-      "熊出没之怪兽计划",
-      "熊出没之探险日记",
-      "熊出没之熊心归来",
-      "熊出没之雪岭熊风"
-    ],
-    "verdict": "good",
-    "why": "命中率 100% / 100%，重合 0%"
   },
   "lxshiguang14_ikun": {
     "action": "keep",
@@ -708,6 +737,52 @@
       "熊出没·原始时代",
       "熊出没之过年",
       "熊出没注意"
+    ],
+    "verdict": "good",
+    "why": "命中率 100% / 100%，重合 0%"
+  },
+  "lxshiguang14_创享": {
+    "action": "keep",
+    "adult": [],
+    "adult_n": 0,
+    "api": "https://ys.cxkjg.cn/api/provide/vod/",
+    "hit_rate": 1.0,
+    "ms": 6274,
+    "n1": 8,
+    "n2": 20,
+    "name": "拾光·创享 | 采集",
+    "tested_at": 1795052204,
+    "titles1": [
+      "庆余年 第二季",
+      "庆余年 第一季",
+      "庆余年之帝王业",
+      "庆余年之风起沧州",
+      "庆余年之少年风流",
+      "庆余年第一季 特别版",
+      "庆余年之大赵逍遥王",
+      "庆余年，全世界都以为我是废物太子（庆余年之大凉太子爷）"
+    ],
+    "titles2": [
+      "熊出没注意",
+      "熊出没·变形记",
+      "熊出没第一季",
+      "熊出没之年货",
+      "熊出没·原始时代",
+      "熊出没·年年有熊",
+      "熊出没·重启未来",
+      "熊出没 重启未来",
+      "熊出没·逆转时空",
+      "熊出没·伴我“熊芯”",
+      "熊出没·狂野大陆",
+      "熊出没·伴我“熊芯”",
+      "熊出没·重返地球",
+      "熊出没·奇幻空间",
+      "熊出没之神奇宝物",
+      "熊出没之小小世界",
+      "熊出没之怪兽计划",
+      "熊出没之探险日记",
+      "熊出没之熊心归来",
+      "熊出没之雪岭熊风"
     ],
     "verdict": "good",
     "why": "命中率 100% / 100%，重合 0%"
@@ -926,11 +1001,11 @@
     "adult_n": 0,
     "api": "https://cj.rycjapi.com/api.php/provide/vod/at/json/",
     "hit_rate": 1.0,
-    "ms": 1618,
+    "ms": 1950,
     "n1": 3,
     "n2": 20,
     "name": "拾光·如意｜采集",
-    "tested_at": 1794916008,
+    "tested_at": 1795052192,
     "titles1": [
       "庆余年之风起沧州",
       "庆余年第二季",
@@ -1055,6 +1130,22 @@
     "verdict": "unknown",
     "why": "两次都没拿到 JSON（not-json/not-json）"
   },
+  "lxshiguang1_茅台采集": {
+    "action": "disable",
+    "adult": [],
+    "adult_n": 0,
+    "api": "https://caiji.maotaizy.cc/api.php/provide/vod/from/mtm3u8/",
+    "hit_rate": 1.0,
+    "ms": 918,
+    "n1": 0,
+    "n2": 0,
+    "name": "拾光·茅台｜采集",
+    "tested_at": 1795052190,
+    "titles1": [],
+    "titles2": [],
+    "verdict": "empty",
+    "why": "两个词都返回 0 条"
+  },
   "lxshiguang1_闪电资源网": {
     "action": "disable",
     "adult": [],
@@ -1120,20 +1211,20 @@
     "why": "两次都没拿到 JSON（http401/not-json）"
   },
   "lxshiguang22_csp_xml_光速": {
-    "action": "disable",
+    "action": "keep",
     "adult": [],
     "adult_n": 0,
     "api": "https://api.guangsuapi.com/api.php/provide/vod/from/gsm3u8/",
     "hit_rate": 1.0,
-    "ms": 328,
+    "ms": 73,
     "n1": 0,
     "n2": 0,
     "name": "拾光·❤光速资源",
-    "tested_at": 1794935817,
+    "tested_at": 1795052188,
     "titles1": [],
     "titles2": [],
-    "verdict": "empty",
-    "why": "两个词都返回 0 条"
+    "verdict": "unknown",
+    "why": "两次都没拿到 JSON（http403/http403）"
   },
   "lxshiguang22_csp_xml_天空": {
     "action": "disable",
@@ -1354,22 +1445,6 @@
     "n2": 0,
     "name": "拾光·爱瓜TV",
     "tested_at": 1794995739,
-    "titles1": [],
-    "titles2": [],
-    "verdict": "unknown",
-    "why": "两次都没拿到 JSON（TimeoutError/TimeoutError）"
-  },
-  "lxshiguang54_采集集合": {
-    "action": "keep",
-    "adult": [],
-    "adult_n": 0,
-    "api": "http://zhangqun1818.serv00.net/cj/cjjh.php",
-    "hit_rate": 1.0,
-    "ms": 12392,
-    "n1": 0,
-    "n2": 0,
-    "name": "拾光·采集集合",
-    "tested_at": 1794935841,
     "titles1": [],
     "titles2": [],
     "verdict": "unknown",
@@ -1659,6 +1734,64 @@
     "verdict": "unknown",
     "why": "两次都没拿到 JSON（URLError/URLError）"
   },
+  "maoy_采集集合": {
+    "action": "quick_off",
+    "adult": [],
+    "adult_n": 0,
+    "api": "http://zhangqun1818.serv00.net/cj/cjjh.php",
+    "hit_rate": 0.15,
+    "ms": 5117,
+    "n1": 20,
+    "n2": 20,
+    "name": "分享·💝分享合集",
+    "tested_at": 1795052201,
+    "titles1": [
+      "庆余年第二季",
+      "庆余年第一季",
+      "庆余年[电影解说]",
+      "2019腾讯视频星光盛典",
+      "大演员",
+      "大秦赋[电影解说]",
+      "大秦赋",
+      "路边有条鱼",
+      "关原之战1981",
+      "童话二分之一",
+      "宝庆码头第一季",
+      "宝庆码第一季",
+      "春酒庆团圆",
+      "英雄无泪修庆版",
+      "武松斗杀西门庆",
+      "苏庆亮",
+      "武藏坊辨庆",
+      "弹麦相庆2018",
+      "弹麦相庆",
+      "万千星辉贺台庆2025"
+    ],
+    "titles2": [
+      "熊出没之神奇宝物2",
+      "熊出没·年年有熊",
+      "熊出没·年年有熊[电影解说]",
+      "熊出没之神奇宝物",
+      "熊出没·重启未来",
+      "熊出没·重启未来[预告片]",
+      "熊出没之小小世界[电影解说]",
+      "熊出没·逆转时空[电影解说]",
+      "熊出没之夺宝熊兵[电影解说]",
+      "熊出没·逆转时空",
+      "熊出没之小小世界",
+      "熊出没之夺宝熊兵",
+      "熊出没·逆转时空[预告片]",
+      "熊出没·伴我“熊芯”[电影解说]",
+      "熊出没·变形记[电影解说]",
+      "熊出没·狂野大陆[电影解说]",
+      "熊出没·奇幻空间[电影解说]",
+      "熊出没·原始时代[电影解说]",
+      "熊出没·重返地球[电影解说]",
+      "熊出没之怪兽计划[电影解说]"
+    ],
+    "verdict": "good",
+    "why": "命中率 15% / 100%，重合 0%"
+  },
   "maoy_飘零影院": {
     "action": "keep",
     "adult": [],
@@ -1881,22 +2014,6 @@
     ],
     "verdict": "good",
     "why": "命中率 100% / 100%，重合 0%"
-  },
-  "npysc_mt": {
-    "action": "disable",
-    "adult": [],
-    "adult_n": 0,
-    "api": "https://caiji.maotaizy.cc/api.php/provide/vod/",
-    "hit_rate": 1.0,
-    "ms": 1141,
-    "n1": 0,
-    "n2": 0,
-    "name": "云镜·茅台资源",
-    "tested_at": 1794995714,
-    "titles1": [],
-    "titles2": [],
-    "verdict": "empty",
-    "why": "两个词都返回 0 条"
   },
   "xiangya_柚子资源": {
     "action": "disable",
