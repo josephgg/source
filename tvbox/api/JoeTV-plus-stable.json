@@ -52,11 +52,6 @@
       }
     },
     {
-      "name": "Json轮询",
-      "type": 2,
-      "url": "Sequence"
-    },
-    {
       "name": "m3u8",
       "type": 0,
       "url": "https://jx.m3u8.tv/jiexi/?url="
@@ -77,14 +72,14 @@
       "url": "https://jx.m3u8.pw/?url="
     },
     {
+      "name": "Json轮询",
+      "type": 2,
+      "url": "Sequence"
+    },
+    {
       "name": "xmflv",
       "type": 0,
       "url": "https://jx.xmflv.com/?url="
-    },
-    {
-      "name": "解析聚合",
-      "type": 3,
-      "url": "Demo"
     },
     {
       "name": "-咸鱼-",
@@ -187,6 +182,11 @@
           "user-agent": "Mozilla/5.0 (Linux; Android 13; V2049A Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/116.0.0.0 Mobile Safari/537.36"
         }
       }
+    },
+    {
+      "name": "解析聚合",
+      "type": 3,
+      "url": "Demo"
     },
     {
       "name": "365",
@@ -711,50 +711,34 @@
       "timeout": 20
     },
     {
-      "key": "lxshiguang22_csp_xml_ikun",
+      "key": "lxshiguang14_ikun",
       "name": "影视·ikun",
       "type": 1,
-      "api": "https://ikunzyapi.com/api.php/provide/vod/from/ikm3u8/at/json",
+      "api": "https://ikunzyapi.com/api.php/provide/vod/",
+      "playerType": 1,
       "searchable": 1,
-      "playUrl": "https://www.ikdmjx.com/?url=",
+      "changeable": 1,
+      "jar": "https://clun.top/jar/xs.jar"
+    },
+    {
+      "key": "nptp_s_d8d52255b1",
+      "name": "影视·金鹰438ms~",
+      "type": 1,
+      "api": "http://jyzyapi.com/provide/vod/from/jinyingm3u8/",
+      "searchable": 1,
       "quickSearch": 1,
-      "filterable": 1,
-      "playerType": 2,
-      "categories": [
-        "动作片",
-        "喜剧片",
-        "科幻片",
-        "恐怖片",
-        "爱情片",
-        "剧情片",
-        "战争片",
-        "记录片",
-        "国产剧",
-        "欧美剧",
-        "犯罪片",
-        "惊悚片",
-        "古装片",
-        "灾难片",
-        "历史片",
-        "香港剧",
-        "韩国剧",
-        "台湾剧",
-        "日本剧",
-        "海外剧",
-        "泰国剧",
-        "其他片",
-        "悬疑片",
-        "奇幻片",
-        "动画片",
-        "国产动漫",
-        "日韩动漫",
-        "欧美动漫",
-        "大陆综艺",
-        "港台综艺",
-        "日韩综艺",
-        "欧美综艺"
-      ],
-      "jar": "https://gh-proxy.com/raw.githubusercontent.com/yw88075/tvbox/main/HeChengChaXiu.jar"
+      "filter": 1,
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/31/272e922132480799981a031067b6d722.jpg"
+    },
+    {
+      "key": "nptp_s_wsyzy",
+      "name": "影视·无损云",
+      "type": 1,
+      "api": "https://cf.ddngo.space/wsy",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filter": 1,
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/31/272e922132480799981a031067b6d722.jpg"
     }
   ]
 }

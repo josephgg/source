@@ -43,11 +43,11 @@
     },
     {
       "key": "s06",
-      "name": "金鹰",
+      "name": "红牛资源(切)",
       "type": 1,
-      "api": "https://jyzyapi.com/api.php/provide/vod/",
-      "searchable": 0,
-      "quickSearch": 0
+      "api": "https://www.hongniuzy2.com/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1
     },
     {
       "key": "s07",
@@ -59,38 +59,6 @@
     },
     {
       "key": "s08",
-      "name": "火狐",
-      "type": 1,
-      "api": "https://hhzyapi.com/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1
-    },
-    {
-      "key": "s09",
-      "name": "极速",
-      "type": 1,
-      "api": "https://jszyapi.com/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1
-    },
-    {
-      "key": "s10",
-      "name": "新浪资源(切)",
-      "type": 1,
-      "api": "http://api.xinlangapi.com/xinlangapi.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1
-    },
-    {
-      "key": "s11",
-      "name": "红牛资源(切)",
-      "type": 1,
-      "api": "https://www.hongniuzy2.com/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1
-    },
-    {
-      "key": "s12",
       "name": "索尼",
       "type": 1,
       "api": "https://suoniapi.com/api.php/provide/vod/",
@@ -98,7 +66,7 @@
       "quickSearch": 0
     },
     {
-      "key": "s13",
+      "key": "s09",
       "name": "牛牛",
       "type": 1,
       "api": "https://api.niuniuzy.me/api.php/provide/vod/",
@@ -106,7 +74,15 @@
       "quickSearch": 0
     },
     {
-      "key": "s14",
+      "key": "s10",
+      "name": "金鹰",
+      "type": 1,
+      "api": "https://jyzyapi.com/api.php/provide/vod/",
+      "searchable": 0,
+      "quickSearch": 0
+    },
+    {
+      "key": "s11",
       "name": "虎牙",
       "type": 1,
       "api": "https://www.huyaapi.com/api.php/provide/vod/from/hym3u8",
@@ -114,7 +90,7 @@
       "quickSearch": 0
     },
     {
-      "key": "s15",
+      "key": "s12",
       "name": "丫丫",
       "type": 1,
       "api": "https://yayazy2.com/api.php/provide/vod/",
@@ -122,7 +98,7 @@
       "quickSearch": 0
     },
     {
-      "key": "s16",
+      "key": "s13",
       "name": "光速",
       "type": 1,
       "api": "http://api.guangsuapi.com/api.php/provide/vod/",
@@ -130,7 +106,7 @@
       "quickSearch": 0
     },
     {
-      "key": "s17",
+      "key": "s14",
       "name": "茅台",
       "type": 1,
       "api": "https://caiji.maotaizy.cc/api.php/provide/vod/from/mtm3u8/",
@@ -138,7 +114,7 @@
       "quickSearch": 0
     },
     {
-      "key": "s18",
+      "key": "s15",
       "name": "纯净",
       "type": 1,
       "api": "https://api.wsyzy.net/api.php/provide/vod/",
@@ -146,7 +122,15 @@
       "quickSearch": 0
     },
     {
-      "key": "s19",
+      "key": "s16",
+      "name": "火狐",
+      "type": 1,
+      "api": "https://hhzyapi.com/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s17",
       "name": "速播",
       "type": 1,
       "api": "https://subocaiji.com/api.php/provide/vod/",
@@ -154,10 +138,26 @@
       "quickSearch": 1
     },
     {
-      "key": "s20",
+      "key": "s18",
       "name": "猫眼",
       "type": 1,
       "api": "https://api.maoyanapi.top/api.php/provide/vod/at/json",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s19",
+      "name": "极速",
+      "type": 1,
+      "api": "https://jszyapi.com/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s20",
+      "name": "新浪资源(切)",
+      "type": 1,
+      "api": "http://api.xinlangapi.com/xinlangapi.php/provide/vod/",
       "searchable": 1,
       "quickSearch": 1
     }
