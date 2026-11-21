@@ -12,56 +12,56 @@
     },
     {
       "a": "lxxiaoma_红牛资源",
-      "b": "lxchuangxiang_source_2761253814",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxxiaoma_红牛资源",
-      "b": "lxchuangxiang_source_2680151544",
+      "b": "lxchuangxiang_source_4247318859",
       "jaccard": 1.0
     },
     {
       "a": "lxshiguang1_光速资源",
-      "b": "lxchuangxiang_创享影视",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxshiguang1_光速资源",
-      "b": "lxchuangxiang_source_2761253814",
+      "b": "lxchuangxiang_source_4247318859",
       "jaccard": 1.0
     },
     {
       "a": "lxchuangxiang_创享影视",
-      "b": "lxchuangxiang_source_2761253814",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_source_4247318859",
-      "b": "lxxiaoma_红牛资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_source_4247318859",
       "b": "lxshiguang1_光速资源",
       "jaccard": 1.0
     },
     {
-      "a": "lxchuangxiang_source_4247318859",
+      "a": "lxchuangxiang_创享影视",
+      "b": "lxchuangxiang_source_4247318859",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxchuangxiang_source_2761253814",
+      "b": "lxxiaoma_红牛资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxchuangxiang_source_2761253814",
+      "b": "lxshiguang1_光速资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxchuangxiang_source_2761253814",
       "b": "lxchuangxiang_创享影视",
       "jaccard": 1.0
     },
     {
-      "a": "lxchuangxiang_source_4247318859",
-      "b": "lxchuangxiang_source_2761253814",
+      "a": "lxchuangxiang_source_2761253814",
+      "b": "lxchuangxiang_source_4247318859",
       "jaccard": 1.0
     },
     {
-      "a": "lxchuangxiang_source_4247318859",
+      "a": "lxchuangxiang_source_2761253814",
       "b": "lxchuangxiang_source_2680151544",
       "jaccard": 1.0
     },
     {
       "a": "lxchuangxiang_source_2680151544",
+      "b": "lxxiaoma_红牛资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxchuangxiang_source_2680151544",
       "b": "lxshiguang1_光速资源",
       "jaccard": 1.0
     },
@@ -72,8 +72,13 @@
     },
     {
       "a": "lxchuangxiang_source_2680151544",
-      "b": "lxchuangxiang_source_2761253814",
+      "b": "lxchuangxiang_source_4247318859",
       "jaccard": 1.0
+    },
+    {
+      "a": "nptp_s_77dpwqy",
+      "b": "lxxiaoma_红牛资源",
+      "jaccard": 0.67
     },
     {
       "a": "nptp_s_77dpwqy",
@@ -87,22 +92,17 @@
     },
     {
       "a": "nptp_s_77dpwqy",
+      "b": "lxchuangxiang_source_4247318859",
+      "jaccard": 0.67
+    },
+    {
+      "a": "nptp_s_77dpwqy",
       "b": "lxchuangxiang_source_2761253814",
       "jaccard": 0.67
     },
     {
-      "a": "lxxiaoma_红牛资源",
-      "b": "nptp_s_77dpwqy",
-      "jaccard": 0.67
-    },
-    {
-      "a": "lxchuangxiang_source_4247318859",
-      "b": "nptp_s_77dpwqy",
-      "jaccard": 0.67
-    },
-    {
-      "a": "lxchuangxiang_source_2680151544",
-      "b": "nptp_s_77dpwqy",
+      "a": "nptp_s_77dpwqy",
+      "b": "lxchuangxiang_source_2680151544",
       "jaccard": 0.67
     }
   ],
@@ -1421,22 +1421,6 @@
     "n2": 0,
     "name": "拾光·采集集合",
     "tested_at": 1795167121,
-    "titles1": [],
-    "titles2": [],
-    "verdict": "unknown",
-    "why": "两次都没拿到 JSON（TimeoutError/TimeoutError）"
-  },
-  "lxshiguang8_pansou": {
-    "action": "keep",
-    "adult": [],
-    "adult_n": 0,
-    "api": "http://so.yinpai.xyz/wanpan.php?type=quark%7Cuc%7Cbaidu%7Ctianyi%7Cxunlei%7C123",
-    "hit_rate": 1.0,
-    "ms": 14810,
-    "n1": 0,
-    "n2": 0,
-    "name": "拾光·盘搜|集合",
-    "tested_at": 1795167124,
     "titles1": [],
     "titles2": [],
     "verdict": "unknown",
