@@ -51,14 +51,6 @@
     },
     {
       "key": "s07",
-      "name": "红牛资源(切)",
-      "type": 1,
-      "api": "https://www.hongniuzy2.com/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1
-    },
-    {
-      "key": "s08",
       "name": "弹幕仓",
       "type": 1,
       "api": "https://cf.ddngo.space/77",
@@ -66,15 +58,7 @@
       "quickSearch": 1
     },
     {
-      "key": "s09",
-      "name": "金鹰",
-      "type": 1,
-      "api": "https://jyzyapi.com/api.php/provide/vod/",
-      "searchable": 0,
-      "quickSearch": 0
-    },
-    {
-      "key": "s10",
+      "key": "s08",
       "name": "创享2",
       "type": 1,
       "api": "https://ys.cxkjg.cn/api/provide/vod?source=2680151544",
@@ -82,12 +66,28 @@
       "quickSearch": 1
     },
     {
-      "key": "s11",
+      "key": "s09",
       "name": "创享3",
       "type": 1,
       "api": "https://ys.cxkjg.cn/api/provide/vod?source=2761253814",
       "searchable": 1,
       "quickSearch": 1
+    },
+    {
+      "key": "s10",
+      "name": "红牛资源(切)",
+      "type": 1,
+      "api": "https://www.hongniuzy2.com/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s11",
+      "name": "金鹰",
+      "type": 1,
+      "api": "https://jyzyapi.com/api.php/provide/vod/",
+      "searchable": 0,
+      "quickSearch": 0
     },
     {
       "key": "s12",

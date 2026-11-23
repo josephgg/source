@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T14:51:56+0800",
+  "generated_at": "2026-11-23T07:08:48+0000",
   "source_count": 19,
   "stats": {
     "searchable": 10,
@@ -85,7 +85,7 @@
       "latency_ms": 454,
       "hit_rate": 1.0,
       "play_verdict": "ok",
-      "play_streak": 19,
+      "play_streak": 20,
       "skip_first_line": false,
       "no_search": false,
       "cluster": "c-e5fb5037a172",
@@ -147,7 +147,7 @@
       "latency_ms": 537,
       "hit_rate": 1.0,
       "play_verdict": "ok",
-      "play_streak": 22,
+      "play_streak": 23,
       "skip_first_line": false,
       "no_search": false,
       "cluster": "c-a93d8c8f61b4",
@@ -209,7 +209,7 @@
       "latency_ms": 561,
       "hit_rate": 1.0,
       "play_verdict": "ok",
-      "play_streak": 22,
+      "play_streak": 23,
       "skip_first_line": false,
       "no_search": false,
       "cluster": "c-a93d8c8f61b4",
@@ -278,7 +278,7 @@
       "latency_ms": 563,
       "hit_rate": 1.0,
       "play_verdict": "ok",
-      "play_streak": 10,
+      "play_streak": 11,
       "skip_first_line": false,
       "no_search": false,
       "cluster": "c-e5fb5037a172",
@@ -314,7 +314,7 @@
       "latency_ms": 611,
       "hit_rate": 1.0,
       "play_verdict": "ok",
-      "play_streak": 7,
+      "play_streak": 8,
       "skip_first_line": false,
       "no_search": false,
       "cluster": "c-1ceb5b8275f1",
@@ -369,13 +369,117 @@
       "latency_ms": 668,
       "hit_rate": 1.0,
       "play_verdict": "ok",
-      "play_streak": 25,
+      "play_streak": 26,
       "skip_first_line": false,
       "no_search": false,
       "cluster": "c-17da8037207f",
       "id": "s06",
       "label": "如意",
       "rank": 6
+    },
+    {
+      "api": "https://cf.ddngo.space/77",
+      "name": "探针·🔥弹幕仓┃腾讯B站",
+      "categories": {
+        "movie": [
+          "1"
+        ],
+        "tv": [
+          "3"
+        ],
+        "anime": [
+          "2"
+        ],
+        "variety": [
+          "5"
+        ],
+        "short": [
+          "4"
+        ]
+      },
+      "searchable": true,
+      "browse_total": 282,
+      "latency_ms": 2786,
+      "hit_rate": 1.0,
+      "play_verdict": "ok",
+      "play_streak": 26,
+      "skip_first_line": false,
+      "no_search": false,
+      "cluster": "c-01168d412392",
+      "id": "s07",
+      "label": "弹幕仓",
+      "rank": 7
+    },
+    {
+      "api": "https://ys.cxkjg.cn/api/provide/vod?source=2680151544",
+      "name": "创享·📡 金鹰",
+      "categories": {
+        "anime": [
+          "25"
+        ],
+        "variety": [
+          "36",
+          "37"
+        ]
+      },
+      "searchable": true,
+      "browse_total": 0,
+      "latency_ms": 580,
+      "hit_rate": 1.0,
+      "play_verdict": "ok_secondary",
+      "play_streak": 0,
+      "skip_first_line": true,
+      "no_search": false,
+      "cluster": "c-1ceb5b8275f1",
+      "id": "s08",
+      "label": "创享2",
+      "rank": 8
+    },
+    {
+      "api": "https://ys.cxkjg.cn/api/provide/vod?source=2761253814",
+      "name": "创享·📡 红牛",
+      "categories": {
+        "movie": [
+          "1"
+        ],
+        "tv": [
+          "2",
+          "15"
+        ],
+        "anime": [
+          "4",
+          "20",
+          "36",
+          "37",
+          "38"
+        ],
+        "variety": [
+          "3",
+          "39",
+          "40",
+          "41",
+          "42"
+        ],
+        "short": [
+          "30",
+          "50"
+        ],
+        "documentary": [
+          "19"
+        ]
+      },
+      "searchable": true,
+      "browse_total": 42,
+      "latency_ms": 863,
+      "hit_rate": 1.0,
+      "play_verdict": "ok_secondary",
+      "play_streak": 0,
+      "skip_first_line": true,
+      "no_search": false,
+      "cluster": "c-1ceb5b8275f1",
+      "id": "s09",
+      "label": "创享3",
+      "rank": 9
     },
     {
       "api": "https://www.hongniuzy2.com/api.php/provide/vod/",
@@ -414,47 +518,14 @@
       "browse_total": 2,
       "latency_ms": 921,
       "hit_rate": 1.0,
-      "play_verdict": "ok",
-      "play_streak": 3,
-      "skip_first_line": false,
+      "play_verdict": "ok_secondary",
+      "play_streak": 0,
+      "skip_first_line": true,
       "no_search": false,
       "cluster": "c-1ceb5b8275f1",
-      "id": "s07",
+      "id": "s10",
       "label": "红牛资源(切)",
-      "rank": 7
-    },
-    {
-      "api": "https://cf.ddngo.space/77",
-      "name": "探针·🔥弹幕仓┃腾讯B站",
-      "categories": {
-        "movie": [
-          "1"
-        ],
-        "tv": [
-          "3"
-        ],
-        "anime": [
-          "2"
-        ],
-        "variety": [
-          "5"
-        ],
-        "short": [
-          "4"
-        ]
-      },
-      "searchable": true,
-      "browse_total": 282,
-      "latency_ms": 2786,
-      "hit_rate": 1.0,
-      "play_verdict": "ok",
-      "play_streak": 25,
-      "skip_first_line": false,
-      "no_search": false,
-      "cluster": "c-01168d412392",
-      "id": "s08",
-      "label": "弹幕仓",
-      "rank": 8
+      "rank": 10
     },
     {
       "api": "https://jyzyapi.com/api.php/provide/vod/",
@@ -507,84 +578,13 @@
       "browse_total": 60,
       "latency_ms": 212,
       "hit_rate": 1.0,
-      "play_verdict": "ok",
-      "play_streak": 5,
-      "skip_first_line": false,
+      "play_verdict": "ok_secondary",
+      "play_streak": 0,
+      "skip_first_line": true,
       "no_search": true,
       "cluster": "c-1ceb5b8275f1",
-      "id": "s09",
-      "label": "金鹰",
-      "rank": 9
-    },
-    {
-      "api": "https://ys.cxkjg.cn/api/provide/vod?source=2680151544",
-      "name": "创享·📡 金鹰",
-      "categories": {
-        "anime": [
-          "25"
-        ],
-        "variety": [
-          "36",
-          "37"
-        ]
-      },
-      "searchable": true,
-      "browse_total": 0,
-      "latency_ms": 580,
-      "hit_rate": 1.0,
-      "play_verdict": "ok_secondary",
-      "play_streak": 0,
-      "skip_first_line": true,
-      "no_search": false,
-      "cluster": "c-1ceb5b8275f1",
-      "id": "s10",
-      "label": "创享2",
-      "rank": 10
-    },
-    {
-      "api": "https://ys.cxkjg.cn/api/provide/vod?source=2761253814",
-      "name": "创享·📡 红牛",
-      "categories": {
-        "movie": [
-          "1"
-        ],
-        "tv": [
-          "2",
-          "15"
-        ],
-        "anime": [
-          "4",
-          "20",
-          "36",
-          "37",
-          "38"
-        ],
-        "variety": [
-          "3",
-          "39",
-          "40",
-          "41",
-          "42"
-        ],
-        "short": [
-          "30",
-          "50"
-        ],
-        "documentary": [
-          "19"
-        ]
-      },
-      "searchable": true,
-      "browse_total": 42,
-      "latency_ms": 863,
-      "hit_rate": 1.0,
-      "play_verdict": "ok_secondary",
-      "play_streak": 0,
-      "skip_first_line": true,
-      "no_search": false,
-      "cluster": "c-1ceb5b8275f1",
       "id": "s11",
-      "label": "创享3",
+      "label": "金鹰",
       "rank": 11
     },
     {
