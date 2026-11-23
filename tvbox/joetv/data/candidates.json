@@ -35,6 +35,14 @@
     },
     {
       "key": "s05",
+      "name": "红牛资源(切)",
+      "type": 1,
+      "api": "https://www.hongniuzy2.com/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "s06",
       "name": "弹幕仓",
       "type": 1,
       "api": "https://cf.ddngo.space/77",
@@ -42,18 +50,10 @@
       "quickSearch": 1
     },
     {
-      "key": "s06",
+      "key": "s07",
       "name": "创享",
       "type": 1,
       "api": "https://ys.cxkjg.cn/api/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1
-    },
-    {
-      "key": "s07",
-      "name": "红牛资源(切)",
-      "type": 1,
-      "api": "https://www.hongniuzy2.com/api.php/provide/vod/",
       "searchable": 1,
       "quickSearch": 1
     },
