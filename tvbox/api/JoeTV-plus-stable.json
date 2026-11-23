@@ -52,11 +52,6 @@
       }
     },
     {
-      "name": "Json轮询",
-      "type": 2,
-      "url": "Sequence"
-    },
-    {
       "name": "m3u8",
       "type": 0,
       "url": "https://jx.m3u8.tv/jiexi/?url="
@@ -77,14 +72,14 @@
       "url": "https://jx.m3u8.pw/?url="
     },
     {
+      "name": "Json轮询",
+      "type": 2,
+      "url": "Sequence"
+    },
+    {
       "name": "xmflv",
       "type": 0,
       "url": "https://jx.xmflv.com/?url="
-    },
-    {
-      "name": "解析聚合",
-      "type": 3,
-      "url": "Demo"
     },
     {
       "name": "-咸鱼-",
@@ -222,6 +217,11 @@
           "YuMi-vip"
         ]
       }
+    },
+    {
+      "name": "解析聚合",
+      "type": 3,
+      "url": "Demo"
     },
     {
       "name": "365",
