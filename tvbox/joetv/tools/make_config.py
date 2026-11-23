@@ -79,18 +79,25 @@ def main() -> int:
 
     # plus-stable 比 index.json 晚生成（依赖 build 产出的 lite.json），
     # 索引里的站点数由本脚本回写，避免写死数字后与实际产物脱节。
-    sync_index_count(len(combined["sites"]))
+    sync_index_count(len(combined["sites"]), catalog["source_count"])
     return 0
 
 
-def sync_index_count(n: int) -> None:
+def sync_index_count(n: int, upstreams: int) -> None:
     index_path = TVBOX / "index.json"
     if not index_path.exists():
         return
     try:
         with index_path.open(encoding="utf-8") as f:
             idx = json.load(f)
-        label = "⭐ JoeTV + 稳定精选（覆盖更广，共 %d 站点）" % n
+        # 只写「站点数」会被误读成覆盖范围：JoeTV 单站已把精选里的库聚合进上游，
+        # 因此按归一化 API 覆盖关系去重后往往只剩 1-2 个入口，看着像内容变少了。
+        # 只剩 JoeTV 一个入口时它和 api/JoeTV.json 完全等价，直接写明是兼容地址，
+        # 免得用户以为少装了一个「补充包」。
+        if n <= 1:
+            label = "⭐ JoeTV 单站（兼容旧地址，与 api/JoeTV.json 等价）"
+        else:
+            label = "⭐ JoeTV 聚合 + 精选补充（%d 个入口 / 聚合 %d 个上游）" % (n, upstreams)
         changed = False
         for item in idx.get("urls") or []:
             if str(item.get("url", "")).endswith("api/JoeTV-plus-stable.json"):

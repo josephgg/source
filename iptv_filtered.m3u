@@ -1591,3 +1591,45 @@ http://37.27.111.214:8080/live/7/hls.m3u8
 http://37.27.111.214:8080/live/6/hls.m3u8
 #EXTINF:-1 tvg-name="TVBS NEWS" group-title="港澳台",TVBS NEWS
 https://www.youtube.com/watch?v=m_dhMSvUCIc
+
+# ---- 汇总自各影视仓直播源（去重 + 探活，17 台 20 线路）----
+#EXTINF:-1 tvg-name="东森戏剧" group-title="港澳台",东森戏剧
+https://haoyunlai.serv00.net/Smartv-1.php?id=ettvdrama
+#EXTINF:-1 tvg-name="民视" group-title="港澳台",民视
+http://74.91.26.218:82/live/ftv.m3u8
+#EXTINF:-1 tvg-name="中视" group-title="港澳台",中视
+http://74.91.26.218:82/live/ctv.m3u8
+#EXTINF:-1 tvg-name="民视台湾台" group-title="港澳台",民视台湾台
+http://74.91.26.218:82/live/ftvtw.m3u8
+#EXTINF:-1 tvg-name="东森美洲[1920x1080]" group-title="港澳台",东森美洲[1920x1080]
+https://epg.pw/stream/10dcfb45b0ddd79ac6702607b66cfa90a712386f27466569bca9d193bf835b95.m3u8
+#EXTINF:-1 tvg-name="东森美洲[1920x1080]" group-title="港澳台",东森美洲[1920x1080]
+https://epg.pw/stream/6c39ab3028c59342214ff47b2f79d643390e281638f08abb03e29305fe206a8f.m3u8
+#EXTINF:-1 tvg-name="中天亞洲" group-title="港澳台",中天亞洲
+https://epg.pw/stream/09a4d5b1fb36c5a6cab219688d4748270e856166ea28991db0bc492180ddda13.ctv
+#EXTINF:-1 tvg-name="中视HD[1280x720]" group-title="港澳台",中视HD[1280x720]
+https://epg.pw/stream/bfaad5b82bc79ebd9466060b0fa9d12aa95d0c34aa5b7146d619c634e781f335.m3u8
+#EXTINF:-1 tvg-name="凤凰中文台" group-title="港澳台",凤凰中文台
+http://183.239.248.218:8181/tsfile/live/1014_1.m3u8?key=txiptv&playlive=1&authid=0
+#EXTINF:-1 tvg-name="凤凰中文台" group-title="港澳台",凤凰中文台
+http://120.238.84.45:9901/tsfile/live/1007_1.m3u8?key=txiptv&playlive=1&authid=0
+#EXTINF:-1 tvg-name="华视" group-title="港澳台",华视
+http://74.91.26.218:82/live/cts.m3u8
+#EXTINF:-1 tvg-name="TVB E" group-title="港澳台",TVB E
+https://epg.pw/stream/977a0e5634afceddf9fa8e518b0cf31a214c1cb9149031b673e6e0da0a4b0567.ctv
+#EXTINF:-1 tvg-name="TVB J2生活台" group-title="港澳台",TVB J2生活台
+https://epg.pw/stream/fc2f69c5992d3d15ab76c291b8dfd1a839a15216dc8cc247ce4a8310dd314b4f.ctv
+#EXTINF:-1 tvg-name="TVB 翡翠臺" group-title="港澳台",TVB 翡翠臺
+https://epg.pw/stream/0d703d8da7d92dc4f0fc2e4fd3321e11939fcea63e40b1616c81c2a6240c9379.ctvTVB
+#EXTINF:-1 tvg-name="TVB 翡翠臺" group-title="港澳台",TVB 翡翠臺
+https://epg.pw/stream/0d703d8da7d92dc4f0fc2e4fd3321e11939fcea63e40b1616c81c2a6240c9379.ctv
+#EXTINF:-1 tvg-name="三立台湾台" group-title="港澳台",三立台湾台
+https://epg.pw/stream/bfb4f28ad7b1bc3e20703b9f35b51104a59eca154ec67643bf9d30a8af4b607a.m3u8
+#EXTINF:-1 tvg-name="三立綜合" group-title="港澳台",三立綜合
+https://epg.pw/stream/2ae8ba664e18a15acef81d53edb6f594d9966d599d6a3f4e575718094b9cc14a.m3u8
+#EXTINF:-1 tvg-name="东森卫视[1920x1080]" group-title="港澳台",东森卫视[1920x1080]
+https://epg.pw/stream/21bb4928a40b7720b2df336a894cd73f046954763464511045e016b22438b5e3.ctv
+#EXTINF:-1 tvg-name="中视经典" group-title="港澳台",中视经典
+http://74.91.26.218:82/live/ctvjd.m3u8
+#EXTINF:-1 tvg-name="中视菁采" group-title="港澳台",中视菁采
+http://74.91.26.218:82/live/ctvjc.m3u8

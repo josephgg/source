@@ -114,8 +114,9 @@
       "tag": "短剧",
       "url": "http://box.ufuzi.com/tv/qq/%E7%9F%AD%E5%89%A7%E9%A2%91%E9%81%93/api.json",
       "priority": 60,
-      "enabled": true,
-      "timeout": 25
+      "enabled": false,
+      "timeout": 25,
+      "note": "2026-11-23 停用：box.ufuzi.com 连续多轮返回 403 / 读超时（单轮耗时 115-120s），贡献站点数为 0；短剧类目已由拾光/肥猫/摸鱼儿/潇洒等源的 20+ 个短剧站覆盖。站点恢复后把 enabled 改回 true 即可。"
     },
     {
       "id": "top98",

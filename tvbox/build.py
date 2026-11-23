@@ -2088,13 +2088,27 @@ def main():
     if os.path.exists(plus_stable):
         # 文案按实际产物计数，别写死数字：JoeTV 上游会变化，
         # 写死「8 精选 + 12 上游」在实测只剩 2 站时会直接误导用户。
+        # 只报「入口数」同样会误导——JoeTV 单站已把精选库聚合进上游，去重后入口
+        # 常常只剩 2-3 个，所以同时报上游数量，和 joetv/tools/make_config.py 保持一致。
         try:
             with open(plus_stable, encoding="utf-8") as _f:
                 _plus_n = len(json.load(_f).get("sites") or [])
         except Exception:
             _plus_n = 0
+        _up = 0
+        try:
+            with open(os.path.join(ROOT, "joetv", "data", "catalog.json"),
+                      encoding="utf-8") as _f:
+                _up = int(json.load(_f).get("source_count") or 0)
+        except Exception:
+            _up = 0
+        _plus_label = ("⭐ JoeTV 单站（兼容旧地址，与 api/JoeTV.json 等价）"
+                       if _plus_n <= 1 else
+                       ("⭐ JoeTV 聚合 + 精选补充（%d 个入口 / 聚合 %d 个上游）"
+                        % (_plus_n, _up)) if _up else
+                       ("⭐ JoeTV 聚合 + 精选补充（%d 个入口）" % _plus_n))
         index["urls"].append({
-            "name": "⭐ JoeTV + 稳定精选（覆盖更广，共 %d 站点）" % _plus_n,
+            "name": _plus_label,
             "url": index_base + "api/JoeTV-plus-stable.json",
         })
     index["urls"].append({

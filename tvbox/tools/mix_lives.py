@@ -47,6 +47,11 @@ VOD_FILE = re.compile(r"\.(mp4|mkv|avi|mov|wmv|m4v)(\?|$)", re.I)
 # HLS 封装的回看/下载同样不是直播：路径带 playback、/vod/ 或 8 位日期归档目录
 # （例：svip.high24-playback.com/20250129/.../mixed.m3u8 是春晚录像）。
 VOD_PATH = re.compile(r"(playback|/vod/|/(19|20)\d{6}/)", re.I)
+# 网页/音乐站的直链不是直播流：YouTube 直播页、酷我 mv 转换接口都能过 HTTP 200，
+# 但客户端打开不是直播画面。按域名直接拒掉，别指望探活能识别。
+DENY_HOST = re.compile(
+    r"(youtube\.com|youtu\.be|kuwo\.cn|music\.163\.com|y\.qq\.com|bilibili\.com/video|douyin\.com)",
+    re.I)
 RANK = {"央视": 0, "卫视": 1, "港澳台": 2, "地方台": 3, "其他": 4}
 
 
@@ -76,9 +81,26 @@ def probe(url, timeout=8):
         "User-Agent": "okhttp/3.15", "Range": "bytes=0-2047"})
     try:
         with urllib.request.urlopen(req, timeout=timeout, context=CTX) as r:
-            return r.status in (200, 206) and len(r.read(64)) > 0
+            if r.status not in (200, 206):
+                return False
+            ctype = (r.headers.get_content_type() or "").lower()
+            head = r.read(2048)
     except Exception:  # noqa: BLE001
         return False
+    if not head:
+        return False
+    # 只看 200 会把网页和音频也当成直播：YouTube 直播页、音乐站的 mv 转换接口
+    # 都返回 200，客户端切过去满屏 HTML 或干脆没画面。
+    if ctype.startswith("text/") or ctype in ("application/xhtml+xml", "application/json"):
+        return False
+    if ctype.startswith("audio/"):
+        return False
+    low = head[:512].lstrip().lower()
+    if low.startswith((b"<!doctype", b"<html", b"<?xml", b"{", b"[")):
+        return False
+    if b"<html" in low[:200] or b"<head" in low[:200]:
+        return False
+    return True
 
 
 def key_of(u):
@@ -210,6 +232,8 @@ def main():
         if VOD_FILE.search(url.split("|")[0]):
             continue
         if VOD_PATH.search(url.split("|")[0]):
+            continue
+        if DENY_HOST.search(url):
             continue
         item = by_name.setdefault(n, {"name": title.strip(), "urls": [], "seen": 0})
         item["seen"] += 1

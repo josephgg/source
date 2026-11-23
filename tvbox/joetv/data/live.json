@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-17T19:32:44+0800",
- "ts": 1794915164,
+ "generated_at": "2026-11-23T14:51:55+0800",
+ "ts": 1795416715,
  "scope": "all.json + lite.json / type=1 CMS",
  "keywords": [
   "庆余年",
@@ -311,12 +311,12 @@
     "short": 20
    },
    "browse_total": 60,
-   "latency_ms": 516,
+   "latency_ms": 563,
    "ok": true,
    "hit_rate": 1.0,
    "kw_overlap": 0.0,
    "searchable": true,
-   "ts": 1794915071
+   "ts": 1795416665
   },
   "6.qqqtv.top/provide/vod": {
    "lib": "6.qqqtv.top/provide/vod",
@@ -332,7 +332,7 @@
    "classes": 0,
    "search": {},
    "error": "unreachable",
-   "ts": 1794914691
+   "ts": 1795416665
   },
   "7.qqqtv.top/provide/vod": {
    "lib": "7.qqqtv.top/provide/vod",
@@ -348,7 +348,7 @@
    "classes": 0,
    "search": {},
    "error": "unreachable",
-   "ts": 1794914691
+   "ts": 1795416665
   },
   "911ysw.top/tianyi.php/provide/vod": {
    "lib": "911ysw.top/tianyi.php/provide/vod",
@@ -364,7 +364,7 @@
    "classes": 0,
    "search": {},
    "error": "unreachable",
-   "ts": 1794914691
+   "ts": 1795416665
   },
   "api.foxzyapi.com/provide/vod": {
    "lib": "api.foxzyapi.com/provide/vod",
@@ -380,600 +380,7 @@
    "classes": 0,
    "search": {},
    "error": "unreachable",
-   "ts": 1794914691
-  },
-  "api.guangsuapi.com/provide/vod": {
-   "lib": "api.guangsuapi.com/provide/vod",
-   "urls": [
-    "http://api.guangsuapi.com/api.php/provide/vod/",
-    "https://api.guangsuapi.com/api.php/provide/vod/from/gsm3u8/",
-    "https://api.guangsuapi.com/api.php/provide/vod/"
-   ],
-   "aliases": 3,
-   "names": [
-    "拾光·光速｜采集",
-    "拾光·❤光速资源",
-    "分享·💯光速切片"
-   ],
-   "name": "拾光·光速｜采集",
-   "api": "http://api.guangsuapi.com/api.php/provide/vod/",
-   "classes": 44,
-   "class_list": [
-    {
-     "type_id": "1",
-     "type_name": "电影",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "2",
-     "type_name": "电视剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "3",
-     "type_name": "综艺",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "4",
-     "type_name": "动漫",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "6",
-     "type_name": "动作片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "7",
-     "type_name": "喜剧片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "8",
-     "type_name": "爱情片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "9",
-     "type_name": "科幻片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "10",
-     "type_name": "剧情片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "11",
-     "type_name": "恐怖片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "12",
-     "type_name": "战争片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "13",
-     "type_name": "大陆剧",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "14",
-     "type_name": "欧美剧",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "15",
-     "type_name": "港澳剧",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "16",
-     "type_name": "韩剧",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "20",
-     "type_name": "动漫电影",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "21",
-     "type_name": "日剧",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "22",
-     "type_name": "台湾剧",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "23",
-     "type_name": "泰剧",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "24",
-     "type_name": "记录片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "25",
-     "type_name": "伦理片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "30",
-     "type_name": "体育赛事",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "31",
-     "type_name": "短剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "32",
-     "type_name": "预告片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "33",
-     "type_name": "足球",
-     "type_pid": "30"
-    },
-    {
-     "type_id": "34",
-     "type_name": "篮球",
-     "type_pid": "30"
-    },
-    {
-     "type_id": "35",
-     "type_name": "台球",
-     "type_pid": "30"
-    },
-    {
-     "type_id": "36",
-     "type_name": "其他赛事",
-     "type_pid": "30"
-    },
-    {
-     "type_id": "37",
-     "type_name": "大陆综艺",
-     "type_pid": "3"
-    },
-    {
-     "type_id": "38",
-     "type_name": "日韩综艺",
-     "type_pid": "3"
-    },
-    {
-     "type_id": "39",
-     "type_name": "港台综艺",
-     "type_pid": "3"
-    },
-    {
-     "type_id": "40",
-     "type_name": "欧美综艺",
-     "type_pid": "3"
-    },
-    {
-     "type_id": "41",
-     "type_name": "中国动漫",
-     "type_pid": "4"
-    },
-    {
-     "type_id": "42",
-     "type_name": "日本动漫",
-     "type_pid": "4"
-    },
-    {
-     "type_id": "43",
-     "type_name": "欧美动漫",
-     "type_pid": "4"
-    },
-    {
-     "type_id": "44",
-     "type_name": "古装仙侠",
-     "type_pid": "31"
-    },
-    {
-     "type_id": "45",
-     "type_name": "现代都市",
-     "type_pid": "31"
-    },
-    {
-     "type_id": "46",
-     "type_name": "穿越年代",
-     "type_pid": "31"
-    },
-    {
-     "type_id": "47",
-     "type_name": "言情总裁",
-     "type_pid": "31"
-    },
-    {
-     "type_id": "48",
-     "type_name": "重生民国",
-     "type_pid": "31"
-    },
-    {
-     "type_id": "49",
-     "type_name": "反转爽剧",
-     "type_pid": "31"
-    },
-    {
-     "type_id": "50",
-     "type_name": "脑洞悬疑",
-     "type_pid": "31"
-    },
-    {
-     "type_id": "51",
-     "type_name": "擦边短剧",
-     "type_pid": "31"
-    },
-    {
-     "type_id": "52",
-     "type_name": "AI漫剧",
-     "type_pid": "31"
-    }
-   ],
-   "search": {
-    "庆余年": {
-     "count": 8,
-     "hit": 8,
-     "rate": 1.0,
-     "fp": "1ceb5b8275f1",
-     "sample": [
-      "庆余年 第二季",
-      "庆余年之风起沧州",
-      "庆余年之帝王业",
-      "庆余年之少年风流",
-      "庆余年，全世界都以为我是废物太子（庆余年之大凉太子爷）"
-     ]
-    },
-    "繁花": {
-     "count": 20,
-     "hit": 20,
-     "rate": 1.0,
-     "fp": "300929b79c9a",
-     "sample": [
-      "嫡女医心：逆袭繁花",
-      "繁花照春晚",
-      "她说繁花已落幕（AI短剧）",
-      "一路繁花",
-      "繁花烬处，恩断义绝"
-     ]
-    }
-   },
-   "browse": {
-    "movie": 20,
-    "tv": 20,
-    "short": 20
-   },
-   "browse_total": 60,
-   "latency_ms": 566,
-   "ok": true,
-   "hit_rate": 1.0,
-   "kw_overlap": 0.0,
-   "searchable": true,
-   "ts": 1794915071
-  },
-  "api.maoyanapi.top/provide/vod": {
-   "lib": "api.maoyanapi.top/provide/vod",
-   "urls": [
-    "https://api.maoyanapi.top/api.php/provide/vod/at/json"
-   ],
-   "aliases": 1,
-   "names": [
-    "分享·💝分享猫眼"
-   ],
-   "name": "分享·💝分享猫眼",
-   "api": "https://api.maoyanapi.top/api.php/provide/vod/at/json",
-   "classes": 53,
-   "class_list": [
-    {
-     "type_id": "1",
-     "type_name": "电影",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "2",
-     "type_name": "连续剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "3",
-     "type_name": "综艺",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "4",
-     "type_name": "动漫",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "5",
-     "type_name": "伦理片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "6",
-     "type_name": "动作片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "7",
-     "type_name": "喜剧片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "8",
-     "type_name": "爱情片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "9",
-     "type_name": "科幻片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "10",
-     "type_name": "恐怖片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "11",
-     "type_name": "剧情片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "12",
-     "type_name": "战争片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "13",
-     "type_name": "国产剧",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "14",
-     "type_name": "香港剧",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "15",
-     "type_name": "韩国剧",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "16",
-     "type_name": "欧美剧",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "17",
-     "type_name": "体育",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "18",
-     "type_name": "NBA",
-     "type_pid": "17"
-    },
-    {
-     "type_id": "20",
-     "type_name": "惊悚片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "21",
-     "type_name": "家庭篇",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "22",
-     "type_name": "古装片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "23",
-     "type_name": "历史片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "24",
-     "type_name": "悬疑片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "25",
-     "type_name": "犯罪片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "26",
-     "type_name": "灾难片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "27",
-     "type_name": "纪录片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "28",
-     "type_name": "短片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "29",
-     "type_name": "动画片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "30",
-     "type_name": "台湾剧",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "31",
-     "type_name": "日本剧",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "32",
-     "type_name": "海外剧",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "33",
-     "type_name": "泰国剧",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "34",
-     "type_name": "大陆综艺",
-     "type_pid": "3"
-    },
-    {
-     "type_id": "35",
-     "type_name": "港台综艺",
-     "type_pid": "3"
-    },
-    {
-     "type_id": "36",
-     "type_name": "日韩综艺",
-     "type_pid": "3"
-    },
-    {
-     "type_id": "37",
-     "type_name": "欧美综艺",
-     "type_pid": "3"
-    },
-    {
-     "type_id": "38",
-     "type_name": "国产动漫",
-     "type_pid": "4"
-    },
-    {
-     "type_id": "39",
-     "type_name": "欧美动漫",
-     "type_pid": "4"
-    },
-    {
-     "type_id": "40",
-     "type_name": "日韩动漫",
-     "type_pid": "4"
-    },
-    {
-     "type_id": "41",
-     "type_name": "足球",
-     "type_pid": "17"
-    },
-    {
-     "type_id": "42",
-     "type_name": "篮球",
-     "type_pid": "17"
-    },
-    {
-     "type_id": "43",
-     "type_name": "未分类",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "45",
-     "type_name": "西部片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "46",
-     "type_name": "爽文短剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "47",
-     "type_name": "短剧现代都市",
-     "type_pid": "46"
-    },
-    {
-     "type_id": "48",
-     "type_name": "短剧脑洞悬疑",
-     "type_pid": "46"
-    },
-    {
-     "type_id": "49",
-     "type_name": "短剧年代穿越",
-     "type_pid": "46"
-    },
-    {
-     "type_id": "50",
-     "type_name": "短剧古装仙侠",
-     "type_pid": "46"
-    },
-    {
-     "type_id": "51",
-     "type_name": "短剧反转爽剧",
-     "type_pid": "46"
-    },
-    {
-     "type_id": "52",
-     "type_name": "短剧女频恋爱",
-     "type_pid": "46"
-    },
-    {
-     "type_id": "53",
-     "type_name": "短剧成长逆袭",
-     "type_pid": "46"
-    },
-    {
-     "type_id": "54",
-     "type_name": "奇幻片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "55",
-     "type_name": "里番动漫",
-     "type_pid": "4"
-    }
-   ],
-   "search": {
-    "庆余年": {
-     "count": 1,
-     "hit": 1,
-     "rate": 1.0,
-     "fp": "da22317c015a",
-     "sample": [
-      "庆余年 第一季"
-     ]
-    },
-    "繁花": {
-     "count": 3,
-     "hit": 3,
-     "rate": 1.0,
-     "fp": "93281f4a86b2",
-     "sample": [
-      "一路繁花第二季",
-      "一路繁花",
-      "那树繁花"
-     ]
-    }
-   },
-   "browse": {
-    "movie": 30,
-    "tv": 30,
-    "short": 13
-   },
-   "browse_total": 73,
-   "latency_ms": 283,
-   "ok": true,
-   "hit_rate": 1.0,
-   "kw_overlap": 0.0,
-   "searchable": true,
-   "ts": 1794915071
+   "ts": 1795416665
   },
   "api.niuniuzy.me/provide/vod": {
    "lib": "api.niuniuzy.me/provide/vod",
@@ -1306,12 +713,12 @@
     "short": 20
    },
    "browse_total": 20,
-   "latency_ms": 394,
+   "latency_ms": 440,
    "ok": true,
    "hit_rate": 0.0,
    "kw_overlap": null,
    "searchable": false,
-   "ts": 1794915071
+   "ts": 1795416665
   },
   "api.wsyzy.net/provide/vod": {
    "lib": "api.wsyzy.net/provide/vod",
@@ -1649,12 +1056,12 @@
     "short": 9
    },
    "browse_total": 9,
-   "latency_ms": 2418,
+   "latency_ms": 488,
    "ok": true,
    "hit_rate": 0.0,
    "kw_overlap": null,
    "searchable": false,
-   "ts": 1794915071
+   "ts": 1795416665
   },
   "api.wwzy.tv/provide/vod": {
    "lib": "api.wwzy.tv/provide/vod",
@@ -1670,322 +1077,7 @@
    "classes": 0,
    "search": {},
    "error": "unreachable",
-   "ts": 1794914691
-  },
-  "api.xinlangapi.com/xinlangapi.php/provide/vod": {
-   "lib": "api.xinlangapi.com/xinlangapi.php/provide/vod",
-   "urls": [
-    "http://api.xinlangapi.com/xinlangapi.php/provide/vod/",
-    "https://api.xinlangapi.com/xinlangapi.php/provide//vod/",
-    "https://api.xinlangapi.com/xinlangapi.php/provide/vod/"
-   ],
-   "aliases": 3,
-   "names": [
-    "小马·新浪资源(切)",
-    "拾光·❤新浪资源",
-    "分享·💝分享新浪"
-   ],
-   "name": "小马·新浪资源(切)",
-   "api": "http://api.xinlangapi.com/xinlangapi.php/provide/vod/",
-   "classes": 48,
-   "class_list": [
-    {
-     "type_id": "1",
-     "type_name": "电影",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "2",
-     "type_name": "电视剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "3",
-     "type_name": "动漫",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "4",
-     "type_name": "综艺",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "5",
-     "type_name": "纪录片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "6",
-     "type_name": "动作片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "7",
-     "type_name": "爱情片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "8",
-     "type_name": "科幻片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "9",
-     "type_name": "战争片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "10",
-     "type_name": "剧情片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "11",
-     "type_name": "恐怖片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "12",
-     "type_name": "喜剧片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "13",
-     "type_name": "大陆剧",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "14",
-     "type_name": "港澳剧",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "15",
-     "type_name": "台湾剧",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "16",
-     "type_name": "欧美剧",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "17",
-     "type_name": "动画片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "18",
-     "type_name": "韩剧",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "20",
-     "type_name": "日剧",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "21",
-     "type_name": "泰剧",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "22",
-     "type_name": "伦理片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "23",
-     "type_name": "体育",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "24",
-     "type_name": "短剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "25",
-     "type_name": "预告片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "26",
-     "type_name": "足球",
-     "type_pid": "23"
-    },
-    {
-     "type_id": "27",
-     "type_name": "篮球",
-     "type_pid": "23"
-    },
-    {
-     "type_id": "28",
-     "type_name": "台球",
-     "type_pid": "23"
-    },
-    {
-     "type_id": "29",
-     "type_name": "其他赛事",
-     "type_pid": "23"
-    },
-    {
-     "type_id": "38",
-     "type_name": "中国动漫",
-     "type_pid": "3"
-    },
-    {
-     "type_id": "39",
-     "type_name": "日本动漫",
-     "type_pid": "3"
-    },
-    {
-     "type_id": "40",
-     "type_name": "欧美动漫",
-     "type_pid": "3"
-    },
-    {
-     "type_id": "41",
-     "type_name": "灾难片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "42",
-     "type_name": "悬疑片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "43",
-     "type_name": "犯罪片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "44",
-     "type_name": "奇幻片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "45",
-     "type_name": "大陆综艺",
-     "type_pid": "4"
-    },
-    {
-     "type_id": "46",
-     "type_name": "日韩综艺",
-     "type_pid": "4"
-    },
-    {
-     "type_id": "47",
-     "type_name": "港台综艺",
-     "type_pid": "4"
-    },
-    {
-     "type_id": "48",
-     "type_name": "欧美综艺",
-     "type_pid": "4"
-    },
-    {
-     "type_id": "49",
-     "type_name": "古装仙侠",
-     "type_pid": "24"
-    },
-    {
-     "type_id": "50",
-     "type_name": "现代都市",
-     "type_pid": "24"
-    },
-    {
-     "type_id": "51",
-     "type_name": "穿越年代",
-     "type_pid": "24"
-    },
-    {
-     "type_id": "52",
-     "type_name": "言情总裁",
-     "type_pid": "24"
-    },
-    {
-     "type_id": "53",
-     "type_name": "重生民国",
-     "type_pid": "24"
-    },
-    {
-     "type_id": "54",
-     "type_name": "反转爽剧",
-     "type_pid": "24"
-    },
-    {
-     "type_id": "55",
-     "type_name": "脑洞悬疑",
-     "type_pid": "24"
-    },
-    {
-     "type_id": "56",
-     "type_name": "擦边短剧",
-     "type_pid": "24"
-    },
-    {
-     "type_id": "57",
-     "type_name": "AI漫剧",
-     "type_pid": "24"
-    }
-   ],
-   "search": {
-    "庆余年": {
-     "count": 8,
-     "hit": 8,
-     "rate": 1.0,
-     "fp": "1ceb5b8275f1",
-     "sample": [
-      "庆余年 第二季",
-      "庆余年之风起沧州",
-      "庆余年之帝王业",
-      "庆余年之少年风流",
-      "庆余年，全世界都以为我是废物太子（庆余年之大凉太子爷）"
-     ]
-    },
-    "繁花": {
-     "count": 20,
-     "hit": 20,
-     "rate": 1.0,
-     "fp": "e96f125d5b34",
-     "sample": [
-      "嫡女医心：逆袭繁花",
-      "繁花照春晚",
-      "她说繁花已落幕（AI短剧）",
-      "一路繁花",
-      "繁花烬处，恩断义绝"
-     ]
-    }
-   },
-   "browse": {
-    "movie": 20,
-    "tv": 20,
-    "short": 20
-   },
-   "browse_total": 60,
-   "latency_ms": 511,
-   "ok": true,
-   "hit_rate": 1.0,
-   "kw_overlap": 0.0,
-   "searchable": true,
-   "ts": 1794915071
-  },
-  "api.yulecj.com/provide/vod": {
-   "lib": "api.yulecj.com/provide/vod",
-   "urls": [
-    "https://api.yulecj.com/api.php/provide/vod/"
-   ],
-   "aliases": 1,
-   "names": [
-    "拾光·❤鱼乐资源"
-   ],
-   "name": "拾光·❤鱼乐资源",
-   "ok": false,
-   "classes": 0,
-   "search": {},
-   "error": "unreachable",
-   "ts": 1794914691
+   "ts": 1795416665
   },
   "api.yzzy-api.com/inc/api.php": {
    "lib": "api.yzzy-api.com/inc/api.php",
@@ -2001,7 +1093,7 @@
    "classes": 0,
    "search": {},
    "error": "unreachable",
-   "ts": 1794914691
+   "ts": 1795416665
   },
   "banyeomni.780420.xyz:17777/api/tvbox/source/2070335664787820544?token=banye666": {
    "lib": "banyeomni.780420.xyz:17777/api/tvbox/source/2070335664787820544?token=banye666",
@@ -2017,7 +1109,7 @@
    "classes": 0,
    "search": {},
    "error": "unreachable",
-   "ts": 1794914691
+   "ts": 1795416665
   },
   "caiji.dbzy.tv/provide/vod": {
    "lib": "caiji.dbzy.tv/provide/vod",
@@ -2033,7 +1125,7 @@
    "classes": 0,
    "search": {},
    "error": "unreachable",
-   "ts": 1794914691
+   "ts": 1795416665
   },
   "caiji.dbzy5.com/provide/vod": {
    "lib": "caiji.dbzy5.com/provide/vod",
@@ -2049,7 +1141,7 @@
    "classes": 0,
    "search": {},
    "error": "unreachable",
-   "ts": 1794914691
+   "ts": 1795416665
   },
   "caiji.kuaichezy.org/provide/vod": {
    "lib": "caiji.kuaichezy.org/provide/vod",
@@ -2061,347 +1153,25 @@
     "拾光·快车｜采集"
    ],
    "name": "拾光·快车｜采集",
-   "api": "https://caiji.kuaichezy.org/api.php/provide/vod/",
-   "classes": 59,
-   "class_list": [
-    {
-     "type_id": "1",
-     "type_name": "电影",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "2",
-     "type_name": "电视剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "3",
-     "type_name": "综艺",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "4",
-     "type_name": "动漫",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "6",
-     "type_name": "动作片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "7",
-     "type_name": "喜剧片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "8",
-     "type_name": "爱情片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "9",
-     "type_name": "科幻片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "10",
-     "type_name": "恐怖片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "11",
-     "type_name": "剧情片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "12",
-     "type_name": "战争片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "13",
-     "type_name": "国产剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "14",
-     "type_name": "欧美剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "15",
-     "type_name": "韩剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "16",
-     "type_name": "日剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "17",
-     "type_name": "港剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "18",
-     "type_name": "台剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "19",
-     "type_name": "泰剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "20",
-     "type_name": "纪录片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "23",
-     "type_name": "海外剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "25",
-     "type_name": "大陆综艺",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "26",
-     "type_name": "日韩综艺",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "27",
-     "type_name": "港台综艺",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "28",
-     "type_name": "欧美综艺",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "29",
-     "type_name": "国产动漫",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "30",
-     "type_name": "日韩动漫",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "31",
-     "type_name": "欧美动漫",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "39",
-     "type_name": "动画片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "44",
-     "type_name": "港台动漫",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "45",
-     "type_name": "海外动漫",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "47",
-     "type_name": "演唱会",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "48",
-     "type_name": "体育赛事",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "49",
-     "type_name": "篮球",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "50",
-     "type_name": "足球",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "51",
-     "type_name": "预告片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "52",
-     "type_name": "斯诺克",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "53",
-     "type_name": "影视解说",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "54",
-     "type_name": "爽文短剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "55",
-     "type_name": "伦理",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "56",
-     "type_name": "港台三级",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "57",
-     "type_name": "韩国伦理",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "58",
-     "type_name": "西方伦理",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "59",
-     "type_name": "日本伦理",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "60",
-     "type_name": "两性课堂",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "61",
-     "type_name": "写真热舞",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "62",
-     "type_name": "4K电影",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "63",
-     "type_name": "有声动漫",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "64",
-     "type_name": "女频恋爱",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "65",
-     "type_name": "反转爽剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "66",
-     "type_name": "古装仙侠",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "67",
-     "type_name": "年代穿越",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "68",
-     "type_name": "脑洞悬疑",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "69",
-     "type_name": "现代都市",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "70",
-     "type_name": "邵氏电影",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "71",
-     "type_name": "Netflix电影",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "72",
-     "type_name": "Netflix自制剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "73",
-     "type_name": "擦边短剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "74",
-     "type_name": "科普学习",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "75",
-     "type_name": "漫剧",
-     "type_pid": "0"
-    }
-   ],
-   "search": {
-    "庆余年": {
-     "count": 0,
-     "hit": 0,
-     "rate": 0.0,
-     "fp": "da39a3ee5e6b",
-     "sample": []
-    },
-    "繁花": {
-     "count": 0,
-     "hit": 0,
-     "rate": 0.0,
-     "fp": "da39a3ee5e6b",
-     "sample": []
-    }
-   },
-   "browse": {
-    "movie": 0,
-    "tv": 0,
-    "short": 2
-   },
-   "browse_total": 2,
-   "latency_ms": 518,
-   "ok": true,
-   "hit_rate": 0.0,
-   "kw_overlap": null,
-   "searchable": false,
-   "ts": 1794915071
+   "ok": false,
+   "classes": 0,
+   "search": {},
+   "error": "unreachable",
+   "ts": 1795416665
   },
   "caiji.maotaizy.cc/provide/vod": {
    "lib": "caiji.maotaizy.cc/provide/vod",
    "urls": [
-    "https://caiji.maotaizy.cc/api.php/provide/vod/from/mtm3u8/",
-    "https://caiji.maotaizy.cc/api.php/provide/vod/"
+    "https://caiji.maotaizy.cc/api.php/provide/vod/",
+    "https://caiji.maotaizy.cc/api.php/provide/vod/from/mtm3u8/"
    ],
    "aliases": 2,
    "names": [
-    "拾光·茅台｜采集",
-    "云镜·茅台资源"
+    "云镜·茅台资源",
+    "拾光·茅台｜采集"
    ],
-   "name": "拾光·茅台｜采集",
-   "api": "https://caiji.maotaizy.cc/api.php/provide/vod/from/mtm3u8/",
+   "name": "云镜·茅台资源",
+   "api": "https://caiji.maotaizy.cc/api.php/provide/vod/",
    "classes": 54,
    "class_list": [
     {
@@ -2697,12 +1467,12 @@
     "short": 20
    },
    "browse_total": 60,
-   "latency_ms": 2106,
+   "latency_ms": 1587,
    "ok": true,
    "hit_rate": 0.0,
    "kw_overlap": null,
    "searchable": false,
-   "ts": 1794915071
+   "ts": 1795416665
   },
   "caiji.moduapi.cc/provide/vod": {
    "lib": "caiji.moduapi.cc/provide/vod",
@@ -2961,12 +1731,12 @@
     "short": 0
    },
    "browse_total": 40,
-   "latency_ms": 420,
+   "latency_ms": 537,
    "ok": true,
    "hit_rate": 1.0,
    "kw_overlap": 0.0,
    "searchable": true,
-   "ts": 1794915071
+   "ts": 1795416665
   },
   "cf.ddngo.space/77": {
    "lib": "cf.ddngo.space/77",
@@ -3037,17 +1807,17 @@
     }
    },
    "browse": {
-    "movie": 92,
-    "tv": 87,
-    "short": 94
+    "movie": 95,
+    "tv": 92,
+    "short": 95
    },
-   "browse_total": 273,
-   "latency_ms": 3150,
+   "browse_total": 282,
+   "latency_ms": 2786,
    "ok": true,
    "hit_rate": 1.0,
    "kw_overlap": 0.0,
    "searchable": true,
-   "ts": 1794915071
+   "ts": 1795416665
   },
   "cj.rycjapi.com/provide/vod": {
    "lib": "cj.rycjapi.com/provide/vod",
@@ -3293,12 +2063,12 @@
     "short": 0
    },
    "browse_total": 40,
-   "latency_ms": 600,
+   "latency_ms": 668,
    "ok": true,
    "hit_rate": 1.0,
    "kw_overlap": 0.0,
    "searchable": true,
-   "ts": 1794915071
+   "ts": 1795416665
   },
   "ckzy.me/provide/vod": {
    "lib": "ckzy.me/provide/vod",
@@ -3346,12 +2116,12 @@
     "short": 0
    },
    "browse_total": 0,
-   "latency_ms": 438,
+   "latency_ms": 677,
    "ok": true,
    "hit_rate": 0.0,
    "kw_overlap": null,
    "searchable": false,
-   "ts": 1794915071
+   "ts": 1795416665
   },
   "collect.wolongzy.cc/provide/vod": {
    "lib": "collect.wolongzy.cc/provide/vod",
@@ -3367,7 +2137,7 @@
    "classes": 0,
    "search": {},
    "error": "unreachable",
-   "ts": 1794914691
+   "ts": 1795416665
   },
   "collect.wolongzyw.com/provide/vod": {
    "lib": "collect.wolongzyw.com/provide/vod",
@@ -3398,12 +2168,18 @@
      "sample": []
     }
    },
-   "latency_ms": 1106,
+   "browse": {
+    "movie": 0,
+    "tv": 0,
+    "short": 0
+   },
+   "browse_total": 0,
+   "latency_ms": 1088,
    "ok": false,
    "hit_rate": 0.0,
    "kw_overlap": null,
    "searchable": false,
-   "ts": 1794914691
+   "ts": 1795416665
   },
   "haiwaikan.com/provide/vod": {
    "lib": "haiwaikan.com/provide/vod",
@@ -3419,303 +2195,7 @@
    "classes": 0,
    "search": {},
    "error": "unreachable",
-   "ts": 1794914691
-  },
-  "hhzyapi.com/provide/vod": {
-   "lib": "hhzyapi.com/provide/vod",
-   "urls": [
-    "https://hhzyapi.com/api.php/provide/vod/"
-   ],
-   "aliases": 1,
-   "names": [
-    "老刘·🦊火狐采集",
-    "分享·📛火焰狐妖"
-   ],
-   "name": "老刘·🦊火狐采集",
-   "api": "https://hhzyapi.com/api.php/provide/vod/",
-   "classes": 48,
-   "class_list": [
-    {
-     "type_id": "1",
-     "type_name": "电视剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "2",
-     "type_name": "电影",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "3",
-     "type_name": "欧美剧",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "4",
-     "type_name": "香港剧",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "5",
-     "type_name": "韩剧",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "6",
-     "type_name": "日剧",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "7",
-     "type_name": "马泰剧",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "8",
-     "type_name": "伦理片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "9",
-     "type_name": "动作片",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "10",
-     "type_name": "爱情片",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "11",
-     "type_name": "喜剧片",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "12",
-     "type_name": "科幻片",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "13",
-     "type_name": "恐怖片",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "14",
-     "type_name": "剧情片",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "15",
-     "type_name": "战争片",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "16",
-     "type_name": "记录片",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "17",
-     "type_name": "动漫",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "20",
-     "type_name": "内地剧",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "23",
-     "type_name": "动画片",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "24",
-     "type_name": "中国动漫",
-     "type_pid": "17"
-    },
-    {
-     "type_id": "25",
-     "type_name": "日本动漫",
-     "type_pid": "17"
-    },
-    {
-     "type_id": "26",
-     "type_name": "欧美动漫",
-     "type_pid": "17"
-    },
-    {
-     "type_id": "27",
-     "type_name": "综艺",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "28",
-     "type_name": "台湾剧",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "30",
-     "type_name": "大陆综艺",
-     "type_pid": "27"
-    },
-    {
-     "type_id": "31",
-     "type_name": "日韩综艺",
-     "type_pid": "27"
-    },
-    {
-     "type_id": "32",
-     "type_name": "港台综艺",
-     "type_pid": "27"
-    },
-    {
-     "type_id": "33",
-     "type_name": "欧美综艺",
-     "type_pid": "27"
-    },
-    {
-     "type_id": "34",
-     "type_name": "灾难片",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "35",
-     "type_name": "悬疑片",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "36",
-     "type_name": "犯罪片",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "37",
-     "type_name": "奇幻片",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "38",
-     "type_name": "短剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "39",
-     "type_name": "预告片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "40",
-     "type_name": "体育赛事",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "41",
-     "type_name": "足球",
-     "type_pid": "40"
-    },
-    {
-     "type_id": "42",
-     "type_name": "篮球",
-     "type_pid": "40"
-    },
-    {
-     "type_id": "43",
-     "type_name": "台球",
-     "type_pid": "40"
-    },
-    {
-     "type_id": "44",
-     "type_name": "其他赛事",
-     "type_pid": "40"
-    },
-    {
-     "type_id": "45",
-     "type_name": "古装仙侠",
-     "type_pid": "38"
-    },
-    {
-     "type_id": "46",
-     "type_name": "现代都市",
-     "type_pid": "38"
-    },
-    {
-     "type_id": "47",
-     "type_name": "穿越年代",
-     "type_pid": "38"
-    },
-    {
-     "type_id": "48",
-     "type_name": "言情总裁",
-     "type_pid": "38"
-    },
-    {
-     "type_id": "49",
-     "type_name": "重生民国",
-     "type_pid": "38"
-    },
-    {
-     "type_id": "50",
-     "type_name": "反转爽剧",
-     "type_pid": "38"
-    },
-    {
-     "type_id": "51",
-     "type_name": "脑洞悬疑",
-     "type_pid": "38"
-    },
-    {
-     "type_id": "52",
-     "type_name": "擦边短剧",
-     "type_pid": "38"
-    },
-    {
-     "type_id": "53",
-     "type_name": "AI漫剧",
-     "type_pid": "38"
-    }
-   ],
-   "search": {
-    "庆余年": {
-     "count": 8,
-     "hit": 8,
-     "rate": 1.0,
-     "fp": "1ceb5b8275f1",
-     "sample": [
-      "庆余年 第二季",
-      "庆余年之风起沧州",
-      "庆余年之帝王业",
-      "庆余年之少年风流",
-      "庆余年，全世界都以为我是废物太子（庆余年之大凉太子爷）"
-     ]
-    },
-    "繁花": {
-     "count": 20,
-     "hit": 20,
-     "rate": 1.0,
-     "fp": "300929b79c9a",
-     "sample": [
-      "嫡女医心：逆袭繁花",
-      "繁花照春晚",
-      "她说繁花已落幕（AI短剧）",
-      "繁花烬处，恩断义绝",
-      "繁花1990"
-     ]
-    }
-   },
-   "browse": {
-    "movie": 20,
-    "tv": 20,
-    "short": 20
-   },
-   "browse_total": 60,
-   "latency_ms": 216,
-   "ok": true,
-   "hit_rate": 1.0,
-   "kw_overlap": 0.0,
-   "searchable": true,
-   "ts": 1794915071
+   "ts": 1795416665
   },
   "hongniuzy2.com/provide/vod": {
    "lib": "hongniuzy2.com/provide/vod",
@@ -3985,12 +2465,12 @@
     "short": 0
    },
    "browse_total": 2,
-   "latency_ms": 899,
+   "latency_ms": 921,
    "ok": true,
    "hit_rate": 1.0,
    "kw_overlap": 0.0,
    "searchable": true,
-   "ts": 1794915071
+   "ts": 1795416665
   },
   "huawei8.live/provide/vod": {
    "lib": "huawei8.live/provide/vod",
@@ -4006,284 +2486,7 @@
    "classes": 0,
    "search": {},
    "error": "unreachable",
-   "ts": 1794914691
-  },
-  "huyaapi.com/provide/vod": {
-   "lib": "huyaapi.com/provide/vod",
-   "urls": [
-    "https://www.huyaapi.com/api.php/provide/vod/from/hym3u8",
-    "https://www.huyaapi.com/api.php/provide/vod/"
-   ],
-   "aliases": 2,
-   "names": [
-    "老刘·🐯虎牙采集",
-    "分享·🐯虎口拔牙"
-   ],
-   "name": "老刘·🐯虎牙采集",
-   "api": "https://www.huyaapi.com/api.php/provide/vod/from/hym3u8",
-   "classes": 44,
-   "class_list": [
-    {
-     "type_id": "1",
-     "type_name": "电视剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "2",
-     "type_name": "电影",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "3",
-     "type_name": "欧美剧",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "4",
-     "type_name": "香港剧",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "5",
-     "type_name": "韩剧",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "6",
-     "type_name": "日剧",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "7",
-     "type_name": "马泰剧",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "8",
-     "type_name": "伦理片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "9",
-     "type_name": "动作片",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "10",
-     "type_name": "爱情片",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "11",
-     "type_name": "喜剧片",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "12",
-     "type_name": "科幻片",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "13",
-     "type_name": "恐怖片",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "14",
-     "type_name": "剧情片",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "15",
-     "type_name": "战争片",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "16",
-     "type_name": "记录片",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "17",
-     "type_name": "动漫",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "20",
-     "type_name": "内地剧",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "23",
-     "type_name": "动画片",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "24",
-     "type_name": "中国动漫",
-     "type_pid": "17"
-    },
-    {
-     "type_id": "25",
-     "type_name": "日本动漫",
-     "type_pid": "17"
-    },
-    {
-     "type_id": "26",
-     "type_name": "欧美动漫",
-     "type_pid": "17"
-    },
-    {
-     "type_id": "27",
-     "type_name": "综艺",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "28",
-     "type_name": "台湾剧",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "29",
-     "type_name": "体育赛事",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "30",
-     "type_name": "短剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "31",
-     "type_name": "预告片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "32",
-     "type_name": "足球",
-     "type_pid": "29"
-    },
-    {
-     "type_id": "33",
-     "type_name": "篮球",
-     "type_pid": "29"
-    },
-    {
-     "type_id": "34",
-     "type_name": "台球",
-     "type_pid": "29"
-    },
-    {
-     "type_id": "35",
-     "type_name": "其他赛事",
-     "type_pid": "29"
-    },
-    {
-     "type_id": "38",
-     "type_name": "大陆综艺",
-     "type_pid": "27"
-    },
-    {
-     "type_id": "39",
-     "type_name": "日韩综艺",
-     "type_pid": "27"
-    },
-    {
-     "type_id": "40",
-     "type_name": "港台综艺",
-     "type_pid": "27"
-    },
-    {
-     "type_id": "41",
-     "type_name": "欧美综艺",
-     "type_pid": "27"
-    },
-    {
-     "type_id": "42",
-     "type_name": "古装仙侠",
-     "type_pid": "30"
-    },
-    {
-     "type_id": "43",
-     "type_name": "现代都市",
-     "type_pid": "30"
-    },
-    {
-     "type_id": "44",
-     "type_name": "穿越年代",
-     "type_pid": "30"
-    },
-    {
-     "type_id": "45",
-     "type_name": "言情总裁",
-     "type_pid": "30"
-    },
-    {
-     "type_id": "46",
-     "type_name": "重生民国",
-     "type_pid": "30"
-    },
-    {
-     "type_id": "47",
-     "type_name": "反转爽剧",
-     "type_pid": "30"
-    },
-    {
-     "type_id": "48",
-     "type_name": "脑洞悬疑",
-     "type_pid": "30"
-    },
-    {
-     "type_id": "49",
-     "type_name": "擦边短剧",
-     "type_pid": "30"
-    },
-    {
-     "type_id": "50",
-     "type_name": "AI漫剧",
-     "type_pid": "30"
-    }
-   ],
-   "search": {
-    "庆余年": {
-     "count": 8,
-     "hit": 8,
-     "rate": 1.0,
-     "fp": "1ceb5b8275f1",
-     "sample": [
-      "庆余年 第二季",
-      "庆余年之风起沧州",
-      "庆余年之帝王业",
-      "庆余年之少年风流",
-      "庆余年，全世界都以为我是废物太子（庆余年之大凉太子爷）"
-     ]
-    },
-    "繁花": {
-     "count": 20,
-     "hit": 20,
-     "rate": 1.0,
-     "fp": "300929b79c9a",
-     "sample": [
-      "嫡女医心：逆袭繁花",
-      "繁花照春晚",
-      "她说繁花已落幕（AI短剧）",
-      "一路繁花",
-      "繁花烬处，恩断义绝"
-     ]
-    }
-   },
-   "browse": {
-    "movie": 20,
-    "tv": 20,
-    "short": 20
-   },
-   "browse_total": 60,
-   "latency_ms": 495,
-   "ok": true,
-   "hit_rate": 1.0,
-   "kw_overlap": 0.0,
-   "searchable": true,
-   "ts": 1794915071
+   "ts": 1795416665
   },
   "ikunzyapi.com/provide/vod": {
    "lib": "ikunzyapi.com/provide/vod",
@@ -4300,11 +2503,313 @@
     "小盒4K·🐓┃爱坤┃资源"
    ],
    "name": "拾光·❤ikun资源",
-   "ok": false,
-   "classes": 0,
-   "search": {},
-   "error": "unreachable",
-   "ts": 1794914691
+   "api": "https://ikunzyapi.com/api.php/provide/vod/from/ikm3u8/at/json",
+   "classes": 53,
+   "class_list": [
+    {
+     "type_id": "1",
+     "type_name": "电影",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "2",
+     "type_name": "连续剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "3",
+     "type_name": "综艺",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "4",
+     "type_name": "动漫",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "5",
+     "type_name": "伦理片",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "6",
+     "type_name": "动作片",
+     "type_pid": "1"
+    },
+    {
+     "type_id": "7",
+     "type_name": "喜剧片",
+     "type_pid": "1"
+    },
+    {
+     "type_id": "8",
+     "type_name": "爱情片",
+     "type_pid": "1"
+    },
+    {
+     "type_id": "9",
+     "type_name": "科幻片",
+     "type_pid": "1"
+    },
+    {
+     "type_id": "10",
+     "type_name": "恐怖片",
+     "type_pid": "1"
+    },
+    {
+     "type_id": "11",
+     "type_name": "剧情片",
+     "type_pid": "1"
+    },
+    {
+     "type_id": "12",
+     "type_name": "战争片",
+     "type_pid": "1"
+    },
+    {
+     "type_id": "13",
+     "type_name": "惊悚片",
+     "type_pid": "1"
+    },
+    {
+     "type_id": "14",
+     "type_name": "家庭片",
+     "type_pid": "1"
+    },
+    {
+     "type_id": "15",
+     "type_name": "古装片",
+     "type_pid": "1"
+    },
+    {
+     "type_id": "16",
+     "type_name": "历史片",
+     "type_pid": "1"
+    },
+    {
+     "type_id": "17",
+     "type_name": "悬疑片",
+     "type_pid": "1"
+    },
+    {
+     "type_id": "18",
+     "type_name": "犯罪片",
+     "type_pid": "1"
+    },
+    {
+     "type_id": "19",
+     "type_name": "灾难片",
+     "type_pid": "1"
+    },
+    {
+     "type_id": "20",
+     "type_name": "记录片",
+     "type_pid": "1"
+    },
+    {
+     "type_id": "21",
+     "type_name": "短片",
+     "type_pid": "1"
+    },
+    {
+     "type_id": "22",
+     "type_name": "动画片",
+     "type_pid": "1"
+    },
+    {
+     "type_id": "23",
+     "type_name": "国产剧",
+     "type_pid": "2"
+    },
+    {
+     "type_id": "24",
+     "type_name": "香港剧",
+     "type_pid": "2"
+    },
+    {
+     "type_id": "25",
+     "type_name": "韩国剧",
+     "type_pid": "2"
+    },
+    {
+     "type_id": "26",
+     "type_name": "欧美剧",
+     "type_pid": "2"
+    },
+    {
+     "type_id": "27",
+     "type_name": "台湾剧",
+     "type_pid": "2"
+    },
+    {
+     "type_id": "28",
+     "type_name": "日本剧",
+     "type_pid": "2"
+    },
+    {
+     "type_id": "29",
+     "type_name": "海外剧",
+     "type_pid": "2"
+    },
+    {
+     "type_id": "30",
+     "type_name": "泰国剧",
+     "type_pid": "2"
+    },
+    {
+     "type_id": "31",
+     "type_name": "大陆综艺",
+     "type_pid": "3"
+    },
+    {
+     "type_id": "32",
+     "type_name": "港台综艺",
+     "type_pid": "3"
+    },
+    {
+     "type_id": "33",
+     "type_name": "日韩综艺",
+     "type_pid": "3"
+    },
+    {
+     "type_id": "34",
+     "type_name": "欧美综艺",
+     "type_pid": "3"
+    },
+    {
+     "type_id": "35",
+     "type_name": "国产动漫",
+     "type_pid": "4"
+    },
+    {
+     "type_id": "36",
+     "type_name": "欧美动漫",
+     "type_pid": "4"
+    },
+    {
+     "type_id": "37",
+     "type_name": "日本动漫",
+     "type_pid": "4"
+    },
+    {
+     "type_id": "40",
+     "type_name": "体育",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "41",
+     "type_name": "足球",
+     "type_pid": "40"
+    },
+    {
+     "type_id": "43",
+     "type_name": "内地明星",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "44",
+     "type_name": "港台明星",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "45",
+     "type_name": "爽文短剧",
+     "type_pid": "2"
+    },
+    {
+     "type_id": "46",
+     "type_name": "德甲",
+     "type_pid": "40"
+    },
+    {
+     "type_id": "47",
+     "type_name": "意甲",
+     "type_pid": "40"
+    },
+    {
+     "type_id": "48",
+     "type_name": "英超",
+     "type_pid": "40"
+    },
+    {
+     "type_id": "49",
+     "type_name": "西甲",
+     "type_pid": "40"
+    },
+    {
+     "type_id": "50",
+     "type_name": "法甲",
+     "type_pid": "40"
+    },
+    {
+     "type_id": "51",
+     "type_name": "NBA",
+     "type_pid": "40"
+    },
+    {
+     "type_id": "52",
+     "type_name": "CBA",
+     "type_pid": "40"
+    },
+    {
+     "type_id": "53",
+     "type_name": "LPL",
+     "type_pid": "40"
+    },
+    {
+     "type_id": "54",
+     "type_name": "WCBA",
+     "type_pid": "40"
+    },
+    {
+     "type_id": "55",
+     "type_name": "篮球",
+     "type_pid": "40"
+    },
+    {
+     "type_id": "56",
+     "type_name": "里番动漫",
+     "type_pid": "4"
+    }
+   ],
+   "search": {
+    "庆余年": {
+     "count": 3,
+     "hit": 3,
+     "rate": 1.0,
+     "fp": "e5fb5037a172",
+     "sample": [
+      "庆余年第二季",
+      "庆余年 第一季 特别版",
+      "庆余年第一季"
+     ]
+    },
+    "繁花": {
+     "count": 12,
+     "hit": 12,
+     "rate": 1.0,
+     "fp": "8837cf87bd4a",
+     "sample": [
+      "一路繁花第二季",
+      "一路繁花",
+      "一路繁花",
+      "双面繁花",
+      "繁花初见不知返"
+     ]
+    }
+   },
+   "browse": {
+    "movie": 20,
+    "tv": 20,
+    "short": 0
+   },
+   "browse_total": 40,
+   "latency_ms": 454,
+   "ok": true,
+   "hit_rate": 1.0,
+   "kw_overlap": 0.0,
+   "searchable": true,
+   "ts": 1795416665
   },
   "json.heimuer.xyz/provide/vod": {
    "lib": "json.heimuer.xyz/provide/vod",
@@ -4320,7 +2825,7 @@
    "classes": 0,
    "search": {},
    "error": "unreachable",
-   "ts": 1794914691
+   "ts": 1795416665
   },
   "json02.heimuer.xyz/provide/vod": {
    "lib": "json02.heimuer.xyz/provide/vod",
@@ -4338,305 +2843,7 @@
    "classes": 0,
    "search": {},
    "error": "unreachable",
-   "ts": 1794914691
-  },
-  "jszyapi.com/provide/vod": {
-   "lib": "jszyapi.com/provide/vod",
-   "urls": [
-    "https://jszyapi.com/api.php/provide/vod/",
-    "https://jszyapi.com/api.php/provide/vod/at/json"
-   ],
-   "aliases": 2,
-   "names": [
-    "拾光·极速｜采集",
-    "分享·️✈️极速采集",
-    "小马·影视 | 极速[直连]"
-   ],
-   "name": "拾光·极速｜采集",
-   "api": "https://jszyapi.com/api.php/provide/vod/",
-   "classes": 48,
-   "class_list": [
-    {
-     "type_id": "1",
-     "type_name": "电视剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "2",
-     "type_name": "电影",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "3",
-     "type_name": "欧美剧",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "4",
-     "type_name": "香港剧",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "5",
-     "type_name": "韩剧",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "6",
-     "type_name": "日剧",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "7",
-     "type_name": "马泰剧",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "8",
-     "type_name": "伦理片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "9",
-     "type_name": "动作片",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "10",
-     "type_name": "爱情片",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "11",
-     "type_name": "喜剧片",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "12",
-     "type_name": "科幻片",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "13",
-     "type_name": "恐怖片",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "14",
-     "type_name": "剧情片",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "15",
-     "type_name": "战争片",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "16",
-     "type_name": "记录片",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "17",
-     "type_name": "动漫",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "20",
-     "type_name": "内地剧",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "23",
-     "type_name": "动画片",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "24",
-     "type_name": "中国动漫",
-     "type_pid": "17"
-    },
-    {
-     "type_id": "25",
-     "type_name": "日本动漫",
-     "type_pid": "17"
-    },
-    {
-     "type_id": "26",
-     "type_name": "欧美动漫",
-     "type_pid": "17"
-    },
-    {
-     "type_id": "27",
-     "type_name": "综艺",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "28",
-     "type_name": "台湾剧",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "29",
-     "type_name": "体育赛事",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "30",
-     "type_name": "大陆综艺",
-     "type_pid": "27"
-    },
-    {
-     "type_id": "31",
-     "type_name": "日韩综艺",
-     "type_pid": "27"
-    },
-    {
-     "type_id": "32",
-     "type_name": "港台综艺",
-     "type_pid": "27"
-    },
-    {
-     "type_id": "33",
-     "type_name": "欧美综艺",
-     "type_pid": "27"
-    },
-    {
-     "type_id": "34",
-     "type_name": "灾难片",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "35",
-     "type_name": "悬疑片",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "36",
-     "type_name": "犯罪片",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "37",
-     "type_name": "奇幻片",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "38",
-     "type_name": "短剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "39",
-     "type_name": "预告片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "40",
-     "type_name": "足球",
-     "type_pid": "29"
-    },
-    {
-     "type_id": "41",
-     "type_name": "篮球",
-     "type_pid": "29"
-    },
-    {
-     "type_id": "42",
-     "type_name": "台球",
-     "type_pid": "29"
-    },
-    {
-     "type_id": "43",
-     "type_name": "其他赛事",
-     "type_pid": "29"
-    },
-    {
-     "type_id": "45",
-     "type_name": "古装仙侠",
-     "type_pid": "38"
-    },
-    {
-     "type_id": "46",
-     "type_name": "现代都市",
-     "type_pid": "38"
-    },
-    {
-     "type_id": "47",
-     "type_name": "穿越年代",
-     "type_pid": "38"
-    },
-    {
-     "type_id": "48",
-     "type_name": "言情总裁",
-     "type_pid": "38"
-    },
-    {
-     "type_id": "49",
-     "type_name": "重生民国",
-     "type_pid": "38"
-    },
-    {
-     "type_id": "50",
-     "type_name": "反转爽剧",
-     "type_pid": "38"
-    },
-    {
-     "type_id": "52",
-     "type_name": "脑洞悬疑",
-     "type_pid": "38"
-    },
-    {
-     "type_id": "53",
-     "type_name": "擦边短剧",
-     "type_pid": "38"
-    },
-    {
-     "type_id": "54",
-     "type_name": "AI漫剧",
-     "type_pid": "38"
-    }
-   ],
-   "search": {
-    "庆余年": {
-     "count": 8,
-     "hit": 8,
-     "rate": 1.0,
-     "fp": "1ceb5b8275f1",
-     "sample": [
-      "庆余年 第二季",
-      "庆余年第一季 特别版",
-      "庆余年 第一季",
-      "庆余年之风起沧州",
-      "庆余年之帝王业"
-     ]
-    },
-    "繁花": {
-     "count": 20,
-     "hit": 20,
-     "rate": 1.0,
-     "fp": "83048aade516",
-     "sample": [
-      "嫡女医心：逆袭繁花",
-      "繁花照春晚",
-      "她说繁花已落幕（AI短剧）",
-      "繁花烬处，恩断义绝",
-      "繁花1990"
-     ]
-    }
-   },
-   "browse": {
-    "movie": 20,
-    "tv": 20,
-    "short": 20
-   },
-   "browse_total": 60,
-   "latency_ms": 482,
-   "ok": true,
-   "hit_rate": 1.0,
-   "kw_overlap": 0.0,
-   "searchable": true,
-   "ts": 1794915071
+   "ts": 1795416665
   },
   "jyzyapi.com/provide/vod": {
    "lib": "jyzyapi.com/provide/vod",
@@ -4908,12 +3115,12 @@
     "short": 20
    },
    "browse_total": 60,
-   "latency_ms": 447,
+   "latency_ms": 212,
    "ok": true,
    "hit_rate": 1.0,
    "kw_overlap": 0.0,
    "searchable": true,
-   "ts": 1794915071
+   "ts": 1795416665
   },
   "kuaikan-api.com/provide/vod": {
    "lib": "kuaikan-api.com/provide/vod",
@@ -4929,7 +3136,7 @@
    "classes": 0,
    "search": {},
    "error": "unreachable",
-   "ts": 1794914691
+   "ts": 1795416665
   },
   "m3u8.apiyhzy.com/provide/vod": {
    "lib": "m3u8.apiyhzy.com/provide/vod",
@@ -4941,203 +3148,11 @@
     "拾光·樱花 | 采集"
    ],
    "name": "拾光·樱花 | 采集",
-   "api": "https://m3u8.apiyhzy.com/api.php/provide/vod/",
-   "classes": 33,
-   "class_list": [
-    {
-     "type_id": "1",
-     "type_name": "电影",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "2",
-     "type_name": "连续剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "3",
-     "type_name": "综艺",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "4",
-     "type_name": "动漫",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "5",
-     "type_name": "资讯",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "6",
-     "type_name": "动作片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "7",
-     "type_name": "喜剧片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "8",
-     "type_name": "爱情片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "9",
-     "type_name": "科幻片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "10",
-     "type_name": "恐怖片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "11",
-     "type_name": "剧情片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "12",
-     "type_name": "战争片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "13",
-     "type_name": "国产剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "14",
-     "type_name": "香港剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "15",
-     "type_name": "台湾剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "16",
-     "type_name": "韩国剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "17",
-     "type_name": "公告",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "18",
-     "type_name": "头条",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "20",
-     "type_name": "犯罪片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "21",
-     "type_name": "纪录片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "22",
-     "type_name": "动画电影",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "23",
-     "type_name": "日本剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "24",
-     "type_name": "欧美剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "25",
-     "type_name": "海外剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "26",
-     "type_name": "大陆综艺",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "27",
-     "type_name": "日韩综艺",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "28",
-     "type_name": "港台综艺",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "29",
-     "type_name": "欧美综艺",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "30",
-     "type_name": "国产动漫",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "31",
-     "type_name": "日本动漫",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "32",
-     "type_name": "欧美动漫",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "33",
-     "type_name": "海外动漫",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "34",
-     "type_name": "伦理片",
-     "type_pid": "0"
-    }
-   ],
-   "search": {
-    "庆余年": {
-     "count": 0,
-     "hit": 0,
-     "rate": 0.0,
-     "fp": "da39a3ee5e6b",
-     "sample": []
-    },
-    "繁花": {
-     "count": 0,
-     "hit": 0,
-     "rate": 0.0,
-     "fp": "da39a3ee5e6b",
-     "sample": []
-    }
-   },
-   "browse": {
-    "movie": 0,
-    "tv": 0,
-    "short": 0
-   },
-   "browse_total": 0,
-   "latency_ms": 445,
-   "ok": true,
-   "hit_rate": 0.0,
-   "kw_overlap": null,
-   "searchable": false,
-   "ts": 1794915071
+   "ok": false,
+   "classes": 0,
+   "search": {},
+   "error": "unreachable",
+   "ts": 1795416665
   },
   "m3u8.tiankongapi.com/provide/vod": {
    "lib": "m3u8.tiankongapi.com/provide/vod",
@@ -5153,7 +3168,7 @@
    "classes": 0,
    "search": {},
    "error": "unreachable",
-   "ts": 1794914691
+   "ts": 1795416665
   },
   "mdzyapi.com/provide/vod": {
    "lib": "mdzyapi.com/provide/vod",
@@ -5412,12 +3427,12 @@
     "short": 0
    },
    "browse_total": 40,
-   "latency_ms": 417,
+   "latency_ms": 561,
    "ok": true,
    "hit_rate": 1.0,
    "kw_overlap": 0.0,
    "searchable": true,
-   "ts": 1794915071
+   "ts": 1795416665
   },
   "mtzy.me/provide/vod": {
    "lib": "mtzy.me/provide/vod",
@@ -5433,7 +3448,7 @@
    "classes": 0,
    "search": {},
    "error": "unreachable",
-   "ts": 1794914691
+   "ts": 1795416665
   },
   "mv.wogg.link/mv/vod": {
    "lib": "mv.wogg.link/mv/vod",
@@ -5449,7 +3464,7 @@
    "classes": 0,
    "search": {},
    "error": "unreachable",
-   "ts": 1794914691
+   "ts": 1795416665
   },
   "oknnews.com/provide/vod": {
    "lib": "oknnews.com/provide/vod",
@@ -5465,7 +3480,7 @@
    "classes": 0,
    "search": {},
    "error": "unreachable",
-   "ts": 1794914691
+   "ts": 1795416665
   },
   "p2100.net/provide/vod": {
    "lib": "p2100.net/provide/vod",
@@ -5481,7 +3496,7 @@
    "classes": 0,
    "search": {},
    "error": "unreachable",
-   "ts": 1794914691
+   "ts": 1795416665
   },
   "php.doube.eu.org/spider/php/%E7%94%B5%E5%BD%B1%E5%A4%A9%E5%A0%82.php": {
    "lib": "php.doube.eu.org/spider/php/%E7%94%B5%E5%BD%B1%E5%A4%A9%E5%A0%82.php",
@@ -5497,7 +3512,7 @@
    "classes": 0,
    "search": {},
    "error": "unreachable",
-   "ts": 1794914691
+   "ts": 1795416665
   },
   "py.doube.eu.org/v2/spider?site=6b5899d243816bacb8712de7ab6ceb89": {
    "lib": "py.doube.eu.org/v2/spider?site=6b5899d243816bacb8712de7ab6ceb89",
@@ -5513,7 +3528,7 @@
    "classes": 0,
    "search": {},
    "error": "unreachable",
-   "ts": 1794914691
+   "ts": 1795416665
   },
   "sdzyapi.com/provide/vod": {
    "lib": "sdzyapi.com/provide/vod",
@@ -5849,287 +3864,12 @@
     "short": 1
    },
    "browse_total": 1,
-   "latency_ms": 414,
+   "latency_ms": 412,
    "ok": true,
    "hit_rate": 0.0,
    "kw_overlap": null,
    "searchable": false,
-   "ts": 1794915071
-  },
-  "subocaiji.com/provide/vod": {
-   "lib": "subocaiji.com/provide/vod",
-   "urls": [
-    "https://subocaiji.com/api.php/provide/vod/"
-   ],
-   "aliases": 1,
-   "names": [
-    "拾光·速播 | 采集"
-   ],
-   "name": "拾光·速播 | 采集",
-   "api": "https://subocaiji.com/api.php/provide/vod/",
-   "classes": 44,
-   "class_list": [
-    {
-     "type_id": "1",
-     "type_name": "电影",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "2",
-     "type_name": "电视剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "3",
-     "type_name": "动漫",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "4",
-     "type_name": "综艺",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "5",
-     "type_name": "纪录片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "6",
-     "type_name": "动作片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "7",
-     "type_name": "爱情片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "8",
-     "type_name": "科幻片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "9",
-     "type_name": "战争片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "10",
-     "type_name": "剧情片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "11",
-     "type_name": "恐怖片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "12",
-     "type_name": "喜剧片",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "13",
-     "type_name": "动漫电影",
-     "type_pid": "1"
-    },
-    {
-     "type_id": "14",
-     "type_name": "大陆剧",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "15",
-     "type_name": "台湾剧",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "16",
-     "type_name": "韩剧",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "17",
-     "type_name": "美剧",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "18",
-     "type_name": "港澳剧",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "20",
-     "type_name": "日剧",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "21",
-     "type_name": "泰剧",
-     "type_pid": "2"
-    },
-    {
-     "type_id": "22",
-     "type_name": "伦理片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "23",
-     "type_name": "体育赛事",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "24",
-     "type_name": "中国动漫",
-     "type_pid": "3"
-    },
-    {
-     "type_id": "25",
-     "type_name": "日本动漫",
-     "type_pid": "3"
-    },
-    {
-     "type_id": "26",
-     "type_name": "欧美动漫",
-     "type_pid": "3"
-    },
-    {
-     "type_id": "27",
-     "type_name": "短剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "28",
-     "type_name": "预告片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "29",
-     "type_name": "足球",
-     "type_pid": "23"
-    },
-    {
-     "type_id": "30",
-     "type_name": "篮球",
-     "type_pid": "23"
-    },
-    {
-     "type_id": "31",
-     "type_name": "台球",
-     "type_pid": "23"
-    },
-    {
-     "type_id": "32",
-     "type_name": "其他赛事",
-     "type_pid": "23"
-    },
-    {
-     "type_id": "33",
-     "type_name": "大陆综艺",
-     "type_pid": "4"
-    },
-    {
-     "type_id": "34",
-     "type_name": "日韩综艺",
-     "type_pid": "4"
-    },
-    {
-     "type_id": "35",
-     "type_name": "港台综艺",
-     "type_pid": "4"
-    },
-    {
-     "type_id": "36",
-     "type_name": "欧美综艺",
-     "type_pid": "4"
-    },
-    {
-     "type_id": "37",
-     "type_name": "古装仙侠",
-     "type_pid": "27"
-    },
-    {
-     "type_id": "38",
-     "type_name": "现代都市",
-     "type_pid": "27"
-    },
-    {
-     "type_id": "39",
-     "type_name": "穿越年代",
-     "type_pid": "27"
-    },
-    {
-     "type_id": "40",
-     "type_name": "言情总裁",
-     "type_pid": "27"
-    },
-    {
-     "type_id": "41",
-     "type_name": "重生民国",
-     "type_pid": "27"
-    },
-    {
-     "type_id": "42",
-     "type_name": "反转爽剧",
-     "type_pid": "27"
-    },
-    {
-     "type_id": "43",
-     "type_name": "脑洞悬疑",
-     "type_pid": "27"
-    },
-    {
-     "type_id": "44",
-     "type_name": "擦边短剧",
-     "type_pid": "27"
-    },
-    {
-     "type_id": "45",
-     "type_name": "AI漫剧",
-     "type_pid": "27"
-    }
-   ],
-   "search": {
-    "庆余年": {
-     "count": 8,
-     "hit": 8,
-     "rate": 1.0,
-     "fp": "1ceb5b8275f1",
-     "sample": [
-      "庆余年 第二季",
-      "庆余年之风起沧州",
-      "庆余年之帝王业",
-      "庆余年之少年风流",
-      "庆余年，全世界都以为我是废物太子（庆余年之大凉太子爷）"
-     ]
-    },
-    "繁花": {
-     "count": 20,
-     "hit": 20,
-     "rate": 1.0,
-     "fp": "300929b79c9a",
-     "sample": [
-      "嫡女医心：逆袭繁花",
-      "繁花照春晚",
-      "她说繁花已落幕（AI短剧）",
-      "一路繁花",
-      "繁花烬处，恩断义绝"
-     ]
-    }
-   },
-   "browse": {
-    "movie": 20,
-    "tv": 20,
-    "short": 20
-   },
-   "browse_total": 60,
-   "latency_ms": 277,
-   "ok": true,
-   "hit_rate": 1.0,
-   "kw_overlap": 0.0,
-   "searchable": true,
-   "ts": 1794915071
+   "ts": 1795416665
   },
   "suoniapi.com/provide/vod": {
    "lib": "suoniapi.com/provide/vod",
@@ -6145,343 +3885,11 @@
     "小马·影视 | 索尼[直连]"
    ],
    "name": "老刘·🐉┃索尼┃高清",
-   "api": "https://suoniapi.com/api.php/provide/vod/",
-   "classes": 61,
-   "class_list": [
-    {
-     "type_id": "1",
-     "type_name": "电影",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "2",
-     "type_name": "电视剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "3",
-     "type_name": "综艺",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "4",
-     "type_name": "动漫",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "6",
-     "type_name": "动作片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "7",
-     "type_name": "喜剧片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "8",
-     "type_name": "爱情片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "9",
-     "type_name": "科幻片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "10",
-     "type_name": "恐怖片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "11",
-     "type_name": "剧情片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "12",
-     "type_name": "战争片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "13",
-     "type_name": "国产剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "14",
-     "type_name": "欧美剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "15",
-     "type_name": "韩剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "16",
-     "type_name": "日剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "17",
-     "type_name": "港剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "18",
-     "type_name": "台剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "19",
-     "type_name": "泰剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "20",
-     "type_name": "纪录片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "23",
-     "type_name": "海外剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "25",
-     "type_name": "大陆综艺",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "26",
-     "type_name": "日韩综艺",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "27",
-     "type_name": "港台综艺",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "28",
-     "type_name": "欧美综艺",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "29",
-     "type_name": "国产动漫",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "30",
-     "type_name": "日韩动漫",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "31",
-     "type_name": "欧美动漫",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "39",
-     "type_name": "动画片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "44",
-     "type_name": "港台动漫",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "45",
-     "type_name": "海外动漫",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "47",
-     "type_name": "演唱会",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "48",
-     "type_name": "体育赛事",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "49",
-     "type_name": "篮球",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "50",
-     "type_name": "足球",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "51",
-     "type_name": "预告片",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "52",
-     "type_name": "斯诺克",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "53",
-     "type_name": "影视解说",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "54",
-     "type_name": "爽文短剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "55",
-     "type_name": "伦理",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "56",
-     "type_name": "港台三级",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "57",
-     "type_name": "韩国伦理",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "58",
-     "type_name": "西方伦理",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "59",
-     "type_name": "日本伦理",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "60",
-     "type_name": "两性课堂",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "61",
-     "type_name": "写真热舞",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "62",
-     "type_name": "4K电影",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "63",
-     "type_name": "有声动漫",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "64",
-     "type_name": "女频恋爱",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "65",
-     "type_name": "反转爽剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "66",
-     "type_name": "古装仙侠",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "67",
-     "type_name": "年代穿越",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "68",
-     "type_name": "脑洞悬疑",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "69",
-     "type_name": "现代都市",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "70",
-     "type_name": "邵氏电影",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "71",
-     "type_name": "Netflix电影",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "72",
-     "type_name": "Netflix自制剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "73",
-     "type_name": "擦边短剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "74",
-     "type_name": "预告解说",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "75",
-     "type_name": "科普学习",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "76",
-     "type_name": "漫剧",
-     "type_pid": "0"
-    },
-    {
-     "type_id": "77",
-     "type_name": "儿童儿歌",
-     "type_pid": "0"
-    }
-   ],
-   "search": {
-    "庆余年": {
-     "count": 0,
-     "hit": 0,
-     "rate": 0.0,
-     "fp": "da39a3ee5e6b",
-     "sample": []
-    },
-    "繁花": {
-     "count": 0,
-     "hit": 0,
-     "rate": 0.0,
-     "fp": "da39a3ee5e6b",
-     "sample": []
-    }
-   },
-   "browse": {
-    "movie": 0,
-    "tv": 0,
-    "short": 9
-   },
-   "browse_total": 9,
-   "latency_ms": 358,
-   "ok": true,
-   "hit_rate": 0.0,
-   "kw_overlap": null,
-   "searchable": false,
-   "ts": 1794915071
+   "ok": false,
+   "classes": 0,
+   "search": {},
+   "error": "unreachable",
+   "ts": 1795416665
   },
   "tyyszy.com/provide/vod": {
    "lib": "tyyszy.com/provide/vod",
@@ -6716,12 +4124,12 @@
     "short": 0
    },
    "browse_total": 0,
-   "latency_ms": 389,
+   "latency_ms": 406,
    "ok": true,
    "hit_rate": 0.0,
    "kw_overlap": null,
    "searchable": false,
-   "ts": 1794915071
+   "ts": 1795416665
   },
   "tyyszyapi.com/provide/vod": {
    "lib": "tyyszyapi.com/provide/vod",
@@ -6954,12 +4362,12 @@
     "short": 0
    },
    "browse_total": 0,
-   "latency_ms": 455,
+   "latency_ms": 535,
    "ok": true,
    "hit_rate": 0.0,
    "kw_overlap": null,
    "searchable": false,
-   "ts": 1794915071
+   "ts": 1795416665
   },
   "video.adminqt.cn/provide/vod": {
    "lib": "video.adminqt.cn/provide/vod",
@@ -6975,7 +4383,7 @@
    "classes": 0,
    "search": {},
    "error": "unreachable",
-   "ts": 1794914691
+   "ts": 1795416665
   },
   "xn--ihqu10cn4c.xn--v4q818bf34b.com/api/yyutx.php": {
    "lib": "xn--ihqu10cn4c.xn--v4q818bf34b.com/api/yyutx.php",
@@ -7006,12 +4414,18 @@
      "sample": []
     }
    },
-   "latency_ms": 523,
+   "browse": {
+    "movie": 0,
+    "tv": 0,
+    "short": 0
+   },
+   "browse_total": 0,
+   "latency_ms": 603,
    "ok": false,
    "hit_rate": 0.0,
    "kw_overlap": null,
    "searchable": false,
-   "ts": 1794914691
+   "ts": 1795416665
   },
   "xzcjz.com/provide/vod": {
    "lib": "xzcjz.com/provide/vod",
@@ -7027,7 +4441,7 @@
    "classes": 0,
    "search": {},
    "error": "unreachable",
-   "ts": 1794914691
+   "ts": 1795416665
   },
   "yayazy2.com/provide/vod": {
    "lib": "yayazy2.com/provide/vod",
@@ -7360,24 +4774,27 @@
     "short": 20
    },
    "browse_total": 20,
-   "latency_ms": 535,
+   "latency_ms": 630,
    "ok": true,
    "hit_rate": 0.0,
    "kw_overlap": null,
    "searchable": false,
-   "ts": 1794915071
+   "ts": 1795416665
   },
   "ys.cxkjg.cn/api/provide/vod": {
    "lib": "ys.cxkjg.cn/api/provide/vod",
    "urls": [
+    "https://ys.cxkjg.cn/api/provide/vod",
     "https://ys.cxkjg.cn/api/provide/vod/"
    ],
-   "aliases": 1,
+   "aliases": 2,
    "names": [
-    "拾光·创享 | 采集"
+    "创享·🌟 创享影视",
+    "拾光·创享 | 采集",
+    "影视·创享"
    ],
-   "name": "拾光·创享 | 采集",
-   "api": "https://ys.cxkjg.cn/api/provide/vod/",
+   "name": "创享·🌟 创享影视",
+   "api": "https://ys.cxkjg.cn/api/provide/vod",
    "classes": 9,
    "class_list": [
     {
@@ -7460,12 +4877,1114 @@
     "short": 20
    },
    "browse_total": 60,
-   "latency_ms": 14046,
+   "latency_ms": 611,
    "ok": true,
    "hit_rate": 1.0,
    "kw_overlap": 0.0,
    "searchable": true,
-   "ts": 1794915071
+   "ts": 1795416665
+  },
+  "ys.cxkjg.cn/api/provide/vod?source=1208629981": {
+   "lib": "ys.cxkjg.cn/api/provide/vod?source=1208629981",
+   "urls": [
+    "https://ys.cxkjg.cn/api/provide/vod?source=1208629981"
+   ],
+   "aliases": 1,
+   "names": [
+    "创享·📡 HD(SN)"
+   ],
+   "name": "创享·📡 HD(SN)",
+   "api": "https://ys.cxkjg.cn/api/provide/vod?source=1208629981",
+   "classes": 61,
+   "class_list": [
+    {
+     "type_id": "1",
+     "type_name": "电影",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "2",
+     "type_name": "电视剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "3",
+     "type_name": "综艺",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "4",
+     "type_name": "动漫",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "6",
+     "type_name": "动作片",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "7",
+     "type_name": "喜剧片",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "8",
+     "type_name": "爱情片",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "9",
+     "type_name": "科幻片",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "10",
+     "type_name": "恐怖片",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "11",
+     "type_name": "剧情片",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "12",
+     "type_name": "战争片",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "13",
+     "type_name": "国产剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "14",
+     "type_name": "欧美剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "15",
+     "type_name": "韩剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "16",
+     "type_name": "日剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "17",
+     "type_name": "港剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "18",
+     "type_name": "台剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "19",
+     "type_name": "泰剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "20",
+     "type_name": "纪录片",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "23",
+     "type_name": "海外剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "25",
+     "type_name": "大陆综艺",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "26",
+     "type_name": "日韩综艺",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "27",
+     "type_name": "港台综艺",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "28",
+     "type_name": "欧美综艺",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "29",
+     "type_name": "国产动漫",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "30",
+     "type_name": "日韩动漫",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "31",
+     "type_name": "欧美动漫",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "39",
+     "type_name": "动画片",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "44",
+     "type_name": "港台动漫",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "45",
+     "type_name": "海外动漫",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "47",
+     "type_name": "演唱会",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "48",
+     "type_name": "体育赛事",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "49",
+     "type_name": "篮球",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "50",
+     "type_name": "足球",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "51",
+     "type_name": "预告片",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "52",
+     "type_name": "斯诺克",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "53",
+     "type_name": "影视解说",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "54",
+     "type_name": "爽文短剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "55",
+     "type_name": "伦理",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "56",
+     "type_name": "港台三级",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "57",
+     "type_name": "韩国伦理",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "58",
+     "type_name": "西方伦理",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "59",
+     "type_name": "日本伦理",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "60",
+     "type_name": "两性课堂",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "61",
+     "type_name": "写真热舞",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "62",
+     "type_name": "4K电影",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "63",
+     "type_name": "有声动漫",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "64",
+     "type_name": "女频恋爱",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "65",
+     "type_name": "反转爽剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "66",
+     "type_name": "古装仙侠",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "67",
+     "type_name": "年代穿越",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "68",
+     "type_name": "脑洞悬疑",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "69",
+     "type_name": "现代都市",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "70",
+     "type_name": "邵氏电影",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "71",
+     "type_name": "Netflix电影",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "72",
+     "type_name": "Netflix自制剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "73",
+     "type_name": "擦边短剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "74",
+     "type_name": "预告解说",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "75",
+     "type_name": "科普学习",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "76",
+     "type_name": "漫剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "77",
+     "type_name": "儿童儿歌",
+     "type_pid": "0"
+    }
+   ],
+   "search": {
+    "庆余年": {
+     "count": 0,
+     "hit": 0,
+     "rate": 0.0,
+     "fp": "da39a3ee5e6b",
+     "sample": []
+    },
+    "繁花": {
+     "count": 0,
+     "hit": 0,
+     "rate": 0.0,
+     "fp": "da39a3ee5e6b",
+     "sample": []
+    }
+   },
+   "browse": {
+    "movie": 20,
+    "tv": 20,
+    "short": 20
+   },
+   "browse_total": 60,
+   "latency_ms": 468,
+   "ok": true,
+   "hit_rate": 0.0,
+   "kw_overlap": null,
+   "searchable": false,
+   "ts": 1795416665
+  },
+  "ys.cxkjg.cn/api/provide/vod?source=2680151544": {
+   "lib": "ys.cxkjg.cn/api/provide/vod?source=2680151544",
+   "urls": [
+    "https://ys.cxkjg.cn/api/provide/vod?source=2680151544"
+   ],
+   "aliases": 1,
+   "names": [
+    "创享·📡 金鹰"
+   ],
+   "name": "创享·📡 金鹰",
+   "api": "https://ys.cxkjg.cn/api/provide/vod?source=2680151544",
+   "classes": 9,
+   "class_list": [
+    {
+     "type_id": "5",
+     "type_name": "韩剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "6",
+     "type_name": "日剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "25",
+     "type_name": "日本动漫",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "35",
+     "type_name": "其他赛事",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "36",
+     "type_name": "大陆综艺",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "37",
+     "type_name": "日韩综艺",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "41",
+     "type_name": "现代都市",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "42",
+     "type_name": "穿越年代",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "45",
+     "type_name": "反转爽剧",
+     "type_pid": "0"
+    }
+   ],
+   "search": {
+    "庆余年": {
+     "count": 8,
+     "hit": 8,
+     "rate": 1.0,
+     "fp": "1ceb5b8275f1",
+     "sample": [
+      "庆余年 第二季",
+      "庆余年之风起沧州",
+      "庆余年之帝王业",
+      "庆余年之少年风流",
+      "庆余年，全世界都以为我是废物太子（庆余年之大凉太子爷）"
+     ]
+    },
+    "繁花": {
+     "count": 20,
+     "hit": 20,
+     "rate": 1.0,
+     "fp": "300929b79c9a",
+     "sample": [
+      "嫡女医心：逆袭繁花",
+      "繁花照春晚",
+      "她说繁花已落幕（AI短剧）",
+      "一路繁花",
+      "繁花烬处，恩断义绝"
+     ]
+    }
+   },
+   "browse": {
+    "movie": 0,
+    "tv": 0,
+    "short": 0
+   },
+   "browse_total": 0,
+   "latency_ms": 580,
+   "ok": true,
+   "hit_rate": 1.0,
+   "kw_overlap": 0.0,
+   "searchable": true,
+   "ts": 1795416665
+  },
+  "ys.cxkjg.cn/api/provide/vod?source=2761253814": {
+   "lib": "ys.cxkjg.cn/api/provide/vod?source=2761253814",
+   "urls": [
+    "https://ys.cxkjg.cn/api/provide/vod?source=2761253814"
+   ],
+   "aliases": 1,
+   "names": [
+    "创享·📡 红牛"
+   ],
+   "name": "创享·📡 红牛",
+   "api": "https://ys.cxkjg.cn/api/provide/vod?source=2761253814",
+   "classes": 44,
+   "class_list": [
+    {
+     "type_id": "1",
+     "type_name": "电影",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "2",
+     "type_name": "连续剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "3",
+     "type_name": "综艺",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "4",
+     "type_name": "动漫",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "5",
+     "type_name": "动作片",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "6",
+     "type_name": "喜剧片",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "7",
+     "type_name": "爱情片",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "8",
+     "type_name": "科幻片",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "9",
+     "type_name": "恐怖片",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "10",
+     "type_name": "剧情片",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "11",
+     "type_name": "战争片",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "12",
+     "type_name": "国产剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "13",
+     "type_name": "港澳剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "14",
+     "type_name": "日剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "15",
+     "type_name": "欧美剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "16",
+     "type_name": "台湾剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "17",
+     "type_name": "泰剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "18",
+     "type_name": "韩剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "19",
+     "type_name": "纪录片",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "20",
+     "type_name": "动漫电影",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "21",
+     "type_name": "伦理片",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "29",
+     "type_name": "体育赛事",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "30",
+     "type_name": "短剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "31",
+     "type_name": "预告片",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "32",
+     "type_name": "足球",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "33",
+     "type_name": "篮球",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "34",
+     "type_name": "台球",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "35",
+     "type_name": "其他赛事",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "36",
+     "type_name": "中国动漫",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "37",
+     "type_name": "日本动漫",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "38",
+     "type_name": "欧美动漫",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "39",
+     "type_name": "大陆综艺",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "40",
+     "type_name": "日韩综艺",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "41",
+     "type_name": "港台综艺",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "42",
+     "type_name": "欧美综艺",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "43",
+     "type_name": "古装仙侠",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "44",
+     "type_name": "现代都市",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "45",
+     "type_name": "穿越年代",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "46",
+     "type_name": "言情总裁",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "47",
+     "type_name": "重生民国",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "48",
+     "type_name": "反转爽剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "49",
+     "type_name": "脑洞悬疑",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "50",
+     "type_name": "擦边短剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "51",
+     "type_name": "AI漫剧",
+     "type_pid": "0"
+    }
+   ],
+   "search": {
+    "庆余年": {
+     "count": 8,
+     "hit": 8,
+     "rate": 1.0,
+     "fp": "1ceb5b8275f1",
+     "sample": [
+      "庆余年 第二季",
+      "庆余年之风起沧州",
+      "庆余年之帝王业",
+      "庆余年之少年风流",
+      "庆余年，全世界都以为我是废物太子（庆余年之大凉太子爷）"
+     ]
+    },
+    "繁花": {
+     "count": 20,
+     "hit": 20,
+     "rate": 1.0,
+     "fp": "300929b79c9a",
+     "sample": [
+      "嫡女医心：逆袭繁花",
+      "繁花照春晚",
+      "她说繁花已落幕（AI短剧）",
+      "一路繁花",
+      "繁花烬处，恩断义绝"
+     ]
+    }
+   },
+   "browse": {
+    "movie": 2,
+    "tv": 20,
+    "short": 20
+   },
+   "browse_total": 42,
+   "latency_ms": 863,
+   "ok": true,
+   "hit_rate": 1.0,
+   "kw_overlap": 0.0,
+   "searchable": true,
+   "ts": 1795416665
+  },
+  "ys.cxkjg.cn/api/provide/vod?source=3848762792": {
+   "lib": "ys.cxkjg.cn/api/provide/vod?source=3848762792",
+   "urls": [
+    "https://ys.cxkjg.cn/api/provide/vod?source=3848762792"
+   ],
+   "aliases": 1,
+   "names": [
+    "创享·📡 闪电"
+   ],
+   "name": "创享·📡 闪电",
+   "api": "https://ys.cxkjg.cn/api/provide/vod?source=3848762792",
+   "classes": 8,
+   "class_list": [
+    {
+     "type_id": "13",
+     "type_name": "国产剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "14",
+     "type_name": "欧美剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "16",
+     "type_name": "日剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "18",
+     "type_name": "台剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "25",
+     "type_name": "大陆综艺",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "26",
+     "type_name": "日韩综艺",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "29",
+     "type_name": "国产动漫",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "59",
+     "type_name": "日本伦理",
+     "type_pid": "0"
+    }
+   ],
+   "search": {
+    "庆余年": {
+     "count": 0,
+     "hit": 0,
+     "rate": 0.0,
+     "fp": "da39a3ee5e6b",
+     "sample": []
+    },
+    "繁花": {
+     "count": 0,
+     "hit": 0,
+     "rate": 0.0,
+     "fp": "da39a3ee5e6b",
+     "sample": []
+    }
+   },
+   "browse": {
+    "movie": 0,
+    "tv": 20,
+    "short": 0
+   },
+   "browse_total": 20,
+   "latency_ms": 770,
+   "ok": true,
+   "hit_rate": 0.0,
+   "kw_overlap": null,
+   "searchable": false,
+   "ts": 1795416665
+  },
+  "ys.cxkjg.cn/api/provide/vod?source=4118858385": {
+   "lib": "ys.cxkjg.cn/api/provide/vod?source=4118858385",
+   "urls": [
+    "https://ys.cxkjg.cn/api/provide/vod?source=4118858385"
+   ],
+   "aliases": 1,
+   "names": [
+    "创享·📡 WS"
+   ],
+   "name": "创享·📡 WS",
+   "api": "https://ys.cxkjg.cn/api/provide/vod?source=4118858385",
+   "classes": 9,
+   "class_list": [
+    {
+     "type_id": "13",
+     "type_name": "国产剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "14",
+     "type_name": "欧美剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "16",
+     "type_name": "日剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "18",
+     "type_name": "台剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "23",
+     "type_name": "海外剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "25",
+     "type_name": "大陆综艺",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "26",
+     "type_name": "日韩综艺",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "29",
+     "type_name": "国产动漫",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "59",
+     "type_name": "日本伦理",
+     "type_pid": "0"
+    }
+   ],
+   "search": {
+    "庆余年": {
+     "count": 0,
+     "hit": 0,
+     "rate": 0.0,
+     "fp": "da39a3ee5e6b",
+     "sample": []
+    },
+    "繁花": {
+     "count": 0,
+     "hit": 0,
+     "rate": 0.0,
+     "fp": "da39a3ee5e6b",
+     "sample": []
+    }
+   },
+   "browse": {
+    "movie": 0,
+    "tv": 20,
+    "short": 0
+   },
+   "browse_total": 20,
+   "latency_ms": 715,
+   "ok": true,
+   "hit_rate": 0.0,
+   "kw_overlap": null,
+   "searchable": false,
+   "ts": 1795416665
+  },
+  "ys.cxkjg.cn/api/provide/vod?source=531717376": {
+   "lib": "ys.cxkjg.cn/api/provide/vod?source=531717376",
+   "urls": [
+    "https://ys.cxkjg.cn/api/provide/vod?source=531717376"
+   ],
+   "aliases": 1,
+   "names": [
+    "创享·📡 樱花"
+   ],
+   "name": "创享·📡 樱花",
+   "api": "https://ys.cxkjg.cn/api/provide/vod?source=531717376",
+   "classes": 33,
+   "class_list": [
+    {
+     "type_id": "1",
+     "type_name": "电影",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "2",
+     "type_name": "连续剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "3",
+     "type_name": "综艺",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "4",
+     "type_name": "动漫",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "5",
+     "type_name": "资讯",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "6",
+     "type_name": "动作片",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "7",
+     "type_name": "喜剧片",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "8",
+     "type_name": "爱情片",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "9",
+     "type_name": "科幻片",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "10",
+     "type_name": "恐怖片",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "11",
+     "type_name": "剧情片",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "12",
+     "type_name": "战争片",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "13",
+     "type_name": "国产剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "14",
+     "type_name": "香港剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "15",
+     "type_name": "台湾剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "16",
+     "type_name": "韩国剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "17",
+     "type_name": "公告",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "18",
+     "type_name": "头条",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "20",
+     "type_name": "犯罪片",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "21",
+     "type_name": "纪录片",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "22",
+     "type_name": "动画电影",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "23",
+     "type_name": "日本剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "24",
+     "type_name": "欧美剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "25",
+     "type_name": "海外剧",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "26",
+     "type_name": "大陆综艺",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "27",
+     "type_name": "日韩综艺",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "28",
+     "type_name": "港台综艺",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "29",
+     "type_name": "欧美综艺",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "30",
+     "type_name": "国产动漫",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "31",
+     "type_name": "日本动漫",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "32",
+     "type_name": "欧美动漫",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "33",
+     "type_name": "海外动漫",
+     "type_pid": "0"
+    },
+    {
+     "type_id": "34",
+     "type_name": "伦理片",
+     "type_pid": "0"
+    }
+   ],
+   "search": {
+    "庆余年": {
+     "count": 0,
+     "hit": 0,
+     "rate": 0.0,
+     "fp": "da39a3ee5e6b",
+     "sample": []
+    },
+    "繁花": {
+     "count": 0,
+     "hit": 0,
+     "rate": 0.0,
+     "fp": "da39a3ee5e6b",
+     "sample": []
+    }
+   },
+   "browse": {
+    "movie": 0,
+    "tv": 20,
+    "short": 0
+   },
+   "browse_total": 20,
+   "latency_ms": 844,
+   "ok": true,
+   "hit_rate": 0.0,
+   "kw_overlap": null,
+   "searchable": false,
+   "ts": 1795416665
   },
   "zhangqun1818.serv00.net/aigua1.php": {
    "lib": "zhangqun1818.serv00.net/aigua1.php",
@@ -7481,7 +6000,7 @@
    "classes": 0,
    "search": {},
    "error": "unreachable",
-   "ts": 1794914691
+   "ts": 1795416665
   },
   "zhangqun1818.serv00.net/cj/cjjh.php": {
    "lib": "zhangqun1818.serv00.net/cj/cjjh.php",
@@ -7498,7 +6017,7 @@
    "classes": 0,
    "search": {},
    "error": "unreachable",
-   "ts": 1794914691
+   "ts": 1795416665
   },
   "zhangqun1818.serv00.net/js.php": {
    "lib": "zhangqun1818.serv00.net/js.php",
@@ -7514,7 +6033,7 @@
    "classes": 0,
    "search": {},
    "error": "unreachable",
-   "ts": 1794914691
+   "ts": 1795416665
   },
   "zhangqun1818.serv00.net/php.php": {
    "lib": "zhangqun1818.serv00.net/php.php",
@@ -7530,7 +6049,7 @@
    "classes": 0,
    "search": {},
    "error": "unreachable",
-   "ts": 1794914691
+   "ts": 1795416665
   },
   "zhangqun1818.serv00.net/py.php": {
    "lib": "zhangqun1818.serv00.net/py.php",
@@ -7546,23 +6065,7 @@
    "classes": 0,
    "search": {},
    "error": "unreachable",
-   "ts": 1794914691
-  },
-  "zhangqun1818.serv00.net/ww.php": {
-   "lib": "zhangqun1818.serv00.net/ww.php",
-   "urls": [
-    "http://zhangqun1818.serv00.net/ww.php"
-   ],
-   "aliases": 1,
-   "names": [
-    "拾光·旺旺短剧"
-   ],
-   "name": "拾光·旺旺短剧",
-   "ok": false,
-   "classes": 0,
-   "search": {},
-   "error": "unreachable",
-   "ts": 1794914691
+   "ts": 1795416665
   },
   "zhangqun1818.serv00.net/yt/yt0021.php": {
    "lib": "zhangqun1818.serv00.net/yt/yt0021.php",
@@ -7578,7 +6081,7 @@
    "classes": 0,
    "search": {},
    "error": "unreachable",
-   "ts": 1794914691
+   "ts": 1795416665
   },
   "zhangqun1818.serv00.net/ytlb.php": {
    "lib": "zhangqun1818.serv00.net/ytlb.php",
@@ -7594,7 +6097,7 @@
    "classes": 0,
    "search": {},
    "error": "unreachable",
-   "ts": 1794914691
+   "ts": 1795416665
   },
   "zhangqun1818.serv00.net/ytlb1.php": {
    "lib": "zhangqun1818.serv00.net/ytlb1.php",
@@ -7610,7 +6113,7 @@
    "classes": 0,
    "search": {},
    "error": "unreachable",
-   "ts": 1794914691
+   "ts": 1795416665
   },
   "zhangqun1818.serv00.net/zh/2242.php": {
    "lib": "zhangqun1818.serv00.net/zh/2242.php",
@@ -7626,7 +6129,7 @@
    "classes": 0,
    "search": {},
    "error": "unreachable",
-   "ts": 1794914691
+   "ts": 1795416665
   },
   "zhangqun1818.serv00.net/zh/2243.php": {
    "lib": "zhangqun1818.serv00.net/zh/2243.php",
@@ -7642,7 +6145,7 @@
    "classes": 0,
    "search": {},
    "error": "unreachable",
-   "ts": 1794914691
+   "ts": 1795416665
   },
   "zhangqun1818.serv00.net/zh/yt/2243.php": {
    "lib": "zhangqun1818.serv00.net/zh/yt/2243.php",
@@ -7658,7 +6161,7 @@
    "classes": 0,
    "search": {},
    "error": "unreachable",
-   "ts": 1794914691
+   "ts": 1795416665
   },
   "zy.xiaomaomi.cc/provide/vod": {
    "lib": "zy.xiaomaomi.cc/provide/vod",
@@ -7674,7 +6177,7 @@
    "classes": 0,
    "search": {},
    "error": "unreachable",
-   "ts": 1794914691
+   "ts": 1795416665
   }
  }
 }
