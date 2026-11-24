@@ -7,30 +7,30 @@
     },
     {
       "a": "lxxiaoma_红牛资源",
-      "b": "lxchuangxiang_source_2680151544",
+      "b": "lxshiguang14_金鹰",
       "jaccard": 1.0
     },
     {
-      "a": "lxshiguang14_金鹰",
-      "b": "maoy_金鹰资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxshiguang14_金鹰",
-      "b": "lxxiaoma_红牛资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxshiguang14_金鹰",
+      "a": "lxxiaoma_红牛资源",
       "b": "lxchuangxiang_创享影视",
       "jaccard": 1.0
     },
     {
-      "a": "lxshiguang14_金鹰",
+      "a": "lxxiaoma_红牛资源",
       "b": "lxchuangxiang_source_2761253814",
       "jaccard": 1.0
     },
     {
+      "a": "lxxiaoma_红牛资源",
+      "b": "lxchuangxiang_source_2680151544",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxshiguang14_金鹰",
+      "b": "maoy_金鹰资源",
+      "jaccard": 1.0
+    },
+    {
       "a": "lxshiguang14_金鹰",
       "b": "lxchuangxiang_source_2680151544",
       "jaccard": 1.0
@@ -42,7 +42,7 @@
     },
     {
       "a": "lxchuangxiang_创享影视",
-      "b": "lxxiaoma_红牛资源",
+      "b": "lxshiguang14_金鹰",
       "jaccard": 1.0
     },
     {
@@ -57,7 +57,7 @@
     },
     {
       "a": "lxchuangxiang_source_2761253814",
-      "b": "lxxiaoma_红牛资源",
+      "b": "lxshiguang14_金鹰",
       "jaccard": 1.0
     },
     {
@@ -76,33 +76,33 @@
       "jaccard": 1.0
     },
     {
-      "a": "maoy_金鹰资源",
-      "b": "nptp_s_77dpwqy",
+      "a": "nptp_s_77dpwqy",
+      "b": "maoy_金鹰资源",
       "jaccard": 0.67
     },
     {
-      "a": "lxxiaoma_红牛资源",
-      "b": "nptp_s_77dpwqy",
+      "a": "nptp_s_77dpwqy",
+      "b": "lxxiaoma_红牛资源",
       "jaccard": 0.67
     },
     {
-      "a": "lxshiguang14_金鹰",
-      "b": "nptp_s_77dpwqy",
+      "a": "nptp_s_77dpwqy",
+      "b": "lxshiguang14_金鹰",
       "jaccard": 0.67
     },
     {
-      "a": "lxchuangxiang_创享影视",
-      "b": "nptp_s_77dpwqy",
+      "a": "nptp_s_77dpwqy",
+      "b": "lxchuangxiang_创享影视",
       "jaccard": 0.67
     },
     {
-      "a": "lxchuangxiang_source_2761253814",
-      "b": "nptp_s_77dpwqy",
+      "a": "nptp_s_77dpwqy",
+      "b": "lxchuangxiang_source_2761253814",
       "jaccard": 0.67
     },
     {
-      "a": "lxchuangxiang_source_2680151544",
-      "b": "nptp_s_77dpwqy",
+      "a": "nptp_s_77dpwqy",
+      "b": "lxchuangxiang_source_2680151544",
       "jaccard": 0.67
     }
   ],
@@ -853,11 +853,11 @@
     "adult_n": 0,
     "api": "https://ikunzyapi.com/api.php/provide/vod/from/ikm3u8/at/json",
     "hit_rate": 1.0,
-    "ms": 630,
+    "ms": 206,
     "n1": 3,
     "n2": 18,
     "name": "拾光·❤ikun资源",
-    "tested_at": 1795417478,
+    "tested_at": 1795547739,
     "titles1": [
       "庆余年第二季",
       "庆余年 第一季 特别版",
@@ -1078,6 +1078,26 @@
     "verdict": "unknown",
     "why": "两次都没拿到 JSON（TimeoutError/http502）"
   },
+  "lxshiguang8_pansou": {
+    "action": "disable",
+    "adult": [],
+    "adult_n": 0,
+    "api": "http://so.yinpai.xyz/wanpan.php?type=quark%7Cuc%7Cbaidu%7Ctianyi%7Cxunlei%7C123",
+    "hit_rate": 1.0,
+    "ms": 11907,
+    "n1": 1,
+    "n2": 1,
+    "name": "拾光·盘搜|集合",
+    "tested_at": 1795547761,
+    "titles1": [
+      "当前没有获取到资源"
+    ],
+    "titles2": [
+      "当前没有获取到资源"
+    ],
+    "verdict": "ignored",
+    "why": "两次结果重合 100%，wd 被忽略（回固定列表）"
+  },
   "lxxhz4k_初恋资源": {
     "action": "disable",
     "adult": [],
@@ -1132,11 +1152,11 @@
     "adult_n": 0,
     "api": "https://www.hongniuzy2.com/api.php/provide/vod/",
     "hit_rate": 1.0,
-    "ms": 356,
+    "ms": 225,
     "n1": 8,
     "n2": 20,
     "name": "小马·红牛资源(切)",
-    "tested_at": 1795417478,
+    "tested_at": 1795547739,
     "titles1": [
       "庆余年 第二季",
       "庆余年之风起沧州",
@@ -1306,11 +1326,11 @@
     "adult_n": 0,
     "api": "http://zhangqun1818.serv00.net/cj/cjjh.php",
     "hit_rate": 1.0,
-    "ms": 12223,
+    "ms": 12515,
     "n1": 0,
     "n2": 0,
     "name": "分享·💝分享合集",
-    "tested_at": 1795417501,
+    "tested_at": 1795547763,
     "titles1": [],
     "titles2": [],
     "verdict": "unknown",
@@ -1322,11 +1342,11 @@
     "adult_n": 0,
     "api": "https://jyzyapi.com/provide/vod/",
     "hit_rate": 1.0,
-    "ms": 319,
+    "ms": 149,
     "n1": 8,
     "n2": 20,
     "name": "分享·💖分享金鹰",
-    "tested_at": 1795417478,
+    "tested_at": 1795547739,
     "titles1": [
       "庆余年 第二季",
       "庆余年之风起沧州",
