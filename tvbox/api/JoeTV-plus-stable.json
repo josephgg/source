@@ -1,7 +1,7 @@
 {
   "spider": "https://raw.githubusercontent.com/gaotianliuyun/gao/master/jar/pg.jar;md5;dffec63fb83a2b31b8606bd4bf6bead9",
   "wallpaper": "https://cdn.jsdelivr.net/gh/josephgg/source@main/tvbox/assets/wallpaper.webp",
-  "notice": "数据源更新 11月23日",
+  "notice": "数据源更新 11月24日",
   "parses": [
     {
       "name": "Web聚合",
@@ -52,6 +52,11 @@
       }
     },
     {
+      "name": "Json轮询",
+      "type": 2,
+      "url": "Sequence"
+    },
+    {
       "name": "m3u8",
       "type": 0,
       "url": "https://jx.m3u8.tv/jiexi/?url="
@@ -72,14 +77,14 @@
       "url": "https://jx.m3u8.pw/?url="
     },
     {
-      "name": "Json轮询",
-      "type": 2,
-      "url": "Sequence"
-    },
-    {
       "name": "xmflv",
       "type": 0,
       "url": "https://jx.xmflv.com/?url="
+    },
+    {
+      "name": "解析聚合",
+      "type": 3,
+      "url": "Demo"
     },
     {
       "name": "-咸鱼-",
@@ -217,11 +222,6 @@
           "YuMi-vip"
         ]
       }
-    },
-    {
-      "name": "解析聚合",
-      "type": 3,
-      "url": "Demo"
     },
     {
       "name": "365",
