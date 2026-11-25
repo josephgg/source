@@ -1,4 +1,4 @@
-# 稳定精选（5 站点，连续两轮多分片实测通过）
+# 稳定精选（7 站点，连续两轮多分片实测通过）
 https://cdn.jsdelivr.net/gh/josephgg/source@main/tvbox/api/lite.json
 https://fastly.jsdelivr.net/gh/josephgg/source@main/tvbox/api/lite.json
 
