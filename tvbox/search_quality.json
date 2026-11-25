@@ -1,18 +1,23 @@
 {
   "_dups": [
     {
-      "a": "lxxiaoma_红牛资源",
-      "b": "maoy_金鹰资源",
+      "a": "maoy_金鹰资源",
+      "b": "lxxiaoma_红牛资源",
       "jaccard": 1.0
     },
     {
-      "a": "lxxiaoma_红牛资源",
+      "a": "maoy_金鹰资源",
       "b": "lxshiguang14_金鹰",
       "jaccard": 1.0
     },
     {
-      "a": "lxxiaoma_红牛资源",
-      "b": "lxchuangxiang_创享影视",
+      "a": "maoy_金鹰资源",
+      "b": "lxchuangxiang_source_2761253814",
+      "jaccard": 1.0
+    },
+    {
+      "a": "maoy_金鹰资源",
+      "b": "lxchuangxiang_source_2680151544",
       "jaccard": 1.0
     },
     {
@@ -21,13 +26,13 @@
       "jaccard": 1.0
     },
     {
-      "a": "lxxiaoma_红牛资源",
-      "b": "lxchuangxiang_source_2680151544",
+      "a": "lxshiguang14_金鹰",
+      "b": "lxxiaoma_红牛资源",
       "jaccard": 1.0
     },
     {
       "a": "lxshiguang14_金鹰",
-      "b": "maoy_金鹰资源",
+      "b": "lxchuangxiang_source_2761253814",
       "jaccard": 1.0
     },
     {
@@ -38,6 +43,11 @@
     {
       "a": "lxchuangxiang_创享影视",
       "b": "maoy_金鹰资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxchuangxiang_创享影视",
+      "b": "lxxiaoma_红牛资源",
       "jaccard": 1.0
     },
     {
@@ -47,38 +57,23 @@
     },
     {
       "a": "lxchuangxiang_创享影视",
-      "b": "lxchuangxiang_source_2680151544",
+      "b": "lxchuangxiang_source_2761253814",
       "jaccard": 1.0
     },
     {
-      "a": "lxchuangxiang_source_2761253814",
-      "b": "maoy_金鹰资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_source_2761253814",
-      "b": "lxshiguang14_金鹰",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_source_2761253814",
-      "b": "lxchuangxiang_创享影视",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_source_2761253814",
+      "a": "lxchuangxiang_创享影视",
       "b": "lxchuangxiang_source_2680151544",
       "jaccard": 1.0
     },
     {
       "a": "lxchuangxiang_source_2680151544",
-      "b": "maoy_金鹰资源",
+      "b": "lxxiaoma_红牛资源",
       "jaccard": 1.0
     },
     {
-      "a": "nptp_s_77dpwqy",
-      "b": "maoy_金鹰资源",
-      "jaccard": 0.67
+      "a": "lxchuangxiang_source_2680151544",
+      "b": "lxchuangxiang_source_2761253814",
+      "jaccard": 1.0
     },
     {
       "a": "nptp_s_77dpwqy",
@@ -92,17 +87,22 @@
     },
     {
       "a": "nptp_s_77dpwqy",
-      "b": "lxchuangxiang_创享影视",
-      "jaccard": 0.67
-    },
-    {
-      "a": "nptp_s_77dpwqy",
       "b": "lxchuangxiang_source_2761253814",
       "jaccard": 0.67
     },
     {
       "a": "nptp_s_77dpwqy",
       "b": "lxchuangxiang_source_2680151544",
+      "jaccard": 0.67
+    },
+    {
+      "a": "maoy_金鹰资源",
+      "b": "nptp_s_77dpwqy",
+      "jaccard": 0.67
+    },
+    {
+      "a": "lxchuangxiang_创享影视",
+      "b": "nptp_s_77dpwqy",
       "jaccard": 0.67
     }
   ],
