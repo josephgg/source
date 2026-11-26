@@ -1,7 +1,7 @@
 {
   "spider": "https://raw.githubusercontent.com/gaotianliuyun/gao/master/jar/pg.jar;md5;dffec63fb83a2b31b8606bd4bf6bead9",
   "wallpaper": "https://cdn.jsdelivr.net/gh/josephgg/source@main/tvbox/assets/wallpaper.webp",
-  "notice": "数据源更新 11月26日",
+  "notice": "数据源更新 11月27日",
   "parses": [
     {
       "name": "Web聚合",
