@@ -35,9 +35,9 @@
     },
     {
       "key": "s05",
-      "name": "创享",
+      "name": "如意",
       "type": 1,
-      "api": "https://ys.cxkjg.cn/api/provide/vod",
+      "api": "https://cj.rycjapi.com/api.php/provide/vod/at/json/",
       "searchable": 1,
       "quickSearch": 1
     },
@@ -51,9 +51,9 @@
     },
     {
       "key": "s07",
-      "name": "如意",
+      "name": "创享",
       "type": 1,
-      "api": "https://cj.rycjapi.com/api.php/provide/vod/at/json/",
+      "api": "https://ys.cxkjg.cn/api/provide/vod",
       "searchable": 1,
       "quickSearch": 1
     },
