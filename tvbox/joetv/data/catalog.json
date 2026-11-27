@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-27T02:43:20+0000",
+  "generated_at": "2026-11-27T17:50:48+0000",
   "source_count": 19,
   "stats": {
     "searchable": 10,
@@ -85,7 +85,7 @@
       "latency_ms": 454,
       "hit_rate": 1.0,
       "play_verdict": "ok",
-      "play_streak": 28,
+      "play_streak": 29,
       "skip_first_line": false,
       "no_search": false,
       "cluster": "c-e5fb5037a172",
@@ -147,7 +147,7 @@
       "latency_ms": 537,
       "hit_rate": 1.0,
       "play_verdict": "ok",
-      "play_streak": 31,
+      "play_streak": 32,
       "skip_first_line": false,
       "no_search": false,
       "cluster": "c-a93d8c8f61b4",
@@ -209,7 +209,7 @@
       "latency_ms": 561,
       "hit_rate": 1.0,
       "play_verdict": "ok",
-      "play_streak": 31,
+      "play_streak": 32,
       "skip_first_line": false,
       "no_search": false,
       "cluster": "c-a93d8c8f61b4",
@@ -278,13 +278,49 @@
       "latency_ms": 563,
       "hit_rate": 1.0,
       "play_verdict": "ok",
-      "play_streak": 19,
+      "play_streak": 20,
       "skip_first_line": false,
       "no_search": false,
       "cluster": "c-e5fb5037a172",
       "id": "s04",
       "label": "360",
       "rank": 4
+    },
+    {
+      "api": "https://ys.cxkjg.cn/api/provide/vod",
+      "name": "创享·🌟 创享影视",
+      "categories": {
+        "movie": [
+          "9"
+        ],
+        "tv": [
+          "1"
+        ],
+        "anime": [
+          "20"
+        ],
+        "variety": [
+          "26"
+        ],
+        "short": [
+          "36"
+        ],
+        "documentary": [
+          "19"
+        ]
+      },
+      "searchable": true,
+      "browse_total": 60,
+      "latency_ms": 611,
+      "hit_rate": 1.0,
+      "play_verdict": "ok",
+      "play_streak": 2,
+      "skip_first_line": false,
+      "no_search": false,
+      "cluster": "c-1ceb5b8275f1",
+      "id": "s05",
+      "label": "创享",
+      "rank": 5
     },
     {
       "api": "https://cj.rycjapi.com/api.php/provide/vod/at/json/",
@@ -333,13 +369,13 @@
       "latency_ms": 668,
       "hit_rate": 1.0,
       "play_verdict": "ok",
-      "play_streak": 4,
+      "play_streak": 5,
       "skip_first_line": false,
       "no_search": false,
       "cluster": "c-17da8037207f",
-      "id": "s05",
+      "id": "s06",
       "label": "如意",
-      "rank": 5
+      "rank": 6
     },
     {
       "api": "https://cf.ddngo.space/77",
@@ -366,48 +402,12 @@
       "latency_ms": 2786,
       "hit_rate": 1.0,
       "play_verdict": "ok",
-      "play_streak": 5,
+      "play_streak": 6,
       "skip_first_line": false,
       "no_search": false,
       "cluster": "c-01168d412392",
-      "id": "s06",
-      "label": "弹幕仓",
-      "rank": 6
-    },
-    {
-      "api": "https://ys.cxkjg.cn/api/provide/vod",
-      "name": "创享·🌟 创享影视",
-      "categories": {
-        "movie": [
-          "9"
-        ],
-        "tv": [
-          "1"
-        ],
-        "anime": [
-          "20"
-        ],
-        "variety": [
-          "26"
-        ],
-        "short": [
-          "36"
-        ],
-        "documentary": [
-          "19"
-        ]
-      },
-      "searchable": true,
-      "browse_total": 60,
-      "latency_ms": 611,
-      "hit_rate": 1.0,
-      "play_verdict": "ok",
-      "play_streak": 1,
-      "skip_first_line": false,
-      "no_search": false,
-      "cluster": "c-1ceb5b8275f1",
       "id": "s07",
-      "label": "创享",
+      "label": "弹幕仓",
       "rank": 7
     },
     {
@@ -811,7 +811,7 @@
       "browse_total": 20,
       "latency_ms": 715,
       "hit_rate": 0.0,
-      "play_verdict": "search_bad",
+      "play_verdict": "search_fail",
       "play_streak": 0,
       "skip_first_line": false,
       "no_search": true,
@@ -839,7 +839,7 @@
       "browse_total": 20,
       "latency_ms": 770,
       "hit_rate": 0.0,
-      "play_verdict": "search_bad",
+      "play_verdict": "search_fail",
       "play_streak": 0,
       "skip_first_line": false,
       "no_search": true,
@@ -883,7 +883,7 @@
       "browse_total": 20,
       "latency_ms": 844,
       "hit_rate": 0.0,
-      "play_verdict": "no_result",
+      "play_verdict": "search_fail",
       "play_streak": 0,
       "skip_first_line": false,
       "no_search": true,
