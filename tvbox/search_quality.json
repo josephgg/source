@@ -6,38 +6,28 @@
       "jaccard": 1.0
     },
     {
-      "a": "maoy_金鹰资源",
-      "b": "lxshiguang14_金鹰",
+      "a": "lxshiguang14_金鹰",
+      "b": "maoy_金鹰资源",
       "jaccard": 1.0
     },
     {
-      "a": "maoy_金鹰资源",
-      "b": "lxchuangxiang_创享影视",
+      "a": "lxshiguang14_金鹰",
+      "b": "lxxiaoma_红牛资源",
       "jaccard": 1.0
     },
     {
-      "a": "maoy_金鹰资源",
+      "a": "lxshiguang14_金鹰",
       "b": "lxchuangxiang_source_2761253814",
       "jaccard": 1.0
     },
     {
-      "a": "maoy_金鹰资源",
+      "a": "lxshiguang14_金鹰",
       "b": "lxchuangxiang_source_2680151544",
       "jaccard": 1.0
     },
     {
-      "a": "lxxiaoma_红牛资源",
-      "b": "lxshiguang14_金鹰",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxxiaoma_红牛资源",
-      "b": "lxchuangxiang_source_2761253814",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxshiguang14_金鹰",
-      "b": "lxchuangxiang_source_2761253814",
+      "a": "lxchuangxiang_创享影视",
+      "b": "maoy_金鹰资源",
       "jaccard": 1.0
     },
     {
@@ -56,52 +46,62 @@
       "jaccard": 1.0
     },
     {
-      "a": "lxchuangxiang_source_2680151544",
-      "b": "lxxiaoma_红牛资源",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_source_2680151544",
-      "b": "lxshiguang14_金鹰",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_source_2680151544",
-      "b": "lxchuangxiang_创享影视",
-      "jaccard": 1.0
-    },
-    {
-      "a": "lxchuangxiang_source_2680151544",
-      "b": "lxchuangxiang_source_2761253814",
-      "jaccard": 1.0
-    },
-    {
-      "a": "maoy_金鹰资源",
-      "b": "nptp_s_77dpwqy",
-      "jaccard": 0.67
-    },
-    {
-      "a": "lxxiaoma_红牛资源",
-      "b": "nptp_s_77dpwqy",
-      "jaccard": 0.67
-    },
-    {
-      "a": "lxshiguang14_金鹰",
-      "b": "nptp_s_77dpwqy",
-      "jaccard": 0.67
-    },
-    {
       "a": "lxchuangxiang_创享影视",
-      "b": "nptp_s_77dpwqy",
-      "jaccard": 0.67
+      "b": "lxchuangxiang_source_2680151544",
+      "jaccard": 1.0
     },
     {
       "a": "lxchuangxiang_source_2761253814",
-      "b": "nptp_s_77dpwqy",
-      "jaccard": 0.67
+      "b": "maoy_金鹰资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxchuangxiang_source_2761253814",
+      "b": "lxxiaoma_红牛资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxchuangxiang_source_2761253814",
+      "b": "lxchuangxiang_source_2680151544",
+      "jaccard": 1.0
     },
     {
       "a": "lxchuangxiang_source_2680151544",
+      "b": "maoy_金鹰资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "lxchuangxiang_source_2680151544",
+      "b": "lxxiaoma_红牛资源",
+      "jaccard": 1.0
+    },
+    {
+      "a": "nptp_s_77dpwqy",
+      "b": "maoy_金鹰资源",
+      "jaccard": 0.67
+    },
+    {
+      "a": "nptp_s_77dpwqy",
+      "b": "lxxiaoma_红牛资源",
+      "jaccard": 0.67
+    },
+    {
+      "a": "nptp_s_77dpwqy",
+      "b": "lxshiguang14_金鹰",
+      "jaccard": 0.67
+    },
+    {
+      "a": "nptp_s_77dpwqy",
+      "b": "lxchuangxiang_source_2761253814",
+      "jaccard": 0.67
+    },
+    {
+      "a": "nptp_s_77dpwqy",
+      "b": "lxchuangxiang_source_2680151544",
+      "jaccard": 0.67
+    },
+    {
+      "a": "lxchuangxiang_创享影视",
       "b": "nptp_s_77dpwqy",
       "jaccard": 0.67
     }
@@ -400,11 +400,11 @@
     "adult_n": 0,
     "api": "https://ys.cxkjg.cn/api/provide/vod",
     "hit_rate": 1.0,
-    "ms": 1477,
+    "ms": 1560,
     "n1": 8,
     "n2": 20,
     "name": "创享·🌟 创享影视",
-    "tested_at": 1795716089,
+    "tested_at": 1795832782,
     "titles1": [
       "庆余年 第二季",
       "庆余年 第一季",
